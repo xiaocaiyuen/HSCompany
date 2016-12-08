@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="UserInfoID"
+      KeyField=""
+      TableName=""
+      TableView="View_StaffLeave"
+      SqlOrder="UserInfo_Sequence desc"
+      SQLField="
+       [UserInfoID]
+      ,[UserInfo_LoginUserName]
+      ,[UserInfo_FullName]
+      ,[UserInfo_RoleID]
+      ,[UserInfo_WorkingState]
+      ,[AuditCount]
+      ,[UserInfo_Sequence]"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      MenuURL="/Sys/StaffLeavePanel.aspx">
+  <Column Key="UserInfo_LoginUserName" Name="用户账号" width="5"></Column>
+  <Column Key="UserInfo_FullName" Name="用户姓名" width="5"></Column>
+  <Column Key="UserInfo_WorkingState" Name="工作状态" width="5"
+       formatter="function(value,row){
+          if(value=='0'){
+            return '工作中';
+          }else if(value=='1')
+          {
+            return '请假中';
+          }
+          else if(value=='2')
+          {
+            return '已锁定';
+          }
+      }"
+          
+      styler="function(value){
+          if (value == '2')
+          {
+              return 'color:red;';
+          }else if (value == '1'){
+             return 'color:Yellow;';
+         }
+         else if (value == '0'){
+             return 'color:green;';
+         }
+      }"></Column>
+  <Column Key="AuditCount" Name="当前待审批量(系统自动分单)" width="5"></Column>
+</Grid>

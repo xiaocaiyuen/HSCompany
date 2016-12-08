@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9ab47f44831641358827d35bdef4cd19" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="ShuModel.Sys_Config" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_DataDict" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Department" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Holiday" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Log" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Message" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Notice" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_PendingMatter" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Post" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_PostChange" Width="1.5" PointX="6.75" PointY="9.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Role" Width="1.5" PointX="9.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_RolePurview" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Setting" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_UserChargeDep" Width="1.5" PointX="2.75" PointY="11.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Sys_Log" Width="1.5" PointX="8.75" PointY="12.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Sys_Menu" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Sys_MenuRelatedRole" Width="1.5" PointX="13.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Sys_Post" Width="1.5" PointX="4.75" PointY="13.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Sys_RolePurview" Width="1.5" PointX="13.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Sys_RolePurviewAndMenu" Width="1.5" PointX="13.75" PointY="13.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Sys_UserInfo" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_SeeCharge" Width="1.5" PointX="16.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ShuModel.View_PendingMatterToRolePurview" Width="1.5" PointX="16.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_ModelFile" Width="1.5" PointX="7.375" PointY="16.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_UploadDataType" Width="1.5" PointX="16.375" PointY="9.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Desktop" Width="1.5" PointX="9.375" PointY="16.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Sys_DeskTtop" Width="1.5" PointX="16.375" PointY="13.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_UserInfo" Width="1.5" PointX="3.375" PointY="17.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Area" Width="1.5" PointX="16.375" PointY="17.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Menu" Width="1.5" PointX="20.625" PointY="1" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Module" Width="1.5" PointX="18.375" PointY="1" />
+        <AssociationConnector Association="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

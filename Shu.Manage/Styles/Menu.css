@@ -1,0 +1,182 @@
+﻿/****20150523整理新图标*/
+.Menu-YWGLXTB{background:url('/Images/Menu/业务管理小图标.png') no-repeat;}
+.icon-nav业务申请管理{background:url('/Images/Menu/业务申请管理.png') no-repeat;}
+.icon-nav客户签约资料{background:url('/Images/Menu/客户签约资料.png') no-repeat;}
+.icon-nav客户信息管理{background:url('/Images/Menu/客户信息变更.png') no-repeat;}
+.icon-nav车辆定位查询{background:url('/Images/Menu/车辆定位查询.png') no-repeat;}
+.icon-nav二手车在线评估{background:url('/Images/Menu/二手车在线评估.png') no-repeat;}
+
+.Menu-HKGLXTB{background:url('/Images/Menu/还款管理小图标.png') no-repeat;}
+.icon-nav还款提醒记录{background:url('/Images/Menu/还款提醒记录.png') no-repeat;}
+.icon-nav客户扣款管理{background:url('/Images/Menu/客户扣款管理.png') no-repeat;}
+.icon-nav提前还款管理{background:url('/Images/Menu/提前还款.png') no-repeat;}
+.icon-nav客户还款计划{background:url('/Images/Menu/客户还款计划.png') no-repeat;}
+
+.Menu-YQCSXTB{background:url('/Images/Menu/逾期催收小图标.png') no-repeat;}
+.icon-nav逾期提醒记录{background:url('/Images/Menu/逾期提醒记录.png') no-repeat;}
+.icon-nav逾期提醒明细{background:url('/Images/Menu/逾期提醒记录.png') no-repeat;}
+.icon-nav电话催收记录{background:url('/Images/Menu/电话催收记录.png') no-repeat;}
+.icon-nav现场催收记录{background:url('/Images/Menu/现场催收记录.png') no-repeat;}
+.icon-nav催收车辆管理{background:url('/Images/Menu/催收车辆管理.png') no-repeat;}
+
+.Menu-BDGLXTB{background:url('/Images/Menu/保单管理小图标.png') no-repeat;}
+.icon-nav保单信息管理{background:url('/Images/Menu/保单信息管理.png') no-repeat;}
+.icon-nav客户续保管理{background:url('/Images/Menu/客户续保信息.png') no-repeat;}
+.icon-nav保单理赔管理{background:url('/Images/Menu/保险理赔记录.png') no-repeat;}
+
+
+.Menu-SPGLXTB{background:url('/Images/Menu/审批管理小图标.png') no-repeat;}
+.icon-nav初审专员审批{background:url('/Images/Menu/初审专员审批.png') no-repeat;}
+.icon-nav信贷专员审批{background:url('/Images/Menu/信贷专员审批.png') no-repeat;}
+.icon-nav信贷主管审批{background:url('/Images/Menu/信贷主管审批.png') no-repeat;}
+.icon-nav贷前资料审批{background:url('/Images/Menu/贷前资料审批.png') no-repeat;}
+.icon-nav财务放款确认{background:url('/Images/Menu/财务放款确认.png') no-repeat;}
+.icon-nav提前还款审批{background:url('/Images/Menu/提前还款审批.png') no-repeat;}
+
+.Menu-RZYJGLXTB{background:url('/Images/Menu/融资原件管理小图标.png') no-repeat;}
+.icon-nav贷后资料查询{background:url('/Images/Menu/贷后资料管理.png') no-repeat;}
+.icon-nav客户资料管理{background:url('/Images/Menu/资料快递管理.png') no-repeat;}
+
+.Menu-DYGLXTB{background:url('/Images/Menu/52.1.png') no-repeat;}
+.icon-nav抵押管理{background:url('/Images/Menu/抵押管理.png') no-repeat;}
+.icon-nav解押管理{background:url('/Images/Menu/解除抵押.png') no-repeat;}
+
+.Menu-HTGLXTB{background:url('/Images/Menu/合同管理小图标.png') no-repeat;}
+.icon-nav合同模板{background:url('/Images/Menu/合同模板.png') no-repeat;}
+.icon-nav合同导出{background:url('/Images/Menu/合同导出.png') no-repeat;}
+.icon-nav合同模板管理{background:url('/Images/Menu/现场催收记录.png') no-repeat;}
+
+.Menu-LCSZXTB{background:url('/Images/Menu/流程设置小图标.png') no-repeat;}
+.icon-nav流程定义管理{background:url('/Images/Menu/流程定义管理.png') no-repeat;}
+.icon-nav流程定义配置{background:url('/Images/Menu/流程定义管理.png') no-repeat;}
+.icon-nav节点路由配置{background:url('/Images/Menu/节点路由配置.png') no-repeat;}
+.icon-nav节点流转条件{background:url('/Images/Menu/节点流转条件.png') no-repeat;}
+
+.Menu-CPGLXTB{background:url('/Images/Menu/产品管理小图标.png') no-repeat;}
+.icon-nav产品定义管理{background:url('/Images/Menu/产品定义管理.png') no-repeat;}
+.icon-nav产品试算器{background:url('/Images/Menu/产品计算器.png') no-repeat;}
+.icon-nav评分模板管理{background:url('/Images/Menu/评分模板管理.png') no-repeat;}
+
+.Menu-TJCXXTB{background:url('/Images/Menu/统计查询小图标.png') no-repeat;}
+.Menu-CXGLXTB{background:url('/Images/Menu/车型管理小图标.png') no-repeat;}
+.icon-nav车辆品牌管理{background:url('/Images/Menu/车辆品牌管理.png') no-repeat;}
+.icon-nav品牌系列管理{background:url('/Images/Menu/品牌系列管理.png') no-repeat;}
+.icon-nav汽车型号管理{background:url('/Images/Menu/汽车型号管理.png') no-repeat;}
+.icon-nav车辆VIN码查询{background:url('/Images/Menu/车辆VIN码查询.png') no-repeat;}
+.icon-nav车辆快速定价{background:url('/Images/Menu/车辆快速定价.png') no-repeat;}
+
+.Menu-XTGLXTB{background:url('/Images/Menu/系统管理小图标.png') no-repeat;}
+.icon-nav公司信息管理{background:url('/Images/Menu/公司信息管理.png') no-repeat;}
+.icon-nav岗位信息维护{background:url('/Images/Menu/岗位信息维护.png') no-repeat;}
+.icon-nav功能模块管理{background:url('/Images/Menu/功能模块管理.png') no-repeat;}
+.icon-nav角色信息管理{background:url('/Images/Menu/角色信息管理.png') no-repeat;}
+.icon-nav角色信息管理{background:url('/Images/Menu/角色信息管理.png') no-repeat;}
+.icon-nav数据字典管理{background:url('/Images/Menu/数据字典管理.png') no-repeat;}
+.icon-nav通知公告管理{background:url('/Images/Menu/通知公告管理.png') no-repeat;}
+.icon-nav系统参数管理{background:url('/Images/Menu/系统参数管理.png') no-repeat;}
+.icon-nav系统日志管理{background:url('/Images/Menu/系统日志管理.png') no-repeat;}
+.icon-nav银行信息管理{background:url('/Images/Menu/银行信息管理.png') no-repeat;}
+.icon-nav用户信息管理{background:url('/Images/Menu/用户信息管理.png') no-repeat;}
+.icon-nav组织结构管理{background:url('/Images/Menu/组织结构管理.png') no-repeat;}
+.icon-nav分公司管理{background:url('/Images/Menu/经销商管理.png') no-repeat;}
+.icon-nav经销商管理{background:url('/Images/Menu/经销商管理.png') no-repeat;}
+.icon-nav节假日管理{background:url('/Images/Menu/节假日管理.png') no-repeat;}
+.icon-nav车辆厂商管理{background:url('/Images/Menu/车辆厂商管理.png') no-repeat;}
+.icon-nav资料类别维护{background:url('/Images/Menu/个人资料维护.png') no-repeat;}
+.icon-nav限制IP设置{background:url('/Images/Menu/限制IP设置.png') no-repeat;}
+.icon-nav区域管理{background:url('/Images/Menu/区域管理.png') no-repeat;}
+.icon-nav城市管理{background:url('/Images/Menu/城市管理.png') no-repeat;}
+
+.Menu-Personal{background:url('/Images/Menu/个人信息.png') no-repeat;}
+.icon-nav个人资料维护{background:url('/Images/Menu/个人资料维护.png') no-repeat;}
+.icon-nav系统提醒信息{background:url('/Images/Menu/系统提醒信息.png') no-repeat;}
+
+.icon-nav保险公司管理{background:url('/Images/Menu/保险公司管理.png') no-repeat;}
+.icon-nav业务统计报表{background:url('/Images/Menu/业务统计.png') no-repeat;}
+.icon-nav逾期统计报表{background:url('/Images/Menu/逾期统计.png') no-repeat;}
+.icon-nav层级管理{background:url('/Images/Menu/层级管理.png') no-repeat;}
+.icon-nav业务明细报表{background:url('/Images/Menu/业务申请管理.png') no-repeat;}
+.icon-nav授信台账报表{background:url('/Images/Menu/授信台账报表.png') no-repeat;}
+
+
+.icon-nav销售专员管理{background:url('/Images/Menu/销售顾问管理.png') no-repeat;}
+.icon-nav客户信息管理{background:url('/Images/Menu/客户信息管理.png') no-repeat;}
+.icon-nav快递资料审批{background:url('/Images/Menu/资料快递审批.png') no-repeat;}
+.icon-nav客户信息审批{background:url('/Images/Menu/客户信息审批.png') no-repeat;}
+.icon-nav客户续保审批{background:url('/Images/Menu/客户续保信息.png') no-repeat;}
+.icon-nav保单理赔审批{background:url('/Images/Menu/保险理赔记录.png') no-repeat;}
+
+.icon-nav审批区域管理{background:url('/Images/Menu/审批区域管理.png') no-repeat;}
+.icon-nav员工账号设置{background:url('/Images/Menu/员工请假设置.png') no-repeat;}
+.icon-nav任务领单管理{background:url('/Images/Menu/任务分配.png') no-repeat;}
+
+.Menu-JDEAS{background:url('/Images/Menu/金蝶EAS.png') no-repeat;}
+.icon-nav收款单管理{background:url('/Images/Menu/收款单管理.png') no-repeat;}
+.icon-nav付款单管理{background:url('/Images/Menu/付款单管理.png') no-repeat;}
+.icon-nav基准利率管理{background:url('/Images/Menu/基准利率管理.png') no-repeat;}
+
+.icon-nav我的待办任务{background:url('/Images/Menu/任务分配.png') no-repeat;}
+.icon-nav我的已办任务{background:url('/Images/Menu/任务分配.png') no-repeat;}
+.icon-nav待扣清单管理{background:url('/Images/Menu/待扣清单管理.png') no-repeat;}
+.icon-nav虚拟待扣清单{background:url('/Images/Menu/待扣清单管理.png') no-repeat;}
+
+.icon-nav城市管理{background:url('/Images/Menu/城市管理.png') no-repeat;}
+.icon-nav区域管理{background:url('/Images/Menu/区域管理.png') no-repeat;}
+.icon-nav日历备忘录{background:url('/Images/Menu/日历备忘录.png') no-repeat;}
+.icon-nav车型数据导入{background:url('/Images/Menu/车型导入.png') no-repeat;}
+.icon-nav系统必备工具{background:url('/Images/Menu/系统必备工具.png') no-repeat;}
+
+.icon-nav待邮寄资料提醒{background:url('/Images/Menu/待邮寄资料提醒.png') no-repeat;}
+.icon-nav档案柜编码{background:url('/Images/Menu/档案柜编码.png') no-repeat;}
+.icon-nav融资原件归档{background:url('/Images/Menu/融资原件归档.png') no-repeat;}
+.icon-nav归档原件查询{background:url('/Images/Menu/归档原件查询.png') no-repeat;}
+.icon-nav原件借还登记{background:url('/Images/Menu/档案借还登记.png') no-repeat;}
+.icon-nav档案已借未还提醒{background:url('/Images/Menu/档案已借未还提醒.png') no-repeat;}
+
+
+.icon-nav客户业务申请{background:url('/Images/Menu/任务分配.png') no-repeat;}
+.icon-nav客户资料变更{background:url('/Images/Menu/任务分配.png') no-repeat;}
+.icon-nav客户资料快递{background:url('/Images/Menu/任务分配.png') no-repeat;}
+.icon-nav保单续保资料{background:url('/Images/Menu/任务分配.png') no-repeat;}
+.icon-nav保单理赔资料{background:url('/Images/Menu/任务分配.png') no-repeat;}
+.icon-nav提前还款信息{background:url('/Images/Menu/任务分配.png') no-repeat;}
+.icon-nav客户业务取消{background:url('/Images/Menu/任务分配.png') no-repeat;}
+.icon-nav理赔资料快递{background:url('/Images/Menu/任务分配.png') no-repeat;}
+.icon-nav逾期减免申请{background:url('/Images/Menu/任务分配.png') no-repeat;}
+
+.icon-nav审批时效报表{background:url('/Images/Menu/审批时效统计.png') no-repeat;}
+.icon-nav业务取消管理{background:url('/Images/Menu/业务取消管理.png') no-repeat;}
+
+
+.icon-nav放款台账导出{background:url('/Images/Menu/放款台账导出.png') no-repeat;}
+.icon-nav待解押提醒{background:url('/Images/Menu/待解押提醒.png') no-repeat;}
+.icon-nav逾期减免申请{background:url('/Images/Menu/逾期减免申请.png') no-repeat;}
+.icon-navGPS派单申请{background:url('/Images/Menu/GPS派单申请.png') no-repeat;}
+
+.icon-nav强险续保提醒{background:url('/Images/Menu/强险续保提醒.png') no-repeat;}
+.icon-nav商险续保提醒{background:url('/Images/Menu/商险续保提醒.png') no-repeat;}
+.icon-nav电话回访记录{background:url('/Images/Menu/电话回访记录.png') no-repeat;}
+.icon-nav业务资金明细{background:url('/Images/Menu/业务资金明细.png') no-repeat;}
+.icon-nav业务管理台账{background:url('/Images/Menu/授信台账报表.png') no-repeat;}
+
+
+.icon-nav客户管理{background:url('/Images/Menu/客户管理.png') no-repeat;}
+
+
+.Menu-Finance{background:url('/Images/Menu/财务管理.png') no-repeat;}
+.icon-nav应收管理{background:url('/Images/Menu/应收管理.png') no-repeat;}
+.icon-nav来款管理{background:url('/Images/Menu/来款管理.png') no-repeat;}
+.icon-nav分解管理{background:url('/Images/Menu/分解管理.png') no-repeat;}
+
+.Menu-ZiChan{background:url('/Images/Menu/资产保理.png') no-repeat;}
+.icon-nav保理客户标记{background:url('/Images/Menu/保理客户标记.png') no-repeat;}
+.icon-nav保理结算账户维护{background:url('/Images/Menu/保理结算账户维护.png') no-repeat;}
+.icon-nav保有客户查询{background:url('/Images/Menu/保有客户查询.png') no-repeat;}
+.icon-nav保有融资资料下载{background:url('/Images/Menu/保有融资资料下载.png') no-repeat;}
+.icon-nav保理机构维护{background:url('/Images/Menu/保理机构维护.png') no-repeat;}
+.icon-nav机构客户设置{background:url('/Images/Menu/机构客户设置.png') no-repeat;}
+.icon-nav资产查看{background:url('/Images/Menu/资产查看.png') no-repeat;}
+.icon-nav还款查看{background:url('/Images/Menu/还款查看.png') no-repeat;}
+.icon-nav报表查看{background:url('/Images/Menu/报表查看.png') no-repeat;}
+.icon-nav冲红管理{background:url('/Images/Menu/冲红管理.png') no-repeat;}
+.icon-nav业务申请删除{background:url('/Images/Menu/员工请假设置.png') no-repeat;}

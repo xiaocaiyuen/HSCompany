@@ -1,0 +1,84 @@
+﻿/* 全局样式 */
+body { margin: 0px; padding:5px; background-color:#ffffff; color: #000; text-decoration: none;  font: normal 12px/22px Verdana, Geneva, sans-serif; }
+div,dl,dt,dd,ol,ul,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p { padding:0; margin:0; }
+h1,h2,h3,h4,h5,h6 { font-size: 12px; font-style: normal; font-weight: normal; font-variant: normal; }
+ol,ul,li { list-style:none;}
+div { background: url(none); margin: 0px 0px 0px 0px; 
+padding: 0px; border-style: none; }
+img { border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    vertical-align:top;
+}
+*{font-size:12px; font-family:Tahoma,Verdana,微软雅黑,新宋体;}
+input {font-size:12px; font-family:Tahoma,Verdana,微软雅黑,新宋体;}
+a { font-size: 12px; color: #000; text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { color: #F00; text-decoration:underline; cursor:pointer;}
+a:active { color:#999}
+
+/* 主Table样式 */
+.maintable { width:100%;  padding:0px; margin:0px; border:0px;}
+
+.input3{
+}
+/* 查询条件区域 */
+
+.list_Index{text-align:left; width:100%;}
+
+.list_Index th{ text-align:right; width:120px;}
+
+
+.list_Index td{padding-left:5px;height:35px; vertical-align:middle;}
+
+.list_Index td image{vertical-align:middle;}
+
+.listfieldset{ margin-bottom:2px;height:14px;border-width: 1px; border-color:#FFF;}
+.listfieldset img{ cursor: pointer;vertical-align: middle; }
+/* 索引样式 */
+.r2 { height:34px; line-height:34px; padding-left:15px; border-bottom:1px solid #AADAEE;}
+.r2 h1 { width:1000px;}
+
+
+/*统计部分*/
+.tj { height:100px; line-height:100px; padding-left:15px; font-size: 25px; text-align: center; border-left:1px solid #EEAAAA; border-bottom:1px solid #EEAAAA; border-right:1px solid #EEAAAA; background:url(/Images/main/main13.gif) repeat-x 0 0;}
+
+/* 组织领导管理 */
+
+/* 组织机构管理 */
+.Indexzzjg{text-align:left; width:100%;}
+.Indexzzjg th{ text-align:right; width:70px;}
+.Indexzzjg td{padding-left:5px;height:35px; vertical-align:middle;}
+.Indexzzjg td image{vertical-align:middle;}
+/* 领导分工管理 */
+.Indexldfg{text-align:left; width:100%;}
+.Indexldfg th{ text-align:right; width:80px;}
+.Indexldfg td{padding-left:5px;height:35px; vertical-align:middle;}
+.Indexldfg td image{vertical-align:middle;}
+/* 实施方案管理 */
+.Indexssfa th{ text-align:right; width:160px;}
+.Indexssfa td{padding-left:5px;height:35px; vertical-align:middle;}
+.Indexssfa td image{vertical-align:middle;}
+/*诚信不良记录*/
+.Indexzzjg{text-align:left; width:100%;}
+.Indexzzjg th{ text-align:right; width:70px;}
+.Indexzzjg td{padding-left:5px;height:35px; vertical-align:middle;}
+.Indexzzjg td image{vertical-align:middle;}
+/* 制度库查看 */
+
+.list_Indexz{text-align:left; width:100%;}
+
+.list_Indexz th{ text-align:right; width:70px;}
+
+
+.list_Indexz td{padding-left:5px;height:35px; vertical-align:middle;}
+
+.list_Indexz td image{vertical-align:middle;}
+
+.listfieldset{ margin-bottom:2px;}        
+.input4{ line-height:21px;
+     border:1px solid #88BBE2;
+     background-image:url('/Images/Main/main_liebiao_input_bg.gif') ;
+     background-repeat:repeat-x;
+     height:20px;
+}

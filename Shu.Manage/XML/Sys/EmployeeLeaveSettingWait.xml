@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="SysAutoTaskPoolID"
+      KeyField="SysAutoTaskPool_BussID"
+      TableName="ApprovalPool_SysAutoTaskPool"
+      TableView=""
+      SqlOrder="SysAutoTaskPool_CreateTime desc"
+      SQLField="
+       [SysAutoTaskPoolID]
+      ,[SysAutoTaskPool_BussID]
+      ,[SysAutoTaskPool_ModuleName]
+      ,[SysAutoTaskPool_TheDealerID]
+      ,[SysAutoTaskPool_InputResWFInstanceID]
+      ,[SysAutoTaskPool_InputResWFConfigID]
+      ,[SysAutoTaskPool_InputResWFSetp]
+      ,[SysAutoTaskPool_InputResWFRoleID]
+      ,[SysAutoTaskPool_CreateTime]"
+      IsShowPagin="true"
+      IsShowCheckBox="true"
+      MenuURL="/Sys/EmployeeLeaveSetting.aspx">
+  <Column Key="SysAutoTaskPool_ModuleName" Name="任务名称" width="5"></Column>
+  <Column Key="SysAutoTaskPool_CreateTime" Name="任务分配时间" width="5"></Column>
+</Grid>

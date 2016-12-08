@@ -1,0 +1,10 @@
+﻿body 
+{
+    
+}
+
+.dep_root{background:url('/Images/Tree/swj.gif') no-repeat;}
+.dep_node{background:url('/Images/Tree/dep.gif') no-repeat;}
+.user_node{background:url('/Images/Tree/yjcz.png') no-repeat;}
+.licon-tjcx{background:url('/Images/Tree/chart-pie.png') no-repeat;}
+.licon-xtgl{background:url('/Images/main/world.png') no-repeat;}

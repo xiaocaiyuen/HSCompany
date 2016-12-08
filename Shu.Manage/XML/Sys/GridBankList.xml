@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="BankID"
+      KeyField=""
+      TableName="Business_Bank"
+      TableView="View_Business_Bank"
+      SqlOrder="Bank_No asc"
+      
+SQLField="BankID,Bank_Name,Bank_No,Bank_Contact,Bank_Telephone,Bank_Type,Bank_TypeName,Bank_Address,Bank_Account,Bank_AccountName,Bank_AccountType,Bank_AccountTypeName,Bank_OpenBName,Bank_UpdateTime,Bank_UpdateUserId,UpdateUserName,Bank_Deleted"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      AddURL="/Sys/BankAdd.aspx"
+      ModifyURL="/Sys/BankAdd.aspx"
+      AuditURL=""
+      MenuURL="BankList.aspx">
+  <Column Key="Bank_Name" Name="银行名称" width="5"></Column>
+  <Column Key="Bank_No" Name="银行编号" width="5"></Column>
+  <Column Key="Bank_TypeName" Name="银行类型" width="5"></Column>
+  <Column Key="Bank_Contact" Name="联系人" width="5" ></Column>
+  <Column Key="Bank_Telephone" Name="联系电话" width="5"></Column>
+  <Column Key="Bank_Account" Name="银行账号" width="8"></Column>
+  <Column Key="Bank_AccountName" Name="账户名称" width="5"></Column>
+  <Column Key="Bank_AccountTypeName" Name="账户类型" width="5"></Column>
+  <Column Key="Bank_OpenBName" Name="开户银行" width="5"></Column>
+</Grid>

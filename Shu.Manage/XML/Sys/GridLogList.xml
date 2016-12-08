@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="SysLogID"
+      KeyField=""
+      TableName="Sys_Log"
+      TableView="View_Sys_Log"
+      SqlOrder="SysLog_OperateDate desc"
+      SQLField="SysLogID,UserInfo_FullName,Department_Name,SysLog_OperateDate,SysLog_Ip,SysLog_OperateType,SysLog_OperateFunName"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      AddURL=""
+      ModifyURL=""
+      DetailURL=""
+      AuditURL=""
+      MenuURL="SysLogMgList.aspx"
+      RowClickNum="0">
+  <Column Key="UserInfo_FullName" Name="人员名称" width="5"></Column>
+  <Column Key="Department_Name" Name="部门" width="5"></Column>
+  <Column Key="SysLog_OperateDate" Name="操作时间" width="5"></Column>
+  <Column Key="SysLog_Ip" Name="IP地址" width="5"></Column>
+  <Column Key="SysLog_OperateType" Name="操作类型" width="5"></Column>
+  <Column Key="SysLog_OperateFunName" Name="模块名称" width="5"></Column>
+</Grid>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="CompanyInfoID"
+      KeyField=""
+      TableName="Business_CompanyInfo"
+      TableView="View_Business_CompanyInfo"
+      SqlOrder="CompanyInfo_CNName asc"
+      SQLField="CompanyInfoID ,
+                CompanyInfo_CNName ,
+                CompanyInfo_ENName ,
+                CompanyInfo_Abbr ,
+                CompanyInfo_ReplaceCollectionCode ,
+                CompanyInfo_Number ,
+                CompanyInfo_Type ,
+                CompanyInfo_TypeName ,
+                CompanyInfo_LicenseNo ,
+                CompanyInfo_Deadline ,
+                CompanyInfo_TaxRegistrationNo ,
+                CompanyInfo_FoundedDate ,
+                CompanyInfo_Capital ,
+                CompanyInfo_Scope ,
+                CompanyInfo_Phone ,
+                CompanyInfo_Address ,
+                CompanyInfo_Fax ,
+                CompanyInfo_PostalCode ,
+                CompanyInfo_OrgaCode ,
+                CompanyInfo_RegisteredAddress ,
+                CompanyInfo_EnterpriseMailbox ,
+                CompanyInfo_Remarks ,
+                CompanyInfo_LegalRepresentative ,
+                CompanyInfo_LegalCard ,
+                CompanyInfo_LegalOfficePhone ,
+                CompanyInfo_LegalPostalCode ,
+                CompanyInfo_LegalPermanentAddress ,
+                CompanyInfo_LegalMobilePhone ,
+                CompanyInfo_LegalMail ,
+                CompanyInfo_UpdateTime ,
+                CompanyInfo_UpdateUserId ,
+                CompanyInfo_UpdateUserName ,
+                CompanyInfo_Deleted"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      ModifyURL="/Sys/CompanyEdit.aspx"
+      AuditURL=""
+      MenuURL="CompanyList.aspx">
+  <Column Key="CompanyInfo_CNName" Name="公司名称" width="6"></Column>
+  <Column Key="CompanyInfo_TypeName" Name="公司类型" width="5"></Column>
+  <Column Key="CompanyInfo_Capital" Name="注册资本（万元）" width="5" ></Column>
+  <Column Key="CompanyInfo_LegalRepresentative" Name="法人代表" width="5" ></Column>
+  <Column Key="CompanyInfo_Phone" Name="公司电话" width="5"></Column>
+  <Column Key="CompanyInfo_FoundedDate" Name="成立日期" width="5"></Column>
+  <Column Key="CompanyInfo_Scope" Name="经营范围" width="8"></Column>
+</Grid>

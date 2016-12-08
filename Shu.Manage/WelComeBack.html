@@ -1,0 +1,392 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="/Styles/default.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <link href="../Styles/WelCome.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/UI/themes/bootstrap/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="/Scripts/UI/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/UI/jquery.easyui.min.js" type="text/javascript" charset="gb2312"></script>
+    <script src="../Scripts/Grid/Grid.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(function () {
+            var $div_li = $("ul.hTabsNav li");
+            $div_li.click(function () {
+                $(this).addClass("selected").siblings().removeClass("selected");
+                var index = $div_li.index(this);
+                $("div.tabsContent > div").eq(index).show().siblings().hide();
+            }).hover(function () {
+                $(this).addClass("hover");
+            }, function () {
+                $(this).removeClass("hover");
+            })
+            DataSource();
+            ListDataSource();
+            getUserLoginInfo();
+        })
+
+        //快捷菜单显示所有相关数据源
+        function DataSource() {
+            $.ajax({
+                type: "post",
+                url: "/Handler/DesktopHandler.ashx?method=list",
+                data: {},
+                dataType: "text",
+                success: function (rows, data) {
+                    $("#listul").html(rows);
+                }
+            });
+        }
+
+        function ListDataSource() {
+            $.ajax({
+                type: "post",
+                url: "/Handler/DesktopHandler.ashx?method=infolist",
+                data: {},
+                dataType: "text",
+                success: function (rows, data) {
+                    $("#list_show").html(rows);
+                }
+            });
+        }
+
+        //添加
+        function btn_add() {
+            $("#DesktopID").val("");
+            showMenu();
+        }
+
+        //编辑显示
+        function display() {
+            $(".del").show();
+            $(".edite").show();
+            $("#btn_add").hide();
+            $("#btn_edite").hide();
+            $("#btn_return").show();
+            $(".editeMenu").show();
+        }
+
+        //返回
+        function returnval() {
+            $(".del").hide();
+            $(".edite").hide();
+            $("#btn_add").show();
+            $("#btn_edite").show();
+            $("#btn_return").hide();
+            $(".editeMenu").hide();
+        }
+
+        //获取用户登录信息
+        function getUserLoginInfo() {
+            var noCache = Date();
+            $.getJSON("/Handler/WelComeHandler.ashx?Option=GetUserLoginInfo", { "noCache": noCache }, function (json) {
+                if (json.data != "") {
+                    $("#loginInfo").html(json.data);
+                }
+            });
+        }
+
+
+        //快捷菜单删除
+        function del(DesktopID) {
+            var title = escape($('#title').val()); //标题
+            var url = $('#icon').attr("src")//图标url地址
+            var MenuLinksID = $('#MenuLinksID').val(); //菜单链接地址ID
+            var Sort = $('#menusort').val();
+            $.getJSON("/Handler/WelComeHandler.ashx?Option=FastOperation&State=dele&DesktopID=" + DesktopID + "", function (json) {
+                $.messager.alert("系统提示", json.data, "error");
+                $('#' + DesktopID).remove();
+            });
+        }
+
+        //列表项编辑
+        function list_edite(DesktopID) {
+            $('#list').window('open');
+            datasourcelist();
+
+            //绑定数据源
+            var noCache = Date();
+            $.getJSON("/Handler/WelComeHandler.ashx?Option=Tabs&State=info&DesktopID=" + DesktopID + "", { "noCache": noCache }, function (json) {
+                if (json.data == "出现错误") {
+                    $.messager.alert("系统提示", json.data, "error");
+                }
+                else {
+                    $('#datasource').combobox('setValue', json.Desktop_TabType);
+                    $('#titlelist').val(json.Desktop_Name);
+                    $('#Tabsval').val(json.Desktop_TabType);
+                    $('#DesktopID').val(json.DesktopID);
+                }
+            });
+        }
+
+        function showMenu() {
+            $('#w').window('open');
+            //菜单项目
+            $('#menuName').combotree({
+                url: '/Handler/AsynDeptTree.ashx?Option=Menu',
+                valueField: 'id',
+                textField: 'text',
+                onLoadSuccess: function (node, data) {
+                    $('#menuName').combotree('tree').tree("collapseAll");
+                },
+                onBeforeSelect: function (node) {
+                    var t = $(this).tree;
+                    var isLeaf = t('isLeaf', node.target);
+                    if (!isLeaf) {
+                        //选择的不是子节点
+                        $('#menuName').combotree('clear');
+                        $.messager.alert("系统提示", "选择的不是子节点", "info");
+                    }
+                    else {
+                        $('#title').val(node.text);
+                        $('#MenuLinksID').val(node.id);
+                    }
+                }
+            });
+        }
+
+        //快捷菜单编辑
+        function editeMenu(DesktopID) {
+            showMenu();
+            var noCache = Date();
+            $.getJSON("/Handler/WelComeHandler.ashx?Option=FastOperation&State=info&DesktopID=" + DesktopID + "", { "noCache": noCache }, function (json) {
+                if (json.data == "error") {
+                    $.messager.alert("系统提示", "已经被删除！", "error");
+                }
+                else {
+                    $('#menuName').combotree('setValue', json.Desktop_MenuID);
+                    $('#title').val(json.Desktop_Name);
+                    $('#icon').attr("src", "" + json.Desktop_Icon + "");
+                    $('#menusort').val(json.Desktop_Sort);
+                    $('#DesktopID').val(json.DesktopID);
+                }
+            });
+        }
+
+        //编辑图标
+        function phtoEdite() {
+            var strsrc = $("#ucviews").attr("src");
+            var url = '/Manage/PhotoGallery.aspx'
+            if (strsrc == "" || strsrc == undefined) {
+                $("#ucviews").attr("src", url);
+            }
+            $('#uctextselects').dialog('open');
+            $('#ucselects').show();
+        }
+
+        //替换图标
+        function GetImgValue(url) {
+            $('#icon').attr("src", "" + url + "");
+            $('#uctextselects').dialog('close');
+            $('#ucselects').hide();
+        }
+
+        //关闭快捷操作维护窗体
+        function clearForm() {
+            $('#w').window('close');
+        }
+
+        //修改快捷操作
+        function AddSave() {
+            //编辑操作
+            var title = escape($('#title').val()); //标题
+            var url = $('#icon').attr("src")//图标url地址
+            var MenuLinksID = $('#MenuLinksID').val(); //菜单链接地址ID
+            var Sort = $('#menusort').val();
+            var DesktopID = $('#DesktopID').val();
+            var josnUrl = "";
+            if (DesktopID == "") {
+                var noCache = Date();
+                $.getJSON("/Handler/WelComeHandler.ashx?Option=FastOperation&State=add&title=" + title + "&PictureURL=" + url + "&MenuLinksID=" + MenuLinksID + "&Sort=" + Sort + "", { "noCache": noCache }, function (json) {
+                    if (json.data == "error") {
+                        $.messager.alert("系统提示", json.data, "error");
+                    }
+                    else {
+                        $.messager.alert("系统提示", json.data, "info");
+                    }
+                    DataSource();
+                });
+            }
+            else {
+                var noCache = Date();
+                $.getJSON("/Handler/WelComeHandler.ashx?Option=FastOperation&State=updata&title=" + title + "&PictureURL=" + url + "&MenuLinksID=" + MenuLinksID + "&Sort=" + Sort + "&DesktopID=" + DesktopID + "", { "noCache": noCache }, function (json) {
+                    $.messager.alert("系统提示", json.data, "error");
+                    $.ajax({
+                        type: "post",
+                        url: "/Handler/DesktopHandler.ashx?method=info&DesktopID=" + DesktopID,
+                        data: {},
+                        dataType: "text",
+                        success: function (rows, data) {
+                            $("#" + DesktopID).html(rows);
+                            display();
+                        }
+                    });
+                });
+            }
+            $('#w').window('close');
+        }
+
+        //列表数据源
+        function datasourcelist() {
+            $('#datasource').combobox({
+                url: '/Handler/DesktopHandler.ashx?method=type',
+                valueField: 'id',
+                textField: 'text',
+                onSelect: function (node) {
+                    $('#Tabsval').val(node.id);
+                    $('#titlelist').val(node.text);
+                }
+            });
+        }
+
+        //关闭列表
+        function Clear() {
+            $('#list').window('close');
+        }
+
+        //编辑列表
+        function AddSaveList() {
+            var title = escape($('#titlelist').val()); //标题
+            var TabType = $('#Tabsval').val();
+            var DesktopID = $('#DesktopID').val();
+            var noCache = Date();
+            $.getJSON("/Handler/WelComeHandler.ashx?Option=Tabs&State=updata&DesktopID=" + DesktopID + "&title=" + title + "&TabType=" + TabType + "", { "noCache": noCache }, function (json) {
+                if (json.data == "error") {
+                    $.messager.alert("系统提示", json.data, "error");
+                }
+                else {
+                    $.messager.alert("系统提示", json.data, "info");
+                    ListDataSource();
+                    setTimeout(display, 1000);
+                }
+            });
+            $('#list').window('close');
+        }
+    </script>
+</head>
+<body style="background: #fff;">
+    <input id="MenuLinksID" type="hidden" value="" /><!--菜单链接地址ID-->
+    <input id="DesktopID" type="hidden" value="" /><!--唯一编号-->
+    <input id="Tabsval" type="hidden" value="" />
+    <div style="margin: 0 auto; padding: 0; width: 100%; min-width: 786px">
+        <div class="quickWrapLoginInfo">
+            <div class="quickTitle" style="height: 15px;">
+                <div style="float: left;">
+                    <span>用户登录信息</span><label>（鼠标点击姓名可以完善自己的个人信息）</label>
+                </div>
+            </div>
+            <ul id="loginInfo" class="qucikList" style="color: Red; font-size: 12px; font-weight: bold;"></ul>
+        </div>
+        <div class="quickWrap">
+            <div class="quickTitle" style="height: 15px;">
+                <div style="float: left;">
+                    <span>快捷操作</span><label>（您可以通过以下几种按钮面板，迅速进入您的目的地）</label>
+                </div>
+                <div style="float: right; margin-right: 20px;">
+                    <a id="btn_add" onclick="btn_add()" href="javascript:void(0)" style="color: #115dc4;
+                        font-size: 12px; font-weight: bold; margin-right: 5px;">添加</a> <a id="btn_edite"
+                                                                                          onclick="display()" href="javascript:void(0)" style="color: #115dc4; font-size: 12px;
+                            font-weight: bold;">编辑</a> <a id="btn_return" onclick="returnval()" href="javascript:void(0)"
+                                                          style="display: none; color: #115dc4; font-size: 12px; font-weight: bold;">返回</a>
+                </div>
+            </div>
+            <ul id="listul" class="qucikList"></ul>
+        </div>
+        <div id="list_show" style="margin:0 auto;width:100%">
+        </div>
+    </div>
+    <div id="w" class="easyui-window" title="快捷操作维护" data-options="modal:true,closed:true,iconCls:'icon-save'"
+         style="width: 300px; height: 250px; padding: 10px;">
+        <table>
+            <tr>
+                <td>
+                    菜单：
+                </td>
+                <td>
+                    <input class="easyui-validatebox" style="width: 200px" type="text" id="menuName"
+                           name="menuname" data-options="required:true" /></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    标题：
+                </td>
+                <td>
+                    <input class="easyui-validatebox" style="width: 200px" type="text" id="title" name="title"
+                           data-options="required:true" /></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    图标：
+                </td>
+                <td>
+                    <div style=" float:left">
+                        <a style="display: block; width: 60px; height: 50px; padding: 8px 0 0;" href="javascript:void(0)"
+                           onclick="phtoEdite()">
+                            <img id="icon" src="/Images/icon/zqml.png" alt="图标" />
+                        </a>
+                    </div>
+                    <div style=" float:left; height: 50px;padding-top:20px">
+                        <a href="javascript:void(0)" onclick="phtoEdite()">
+                            <img src="../Images/buttons/Bianji.gif" alt="图标" />
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    排序：
+                </td>
+                <td>
+                    <input class="easyui-numberbox easyui-validatebox" style="width: 200px" type="text"
+                           id="menusort" name="menusort" data-options="required:true" /></input>
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: center; padding: 5px">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="AddSave();" id="hf">
+                保存
+            </a> <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">
+                取消
+            </a>
+        </div>
+    </div>
+    <div id="ucselects" style="display: none;">
+        <!--弹出框-->
+        <div id="uctextselects" class="easyui-dialog" title="图标选择" style="width: 280px; height: 300px;"
+             toolbar="#dlg-toolbar" resizable="true" closed="true">
+            <iframe id="ucviews" scrolling="yes" width="100%" frameborder="0" height="350" style="overflow-x: hidden"></iframe>
+        </div>
+    </div>
+    <div id="list" class="easyui-window" title="列表维护" data-options="modal:true,closed:true,iconCls:'icon-save'"
+         style="width: 300px; height: 150px; padding: 10px;">
+        <table>
+            <tr>
+                <td>
+                    数据源：
+                </td>
+                <td>
+                    <input class="easyui-validatebox" style="width: 200px" type="text" id="datasource"
+                           name="datasource" data-options="required:true" /></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    标题：
+                </td>
+                <td>
+                    <input class="easyui-validatebox" style="width: 200px" type="text" id="titlelist"
+                           name="titlelist" data-options="required:true" /></input>
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: center; padding: 5px">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="AddSaveList();" id="A1">
+                保存
+            </a> <a href="javascript:void(0)" class="easyui-linkbutton" onclick="Clear()">取消</a>
+        </div>
+    </div>
+</body>
+</html>

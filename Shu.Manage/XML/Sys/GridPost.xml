@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="PostID"
+      KeyField="Post_DepCode"
+      TableName="Sys_Post"
+      TableView="View_Sys_Post"
+      SqlOrder=" Department_Level asc,Department_Sequence asc,Post_Sort asc,Post_DepCode asc"
+      SQLField="PostID,Post_Name,Post_DepCode,Department_Name,Post_Sort,Post_AddTime,Department_Sequence,Department_Level"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      MenuURL="PostPanl.aspx"
+      AddURL="PostInfo.aspx"
+      ModifyURL="PostInfo.aspx"
+      DetailURL=""
+      AuditURL=""
+      RowClickNum="-1">
+  <Column Key="Department_Name" Name="所在部门" width="5"></Column>
+  <Column Key="Post_Name" Name="岗位" width="5"></Column>
+  <Column Key="Post_AddTime" Name="添加时间" width="5"></Column>
+
+</Grid>

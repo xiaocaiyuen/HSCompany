@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="NoticeID"
+      KeyField=""
+      TableName="Sys_Notice"
+      TableView="View_Sys_Notice"
+      SqlOrder="AddTime desc"
+      SQLField="NoticeID,Notice_Type,Notice_Title,Notice_Content,AddTime,Sort,AddUserID,Notice_TypeName,UserInfo_FullName,UserInfo_DepCode,Notice_Scope,Dep"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      AddURL="/Sys/NoticeAdd.aspx"
+      ModifyURL="/Sys/NoticeAdd.aspx"
+      DetailURL="/Sys/NoticeShow.aspx"
+      AuditURL=""
+      MenuURL="NoticeList.aspx"
+      RowClickNum="1">
+  <Column Key="Notice_TypeName" Name="公告类型" width="5"></Column>
+  <Column Key="Notice_Title" Name="标题" width="5"></Column>
+  <Column Key="Dep" Name="发布范围" width="5" MaxLength="30"></Column>
+  <Column Key="AddTime" Name="发布时间" width="5"></Column>
+  <Column Key="UserInfo_FullName" Name="发布人" width="5"></Column>
+</Grid>

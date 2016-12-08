@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="SoftwareID"
+      KeyField=""
+      TableName="Sys_Software"
+      TableView="View_Sys_Software"
+      SqlOrder="Software_No asc"
+      SQLField="SoftwareID,Software_Name,FilePath,FileSize,Extension,UploadUserName,Software_UploadTime,Software_Introduction,Software_No"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      AddURL="/Sys/SoftwareAdd.aspx"
+      ModifyURL="/Sys/SoftwareAdd.aspx"
+      DetailURL=""
+      AuditURL=""
+      MenuURL="SoftwareIndex.aspx"
+      RowClickNum="1">
+  <Column Key="Software_No" Name="序号" width="1"></Column>
+  <Column Key="Software_Name" Name="工具名称" width="5"></Column>
+  <Column Key="Software_Introduction" Name="简介" width="5" MaxLength="30"></Column>
+  <Column Key="Software_UploadTime" Name="上传时间" width="5"></Column>
+  <Column Key="UploadUserName" Name="上传人" width="5"></Column>
+</Grid>

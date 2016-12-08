@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="BackupID"
+      KeyField="Backup_Name"
+      TableName="Sys_Backup"
+      TableView=""
+      SqlOrder="Backup_AddTime desc"
+      SQLField="BackupID,Backup_Name,Backup_AddTime,Backup_Path,Backup_AddUserID"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      MenuURL="DataBackup.aspx"
+      DownloadURL="/Files/dbfiles"
+      RowClickNum="-1">
+  <Column Key="Backup_Name" Name="数据库备份文件名" width="5"></Column>
+  <Column Key="Backup_AddTime" Name="备份时间" width="5"></Column>
+  <Column Key="SysLog_OperateDate" Name="备份文件存储路径" width="10"></Column>
+</Grid>

@@ -1,0 +1,15 @@
+﻿.top{ background:url(../images/main/top-bj.jpg) repeat-x; height:114px; margin:0 auto; width:100%;}
+.top_w{ width:100%; margin:0 auto; height:114px;}
+.top_w h1{ background:url(../images/main/logo.png) no-repeat;width:750px; height:114px; float:left; display:block; margin-left:10px; margin:0 auto;}
+.top_w h2{ margin:0 auto;width:253px; float:right; display:block; background:url(../images/main/right_bj.jpg) no-repeat; height:29px; line-height:29px; color:#ccd7f7; text-align:center;}
+.top_w h2 a{ color:#ccd7f7;}
+.top_w h2 a:hover{ color:#fff; text-decoration:underline;}
+
+.top_w span{ margin:0 auto;width:253px; float:right; display:block; height:29px; line-height:29px; color:#ccd7f7; text-align:center;}
+.top_w span a{ color:#ccd7f7;}
+.top_w span a:hover{ color:#fff; text-decoration:underline;}
+
+
+.xx{ background:url(../images/main/xx_bj.jpg) repeat-x; height:27px; line-height:27px; margin:0 auto; width:100%;}
+.xx_w{ width:1024px; margin:0 auto; overflow:hidden; padding-left:20px;}
+.xx2_td{color:#255ba3; font-weight:bold;}

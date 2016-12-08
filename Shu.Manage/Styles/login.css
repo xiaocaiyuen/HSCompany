@@ -1,0 +1,24 @@
+﻿body{color:#555;background:#e1ecf1 url(../../Images/login/login_bg.jpg) repeat-x left top;font-size:14px;line-height:22px;font-family:'宋体',Verdana;margin:0;padding:0}
+body,table,tr,td,div,form,ul,li{margin:0 auto;padding:0;text-align:left;font-size:14px;font-family:'宋体',Verdana;line-height:22px;color:#555;}
+img{border:none;vertical-align:middle}
+form{margin:0;padding:0;}
+li{list-style:none;}
+a{outline:none}
+
+.wrap{width:960px;height:449px;position:relative;background:url(../../Images/login/login.jpg) no-repeat;margin-top:90px}
+a{color:#888;text-decoration:none;}
+a:link{color:#888;text-decoration:none;}
+a:visited{color:#888;text-decoration:none;}
+a:hover{color:#DC0000;text-decoration:none;}
+a:active{color:#DC0000;text-decoration:none;}
+
+a.blueLink:link{color:#0031ac;text-decoration:none;font-size:12px}
+a.blueLink:visited{color:#0031ac;text-decoration:none;font-size:12px}
+a.blueLink:hover{color:#e51909;text-decoration:none;font-size:12px}
+a.blueLink:active{color:#e51909;font-size:12px}
+.tab2{margin-top:15px;}
+.tab2 td{padding:3px 0;font-size:12px}
+
+.copy{color:#888;text-align:center;font-size:12px;position:absolute;left:20px;bottom:30px;}
+.login{position:absolute;right:10px;top:110px;width:270px;}
+.input{border:1px solid #adb4b9;height:23px;line-height:23px;}

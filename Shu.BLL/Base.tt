@@ -1,0 +1,49 @@
+﻿<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#><#@
+ output extension=".cs"#>
+ 
+<#
+
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+CodeRegion region = new CodeRegion(this, 1);
+MetadataTools ef = new MetadataTools(this);
+
+string inputFile = @"..\\Shu.Model\\Shu.edmx";
+
+EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
+string namespaceName = code.VsNamespaceSuggestion();
+
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+#>
+using Shu.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Shu.BLL
+{
+<#
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{
+	bool IsView = entity.Name.StartsWith("View");
+#>
+	public partial class <#=entity.Name#>BLL :<#=IsView?"BaseExtendsBLL":"BaseBLL"#><<#=entity.Name#>>
+    {
+<#if(!IsView){#>
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.<#=entity.Name#>Dal;
+        }
+<#}#>
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.<#=entity.Name#>Dal;
+        }
+    }   
+<#}#>
+	
+}

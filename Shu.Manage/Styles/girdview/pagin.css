@@ -1,0 +1,38 @@
+﻿
+.pagination_text
+{
+	height:15px;
+	width:20px;
+  border:1px solid #ccc;
+}
+
+.pagination_table
+{
+   border-bottom:solid  1px #AADAEE;
+   border-left:solid  1px #AADAEE;
+   border-right:solid  1px #AADAEE;
+   background-color:#FFFFFF;
+   font-size:12px;
+   background-image:url(/Images/girdview/grid_title1.gif) ;
+     
+ }
+.pagination_table td
+{
+  height:25px;
+      font: normal  12px/22px Verdana, Geneva, sans-serif;
+ }
+ 
+ .totalPage 
+ {
+     border:0;
+     height:35px;
+     font-size:12px;
+     font-weight:bold;
+     color:Red;
+     background-image:url(/Images/girdview/grid_title1.gif) ;
+ }
+ 
+ .aborder
+ {
+     border:0px solid #FFFFFF;
+ }

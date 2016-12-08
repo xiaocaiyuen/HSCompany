@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="PendingMatterID"
+      KeyField="PendingMatter_ModuleID"
+      TableName="Sys_PendingMatter"
+      TableView=""
+      SqlOrder="PendingMatter_AddTime desc"
+      SQLField="
+       [PendingMatterID]
+      ,[PendingMatter_ModuleID]
+      ,[PendingMatter_ModuleName]
+      ,[PendingMatter_Title]
+      ,[PendingMatter_ToRoleName]
+      ,[PendingMatter_URL]
+      ,[PendingMatter_AddTime]
+      ,[PendingMatter_AddUserID]"
+      IsShowPagin="true"
+      IsShowCheckBox="true"
+      MenuURL="/Sys/EmployeeLeaveSetting.aspx">
+  <Column Key="PendingMatter_ModuleName" Name="任务名称" width="5"></Column>
+  <Column Key="PendingMatter_Title" Name="任务标题" width="5"></Column>
+  <Column Key="PendingMatter_AddTime" Name="任务分配时间" width="5"></Column>
+</Grid>

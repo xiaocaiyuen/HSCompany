@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="UserInfoID"
+      KeyField=""
+      TableName="Sys_UserInfo"
+      TableView="View_Sys_UserInfo"
+      SqlOrder="Department_Level asc,Department_Sequence asc,UserInfo_Sequence asc"
+      SQLField="UserInfoID,Department_Name,UserInfo_LoginUserName,UserInfo_FullName,UserInfo_RoleName,UserInfo_PostName,UserInfo_StatusName,Department_Level,Department_Sequence,UserInfo_PostSequence,UserInfo_Sequence,UserInfo_DepCode"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      AddURL=""
+      ModifyURL=""
+      DetailURL=""
+      AuditURL=""
+      RedoURL="UserInfoImport.aspx"
+      MenuURL="UserManager.aspx"
+      RowClickNum="-1">
+  <Column Key="Department_Name" Name="部门" width="5" ></Column>
+  <Column Key="UserInfo_LoginUserName" Name="用户账号" width="5"></Column>
+  <Column Key="UserInfo_FullName" Name="姓名" width="5"></Column>
+  <Column Key="UserInfo_RoleName" Name="角色" width="5"></Column>
+  <Column Key="UserInfo_PostName" Name="岗位" width="5"></Column>
+  <Column Key="UserInfo_StatusName" Name="用户状态" width="5"></Column>
+</Grid>

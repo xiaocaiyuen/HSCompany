@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="Id" 
+      KeyField=""
+      TableName="Sys_Module" 
+      TableView="" 
+      SqlOrder=" Sort asc"
+      SQLField="Id,Name,Remark,IsAccredit,IsDelete,Sort,IsShow" 
+      IsShowPagin="true" 
+      IsShowCheckBox="false"
+      AddURL="ModuleInfo.aspx"
+      ModifyURL="ModuleInfo.aspx"
+      MenuURL="ModuleList.aspx">
+  <Column Key="Name" Name="模块名称" width="7"></Column>
+  <Column Key="IsAccredit" Name="是否授权" width="5"></Column>
+  <Column Key="Sort" Name="排序" width="5"></Column>
+  <Column Key="Remark" Name="备注" width="15" MaxLength="50"></Column>
+</Grid>

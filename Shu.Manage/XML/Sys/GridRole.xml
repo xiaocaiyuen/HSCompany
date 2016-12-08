@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="RoleID" 
+      KeyField="Role_Sequence"
+      TableName="Sys_Role" 
+      TableView="" 
+      SqlOrder=" Role_Sequence asc"
+      SQLField="RoleID,Role_Sequence,Role_Name,Role_Description" 
+      IsShowPagin="true" 
+      IsShowCheckBox="false"
+      AddURL="RoleManage.aspx"
+      ModifyURL="RoleManage.aspx"
+      DetailURL="RoleManage.aspx"
+      AuditURL=""
+      MenuURL="RoleList.aspx">
+  <!--<Column Key="Role_Sequence" Name="序号" width="1" styler="function(value){if (value == '1' ){return 'color:red;';}}" formatter="function (v) {
+                             if (v == '1') {
+                                 return '民营';
+                             }
+                             else if (v == '2') {
+                                 return '国企';
+                             }
+                             else if (v == '3') {
+                                 return '外企';
+                             }
+                             else if (v == '4') {
+                                 return '其他';
+                             }
+                             else {
+                                 return '';
+                             }
+                         }"></Column>-->
+  <Column Key="Role_Name" Name="角色名称" width="5"></Column>
+  <Column Key="Role_Description" Name="备注" width="11" MaxLength="50"></Column>
+</Grid>

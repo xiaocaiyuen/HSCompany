@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="DealersInfoID"
+      KeyField=""
+      TableName="Dealers_DealersInfo"
+      TableView="View_Dealers_DealersInfo"
+      SqlOrder="Department_Sequence ASC"
+      
+      SQLField="DealersInfoID ,
+                DealersInfo_DeptID ,
+                DealersInfo_BrandIDStr ,
+                DealersInfo_FullName ,
+                DealersInfo_AbbName ,
+                DealersInfo_Type ,
+                DealersInfo_TypeName ,
+                DealersInfo_AccountBank ,
+                DealersInfo_AccountBankName ,
+                DealersInfo_BankAccountNumber ,
+                DealersInfo_TaxRegistrationNum ,
+                DealersInfo_Contact ,
+                DealersInfo_Fax ,
+                DealersInfo_Property ,
+                DealersInfo_LicenseNum ,
+                DealersInfo_CLDate ,
+                DealersInfo_ValidityPeriod ,
+                DealersInfo_RegisteredCapital ,
+                DealersInfo_RealCapital ,
+                DealersInfo_Area ,
+                DealersInfo_AreaName ,
+                DealersInfo_ZipCode ,
+                DealersInfo_RegAddress ,
+                DealersInfo_OranCode ,
+                DealersInfo_Website ,
+                DealersInfo_Address ,
+                DealersInfo_ScopeBusiness ,
+                DealersInfo_BelongIndustry ,
+                DealersInfo_OtherInfo ,
+                DealersInfo_FileProtocol ,
+                DealersInfo_CooperativeValidity ,
+                DealersInfo_CooperativeType ,
+                DealersInfo_CooperativeTypeName ,
+                DealersInfo_ReturnRatio ,
+                DealersInfo_UpdateUserID ,
+                DealersInfo_UpdateTime ,
+                DealersInfo_IsDelete ,
+                Department_Sequence"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      ModifyURL="/Sys/DealersDealersInfoEdit.aspx"
+      DetailURL="/Sys/DealersDealersInfoShow.aspx"
+      MenuURL="DealersDealersInfoList.aspx">
+  <Column Key="DealersInfo_FullName" Name="分公司名称" width="7"></Column>
+  <Column Key="DealersInfo_AbbName" Name="简称" width="5"></Column>
+  <Column Key="DealersInfo_BankAccountNumber" Name="银行账号" width="7"></Column>
+  <Column Key="DealersInfo_AreaName" Name="所属区域" width="5"></Column>
+  <Column Key="DealersInfo_BrandIDStr" Name="所属品牌厂商" width="7" ></Column>
+  <Column Key="DealersInfo_CooperativeTypeName" Name="合作类型" width="5"></Column>
+  <Column Key="DealersInfo_Contact" Name="联系方式" width="5"></Column>
+  <Column Key="DealersInfo_CLDate" Name="成立日期" width="6"></Column>
+</Grid>

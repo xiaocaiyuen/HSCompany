@@ -1,0 +1,179 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* 全局样式 */
+body { margin: 0px; padding:0px; min-width:1000px; background-color:#ffffff; color: #000; text-decoration: none;  font: normal 12px/22px Verdana, Geneva, sans-serif;}
+div,dl,dt,dd,ol,ul,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p { padding:0; 
+    margin: 0 auto;
+}
+*{font-size:12px; font-family:Tahoma,Verdana,微软雅黑,新宋体;}
+input {font-size:12px; font-family:Tahoma,Verdana,微软雅黑,新宋体;}
+h1,h2,h3,h4,h5,h6 { font-size: 12px; font-style: normal; font-weight: normal; font-variant: normal; }
+ol,ul,li { list-style:none;}
+div { background: url(none); margin: 0px; padding: 0px; border-style: none; }
+/*img { border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    vertical-align:top;
+    width: 14px;
+    height: 16px;
+}*/
+a { font-size: 12px; color: #000; text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { color: #F00; text-decoration:underline;}
+a:active { color:#999}
+
+
+/* 表格样式 */
+.r10 {  margin-top:10px; border:1px solid #EEAAAA;}
+.tab { width:100%;min-width:780px; font: normal 14px/22px; border-width: 0px; border-style: none; margin: 0px auto; background:#88BBE2;   word-break: break-all;}
+.tab th{ text-align:center; background:#88BBE2; font-weight:500;}
+.tab td{ text-align:center; }
+.tab th{ background-color: #F3FAFF; font-size:12px; }
+.tab td{ background-color: #FFFFFF; text-align:left; padding:2px; font-size:12px;}
+.listfieldset{ margin-bottom:10px;border:0; border-color: #FFF;}  
+.tab1 { font: normal 14px/22px Verdana, Geneva, sans-serif; border-width: 0px; border-style: none; margin: 0px auto; background:#88BBE2;}
+.tab2 { font: normal 14px/22px Verdana, Geneva, sans-serif; border-width: 0px; border-style: none; margin: 0px auto; background:#88BBE2;}
+.tab3 { font: normal 14px/22px Verdana, Geneva, sans-serif; border-width: 0px; border-style: none; margin: 0px auto; background:#88BBE2;}
+
+.tab5 { font: normal 14px/22px Verdana, Geneva, sans-serif; margin-top:10px; margin-left: 70px; border-width: 0px; border-style: none; background:#88BBE2;}
+.tab5 th { height:24px; line-height:24px; background:#FFFCF7; text-align:left;}
+.tab5 td { height:24px; line-height:24px; background:#FFFCF7; text-align:left; padding-left:10px;}
+
+.tabhj{ font: normal 14px/22px Verdana, Geneva, sans-serif;border-right:1px solid #9CB6C7; margin: 0px auto; background:#88BBE2; }
+.tabhj td{border-left:1px solid #9CB6C7; border-bottom:1px solid #9CB6C7;}
+.tabhj th{border-left:1px solid #9CB6C7; border-bottom:1px solid #9CB6C7;}
+
+.headerCss {width:100%;min-width:780px; height:90px; font-size: 20px; color: #000; text-align: center; background: url(../Images/table/header.gif) repeat-x; margin: 0 auto; }
+.headerCss th{ height:90px; vertical-align:middle;}
+.for { height:46px; width:100%;min-width:780px;
+background:#E8F6FF; margin:0 auto; border-right: 1px solid #88BBE2; border-bottom: 1px solid #88BBE2; border-left: 1px solid #88BBE2;
+    border-top-style: none;
+    border-top-color: inherit;
+    border-top-width: 0px;
+}
+
+
+.tabSelfMonitor { font: normal 14px/22px Verdana, Geneva, sans-serif;margin: 0px auto; }
+.tabSelfMonitor th{ text-align:center; }
+.tabSelfMonitor td{ text-align:left;   border-bottom: 1px solid #7F9DB9; height:40px;}
+
+.textarea1 { width:600px; border: 1px solid #7F9DB9; }
+.textarea2 { width:140px; border: 1px solid #7F9DB9;}
+.textarea3 { width:120px; border: 1px solid #7F9DB9;}
+.textarea4 { width:50px; border: 1px solid #7F9DB9;}
+.textarea5 { width:400px; border: 1px solid #7F9DB9;}
+
+.tab_top { height:50px; text-align:center; font-size:25px;   line-height:50px;}
+.tab_for { height:40px; text-align:center; }
+.tab_for img { margin-left:5px; margin-right:5px; }
+.tab_m1 { margin-bottom:5px; height:24px;line-height:24px; display:block; color:#00208A; font-size:12px; font-weight:bold; background:#B1E6F4 url(/Images/Main/tab_m1_bg.gif) no-repeat 0 0; }
+.tab_m1 a { font-size:14px; display:block; color:#00208A; }
+.tab_m1 a:hover { color:#00208A; text-decoration:none; }
+
+.tab_m2 { margin-bottom:5px; background:#C6D6E5;word-break:break-all; }
+.tab_m2 td { background:#FFF; padding:5px;}
+.tab_m2 th { background:#E3F0FE; font-weight:normal; }
+
+.tab_m3 { margin-bottom:5px; background:#C6D6E5;word-break:break-all;}
+.tab_m3 td { background:#FFF; }
+.tab_m3 th { background:#E3F0FE; font-weight:normal; }
+
+
+.tab_m4 { margin-bottom:5px; background:#C6D6E5; font-size:14px; }
+.tab_m4 td { background:#FFF;  text-align:center;  line-height:35px; height:35px;}
+.tab_m4 th { width:110px; background:#E3F0FE; font-weight:normal;  line-height:35px; height:35px;font-size:14px;}
+
+
+.tab_m5 { margin:5px; background:#C6D6E5; font-size:14px; }
+.tab_m5 td { background:#FFF; padding:5px;  text-align:center;  line-height:35px; height:35px;}
+.tab_m5 th { width:110px; background:#E3F0FE; font-weight:normal;  line-height:35px; height:35px;font-size:14px;}
+
+.tab_m6 { margin-bottom:5px; background:#C6D6E5; font-size:14px; }
+.tab_m6 td { background:#FFF;  text-align:center; padding:5px;  line-height:35px; height:35px;}
+.tab_m6 th {  background:#E3F0FE;text-align:center; font-weight:normal;  line-height:35px; height:35px;font-size:14px;}
+
+
+.tab_m7 { margin-bottom:1px;  font-size:12px; }
+.tab_m7 td {  text-align:center; border-bottom:1px solid #C6D6E5;   line-height:23px; height:23px;}
+.tab_m7 th {  border-bottom:1px solid #C6D6E5;  text-align:center;  line-height:23px; height:23px;font-size:12px;}
+
+
+/* 按钮样式 */
+.an1 { margin: 0px auto; width: 150px; height: 24px; text-align: center; }
+.an1 ul li { display: block; float: right; }
+
+.an2 { margin: 0px auto; width: 220px; height: 24px; text-align: center; }
+.an2 ul li { display: block; float: right; }
+
+.an3 { margin: 0px auto; width: 310px; height: 24px; text-align: center; }
+.an3 ul li { display: block; float: right; }
+
+.an4 { margin: 0px auto; width: 420px; height: 24px; text-align: center; }
+.an4 ul li { display: block; float: right; }
+
+.side1 {  height: 30px; }
+.side1 ul { list-style: none; margin: 0px; padding: 0px; }
+.side1 ul li { float: left; }
+.side1 a { text-decoration: none; background: url(../Images/buttons/title01.gif) no-repeat right 0px; display: block; line-height: 30px; padding-right: 15px; color: #FFF; text-align: center; }
+.side1 a:hover { background: url(../Images/buttons/title01.gif) no-repeat right -40px; }
+.side1 a span { background: url(../Images/buttons/title01.gif) no-repeat left 0px; display: block; padding-left: 15px; }
+.side1 a:hover span { background: url(../Images/buttons/title01.gif) no-repeat left -40px; }
+
+.side2 { height: 24px; margin-right: 15px; margin-left: 15px; }
+.side2 ul { list-style: none; margin: 0px; padding: 0px; }
+.side2 ul li { float: left; }
+.side2 a { text-decoration: none; background: url(../Images/buttons/title02.gif) no-repeat right 0px; display: block; line-height: 24px; padding-right: 11px; color: #000; text-align: center; }
+.side2 a:hover { background: url(../Images/buttons/title02.gif) no-repeat right -34px; }
+.side2 a span { background: url(../Images/buttons/title02.gif) no-repeat left 0px; display: block; padding-left: 11px; }
+.side2 a:hover span { background: url(../Images/buttons/title02.gif) no-repeat left -34px; }
+
+
+.Newsheader { height:90px; line-height:70px; font-size: 24px; color: #000; text-align: center;  margin: 10px auto 0px; }
+.newsContent{}
+.newsContent th{ background-color: #F3FAFF; font-size:12px; }
+.newsContent td{ background-color: #FFFFFF; text-align:left; padding:2px; font-size:12px;}
+input[type="text"]
+    {
+    line-height:21px;
+     border:1px solid #88BBE2;
+     background-image:url('/Images/Main/main_liebiao_input_bg.gif');
+     background-repeat:repeat-x;
+    height: 20px;
+    }
+ select {
+     line-height:21px;
+     border:1px solid #88BBE2;
+     background-image:url('/Images/Main/main_liebiao_input_bg.gif');
+     background-repeat:repeat-x;
+ } 
+ textarea {
+     line-height:21px;
+     border:1px solid #88BBE2;
+     background-image:url('/Images/Main/main_liebiao_input_bg.gif');
+     background-repeat:repeat-x;
+ }
+.input4{ line-height:21px;
+     border:1px solid #88BBE2;
+     background-image:url('/Images/Main/main_liebiao_input_bg.gif');
+     background-repeat:repeat-x;
+     height:20px;
+     }
+     
+ .assessTable
+ { width:100%; font-size:12px;
+ }
+     
+ .assessTable td
+ { text-align:center;
+ }
+      
+ .assessTable th
+ {  text-align:center;
+ }
+ img{ border:0px;}
+
+.element {
+     font-weight:bold; 
+     color:black;
+}

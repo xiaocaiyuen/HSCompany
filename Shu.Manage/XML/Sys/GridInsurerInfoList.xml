@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="InsurerInfoId"
+      KeyField=""
+      TableName="Sys_InsurerInfo"
+      TableView=""
+      SqlOrder="InsurerInfo_Name ASC"
+      SQLField="InsurerInfoId ,
+                InsurerInfo_Name ,
+                InsurerInfo_Phone ,
+                InsurerInfo_Address ,
+                InsurerInfo_Remark ,
+                InsurerInfo_UpdateUserId ,
+                InsurerInfo_UpdateTime ,
+                InsurerInfo_IsDelete"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      AddURL="/Sys/InsurerInfoAdd.aspx"
+      ModifyURL="/Sys/InsurerInfoAdd.aspx"
+      AuditURL=""
+      MenuURL="InsurerInfoList.aspx">
+  <Column Key="InsurerInfo_Name" Name="保险公司名称" width="6"></Column>
+  <Column Key="InsurerInfo_Phone" Name="联系电话" width="5"></Column>
+  <Column Key="InsurerInfo_Address" Name="公司地址" width="6" ></Column>
+  <Column Key="InsurerInfo_Remark" Name="备注" width="6" ></Column>
+</Grid>

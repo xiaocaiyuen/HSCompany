@@ -1,0 +1,46 @@
+/* CSS Document */
+
+/* CSS Document */
+/* 清除内外边距 */
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td { padding:0; margin:0; font-family:'微软雅黑','Microsoft yahei';}
+/* 设置默认字体 */
+body,button,input,select,textarea { font:12px/1.5 Tahoma, Geneva, sans-serif; }
+body{ background:url(../images/bg.jpg);}
+h1,h2,h3,h4,h5,h6 { font-size:100%; }
+code,kbd,pre,samp { font-family:courier new,courier,monospace; }
+small { font-size:12px; }
+ul,ol { list-style:none; }
+i,em {font-style:normal}
+fieldset,img { border:0; }
+button,input,select,textarea{ font-size:100%; }
+/* 常见功能 */
+.hidden { display:none; }
+.invisible { visibility:hidden; }
+.noBg { background:none !important; }
+/* 清除浮动 */
+.clear { display:block; height:0; overflow:hidden; clear:both; }
+.clearfix:after { content:'\20'; display:block; height:0; clear:both; }
+.clearfix { *zoom:1; }
+/* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁*/
+html { overflow-y:scroll; }
+/* 默认链接样式 */
+a:link,a:visited { text-decoration:none; color:#333;font-family:'微软雅黑','Microsoft yahei'; }
+a:hover,a:active { text-decoration:underline; color:#f60;font-family:'微软雅黑','Microsoft yahei'; }
+/* index */
+
+
+
+.WWW100{ width:100%; margin:0PX auto; background:url(../images/1.jpg) center top no-repeat;}
+.www322{ width:322px; margin:0px auto; padding-top:140px; padding-bottom:113px;}
+.logo{ text-align:center; margin-top:20px;}
+.user{ text-align:center; margin-top:28px;}
+.pwd{ text-align:center; margin-top:22px;}
+.Login{ text-align:center; margin-top:23px; }
+.my{color:#f1f1f4; margin-top:23px; padding-left:128px;}
+
+.my li{ float:left; text-align:center;}
+.jiu{ margin-top:1px; margin-right:8px;}
+.put1{ background:url(../images/user_bg.png) no-repeat; width:272px; height:43px; border:0px; color:#f1f1f4; padding-left:50px; line-height:43px;}
+.pwd1{ background:url(../images/pwd.png) no-repeat; width:272px; height:43px; border:0px;  color:#f1f1f4; padding-left:50px; line-height:43px;}
+.Login1{ background:url(../images/login.png) no-repeat; width:322px; height:40px; border:0px; font-size:16px; font-weight:bold; color:#FFFFFF;}
+.put2{ background:url(../images/put-03.jpg) no-repeat width:15px; height:15px; border:0px;}

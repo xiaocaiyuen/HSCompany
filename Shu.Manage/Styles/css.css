@@ -1,0 +1,24 @@
+﻿body {
+	background-image: url(../images/login/bg_all.jpg);
+	background-repeat: repeat-x;
+	background-position: top;
+	margin:0px;
+	padding:0px;
+	font-size:12px;
+	line-height:30px;
+}
+ul,li,p,img,dl,dd,dt,h6{
+	margin:0px;
+	padding:0px;
+	list-style-type: none;
+	list-style-image: none;
+	border:0px;
+}
+.top{ width:auto; height:145px; margin-top:-20px;}
+.center{ width:315px; padding-left:360px; padding-top:120px; height:200px; margin:auto; background-image:url(../images/login/bg_login.jpg); background-repeat:no-repeat; text-align:right;}
+.foot{ width:auto; height:106px; text-align:center; margin-top:10px;font-size:12px; line-height:106px; color:#333;}
+.size14{ font-size:14px}
+
+
+
+

@@ -1,0 +1,2053 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ShuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Sys_Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ParentId" Type="int" Nullable="false" />
+          <Property Name="Depth" Type="int" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="Path" Type="varchar" MaxLength="50" />
+          <Property Name="PostCode" Type="varchar" MaxLength="10" />
+          <Property Name="AreaCode" Type="varchar" MaxLength="50" />
+          <Property Name="PinYin" Type="varchar" MaxLength="100" />
+          <Property Name="CrossArea" Type="int" />
+        </EntityType>
+        <EntityType Name="Sys_Config">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Config_Key" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Config_Value" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_DataDict">
+          <Key>
+            <PropertyRef Name="DataDictID" />
+          </Key>
+          <Property Name="DataDictID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="DataDict_Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="DataDict_Code" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="DataDict_ParentCode" Type="varchar" MaxLength="40" />
+          <Property Name="DataDict_ParentPath" Type="varchar" MaxLength="100" />
+          <Property Name="DataDict_TopId" Type="varchar" MaxLength="40" />
+          <Property Name="DataDict_IsChild" Type="bit" />
+          <Property Name="DataDict_Sequence" Type="int" Nullable="false" />
+          <Property Name="DataDict_Remark" Type="varchar" MaxLength="1000" />
+          <Property Name="DataDict_Level" Type="int" />
+          <Property Name="DataDict_AddTime" Type="datetime" Nullable="false" />
+          <Property Name="DataDict_AddUserID" Type="varchar" MaxLength="40" />
+          <Property Name="DataDict_IsDel" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Department_Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Department_Sequence" Type="int" />
+          <Property Name="Department_Respon" Type="varchar" MaxLength="500" />
+          <Property Name="Department_Code" Type="varchar" MaxLength="40" />
+          <Property Name="Department_ParentCode" Type="varchar" MaxLength="40" />
+          <Property Name="Department_Level" Type="int" />
+          <Property Name="Department_IsDel" Type="char" MaxLength="1" />
+          <Property Name="Department_AddTime" Type="datetime" Nullable="false" />
+          <Property Name="Department_AddUserID" Type="varchar" MaxLength="40" />
+          <Property Name="Department_Type" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Sys_Desktop">
+          <Key>
+            <PropertyRef Name="DesktopID" />
+          </Key>
+          <Property Name="DesktopID" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Desktop_UserInfoID" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Desktop_MenuID" Type="nvarchar" MaxLength="40" />
+          <Property Name="Desktop_Icon" Type="nvarchar" MaxLength="200" />
+          <Property Name="Desktop_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Desktop_Sort" Type="int" Nullable="false" />
+          <Property Name="Desktop_AddTime" Type="datetime" />
+          <Property Name="Desktop_EditTime" Type="datetime" />
+          <Property Name="Desktop_TabType" Type="varchar" MaxLength="10" />
+          <Property Name="Desktop_Type" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Sys_Holiday">
+          <Key>
+            <PropertyRef Name="HolidayId" />
+          </Key>
+          <Property Name="HolidayId" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Holiday_Name" Type="varchar" MaxLength="40" />
+          <Property Name="Holiday_StartDate" Type="datetime" />
+          <Property Name="Holiday_EndDate" Type="datetime" />
+          <Property Name="Holiday_UpdateUserId" Type="varchar" MaxLength="40" />
+          <Property Name="Holiday_UpdateTime" Type="datetime" />
+          <Property Name="Holiday_IsDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="Sys_Log">
+          <Key>
+            <PropertyRef Name="SysLogID" />
+          </Key>
+          <Property Name="SysLogID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="SysLog_OperateDep" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="SysLog_TableName" Type="varchar" MaxLength="40" />
+          <Property Name="SysLog_OperateFunName" Type="varchar" MaxLength="200" />
+          <Property Name="SysLog_OperateDataID" Type="varchar" MaxLength="40" />
+          <Property Name="SysLog_OperateUserID" Type="varchar" MaxLength="40" />
+          <Property Name="SysLog_OperateType" Type="varchar" MaxLength="40" />
+          <Property Name="SysLog_Remark" Type="varchar" MaxLength="3000" />
+          <Property Name="SysLog_OperateDate" Type="datetime" />
+          <Property Name="SysLog_Ip" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Sys_Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Menu_ModuleId" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Menu_Description" Type="varchar" MaxLength="1000" />
+          <Property Name="Menu_Sequence" Type="int" Nullable="false" />
+          <Property Name="Menu_Url" Type="varchar" MaxLength="100" />
+          <Property Name="Menu_Level" Type="int" Nullable="false" />
+          <Property Name="Menu_Code" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_ParentCode" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_AddTime" Type="datetime" />
+          <Property Name="Menu_AddUserID" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_Operation" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Sys_Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Message_Title" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Message_Content" Type="varchar" MaxLength="3000" Nullable="false" />
+          <Property Name="Message_SendTime" Type="datetime" Nullable="false" />
+          <Property Name="Message_ReceiveUserID" Type="varchar" MaxLength="40" />
+          <Property Name="Message_IsShow" Type="bit" />
+          <Property Name="Message_DynamicRefreshStatus" Type="bit" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="EditUserId" Type="varchar" MaxLength="40" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_ModelFile">
+          <Key>
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="FileID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="File_Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="File_Extension" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="File_Size" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="File_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="File_Path" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="File_AddTime" Type="datetime" />
+          <Property Name="File_OperationID" Type="nvarchar" MaxLength="50" />
+          <Property Name="File_UserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="File_Sort" Type="int" />
+        </EntityType>
+        <EntityType Name="Sys_Module">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="1000" />
+          <Property Name="Content" Type="varchar" MaxLength="3000" />
+          <Property Name="IsAccredit" Type="bit" Nullable="false" />
+          <Property Name="IsShow" Type="bit" Nullable="false" />
+          <Property Name="AddTime" Type="datetime" Nullable="false" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="EditUserId" Type="varchar" MaxLength="40" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_Notice">
+          <Key>
+            <PropertyRef Name="NoticeID" />
+          </Key>
+          <Property Name="NoticeID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Notice_Scope" Type="varchar" MaxLength="400" />
+          <Property Name="Notice_Type" Type="varchar" MaxLength="20" />
+          <Property Name="Notice_Title" Type="varchar" MaxLength="100" />
+          <Property Name="Notice_Content" Type="text" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="EditUserId" Type="varchar" MaxLength="40" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_PendingMatter">
+          <Key>
+            <PropertyRef Name="PendingMatterID" />
+          </Key>
+          <Property Name="PendingMatterID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="PendingMatter_ModuleID" Type="varchar" MaxLength="40" />
+          <Property Name="PendingMatter_ModuleName" Type="varchar" MaxLength="100" />
+          <Property Name="PendingMatter_Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PendingMatter_ToRoleName" Type="varchar" MaxLength="100" />
+          <Property Name="PendingMatter_URL" Type="varchar" MaxLength="100" />
+          <Property Name="PendingMatter_AddTime" Type="datetime" />
+          <Property Name="PendingMatter_AddUserID" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Sys_Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Post_Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Post_DepCode" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Post_AddTime" Type="datetime" />
+          <Property Name="Post_AddUserId" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Post_EditUserId" Type="varchar" MaxLength="40" />
+          <Property Name="Post_EditTime" Type="datetime" />
+          <Property Name="Post_IsDelete" Type="bit" Nullable="false" />
+          <Property Name="Post_Sort" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_PostChange">
+          <Key>
+            <PropertyRef Name="PostChangeID" />
+          </Key>
+          <Property Name="PostChangeID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="PostChange_ChangeUserID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="PostChange_BeforeChangeDep" Type="varchar" MaxLength="100" />
+          <Property Name="PostChange_BeforeChangePost" Type="varchar" MaxLength="100" />
+          <Property Name="PostChange_AfterChangeDep" Type="varchar" MaxLength="100" />
+          <Property Name="PostChange_AfterChangePost" Type="varchar" MaxLength="100" />
+          <Property Name="PostChange_ChangeTime" Type="datetime" Nullable="false" />
+          <Property Name="PostChange_OperateUserID" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Role_Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Role_Description" Type="varchar" MaxLength="600" />
+          <Property Name="Role_Sequence" Type="int" />
+          <Property Name="Role_IsDel" Type="char" MaxLength="1" />
+          <Property Name="Role_AddTime" Type="datetime" />
+          <Property Name="Role_AddUserID" Type="varchar" MaxLength="40" />
+          <Property Name="Role_ShowType" Type="int" />
+        </EntityType>
+        <EntityType Name="Sys_RolePurview">
+          <Key>
+            <PropertyRef Name="RolePurviewID" />
+          </Key>
+          <Property Name="RolePurviewID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RolePurview_RoleID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RolePurview_MenuCode" Type="varchar" MaxLength="40" />
+          <Property Name="RolePurview_OperatePurview" Type="varchar" MaxLength="80" />
+          <Property Name="RolePurview_SeeCharge" Type="varchar" MaxLength="1000" />
+          <Property Name="RolePurview_SeeDepCode" Type="varchar" MaxLength="3000" />
+          <Property Name="RolePurview_SeeType" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Sys_SeeCharge">
+          <Key>
+            <PropertyRef Name="SeeChargeID" />
+          </Key>
+          <Property Name="SeeChargeID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="SeeCharge_MenuID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="SeeCharge_Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="SeeCharge_Code" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="SeeCharge_Sort" Type="int" />
+          <Property Name="SeeCharge_AddTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sys_Setting">
+          <Key>
+            <PropertyRef Name="SettingID" />
+          </Key>
+          <Property Name="SettingID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Setting_Key" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Setting_Value" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Setting_Name" Type="varchar" MaxLength="60" />
+          <Property Name="Setting_Remarks" Type="varchar" MaxLength="1000" />
+          <Property Name="Setting_ValueType" Type="int" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="EditUserId" Type="varchar" MaxLength="40" />
+          <Property Name="EditTime" Type="datetime" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_UploadDataType">
+          <Key>
+            <PropertyRef Name="UploadDataType_ID" />
+          </Key>
+          <Property Name="UploadDataType_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UploadDataType_ProductType" Type="varchar" MaxLength="10" />
+          <Property Name="UploadDataType_ProcessStage" Type="nvarchar" MaxLength="50" />
+          <Property Name="UploadDataType_TypeCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="UploadDataType_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="UploadDataType_DataType" Type="nvarchar" MaxLength="100" />
+          <Property Name="UploadDataType_Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="UploadDataType_SortNo" Type="int" />
+          <Property Name="UploadDataType_IsDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="Sys_UserChargeDep">
+          <Key>
+            <PropertyRef Name="UserChargeDepID" />
+          </Key>
+          <Property Name="UserChargeDepID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="UserChargeDep_ExecutiveOfficerID" Type="varchar" MaxLength="40" />
+          <Property Name="UserChargeDep_ChargeCrewID" Type="varchar" MaxLength="40" />
+          <Property Name="UserChargeDep_ChargeCrewDepCode" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Sys_UserInfo">
+          <Key>
+            <PropertyRef Name="UserInfoID" />
+          </Key>
+          <Property Name="UserInfoID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="UserInfo_RoleID" Type="varchar" MaxLength="400" />
+          <Property Name="UserInfo_Post" Type="varchar" MaxLength="400" />
+          <Property Name="UserInfo_FullName" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_Sex" Type="varchar" MaxLength="10" />
+          <Property Name="UserInfo_DateBirth" Type="datetime" />
+          <Property Name="UserInfo_Age" Type="int" />
+          <Property Name="UserInfo_DepCode" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_Hometown" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_Schools" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_Specialty" Type="varchar" MaxLength="100" />
+          <Property Name="UserInfo_OccupTitle" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_Position" Type="varchar" MaxLength="100" />
+          <Property Name="UserInfo_PositionLevel" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_NowHoldPostTime" Type="datetime" />
+          <Property Name="UserInfo_EduBackground" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_PoliticalLandscape" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_PhoneNumber" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_IdentityCred" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_Address" Type="varchar" MaxLength="200" />
+          <Property Name="UserInfo_Nation" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_NationName" Type="varchar" MaxLength="80" />
+          <Property Name="UserInfo_JoinPartyDate" Type="datetime" />
+          <Property Name="UserInfo_EnlistTime" Type="datetime" />
+          <Property Name="UserInfo_Badge" Type="varchar" MaxLength="80" />
+          <Property Name="UserInfo_EnlistPlace" Type="varchar" MaxLength="200" />
+          <Property Name="UserInfo_StartWorkDate" Type="datetime" />
+          <Property Name="UserInfo_EducationalLevel" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_EducationalLevelName" Type="varchar" MaxLength="80" />
+          <Property Name="UserInfo_LoginUserName" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_LoginUserPwd" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_AddUserID" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_AddTime" Type="datetime" />
+          <Property Name="UserInfo_Status" Type="varchar" MaxLength="10" />
+          <Property Name="UserInfo_Type" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_Sequence" Type="int" />
+          <Property Name="UserInfo_WorkingState" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_IsDelete" Type="bit" />
+          <Property Name="UserInfo_EditTime" Type="datetime" />
+          <Property Name="UserInfo_EditUserId" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_PendingMatterToRolePurview”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_PendingMatterToRolePurview">
+          <Key>
+            <PropertyRef Name="RolePurviewID" />
+            <PropertyRef Name="RolePurview_RoleID" />
+          </Key>
+          <Property Name="RolePurviewID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RolePurview_RoleID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RolePurview_MenuCode" Type="varchar" MaxLength="40" />
+          <Property Name="RolePurview_OperatePurview" Type="varchar" MaxLength="80" />
+          <Property Name="MenuID" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_Name" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_Description" Type="varchar" MaxLength="1000" />
+          <Property Name="Menu_Sequence" Type="int" />
+          <Property Name="Menu_Url" Type="varchar" MaxLength="100" />
+          <Property Name="Menu_Level" Type="int" />
+          <Property Name="Menu_Code" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_ParentCode" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_AddTime" Type="datetime" />
+          <Property Name="Menu_AddUserID" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_Operation" Type="varchar" MaxLength="40" />
+          <Property Name="RoleID" Type="varchar" MaxLength="40" />
+          <Property Name="Role_Name" Type="varchar" MaxLength="40" />
+          <Property Name="Role_Description" Type="varchar" MaxLength="600" />
+          <Property Name="Role_Sequence" Type="int" />
+          <Property Name="Role_IsDel" Type="char" MaxLength="1" />
+          <Property Name="Role_AddTime" Type="datetime" />
+          <Property Name="Role_AddUserID" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Sys_DeskTtop”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Sys_DeskTtop">
+          <Key>
+            <PropertyRef Name="DesktopID" />
+            <PropertyRef Name="Desktop_UserInfoID" />
+            <PropertyRef Name="Desktop_Name" />
+            <PropertyRef Name="Desktop_Sort" />
+          </Key>
+          <Property Name="DesktopID" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Desktop_UserInfoID" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Desktop_MenuID" Type="nvarchar" MaxLength="40" />
+          <Property Name="Desktop_Icon" Type="nvarchar" MaxLength="200" />
+          <Property Name="Desktop_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Desktop_Sort" Type="int" Nullable="false" />
+          <Property Name="Desktop_AddTime" Type="datetime" />
+          <Property Name="Desktop_EditTime" Type="datetime" />
+          <Property Name="Desktop_TabType" Type="varchar" MaxLength="10" />
+          <Property Name="Desktop_Type" Type="varchar" MaxLength="10" />
+          <Property Name="Menu_Url" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Sys_Log”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Sys_Log">
+          <Key>
+            <PropertyRef Name="SysLogID" />
+          </Key>
+          <Property Name="SysLogID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="UserInfo_FullName" Type="varchar" MaxLength="40" />
+          <Property Name="Department_Name" Type="varchar" MaxLength="40" />
+          <Property Name="SysLog_OperateDate" Type="datetime" />
+          <Property Name="SysLog_Ip" Type="varchar" MaxLength="10" />
+          <Property Name="SysLog_OperateType" Type="varchar" MaxLength="40" />
+          <Property Name="SysLog_OperateFunName" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Sys_Menu”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Sys_Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="Menu_Name" />
+            <PropertyRef Name="Menu_Sequence" />
+            <PropertyRef Name="Menu_Level" />
+          </Key>
+          <Property Name="MenuID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Menu_Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Menu_Description" Type="varchar" MaxLength="1000" />
+          <Property Name="Menu_Sequence" Type="int" Nullable="false" />
+          <Property Name="Menu_Url" Type="varchar" MaxLength="100" />
+          <Property Name="Menu_Level" Type="int" Nullable="false" />
+          <Property Name="Menu_Code" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_ParentCode" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_AddTime" Type="datetime" />
+          <Property Name="Menu_AddUserID" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_Operation" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Sys_MenuRelatedRole”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Sys_MenuRelatedRole">
+          <Key>
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="Menu_Name" />
+            <PropertyRef Name="RolePurviewID" />
+            <PropertyRef Name="RolePurview_RoleID" />
+          </Key>
+          <Property Name="MenuID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Menu_Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Menu_Code" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_ParentCode" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_Operation" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_Url" Type="varchar" MaxLength="100" />
+          <Property Name="RolePurviewID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RolePurview_RoleID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RolePurview_OperatePurview" Type="varchar" MaxLength="80" />
+          <Property Name="RolePurview_SeeCharge" Type="varchar" MaxLength="1000" />
+          <Property Name="RolePurview_SeeDepCode" Type="varchar" MaxLength="3000" />
+          <Property Name="RolePurview_SeeType" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Sys_Post”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Sys_Post">
+          <Key>
+            <PropertyRef Name="Post_Name" />
+            <PropertyRef Name="PostID" />
+            <PropertyRef Name="Post_DepCode" />
+            <PropertyRef Name="Department_Name" />
+            <PropertyRef Name="Post_Sort" />
+          </Key>
+          <Property Name="Post_AddTime" Type="datetime" />
+          <Property Name="Post_Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="PostID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Post_DepCode" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Department_Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Post_Sort" Type="int" Nullable="false" />
+          <Property Name="Department_Sequence" Type="int" />
+          <Property Name="Department_Level" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Sys_RolePurview”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Sys_RolePurview">
+          <Key>
+            <PropertyRef Name="RolePurviewID" />
+            <PropertyRef Name="RolePurview_RoleID" />
+          </Key>
+          <Property Name="RolePurviewID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RolePurview_RoleID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RolePurview_MenuCode" Type="varchar" MaxLength="40" />
+          <Property Name="RolePurview_OperatePurview" Type="varchar" MaxLength="80" />
+          <Property Name="MenuID" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_Name" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_Description" Type="varchar" MaxLength="1000" />
+          <Property Name="Menu_Sequence" Type="int" />
+          <Property Name="Menu_Url" Type="varchar" MaxLength="100" />
+          <Property Name="Menu_Level" Type="int" />
+          <Property Name="Menu_Code" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_ParentCode" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_AddTime" Type="datetime" />
+          <Property Name="Menu_AddUserID" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_Operation" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Sys_RolePurviewAndMenu”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Sys_RolePurviewAndMenu">
+          <Key>
+            <PropertyRef Name="RolePurviewID" />
+            <PropertyRef Name="RolePurview_RoleID" />
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="Menu_Name" />
+            <PropertyRef Name="Menu_Sequence" />
+            <PropertyRef Name="Menu_Level" />
+          </Key>
+          <Property Name="RolePurviewID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RolePurview_RoleID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="RolePurview_MenuCode" Type="varchar" MaxLength="40" />
+          <Property Name="RolePurview_OperatePurview" Type="varchar" MaxLength="80" />
+          <Property Name="RolePurview_SeeCharge" Type="varchar" MaxLength="1000" />
+          <Property Name="RolePurview_SeeDepCode" Type="varchar" MaxLength="3000" />
+          <Property Name="RolePurview_SeeType" Type="varchar" MaxLength="10" />
+          <Property Name="MenuID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Menu_ModuleId" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Menu_Description" Type="varchar" MaxLength="1000" />
+          <Property Name="Menu_Sequence" Type="int" Nullable="false" />
+          <Property Name="Menu_Url" Type="varchar" MaxLength="100" />
+          <Property Name="Menu_Level" Type="int" Nullable="false" />
+          <Property Name="Menu_Code" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_ParentCode" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_AddTime" Type="datetime" />
+          <Property Name="Menu_AddUserID" Type="varchar" MaxLength="40" />
+          <Property Name="Menu_Operation" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Sys_UserInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Sys_UserInfo">
+          <Key>
+            <PropertyRef Name="UserInfoID" />
+            <PropertyRef Name="UserInfo_RoleID" />
+            <PropertyRef Name="UserInfo_Post" />
+            <PropertyRef Name="UserInfo_FullName" />
+            <PropertyRef Name="Department_Name" />
+            <PropertyRef Name="Department_AddTime" />
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="UserInfoID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="UserInfo_RoleID" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="UserInfo_Post" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="UserInfo_FullName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="UserInfo_Sex" Type="char" MaxLength="2" />
+          <Property Name="UserInfo_DateBirth" Type="datetime" />
+          <Property Name="UserInfo_Age" Type="int" />
+          <Property Name="UserInfo_DepCode" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_Hometown" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_Schools" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_Specialty" Type="varchar" MaxLength="100" />
+          <Property Name="UserInfo_OccupTitle" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_Position" Type="varchar" MaxLength="100" />
+          <Property Name="UserInfo_PositionLevel" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_NowHoldPostTime" Type="datetime" />
+          <Property Name="UserInfo_EduBackground" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_PoliticalLandscape" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_PhoneNumber" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_IdentityCred" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_Address" Type="varchar" MaxLength="200" />
+          <Property Name="UserInfo_LoginUserName" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_LoginUserPwd" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_AddTime" Type="datetime" />
+          <Property Name="Department_Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Department_Sequence" Type="int" />
+          <Property Name="Department_Respon" Type="varchar" MaxLength="500" />
+          <Property Name="Department_ParentCode" Type="varchar" MaxLength="40" />
+          <Property Name="Department_Level" Type="int" />
+          <Property Name="Department_IsDel" Type="char" MaxLength="1" />
+          <Property Name="Department_AddTime" Type="datetime" Nullable="false" />
+          <Property Name="UserInfo_RoleName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="UserInfo_PostName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserInfo_Status" Type="varchar" MaxLength="10" />
+          <Property Name="UserInfo_Type" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_Sequence" Type="int" />
+          <Property Name="UserInfo_PostSequence" Type="int" />
+          <Property Name="UserInfo_StatusName" Type="varchar" MaxLength="100" />
+          <Property Name="UserInfo_Nation" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_StartWorkDate" Type="datetime" />
+          <Property Name="UserInfo_EducationalLevel" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_JoinPartyDate" Type="datetime" />
+          <Property Name="Department_Type" Type="varchar" MaxLength="40" />
+          <Property Name="UnitCode" Type="varchar" MaxLength="50" />
+          <Property Name="UnitName" Type="varchar" MaxLength="100" />
+          <Property Name="UserInfo_EnlistTime" Type="datetime" />
+          <Property Name="UserInfo_Badge" Type="varchar" MaxLength="80" />
+          <Property Name="UserInfo_EnlistPlace" Type="varchar" MaxLength="200" />
+          <Property Name="DepartmentID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="UserInfo_WorkingState" Type="varchar" MaxLength="40" />
+          <Property Name="UserInfo_IsDelete" Type="bit" />
+        </EntityType>
+        <Association Name="FK_SYS_MENU_RELATIONS_SYS_MODU">
+          <End Role="Sys_Module" Type="Self.Sys_Module" Multiplicity="0..1" />
+          <End Role="Sys_Menu" Type="Self.Sys_Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sys_Module">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sys_Menu">
+              <PropertyRef Name="Menu_ModuleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ShuModelStoreContainer">
+          <EntitySet Name="Sys_Area" EntityType="Self.Sys_Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Config" EntityType="Self.Sys_Config" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_DataDict" EntityType="Self.Sys_DataDict" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Department" EntityType="Self.Sys_Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Desktop" EntityType="Self.Sys_Desktop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Holiday" EntityType="Self.Sys_Holiday" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Log" EntityType="Self.Sys_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Menu" EntityType="Self.Sys_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Message" EntityType="Self.Sys_Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_ModelFile" EntityType="Self.Sys_ModelFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Module" EntityType="Self.Sys_Module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Notice" EntityType="Self.Sys_Notice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_PendingMatter" EntityType="Self.Sys_PendingMatter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Post" EntityType="Self.Sys_Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_PostChange" EntityType="Self.Sys_PostChange" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Role" EntityType="Self.Sys_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_RolePurview" EntityType="Self.Sys_RolePurview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_SeeCharge" EntityType="Self.Sys_SeeCharge" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Setting" EntityType="Self.Sys_Setting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_UploadDataType" EntityType="Self.Sys_UploadDataType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_UserChargeDep" EntityType="Self.Sys_UserChargeDep" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_UserInfo" EntityType="Self.Sys_UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_PendingMatterToRolePurview" EntityType="Self.View_PendingMatterToRolePurview" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_PendingMatterToRolePurview].[RolePurviewID] AS [RolePurviewID], 
+    [View_PendingMatterToRolePurview].[RolePurview_RoleID] AS [RolePurview_RoleID], 
+    [View_PendingMatterToRolePurview].[RolePurview_MenuCode] AS [RolePurview_MenuCode], 
+    [View_PendingMatterToRolePurview].[RolePurview_OperatePurview] AS [RolePurview_OperatePurview], 
+    [View_PendingMatterToRolePurview].[MenuID] AS [MenuID], 
+    [View_PendingMatterToRolePurview].[Menu_Name] AS [Menu_Name], 
+    [View_PendingMatterToRolePurview].[Menu_Description] AS [Menu_Description], 
+    [View_PendingMatterToRolePurview].[Menu_Sequence] AS [Menu_Sequence], 
+    [View_PendingMatterToRolePurview].[Menu_Url] AS [Menu_Url], 
+    [View_PendingMatterToRolePurview].[Menu_Level] AS [Menu_Level], 
+    [View_PendingMatterToRolePurview].[Menu_Code] AS [Menu_Code], 
+    [View_PendingMatterToRolePurview].[Menu_ParentCode] AS [Menu_ParentCode], 
+    [View_PendingMatterToRolePurview].[Menu_AddTime] AS [Menu_AddTime], 
+    [View_PendingMatterToRolePurview].[Menu_AddUserID] AS [Menu_AddUserID], 
+    [View_PendingMatterToRolePurview].[Menu_Operation] AS [Menu_Operation], 
+    [View_PendingMatterToRolePurview].[RoleID] AS [RoleID], 
+    [View_PendingMatterToRolePurview].[Role_Name] AS [Role_Name], 
+    [View_PendingMatterToRolePurview].[Role_Description] AS [Role_Description], 
+    [View_PendingMatterToRolePurview].[Role_Sequence] AS [Role_Sequence], 
+    [View_PendingMatterToRolePurview].[Role_IsDel] AS [Role_IsDel], 
+    [View_PendingMatterToRolePurview].[Role_AddTime] AS [Role_AddTime], 
+    [View_PendingMatterToRolePurview].[Role_AddUserID] AS [Role_AddUserID]
+    FROM [dbo].[View_PendingMatterToRolePurview] AS [View_PendingMatterToRolePurview]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Sys_DeskTtop" EntityType="Self.View_Sys_DeskTtop" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Sys_DeskTtop].[DesktopID] AS [DesktopID], 
+    [View_Sys_DeskTtop].[Desktop_UserInfoID] AS [Desktop_UserInfoID], 
+    [View_Sys_DeskTtop].[Desktop_MenuID] AS [Desktop_MenuID], 
+    [View_Sys_DeskTtop].[Desktop_Icon] AS [Desktop_Icon], 
+    [View_Sys_DeskTtop].[Desktop_Name] AS [Desktop_Name], 
+    [View_Sys_DeskTtop].[Desktop_Sort] AS [Desktop_Sort], 
+    [View_Sys_DeskTtop].[Desktop_AddTime] AS [Desktop_AddTime], 
+    [View_Sys_DeskTtop].[Desktop_EditTime] AS [Desktop_EditTime], 
+    [View_Sys_DeskTtop].[Desktop_TabType] AS [Desktop_TabType], 
+    [View_Sys_DeskTtop].[Desktop_Type] AS [Desktop_Type], 
+    [View_Sys_DeskTtop].[Menu_Url] AS [Menu_Url]
+    FROM [dbo].[View_Sys_DeskTtop] AS [View_Sys_DeskTtop]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Sys_Log" EntityType="Self.View_Sys_Log" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Sys_Log].[SysLogID] AS [SysLogID], 
+    [View_Sys_Log].[UserInfo_FullName] AS [UserInfo_FullName], 
+    [View_Sys_Log].[Department_Name] AS [Department_Name], 
+    [View_Sys_Log].[SysLog_OperateDate] AS [SysLog_OperateDate], 
+    [View_Sys_Log].[SysLog_Ip] AS [SysLog_Ip], 
+    [View_Sys_Log].[SysLog_OperateType] AS [SysLog_OperateType], 
+    [View_Sys_Log].[SysLog_OperateFunName] AS [SysLog_OperateFunName]
+    FROM [dbo].[View_Sys_Log] AS [View_Sys_Log]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Sys_Menu" EntityType="Self.View_Sys_Menu" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Sys_Menu].[MenuID] AS [MenuID], 
+    [View_Sys_Menu].[Menu_Name] AS [Menu_Name], 
+    [View_Sys_Menu].[Menu_Description] AS [Menu_Description], 
+    [View_Sys_Menu].[Menu_Sequence] AS [Menu_Sequence], 
+    [View_Sys_Menu].[Menu_Url] AS [Menu_Url], 
+    [View_Sys_Menu].[Menu_Level] AS [Menu_Level], 
+    [View_Sys_Menu].[Menu_Code] AS [Menu_Code], 
+    [View_Sys_Menu].[Menu_ParentCode] AS [Menu_ParentCode], 
+    [View_Sys_Menu].[Menu_AddTime] AS [Menu_AddTime], 
+    [View_Sys_Menu].[Menu_AddUserID] AS [Menu_AddUserID], 
+    [View_Sys_Menu].[Menu_Operation] AS [Menu_Operation]
+    FROM [dbo].[View_Sys_Menu] AS [View_Sys_Menu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Sys_MenuRelatedRole" EntityType="Self.View_Sys_MenuRelatedRole" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Sys_MenuRelatedRole].[MenuID] AS [MenuID], 
+    [View_Sys_MenuRelatedRole].[Menu_Name] AS [Menu_Name], 
+    [View_Sys_MenuRelatedRole].[Menu_Code] AS [Menu_Code], 
+    [View_Sys_MenuRelatedRole].[Menu_ParentCode] AS [Menu_ParentCode], 
+    [View_Sys_MenuRelatedRole].[Menu_Operation] AS [Menu_Operation], 
+    [View_Sys_MenuRelatedRole].[Menu_Url] AS [Menu_Url], 
+    [View_Sys_MenuRelatedRole].[RolePurviewID] AS [RolePurviewID], 
+    [View_Sys_MenuRelatedRole].[RolePurview_RoleID] AS [RolePurview_RoleID], 
+    [View_Sys_MenuRelatedRole].[RolePurview_OperatePurview] AS [RolePurview_OperatePurview], 
+    [View_Sys_MenuRelatedRole].[RolePurview_SeeCharge] AS [RolePurview_SeeCharge], 
+    [View_Sys_MenuRelatedRole].[RolePurview_SeeDepCode] AS [RolePurview_SeeDepCode], 
+    [View_Sys_MenuRelatedRole].[RolePurview_SeeType] AS [RolePurview_SeeType]
+    FROM [dbo].[View_Sys_MenuRelatedRole] AS [View_Sys_MenuRelatedRole]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Sys_Post" EntityType="Self.View_Sys_Post" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Sys_Post].[Post_AddTime] AS [Post_AddTime], 
+    [View_Sys_Post].[Post_Name] AS [Post_Name], 
+    [View_Sys_Post].[PostID] AS [PostID], 
+    [View_Sys_Post].[Post_DepCode] AS [Post_DepCode], 
+    [View_Sys_Post].[Department_Name] AS [Department_Name], 
+    [View_Sys_Post].[Post_Sort] AS [Post_Sort], 
+    [View_Sys_Post].[Department_Sequence] AS [Department_Sequence], 
+    [View_Sys_Post].[Department_Level] AS [Department_Level]
+    FROM [dbo].[View_Sys_Post] AS [View_Sys_Post]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Sys_RolePurview" EntityType="Self.View_Sys_RolePurview" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Sys_RolePurview].[RolePurviewID] AS [RolePurviewID], 
+    [View_Sys_RolePurview].[RolePurview_RoleID] AS [RolePurview_RoleID], 
+    [View_Sys_RolePurview].[RolePurview_MenuCode] AS [RolePurview_MenuCode], 
+    [View_Sys_RolePurview].[RolePurview_OperatePurview] AS [RolePurview_OperatePurview], 
+    [View_Sys_RolePurview].[MenuID] AS [MenuID], 
+    [View_Sys_RolePurview].[Menu_Name] AS [Menu_Name], 
+    [View_Sys_RolePurview].[Menu_Description] AS [Menu_Description], 
+    [View_Sys_RolePurview].[Menu_Sequence] AS [Menu_Sequence], 
+    [View_Sys_RolePurview].[Menu_Url] AS [Menu_Url], 
+    [View_Sys_RolePurview].[Menu_Level] AS [Menu_Level], 
+    [View_Sys_RolePurview].[Menu_Code] AS [Menu_Code], 
+    [View_Sys_RolePurview].[Menu_ParentCode] AS [Menu_ParentCode], 
+    [View_Sys_RolePurview].[Menu_AddTime] AS [Menu_AddTime], 
+    [View_Sys_RolePurview].[Menu_AddUserID] AS [Menu_AddUserID], 
+    [View_Sys_RolePurview].[Menu_Operation] AS [Menu_Operation]
+    FROM [dbo].[View_Sys_RolePurview] AS [View_Sys_RolePurview]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Sys_RolePurviewAndMenu" EntityType="Self.View_Sys_RolePurviewAndMenu" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Sys_RolePurviewAndMenu].[RolePurviewID] AS [RolePurviewID], 
+    [View_Sys_RolePurviewAndMenu].[RolePurview_RoleID] AS [RolePurview_RoleID], 
+    [View_Sys_RolePurviewAndMenu].[RolePurview_MenuCode] AS [RolePurview_MenuCode], 
+    [View_Sys_RolePurviewAndMenu].[RolePurview_OperatePurview] AS [RolePurview_OperatePurview], 
+    [View_Sys_RolePurviewAndMenu].[RolePurview_SeeCharge] AS [RolePurview_SeeCharge], 
+    [View_Sys_RolePurviewAndMenu].[RolePurview_SeeDepCode] AS [RolePurview_SeeDepCode], 
+    [View_Sys_RolePurviewAndMenu].[RolePurview_SeeType] AS [RolePurview_SeeType], 
+    [View_Sys_RolePurviewAndMenu].[MenuID] AS [MenuID], 
+    [View_Sys_RolePurviewAndMenu].[Menu_ModuleId] AS [Menu_ModuleId], 
+    [View_Sys_RolePurviewAndMenu].[Menu_Name] AS [Menu_Name], 
+    [View_Sys_RolePurviewAndMenu].[Menu_Description] AS [Menu_Description], 
+    [View_Sys_RolePurviewAndMenu].[Menu_Sequence] AS [Menu_Sequence], 
+    [View_Sys_RolePurviewAndMenu].[Menu_Url] AS [Menu_Url], 
+    [View_Sys_RolePurviewAndMenu].[Menu_Level] AS [Menu_Level], 
+    [View_Sys_RolePurviewAndMenu].[Menu_Code] AS [Menu_Code], 
+    [View_Sys_RolePurviewAndMenu].[Menu_ParentCode] AS [Menu_ParentCode], 
+    [View_Sys_RolePurviewAndMenu].[Menu_AddTime] AS [Menu_AddTime], 
+    [View_Sys_RolePurviewAndMenu].[Menu_AddUserID] AS [Menu_AddUserID], 
+    [View_Sys_RolePurviewAndMenu].[Menu_Operation] AS [Menu_Operation]
+    FROM [dbo].[View_Sys_RolePurviewAndMenu] AS [View_Sys_RolePurviewAndMenu]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Sys_UserInfo" EntityType="Self.View_Sys_UserInfo" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Sys_UserInfo].[UserInfoID] AS [UserInfoID], 
+    [View_Sys_UserInfo].[UserInfo_RoleID] AS [UserInfo_RoleID], 
+    [View_Sys_UserInfo].[UserInfo_Post] AS [UserInfo_Post], 
+    [View_Sys_UserInfo].[UserInfo_FullName] AS [UserInfo_FullName], 
+    [View_Sys_UserInfo].[UserInfo_Sex] AS [UserInfo_Sex], 
+    [View_Sys_UserInfo].[UserInfo_DateBirth] AS [UserInfo_DateBirth], 
+    [View_Sys_UserInfo].[UserInfo_Age] AS [UserInfo_Age], 
+    [View_Sys_UserInfo].[UserInfo_DepCode] AS [UserInfo_DepCode], 
+    [View_Sys_UserInfo].[UserInfo_Hometown] AS [UserInfo_Hometown], 
+    [View_Sys_UserInfo].[UserInfo_Schools] AS [UserInfo_Schools], 
+    [View_Sys_UserInfo].[UserInfo_Specialty] AS [UserInfo_Specialty], 
+    [View_Sys_UserInfo].[UserInfo_OccupTitle] AS [UserInfo_OccupTitle], 
+    [View_Sys_UserInfo].[UserInfo_Position] AS [UserInfo_Position], 
+    [View_Sys_UserInfo].[UserInfo_PositionLevel] AS [UserInfo_PositionLevel], 
+    [View_Sys_UserInfo].[UserInfo_NowHoldPostTime] AS [UserInfo_NowHoldPostTime], 
+    [View_Sys_UserInfo].[UserInfo_EduBackground] AS [UserInfo_EduBackground], 
+    [View_Sys_UserInfo].[UserInfo_PoliticalLandscape] AS [UserInfo_PoliticalLandscape], 
+    [View_Sys_UserInfo].[UserInfo_PhoneNumber] AS [UserInfo_PhoneNumber], 
+    [View_Sys_UserInfo].[UserInfo_IdentityCred] AS [UserInfo_IdentityCred], 
+    [View_Sys_UserInfo].[UserInfo_Address] AS [UserInfo_Address], 
+    [View_Sys_UserInfo].[UserInfo_LoginUserName] AS [UserInfo_LoginUserName], 
+    [View_Sys_UserInfo].[UserInfo_LoginUserPwd] AS [UserInfo_LoginUserPwd], 
+    [View_Sys_UserInfo].[UserInfo_AddTime] AS [UserInfo_AddTime], 
+    [View_Sys_UserInfo].[Department_Name] AS [Department_Name], 
+    [View_Sys_UserInfo].[Department_Sequence] AS [Department_Sequence], 
+    [View_Sys_UserInfo].[Department_Respon] AS [Department_Respon], 
+    [View_Sys_UserInfo].[Department_ParentCode] AS [Department_ParentCode], 
+    [View_Sys_UserInfo].[Department_Level] AS [Department_Level], 
+    [View_Sys_UserInfo].[Department_IsDel] AS [Department_IsDel], 
+    [View_Sys_UserInfo].[Department_AddTime] AS [Department_AddTime], 
+    [View_Sys_UserInfo].[UserInfo_RoleName] AS [UserInfo_RoleName], 
+    [View_Sys_UserInfo].[UserInfo_PostName] AS [UserInfo_PostName], 
+    [View_Sys_UserInfo].[UserInfo_Status] AS [UserInfo_Status], 
+    [View_Sys_UserInfo].[UserInfo_Type] AS [UserInfo_Type], 
+    [View_Sys_UserInfo].[UserInfo_Sequence] AS [UserInfo_Sequence], 
+    [View_Sys_UserInfo].[UserInfo_PostSequence] AS [UserInfo_PostSequence], 
+    [View_Sys_UserInfo].[UserInfo_StatusName] AS [UserInfo_StatusName], 
+    [View_Sys_UserInfo].[UserInfo_Nation] AS [UserInfo_Nation], 
+    [View_Sys_UserInfo].[UserInfo_StartWorkDate] AS [UserInfo_StartWorkDate], 
+    [View_Sys_UserInfo].[UserInfo_EducationalLevel] AS [UserInfo_EducationalLevel], 
+    [View_Sys_UserInfo].[UserInfo_JoinPartyDate] AS [UserInfo_JoinPartyDate], 
+    [View_Sys_UserInfo].[Department_Type] AS [Department_Type], 
+    [View_Sys_UserInfo].[UnitCode] AS [UnitCode], 
+    [View_Sys_UserInfo].[UnitName] AS [UnitName], 
+    [View_Sys_UserInfo].[UserInfo_EnlistTime] AS [UserInfo_EnlistTime], 
+    [View_Sys_UserInfo].[UserInfo_Badge] AS [UserInfo_Badge], 
+    [View_Sys_UserInfo].[UserInfo_EnlistPlace] AS [UserInfo_EnlistPlace], 
+    [View_Sys_UserInfo].[DepartmentID] AS [DepartmentID], 
+    [View_Sys_UserInfo].[UserInfo_WorkingState] AS [UserInfo_WorkingState], 
+    [View_Sys_UserInfo].[UserInfo_IsDelete] AS [UserInfo_IsDelete]
+    FROM [dbo].[View_Sys_UserInfo] AS [View_Sys_UserInfo]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_SYS_MENU_RELATIONS_SYS_MODU" Association="Self.FK_SYS_MENU_RELATIONS_SYS_MODU">
+            <End Role="Sys_Module" EntitySet="Sys_Module" />
+            <End Role="Sys_Menu" EntitySet="Sys_Menu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ShuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ShuEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Sys_Config" EntityType="ShuModel.Sys_Config" />
+          <EntitySet Name="Sys_DataDict" EntityType="ShuModel.Sys_DataDict" />
+          <EntitySet Name="Sys_Department" EntityType="ShuModel.Sys_Department" />
+          <EntitySet Name="Sys_Holiday" EntityType="ShuModel.Sys_Holiday" />
+          <EntitySet Name="Sys_Log" EntityType="ShuModel.Sys_Log" />
+          <EntitySet Name="Sys_Message" EntityType="ShuModel.Sys_Message" />
+          <EntitySet Name="Sys_Notice" EntityType="ShuModel.Sys_Notice" />
+          <EntitySet Name="Sys_PendingMatter" EntityType="ShuModel.Sys_PendingMatter" />
+          <EntitySet Name="Sys_Post" EntityType="ShuModel.Sys_Post" />
+          <EntitySet Name="Sys_PostChange" EntityType="ShuModel.Sys_PostChange" />
+          <EntitySet Name="Sys_Role" EntityType="ShuModel.Sys_Role" />
+          <EntitySet Name="Sys_RolePurview" EntityType="ShuModel.Sys_RolePurview" />
+          <EntitySet Name="Sys_Setting" EntityType="ShuModel.Sys_Setting" />
+          <EntitySet Name="Sys_UserChargeDep" EntityType="ShuModel.Sys_UserChargeDep" />
+          <EntitySet Name="View_Sys_Log" EntityType="ShuModel.View_Sys_Log" />
+          <EntitySet Name="View_Sys_Menu" EntityType="ShuModel.View_Sys_Menu" />
+          <EntitySet Name="View_Sys_MenuRelatedRole" EntityType="ShuModel.View_Sys_MenuRelatedRole" />
+          <EntitySet Name="View_Sys_Post" EntityType="ShuModel.View_Sys_Post" />
+          <EntitySet Name="View_Sys_RolePurview" EntityType="ShuModel.View_Sys_RolePurview" />
+          <EntitySet Name="View_Sys_RolePurviewAndMenu" EntityType="ShuModel.View_Sys_RolePurviewAndMenu" />
+          <EntitySet Name="View_Sys_UserInfo" EntityType="ShuModel.View_Sys_UserInfo" />
+          <EntitySet Name="Sys_SeeCharge" EntityType="ShuModel.Sys_SeeCharge" />
+          <EntitySet Name="View_PendingMatterToRolePurview" EntityType="ShuModel.View_PendingMatterToRolePurview" />
+          <EntitySet Name="Sys_ModelFile" EntityType="ShuModel.Sys_ModelFile" />
+          <EntitySet Name="Sys_UploadDataType" EntityType="ShuModel.Sys_UploadDataType" />
+          <EntitySet Name="Sys_Desktop" EntityType="ShuModel.Sys_Desktop" />
+          <EntitySet Name="View_Sys_DeskTtop" EntityType="ShuModel.View_Sys_DeskTtop" />
+          <EntitySet Name="Sys_UserInfo" EntityType="ShuModel.Sys_UserInfo" />
+          <EntitySet Name="Sys_Area" EntityType="ShuModel.Sys_Area" />
+          <EntitySet Name="Sys_Menu" EntityType="ShuModel.Sys_Menu" />
+          <EntitySet Name="Sys_Module" EntityType="ShuModel.Sys_Module" />
+          <AssociationSet Name="FK_SYS_MENU_RELATIONS_SYS_MODU" Association="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU">
+            <End Role="Sys_Module" EntitySet="Sys_Module" />
+            <End Role="Sys_Menu" EntitySet="Sys_Menu" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Sys_Config">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Config_Key" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Config_Value" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sys_DataDict">
+          <Key>
+            <PropertyRef Name="DataDictID" />
+          </Key>
+          <Property Name="DataDictID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DataDict_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DataDict_Code" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DataDict_ParentCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DataDict_ParentPath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DataDict_TopId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DataDict_IsChild" Type="Boolean" />
+          <Property Name="DataDict_Sequence" Type="Int32" Nullable="false" />
+          <Property Name="DataDict_Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="DataDict_Level" Type="Int32" />
+          <Property Name="DataDict_AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DataDict_AddUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DataDict_IsDel" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_Department">
+          <Key>
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="DepartmentID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Department_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Department_Sequence" Type="Int32" />
+          <Property Name="Department_Respon" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Department_Code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Department_ParentCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Department_Level" Type="Int32" />
+          <Property Name="Department_IsDel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Department_AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Department_AddUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Department_Type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sys_Holiday">
+          <Key>
+            <PropertyRef Name="HolidayId" />
+          </Key>
+          <Property Name="HolidayId" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Holiday_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Holiday_StartDate" Type="DateTime" Precision="3" />
+          <Property Name="Holiday_EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Holiday_UpdateUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Holiday_UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Holiday_IsDelete" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Sys_Log">
+          <Key>
+            <PropertyRef Name="SysLogID" />
+          </Key>
+          <Property Name="SysLogID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SysLog_OperateDep" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SysLog_TableName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SysLog_OperateFunName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SysLog_OperateDataID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SysLog_OperateUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SysLog_OperateType" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SysLog_Remark" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="SysLog_OperateDate" Type="DateTime" Precision="3" />
+          <Property Name="SysLog_Ip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sys_Message">
+          <Key>
+            <PropertyRef Name="MessageID" />
+          </Key>
+          <Property Name="MessageID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Message_Title" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Message_Content" Type="String" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="Message_SendTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Message_ReceiveUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Message_IsShow" Type="Boolean" />
+          <Property Name="Message_DynamicRefreshStatus" Type="Boolean" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="AddUserId" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EditUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_Notice">
+          <Key>
+            <PropertyRef Name="NoticeID" />
+          </Key>
+          <Property Name="NoticeID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Notice_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Notice_Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Notice_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="AddUserId" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EditUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="Notice_Scope" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sys_PendingMatter">
+          <Key>
+            <PropertyRef Name="PendingMatterID" />
+          </Key>
+          <Property Name="PendingMatterID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PendingMatter_ModuleID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PendingMatter_ModuleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PendingMatter_Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PendingMatter_ToRoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PendingMatter_URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PendingMatter_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="PendingMatter_AddUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sys_Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Post_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Post_DepCode" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Post_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Post_AddUserId" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Post_EditUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Post_EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Post_IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="Post_Sort" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_PostChange">
+          <Key>
+            <PropertyRef Name="PostChangeID" />
+          </Key>
+          <Property Name="PostChangeID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PostChange_ChangeUserID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PostChange_BeforeChangeDep" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostChange_BeforeChangePost" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostChange_AfterChangeDep" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostChange_AfterChangePost" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PostChange_ChangeTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PostChange_OperateUserID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sys_Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Role_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Role_Description" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="Role_Sequence" Type="Int32" />
+          <Property Name="Role_IsDel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Role_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Role_AddUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Role_ShowType" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Sys_RolePurview">
+          <Key>
+            <PropertyRef Name="RolePurviewID" />
+          </Key>
+          <Property Name="RolePurviewID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_RoleID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_MenuCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_OperatePurview" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_SeeCharge" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_SeeDepCode" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_SeeType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sys_Setting">
+          <Key>
+            <PropertyRef Name="SettingID" />
+          </Key>
+          <Property Name="SettingID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Setting_Key" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Setting_Value" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Setting_Name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Setting_Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Setting_ValueType" Type="Int32" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="AddUserId" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EditUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_UserChargeDep">
+          <Key>
+            <PropertyRef Name="UserChargeDepID" />
+          </Key>
+          <Property Name="UserChargeDepID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserChargeDep_ExecutiveOfficerID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserChargeDep_ChargeCrewID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserChargeDep_ChargeCrewDepCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Sys_Log">
+          <Key>
+            <PropertyRef Name="SysLogID" />
+          </Key>
+          <Property Name="SysLogID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_FullName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Department_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SysLog_OperateDate" Type="DateTime" Precision="3" />
+          <Property Name="SysLog_Ip" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SysLog_OperateType" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SysLog_OperateFunName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Sys_Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="Menu_Name" />
+            <PropertyRef Name="Menu_Sequence" />
+            <PropertyRef Name="Menu_Level" />
+          </Key>
+          <Property Name="MenuID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Sequence" Type="Int32" Nullable="false" />
+          <Property Name="Menu_Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Level" Type="Int32" Nullable="false" />
+          <Property Name="Menu_Code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_ParentCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Menu_AddUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Operation" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Sys_MenuRelatedRole">
+          <Key>
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="Menu_Name" />
+            <PropertyRef Name="RolePurviewID" />
+            <PropertyRef Name="RolePurview_RoleID" />
+          </Key>
+          <Property Name="MenuID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_ParentCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Operation" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurviewID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_RoleID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_OperatePurview" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_SeeCharge" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_SeeDepCode" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_SeeType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Sys_Post">
+          <Key>
+            <PropertyRef Name="Post_Name" />
+            <PropertyRef Name="PostID" />
+            <PropertyRef Name="Post_DepCode" />
+            <PropertyRef Name="Department_Name" />
+            <PropertyRef Name="Post_Sort" />
+          </Key>
+          <Property Name="Post_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Post_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PostID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Post_DepCode" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Department_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Post_Sort" Type="Int32" Nullable="false" />
+          <Property Name="Department_Sequence" Type="Int32" />
+          <Property Name="Department_Level" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_Sys_RolePurview">
+          <Key>
+            <PropertyRef Name="RolePurviewID" />
+            <PropertyRef Name="RolePurview_RoleID" />
+          </Key>
+          <Property Name="RolePurviewID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_RoleID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_MenuCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_OperatePurview" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="MenuID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Sequence" Type="Int32" />
+          <Property Name="Menu_Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Level" Type="Int32" />
+          <Property Name="Menu_Code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_ParentCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Menu_AddUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Operation" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Sys_RolePurviewAndMenu">
+          <Key>
+            <PropertyRef Name="RolePurviewID" />
+            <PropertyRef Name="RolePurview_RoleID" />
+            <PropertyRef Name="MenuID" />
+            <PropertyRef Name="Menu_Name" />
+            <PropertyRef Name="Menu_Sequence" />
+            <PropertyRef Name="Menu_Level" />
+          </Key>
+          <Property Name="RolePurviewID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_RoleID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_MenuCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_OperatePurview" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_SeeCharge" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_SeeDepCode" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_SeeType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MenuID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_ModuleId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Sequence" Type="Int32" Nullable="false" />
+          <Property Name="Menu_Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Level" Type="Int32" Nullable="false" />
+          <Property Name="Menu_Code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_ParentCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Menu_AddUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Operation" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Sys_UserInfo">
+          <Key>
+            <PropertyRef Name="UserInfoID" />
+            <PropertyRef Name="UserInfo_RoleID" />
+            <PropertyRef Name="UserInfo_Post" />
+            <PropertyRef Name="UserInfo_FullName" />
+            <PropertyRef Name="Department_Name" />
+            <PropertyRef Name="Department_AddTime" />
+            <PropertyRef Name="DepartmentID" />
+          </Key>
+          <Property Name="UserInfoID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_RoleID" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Post" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_FullName" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Sex" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="UserInfo_DateBirth" Type="DateTime" Precision="3" />
+          <Property Name="UserInfo_Age" Type="Int32" />
+          <Property Name="UserInfo_DepCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Hometown" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Schools" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Specialty" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_OccupTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Position" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_PositionLevel" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_NowHoldPostTime" Type="DateTime" Precision="3" />
+          <Property Name="UserInfo_EduBackground" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_PoliticalLandscape" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_PhoneNumber" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_IdentityCred" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_LoginUserName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_LoginUserPwd" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Department_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Department_Sequence" Type="Int32" />
+          <Property Name="Department_Respon" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Department_ParentCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Department_Level" Type="Int32" />
+          <Property Name="Department_IsDel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Department_AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserInfo_RoleName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="UserInfo_PostName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserInfo_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Sequence" Type="Int32" />
+          <Property Name="UserInfo_PostSequence" Type="Int32" />
+          <Property Name="UserInfo_StatusName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Nation" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_StartWorkDate" Type="DateTime" Precision="3" />
+          <Property Name="UserInfo_EducationalLevel" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_JoinPartyDate" Type="DateTime" Precision="3" />
+          <Property Name="Department_Type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UnitCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UnitName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_EnlistTime" Type="DateTime" Precision="3" />
+          <Property Name="UserInfo_Badge" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_EnlistPlace" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DepartmentID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_WorkingState" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_IsDelete" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Sys_SeeCharge">
+          <Key>
+            <PropertyRef Name="SeeChargeID" />
+          </Key>
+          <Property Name="SeeChargeID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SeeCharge_MenuID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SeeCharge_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="SeeCharge_Code" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SeeCharge_Sort" Type="Int32" />
+          <Property Name="SeeCharge_AddTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="View_PendingMatterToRolePurview">
+          <Key>
+            <PropertyRef Name="RolePurviewID" />
+            <PropertyRef Name="RolePurview_RoleID" />
+          </Key>
+          <Property Name="RolePurviewID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_RoleID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_MenuCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RolePurview_OperatePurview" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="MenuID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Sequence" Type="Int32" />
+          <Property Name="Menu_Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Level" Type="Int32" />
+          <Property Name="Menu_Code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_ParentCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Menu_AddUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Operation" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Role_Name" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Role_Description" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="Role_Sequence" Type="Int32" />
+          <Property Name="Role_IsDel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Role_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Role_AddUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sys_ModelFile">
+          <Key>
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="FileID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="File_Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="File_Extension" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="File_Size" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="File_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="File_Path" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="File_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="File_OperationID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="File_UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="File_Sort" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Sys_UploadDataType">
+          <Key>
+            <PropertyRef Name="UploadDataType_ID" />
+          </Key>
+          <Property Name="UploadDataType_ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UploadDataType_ProductType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UploadDataType_ProcessStage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UploadDataType_TypeCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UploadDataType_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UploadDataType_DataType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UploadDataType_Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UploadDataType_SortNo" Type="Int32" />
+          <Property Name="UploadDataType_IsDelete" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Sys_Desktop">
+          <Key>
+            <PropertyRef Name="DesktopID" />
+          </Key>
+          <Property Name="DesktopID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Desktop_UserInfoID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Desktop_MenuID" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Desktop_Icon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Desktop_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Desktop_Sort" Type="Int32" Nullable="false" />
+          <Property Name="Desktop_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Desktop_EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Desktop_TabType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Desktop_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Sys_DeskTtop">
+          <Key>
+            <PropertyRef Name="DesktopID" />
+            <PropertyRef Name="Desktop_UserInfoID" />
+            <PropertyRef Name="Desktop_Name" />
+            <PropertyRef Name="Desktop_Sort" />
+          </Key>
+          <Property Name="DesktopID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Desktop_UserInfoID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Desktop_MenuID" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Desktop_Icon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Desktop_Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Desktop_Sort" Type="Int32" Nullable="false" />
+          <Property Name="Desktop_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Desktop_EditTime" Type="DateTime" Precision="3" />
+          <Property Name="Desktop_TabType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Desktop_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sys_UserInfo">
+          <Key>
+            <PropertyRef Name="UserInfoID" />
+          </Key>
+          <Property Name="UserInfoID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_RoleID" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Post" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_FullName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_DateBirth" Type="DateTime" Precision="3" />
+          <Property Name="UserInfo_Age" Type="Int32" />
+          <Property Name="UserInfo_DepCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Hometown" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Schools" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Specialty" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_OccupTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Position" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_PositionLevel" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_NowHoldPostTime" Type="DateTime" Precision="3" />
+          <Property Name="UserInfo_EduBackground" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_PoliticalLandscape" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_PhoneNumber" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_IdentityCred" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Nation" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_NationName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_JoinPartyDate" Type="DateTime" Precision="3" />
+          <Property Name="UserInfo_EnlistTime" Type="DateTime" Precision="3" />
+          <Property Name="UserInfo_Badge" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_EnlistPlace" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_StartWorkDate" Type="DateTime" Precision="3" />
+          <Property Name="UserInfo_EducationalLevel" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_EducationalLevelName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_LoginUserName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_LoginUserPwd" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_AddUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="UserInfo_Status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_Sequence" Type="Int32" />
+          <Property Name="UserInfo_WorkingState" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_IsDelete" Type="Boolean" />
+          <Property Name="UserInfo_EditTime" Type="DateTime" Precision="3" />
+          <Property Name="UserInfo_EditUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sys_Area">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" Nullable="false" />
+          <Property Name="Depth" Type="Int32" Nullable="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="Path" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PostCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AreaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PinYin" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CrossArea" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Sys_Menu">
+          <Key>
+            <PropertyRef Name="MenuID" />
+          </Key>
+          <Property Name="MenuID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_ModuleId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Sequence" Type="Int32" Nullable="false" />
+          <Property Name="Menu_Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Level" Type="Int32" Nullable="false" />
+          <Property Name="Menu_Code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_ParentCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Menu_AddUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Menu_Operation" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sys_Module" Relationship="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU" FromRole="Sys_Menu" ToRole="Sys_Module" />
+        </EntityType>
+        <EntityType Name="Sys_Module">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="IsAccredit" Type="Boolean" Nullable="false" />
+          <Property Name="IsShow" Type="Boolean" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AddUserId" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EditUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sys_Menu" Relationship="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU" FromRole="Sys_Module" ToRole="Sys_Menu" />
+        </EntityType>
+        <Association Name="FK_SYS_MENU_RELATIONS_SYS_MODU">
+          <End Type="ShuModel.Sys_Module" Role="Sys_Module" Multiplicity="0..1" />
+          <End Type="ShuModel.Sys_Menu" Role="Sys_Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sys_Module">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sys_Menu">
+              <PropertyRef Name="Menu_ModuleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ShuModelStoreContainer" CdmEntityContainer="ShuEntities">
+          <EntitySetMapping Name="Sys_Config">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Config">
+              <MappingFragment StoreEntitySet="Sys_Config">
+                <ScalarProperty Name="Config_Value" ColumnName="Config_Value" />
+                <ScalarProperty Name="Config_Key" ColumnName="Config_Key" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_DataDict">
+            <EntityTypeMapping TypeName="ShuModel.Sys_DataDict">
+              <MappingFragment StoreEntitySet="Sys_DataDict">
+                <ScalarProperty Name="DataDict_IsDel" ColumnName="DataDict_IsDel" />
+                <ScalarProperty Name="DataDict_AddUserID" ColumnName="DataDict_AddUserID" />
+                <ScalarProperty Name="DataDict_AddTime" ColumnName="DataDict_AddTime" />
+                <ScalarProperty Name="DataDict_Level" ColumnName="DataDict_Level" />
+                <ScalarProperty Name="DataDict_Remark" ColumnName="DataDict_Remark" />
+                <ScalarProperty Name="DataDict_Sequence" ColumnName="DataDict_Sequence" />
+                <ScalarProperty Name="DataDict_IsChild" ColumnName="DataDict_IsChild" />
+                <ScalarProperty Name="DataDict_TopId" ColumnName="DataDict_TopId" />
+                <ScalarProperty Name="DataDict_ParentPath" ColumnName="DataDict_ParentPath" />
+                <ScalarProperty Name="DataDict_ParentCode" ColumnName="DataDict_ParentCode" />
+                <ScalarProperty Name="DataDict_Code" ColumnName="DataDict_Code" />
+                <ScalarProperty Name="DataDict_Name" ColumnName="DataDict_Name" />
+                <ScalarProperty Name="DataDictID" ColumnName="DataDictID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Department">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Department">
+              <MappingFragment StoreEntitySet="Sys_Department">
+                <ScalarProperty Name="Department_Type" ColumnName="Department_Type" />
+                <ScalarProperty Name="Department_AddUserID" ColumnName="Department_AddUserID" />
+                <ScalarProperty Name="Department_AddTime" ColumnName="Department_AddTime" />
+                <ScalarProperty Name="Department_IsDel" ColumnName="Department_IsDel" />
+                <ScalarProperty Name="Department_Level" ColumnName="Department_Level" />
+                <ScalarProperty Name="Department_ParentCode" ColumnName="Department_ParentCode" />
+                <ScalarProperty Name="Department_Code" ColumnName="Department_Code" />
+                <ScalarProperty Name="Department_Respon" ColumnName="Department_Respon" />
+                <ScalarProperty Name="Department_Sequence" ColumnName="Department_Sequence" />
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Holiday">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Holiday">
+              <MappingFragment StoreEntitySet="Sys_Holiday">
+                <ScalarProperty Name="Holiday_IsDelete" ColumnName="Holiday_IsDelete" />
+                <ScalarProperty Name="Holiday_UpdateTime" ColumnName="Holiday_UpdateTime" />
+                <ScalarProperty Name="Holiday_UpdateUserId" ColumnName="Holiday_UpdateUserId" />
+                <ScalarProperty Name="Holiday_EndDate" ColumnName="Holiday_EndDate" />
+                <ScalarProperty Name="Holiday_StartDate" ColumnName="Holiday_StartDate" />
+                <ScalarProperty Name="Holiday_Name" ColumnName="Holiday_Name" />
+                <ScalarProperty Name="HolidayId" ColumnName="HolidayId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Log">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Log">
+              <MappingFragment StoreEntitySet="Sys_Log">
+                <ScalarProperty Name="SysLog_Ip" ColumnName="SysLog_Ip" />
+                <ScalarProperty Name="SysLog_OperateDate" ColumnName="SysLog_OperateDate" />
+                <ScalarProperty Name="SysLog_Remark" ColumnName="SysLog_Remark" />
+                <ScalarProperty Name="SysLog_OperateType" ColumnName="SysLog_OperateType" />
+                <ScalarProperty Name="SysLog_OperateUserID" ColumnName="SysLog_OperateUserID" />
+                <ScalarProperty Name="SysLog_OperateDataID" ColumnName="SysLog_OperateDataID" />
+                <ScalarProperty Name="SysLog_OperateFunName" ColumnName="SysLog_OperateFunName" />
+                <ScalarProperty Name="SysLog_TableName" ColumnName="SysLog_TableName" />
+                <ScalarProperty Name="SysLog_OperateDep" ColumnName="SysLog_OperateDep" />
+                <ScalarProperty Name="SysLogID" ColumnName="SysLogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Message">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Message">
+              <MappingFragment StoreEntitySet="Sys_Message">
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Message_DynamicRefreshStatus" ColumnName="Message_DynamicRefreshStatus" />
+                <ScalarProperty Name="Message_IsShow" ColumnName="Message_IsShow" />
+                <ScalarProperty Name="Message_ReceiveUserID" ColumnName="Message_ReceiveUserID" />
+                <ScalarProperty Name="Message_SendTime" ColumnName="Message_SendTime" />
+                <ScalarProperty Name="Message_Content" ColumnName="Message_Content" />
+                <ScalarProperty Name="Message_Title" ColumnName="Message_Title" />
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Notice">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Notice">
+              <MappingFragment StoreEntitySet="Sys_Notice">
+                <ScalarProperty Name="Notice_Scope" ColumnName="Notice_Scope" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Notice_Content" ColumnName="Notice_Content" />
+                <ScalarProperty Name="Notice_Title" ColumnName="Notice_Title" />
+                <ScalarProperty Name="Notice_Type" ColumnName="Notice_Type" />
+                <ScalarProperty Name="NoticeID" ColumnName="NoticeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_PendingMatter">
+            <EntityTypeMapping TypeName="ShuModel.Sys_PendingMatter">
+              <MappingFragment StoreEntitySet="Sys_PendingMatter">
+                <ScalarProperty Name="PendingMatter_AddUserID" ColumnName="PendingMatter_AddUserID" />
+                <ScalarProperty Name="PendingMatter_AddTime" ColumnName="PendingMatter_AddTime" />
+                <ScalarProperty Name="PendingMatter_URL" ColumnName="PendingMatter_URL" />
+                <ScalarProperty Name="PendingMatter_ToRoleName" ColumnName="PendingMatter_ToRoleName" />
+                <ScalarProperty Name="PendingMatter_Title" ColumnName="PendingMatter_Title" />
+                <ScalarProperty Name="PendingMatter_ModuleName" ColumnName="PendingMatter_ModuleName" />
+                <ScalarProperty Name="PendingMatter_ModuleID" ColumnName="PendingMatter_ModuleID" />
+                <ScalarProperty Name="PendingMatterID" ColumnName="PendingMatterID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Post">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Post">
+              <MappingFragment StoreEntitySet="Sys_Post">
+                <ScalarProperty Name="Post_Sort" ColumnName="Post_Sort" />
+                <ScalarProperty Name="Post_IsDelete" ColumnName="Post_IsDelete" />
+                <ScalarProperty Name="Post_EditTime" ColumnName="Post_EditTime" />
+                <ScalarProperty Name="Post_EditUserId" ColumnName="Post_EditUserId" />
+                <ScalarProperty Name="Post_AddUserId" ColumnName="Post_AddUserId" />
+                <ScalarProperty Name="Post_AddTime" ColumnName="Post_AddTime" />
+                <ScalarProperty Name="Post_DepCode" ColumnName="Post_DepCode" />
+                <ScalarProperty Name="Post_Name" ColumnName="Post_Name" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_PostChange">
+            <EntityTypeMapping TypeName="ShuModel.Sys_PostChange">
+              <MappingFragment StoreEntitySet="Sys_PostChange">
+                <ScalarProperty Name="PostChange_OperateUserID" ColumnName="PostChange_OperateUserID" />
+                <ScalarProperty Name="PostChange_ChangeTime" ColumnName="PostChange_ChangeTime" />
+                <ScalarProperty Name="PostChange_AfterChangePost" ColumnName="PostChange_AfterChangePost" />
+                <ScalarProperty Name="PostChange_AfterChangeDep" ColumnName="PostChange_AfterChangeDep" />
+                <ScalarProperty Name="PostChange_BeforeChangePost" ColumnName="PostChange_BeforeChangePost" />
+                <ScalarProperty Name="PostChange_BeforeChangeDep" ColumnName="PostChange_BeforeChangeDep" />
+                <ScalarProperty Name="PostChange_ChangeUserID" ColumnName="PostChange_ChangeUserID" />
+                <ScalarProperty Name="PostChangeID" ColumnName="PostChangeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Role">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Role">
+              <MappingFragment StoreEntitySet="Sys_Role">
+                <ScalarProperty Name="Role_ShowType" ColumnName="Role_ShowType" />
+                <ScalarProperty Name="Role_AddUserID" ColumnName="Role_AddUserID" />
+                <ScalarProperty Name="Role_AddTime" ColumnName="Role_AddTime" />
+                <ScalarProperty Name="Role_IsDel" ColumnName="Role_IsDel" />
+                <ScalarProperty Name="Role_Sequence" ColumnName="Role_Sequence" />
+                <ScalarProperty Name="Role_Description" ColumnName="Role_Description" />
+                <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_RolePurview">
+            <EntityTypeMapping TypeName="ShuModel.Sys_RolePurview">
+              <MappingFragment StoreEntitySet="Sys_RolePurview">
+                <ScalarProperty Name="RolePurview_SeeType" ColumnName="RolePurview_SeeType" />
+                <ScalarProperty Name="RolePurview_SeeDepCode" ColumnName="RolePurview_SeeDepCode" />
+                <ScalarProperty Name="RolePurview_SeeCharge" ColumnName="RolePurview_SeeCharge" />
+                <ScalarProperty Name="RolePurview_OperatePurview" ColumnName="RolePurview_OperatePurview" />
+                <ScalarProperty Name="RolePurview_MenuCode" ColumnName="RolePurview_MenuCode" />
+                <ScalarProperty Name="RolePurview_RoleID" ColumnName="RolePurview_RoleID" />
+                <ScalarProperty Name="RolePurviewID" ColumnName="RolePurviewID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Setting">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Setting">
+              <MappingFragment StoreEntitySet="Sys_Setting">
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="Setting_ValueType" ColumnName="Setting_ValueType" />
+                <ScalarProperty Name="Setting_Remarks" ColumnName="Setting_Remarks" />
+                <ScalarProperty Name="Setting_Name" ColumnName="Setting_Name" />
+                <ScalarProperty Name="Setting_Value" ColumnName="Setting_Value" />
+                <ScalarProperty Name="Setting_Key" ColumnName="Setting_Key" />
+                <ScalarProperty Name="SettingID" ColumnName="SettingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_UserChargeDep">
+            <EntityTypeMapping TypeName="ShuModel.Sys_UserChargeDep">
+              <MappingFragment StoreEntitySet="Sys_UserChargeDep">
+                <ScalarProperty Name="UserChargeDep_ChargeCrewDepCode" ColumnName="UserChargeDep_ChargeCrewDepCode" />
+                <ScalarProperty Name="UserChargeDep_ChargeCrewID" ColumnName="UserChargeDep_ChargeCrewID" />
+                <ScalarProperty Name="UserChargeDep_ExecutiveOfficerID" ColumnName="UserChargeDep_ExecutiveOfficerID" />
+                <ScalarProperty Name="UserChargeDepID" ColumnName="UserChargeDepID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Sys_Log">
+            <EntityTypeMapping TypeName="ShuModel.View_Sys_Log">
+              <MappingFragment StoreEntitySet="View_Sys_Log">
+                <ScalarProperty Name="SysLog_OperateFunName" ColumnName="SysLog_OperateFunName" />
+                <ScalarProperty Name="SysLog_OperateType" ColumnName="SysLog_OperateType" />
+                <ScalarProperty Name="SysLog_Ip" ColumnName="SysLog_Ip" />
+                <ScalarProperty Name="SysLog_OperateDate" ColumnName="SysLog_OperateDate" />
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+                <ScalarProperty Name="UserInfo_FullName" ColumnName="UserInfo_FullName" />
+                <ScalarProperty Name="SysLogID" ColumnName="SysLogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Sys_Menu">
+            <EntityTypeMapping TypeName="ShuModel.View_Sys_Menu">
+              <MappingFragment StoreEntitySet="View_Sys_Menu">
+                <ScalarProperty Name="Menu_Operation" ColumnName="Menu_Operation" />
+                <ScalarProperty Name="Menu_AddUserID" ColumnName="Menu_AddUserID" />
+                <ScalarProperty Name="Menu_AddTime" ColumnName="Menu_AddTime" />
+                <ScalarProperty Name="Menu_ParentCode" ColumnName="Menu_ParentCode" />
+                <ScalarProperty Name="Menu_Code" ColumnName="Menu_Code" />
+                <ScalarProperty Name="Menu_Level" ColumnName="Menu_Level" />
+                <ScalarProperty Name="Menu_Url" ColumnName="Menu_Url" />
+                <ScalarProperty Name="Menu_Sequence" ColumnName="Menu_Sequence" />
+                <ScalarProperty Name="Menu_Description" ColumnName="Menu_Description" />
+                <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Sys_MenuRelatedRole">
+            <EntityTypeMapping TypeName="ShuModel.View_Sys_MenuRelatedRole">
+              <MappingFragment StoreEntitySet="View_Sys_MenuRelatedRole">
+                <ScalarProperty Name="RolePurview_SeeType" ColumnName="RolePurview_SeeType" />
+                <ScalarProperty Name="RolePurview_SeeDepCode" ColumnName="RolePurview_SeeDepCode" />
+                <ScalarProperty Name="RolePurview_SeeCharge" ColumnName="RolePurview_SeeCharge" />
+                <ScalarProperty Name="RolePurview_OperatePurview" ColumnName="RolePurview_OperatePurview" />
+                <ScalarProperty Name="RolePurview_RoleID" ColumnName="RolePurview_RoleID" />
+                <ScalarProperty Name="RolePurviewID" ColumnName="RolePurviewID" />
+                <ScalarProperty Name="Menu_Url" ColumnName="Menu_Url" />
+                <ScalarProperty Name="Menu_Operation" ColumnName="Menu_Operation" />
+                <ScalarProperty Name="Menu_ParentCode" ColumnName="Menu_ParentCode" />
+                <ScalarProperty Name="Menu_Code" ColumnName="Menu_Code" />
+                <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Sys_Post">
+            <EntityTypeMapping TypeName="ShuModel.View_Sys_Post">
+              <MappingFragment StoreEntitySet="View_Sys_Post">
+                <ScalarProperty Name="Department_Level" ColumnName="Department_Level" />
+                <ScalarProperty Name="Department_Sequence" ColumnName="Department_Sequence" />
+                <ScalarProperty Name="Post_Sort" ColumnName="Post_Sort" />
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+                <ScalarProperty Name="Post_DepCode" ColumnName="Post_DepCode" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="Post_Name" ColumnName="Post_Name" />
+                <ScalarProperty Name="Post_AddTime" ColumnName="Post_AddTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Sys_RolePurview">
+            <EntityTypeMapping TypeName="ShuModel.View_Sys_RolePurview">
+              <MappingFragment StoreEntitySet="View_Sys_RolePurview">
+                <ScalarProperty Name="Menu_Operation" ColumnName="Menu_Operation" />
+                <ScalarProperty Name="Menu_AddUserID" ColumnName="Menu_AddUserID" />
+                <ScalarProperty Name="Menu_AddTime" ColumnName="Menu_AddTime" />
+                <ScalarProperty Name="Menu_ParentCode" ColumnName="Menu_ParentCode" />
+                <ScalarProperty Name="Menu_Code" ColumnName="Menu_Code" />
+                <ScalarProperty Name="Menu_Level" ColumnName="Menu_Level" />
+                <ScalarProperty Name="Menu_Url" ColumnName="Menu_Url" />
+                <ScalarProperty Name="Menu_Sequence" ColumnName="Menu_Sequence" />
+                <ScalarProperty Name="Menu_Description" ColumnName="Menu_Description" />
+                <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="RolePurview_OperatePurview" ColumnName="RolePurview_OperatePurview" />
+                <ScalarProperty Name="RolePurview_MenuCode" ColumnName="RolePurview_MenuCode" />
+                <ScalarProperty Name="RolePurview_RoleID" ColumnName="RolePurview_RoleID" />
+                <ScalarProperty Name="RolePurviewID" ColumnName="RolePurviewID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Sys_RolePurviewAndMenu">
+            <EntityTypeMapping TypeName="ShuModel.View_Sys_RolePurviewAndMenu">
+              <MappingFragment StoreEntitySet="View_Sys_RolePurviewAndMenu">
+                <ScalarProperty Name="Menu_Operation" ColumnName="Menu_Operation" />
+                <ScalarProperty Name="Menu_AddUserID" ColumnName="Menu_AddUserID" />
+                <ScalarProperty Name="Menu_AddTime" ColumnName="Menu_AddTime" />
+                <ScalarProperty Name="Menu_ParentCode" ColumnName="Menu_ParentCode" />
+                <ScalarProperty Name="Menu_Code" ColumnName="Menu_Code" />
+                <ScalarProperty Name="Menu_Level" ColumnName="Menu_Level" />
+                <ScalarProperty Name="Menu_Url" ColumnName="Menu_Url" />
+                <ScalarProperty Name="Menu_Sequence" ColumnName="Menu_Sequence" />
+                <ScalarProperty Name="Menu_Description" ColumnName="Menu_Description" />
+                <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+                <ScalarProperty Name="Menu_ModuleId" ColumnName="Menu_ModuleId" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="RolePurview_SeeType" ColumnName="RolePurview_SeeType" />
+                <ScalarProperty Name="RolePurview_SeeDepCode" ColumnName="RolePurview_SeeDepCode" />
+                <ScalarProperty Name="RolePurview_SeeCharge" ColumnName="RolePurview_SeeCharge" />
+                <ScalarProperty Name="RolePurview_OperatePurview" ColumnName="RolePurview_OperatePurview" />
+                <ScalarProperty Name="RolePurview_MenuCode" ColumnName="RolePurview_MenuCode" />
+                <ScalarProperty Name="RolePurview_RoleID" ColumnName="RolePurview_RoleID" />
+                <ScalarProperty Name="RolePurviewID" ColumnName="RolePurviewID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Sys_UserInfo">
+            <EntityTypeMapping TypeName="ShuModel.View_Sys_UserInfo">
+              <MappingFragment StoreEntitySet="View_Sys_UserInfo">
+                <ScalarProperty Name="UserInfo_IsDelete" ColumnName="UserInfo_IsDelete" />
+                <ScalarProperty Name="UserInfo_WorkingState" ColumnName="UserInfo_WorkingState" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="UserInfo_EnlistPlace" ColumnName="UserInfo_EnlistPlace" />
+                <ScalarProperty Name="UserInfo_Badge" ColumnName="UserInfo_Badge" />
+                <ScalarProperty Name="UserInfo_EnlistTime" ColumnName="UserInfo_EnlistTime" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="UnitCode" ColumnName="UnitCode" />
+                <ScalarProperty Name="Department_Type" ColumnName="Department_Type" />
+                <ScalarProperty Name="UserInfo_JoinPartyDate" ColumnName="UserInfo_JoinPartyDate" />
+                <ScalarProperty Name="UserInfo_EducationalLevel" ColumnName="UserInfo_EducationalLevel" />
+                <ScalarProperty Name="UserInfo_StartWorkDate" ColumnName="UserInfo_StartWorkDate" />
+                <ScalarProperty Name="UserInfo_Nation" ColumnName="UserInfo_Nation" />
+                <ScalarProperty Name="UserInfo_StatusName" ColumnName="UserInfo_StatusName" />
+                <ScalarProperty Name="UserInfo_PostSequence" ColumnName="UserInfo_PostSequence" />
+                <ScalarProperty Name="UserInfo_Sequence" ColumnName="UserInfo_Sequence" />
+                <ScalarProperty Name="UserInfo_Type" ColumnName="UserInfo_Type" />
+                <ScalarProperty Name="UserInfo_Status" ColumnName="UserInfo_Status" />
+                <ScalarProperty Name="UserInfo_PostName" ColumnName="UserInfo_PostName" />
+                <ScalarProperty Name="UserInfo_RoleName" ColumnName="UserInfo_RoleName" />
+                <ScalarProperty Name="Department_AddTime" ColumnName="Department_AddTime" />
+                <ScalarProperty Name="Department_IsDel" ColumnName="Department_IsDel" />
+                <ScalarProperty Name="Department_Level" ColumnName="Department_Level" />
+                <ScalarProperty Name="Department_ParentCode" ColumnName="Department_ParentCode" />
+                <ScalarProperty Name="Department_Respon" ColumnName="Department_Respon" />
+                <ScalarProperty Name="Department_Sequence" ColumnName="Department_Sequence" />
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+                <ScalarProperty Name="UserInfo_AddTime" ColumnName="UserInfo_AddTime" />
+                <ScalarProperty Name="UserInfo_LoginUserPwd" ColumnName="UserInfo_LoginUserPwd" />
+                <ScalarProperty Name="UserInfo_LoginUserName" ColumnName="UserInfo_LoginUserName" />
+                <ScalarProperty Name="UserInfo_Address" ColumnName="UserInfo_Address" />
+                <ScalarProperty Name="UserInfo_IdentityCred" ColumnName="UserInfo_IdentityCred" />
+                <ScalarProperty Name="UserInfo_PhoneNumber" ColumnName="UserInfo_PhoneNumber" />
+                <ScalarProperty Name="UserInfo_PoliticalLandscape" ColumnName="UserInfo_PoliticalLandscape" />
+                <ScalarProperty Name="UserInfo_EduBackground" ColumnName="UserInfo_EduBackground" />
+                <ScalarProperty Name="UserInfo_NowHoldPostTime" ColumnName="UserInfo_NowHoldPostTime" />
+                <ScalarProperty Name="UserInfo_PositionLevel" ColumnName="UserInfo_PositionLevel" />
+                <ScalarProperty Name="UserInfo_Position" ColumnName="UserInfo_Position" />
+                <ScalarProperty Name="UserInfo_OccupTitle" ColumnName="UserInfo_OccupTitle" />
+                <ScalarProperty Name="UserInfo_Specialty" ColumnName="UserInfo_Specialty" />
+                <ScalarProperty Name="UserInfo_Schools" ColumnName="UserInfo_Schools" />
+                <ScalarProperty Name="UserInfo_Hometown" ColumnName="UserInfo_Hometown" />
+                <ScalarProperty Name="UserInfo_DepCode" ColumnName="UserInfo_DepCode" />
+                <ScalarProperty Name="UserInfo_Age" ColumnName="UserInfo_Age" />
+                <ScalarProperty Name="UserInfo_DateBirth" ColumnName="UserInfo_DateBirth" />
+                <ScalarProperty Name="UserInfo_Sex" ColumnName="UserInfo_Sex" />
+                <ScalarProperty Name="UserInfo_FullName" ColumnName="UserInfo_FullName" />
+                <ScalarProperty Name="UserInfo_Post" ColumnName="UserInfo_Post" />
+                <ScalarProperty Name="UserInfo_RoleID" ColumnName="UserInfo_RoleID" />
+                <ScalarProperty Name="UserInfoID" ColumnName="UserInfoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_SeeCharge">
+            <EntityTypeMapping TypeName="ShuModel.Sys_SeeCharge">
+              <MappingFragment StoreEntitySet="Sys_SeeCharge">
+                <ScalarProperty Name="SeeCharge_AddTime" ColumnName="SeeCharge_AddTime" />
+                <ScalarProperty Name="SeeCharge_Sort" ColumnName="SeeCharge_Sort" />
+                <ScalarProperty Name="SeeCharge_Code" ColumnName="SeeCharge_Code" />
+                <ScalarProperty Name="SeeCharge_Name" ColumnName="SeeCharge_Name" />
+                <ScalarProperty Name="SeeCharge_MenuID" ColumnName="SeeCharge_MenuID" />
+                <ScalarProperty Name="SeeChargeID" ColumnName="SeeChargeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_PendingMatterToRolePurview">
+            <EntityTypeMapping TypeName="ShuModel.View_PendingMatterToRolePurview">
+              <MappingFragment StoreEntitySet="View_PendingMatterToRolePurview">
+                <ScalarProperty Name="Role_AddUserID" ColumnName="Role_AddUserID" />
+                <ScalarProperty Name="Role_AddTime" ColumnName="Role_AddTime" />
+                <ScalarProperty Name="Role_IsDel" ColumnName="Role_IsDel" />
+                <ScalarProperty Name="Role_Sequence" ColumnName="Role_Sequence" />
+                <ScalarProperty Name="Role_Description" ColumnName="Role_Description" />
+                <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Menu_Operation" ColumnName="Menu_Operation" />
+                <ScalarProperty Name="Menu_AddUserID" ColumnName="Menu_AddUserID" />
+                <ScalarProperty Name="Menu_AddTime" ColumnName="Menu_AddTime" />
+                <ScalarProperty Name="Menu_ParentCode" ColumnName="Menu_ParentCode" />
+                <ScalarProperty Name="Menu_Code" ColumnName="Menu_Code" />
+                <ScalarProperty Name="Menu_Level" ColumnName="Menu_Level" />
+                <ScalarProperty Name="Menu_Url" ColumnName="Menu_Url" />
+                <ScalarProperty Name="Menu_Sequence" ColumnName="Menu_Sequence" />
+                <ScalarProperty Name="Menu_Description" ColumnName="Menu_Description" />
+                <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+                <ScalarProperty Name="RolePurview_OperatePurview" ColumnName="RolePurview_OperatePurview" />
+                <ScalarProperty Name="RolePurview_MenuCode" ColumnName="RolePurview_MenuCode" />
+                <ScalarProperty Name="RolePurview_RoleID" ColumnName="RolePurview_RoleID" />
+                <ScalarProperty Name="RolePurviewID" ColumnName="RolePurviewID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_ModelFile">
+            <EntityTypeMapping TypeName="ShuModel.Sys_ModelFile">
+              <MappingFragment StoreEntitySet="Sys_ModelFile">
+                <ScalarProperty Name="File_Sort" ColumnName="File_Sort" />
+                <ScalarProperty Name="File_UserID" ColumnName="File_UserID" />
+                <ScalarProperty Name="File_OperationID" ColumnName="File_OperationID" />
+                <ScalarProperty Name="File_AddTime" ColumnName="File_AddTime" />
+                <ScalarProperty Name="File_Path" ColumnName="File_Path" />
+                <ScalarProperty Name="File_Type" ColumnName="File_Type" />
+                <ScalarProperty Name="File_Size" ColumnName="File_Size" />
+                <ScalarProperty Name="File_Extension" ColumnName="File_Extension" />
+                <ScalarProperty Name="File_Name" ColumnName="File_Name" />
+                <ScalarProperty Name="FileID" ColumnName="FileID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_UploadDataType">
+            <EntityTypeMapping TypeName="ShuModel.Sys_UploadDataType">
+              <MappingFragment StoreEntitySet="Sys_UploadDataType">
+                <ScalarProperty Name="UploadDataType_IsDelete" ColumnName="UploadDataType_IsDelete" />
+                <ScalarProperty Name="UploadDataType_SortNo" ColumnName="UploadDataType_SortNo" />
+                <ScalarProperty Name="UploadDataType_Remark" ColumnName="UploadDataType_Remark" />
+                <ScalarProperty Name="UploadDataType_DataType" ColumnName="UploadDataType_DataType" />
+                <ScalarProperty Name="UploadDataType_Name" ColumnName="UploadDataType_Name" />
+                <ScalarProperty Name="UploadDataType_TypeCode" ColumnName="UploadDataType_TypeCode" />
+                <ScalarProperty Name="UploadDataType_ProcessStage" ColumnName="UploadDataType_ProcessStage" />
+                <ScalarProperty Name="UploadDataType_ProductType" ColumnName="UploadDataType_ProductType" />
+                <ScalarProperty Name="UploadDataType_ID" ColumnName="UploadDataType_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Desktop">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Desktop">
+              <MappingFragment StoreEntitySet="Sys_Desktop">
+                <ScalarProperty Name="Desktop_Type" ColumnName="Desktop_Type" />
+                <ScalarProperty Name="Desktop_TabType" ColumnName="Desktop_TabType" />
+                <ScalarProperty Name="Desktop_EditTime" ColumnName="Desktop_EditTime" />
+                <ScalarProperty Name="Desktop_AddTime" ColumnName="Desktop_AddTime" />
+                <ScalarProperty Name="Desktop_Sort" ColumnName="Desktop_Sort" />
+                <ScalarProperty Name="Desktop_Name" ColumnName="Desktop_Name" />
+                <ScalarProperty Name="Desktop_Icon" ColumnName="Desktop_Icon" />
+                <ScalarProperty Name="Desktop_MenuID" ColumnName="Desktop_MenuID" />
+                <ScalarProperty Name="Desktop_UserInfoID" ColumnName="Desktop_UserInfoID" />
+                <ScalarProperty Name="DesktopID" ColumnName="DesktopID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Sys_DeskTtop">
+            <EntityTypeMapping TypeName="ShuModel.View_Sys_DeskTtop">
+              <MappingFragment StoreEntitySet="View_Sys_DeskTtop">
+                <ScalarProperty Name="Menu_Url" ColumnName="Menu_Url" />
+                <ScalarProperty Name="Desktop_Type" ColumnName="Desktop_Type" />
+                <ScalarProperty Name="Desktop_TabType" ColumnName="Desktop_TabType" />
+                <ScalarProperty Name="Desktop_EditTime" ColumnName="Desktop_EditTime" />
+                <ScalarProperty Name="Desktop_AddTime" ColumnName="Desktop_AddTime" />
+                <ScalarProperty Name="Desktop_Sort" ColumnName="Desktop_Sort" />
+                <ScalarProperty Name="Desktop_Name" ColumnName="Desktop_Name" />
+                <ScalarProperty Name="Desktop_Icon" ColumnName="Desktop_Icon" />
+                <ScalarProperty Name="Desktop_MenuID" ColumnName="Desktop_MenuID" />
+                <ScalarProperty Name="Desktop_UserInfoID" ColumnName="Desktop_UserInfoID" />
+                <ScalarProperty Name="DesktopID" ColumnName="DesktopID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_UserInfo">
+            <EntityTypeMapping TypeName="ShuModel.Sys_UserInfo">
+              <MappingFragment StoreEntitySet="Sys_UserInfo">
+                <ScalarProperty Name="UserInfo_EditUserId" ColumnName="UserInfo_EditUserId" />
+                <ScalarProperty Name="UserInfo_EditTime" ColumnName="UserInfo_EditTime" />
+                <ScalarProperty Name="UserInfo_IsDelete" ColumnName="UserInfo_IsDelete" />
+                <ScalarProperty Name="UserInfo_WorkingState" ColumnName="UserInfo_WorkingState" />
+                <ScalarProperty Name="UserInfo_Sequence" ColumnName="UserInfo_Sequence" />
+                <ScalarProperty Name="UserInfo_Type" ColumnName="UserInfo_Type" />
+                <ScalarProperty Name="UserInfo_Status" ColumnName="UserInfo_Status" />
+                <ScalarProperty Name="UserInfo_AddTime" ColumnName="UserInfo_AddTime" />
+                <ScalarProperty Name="UserInfo_AddUserID" ColumnName="UserInfo_AddUserID" />
+                <ScalarProperty Name="UserInfo_LoginUserPwd" ColumnName="UserInfo_LoginUserPwd" />
+                <ScalarProperty Name="UserInfo_LoginUserName" ColumnName="UserInfo_LoginUserName" />
+                <ScalarProperty Name="UserInfo_EducationalLevelName" ColumnName="UserInfo_EducationalLevelName" />
+                <ScalarProperty Name="UserInfo_EducationalLevel" ColumnName="UserInfo_EducationalLevel" />
+                <ScalarProperty Name="UserInfo_StartWorkDate" ColumnName="UserInfo_StartWorkDate" />
+                <ScalarProperty Name="UserInfo_EnlistPlace" ColumnName="UserInfo_EnlistPlace" />
+                <ScalarProperty Name="UserInfo_Badge" ColumnName="UserInfo_Badge" />
+                <ScalarProperty Name="UserInfo_EnlistTime" ColumnName="UserInfo_EnlistTime" />
+                <ScalarProperty Name="UserInfo_JoinPartyDate" ColumnName="UserInfo_JoinPartyDate" />
+                <ScalarProperty Name="UserInfo_NationName" ColumnName="UserInfo_NationName" />
+                <ScalarProperty Name="UserInfo_Nation" ColumnName="UserInfo_Nation" />
+                <ScalarProperty Name="UserInfo_Address" ColumnName="UserInfo_Address" />
+                <ScalarProperty Name="UserInfo_IdentityCred" ColumnName="UserInfo_IdentityCred" />
+                <ScalarProperty Name="UserInfo_PhoneNumber" ColumnName="UserInfo_PhoneNumber" />
+                <ScalarProperty Name="UserInfo_PoliticalLandscape" ColumnName="UserInfo_PoliticalLandscape" />
+                <ScalarProperty Name="UserInfo_EduBackground" ColumnName="UserInfo_EduBackground" />
+                <ScalarProperty Name="UserInfo_NowHoldPostTime" ColumnName="UserInfo_NowHoldPostTime" />
+                <ScalarProperty Name="UserInfo_PositionLevel" ColumnName="UserInfo_PositionLevel" />
+                <ScalarProperty Name="UserInfo_Position" ColumnName="UserInfo_Position" />
+                <ScalarProperty Name="UserInfo_OccupTitle" ColumnName="UserInfo_OccupTitle" />
+                <ScalarProperty Name="UserInfo_Specialty" ColumnName="UserInfo_Specialty" />
+                <ScalarProperty Name="UserInfo_Schools" ColumnName="UserInfo_Schools" />
+                <ScalarProperty Name="UserInfo_Hometown" ColumnName="UserInfo_Hometown" />
+                <ScalarProperty Name="UserInfo_DepCode" ColumnName="UserInfo_DepCode" />
+                <ScalarProperty Name="UserInfo_Age" ColumnName="UserInfo_Age" />
+                <ScalarProperty Name="UserInfo_DateBirth" ColumnName="UserInfo_DateBirth" />
+                <ScalarProperty Name="UserInfo_Sex" ColumnName="UserInfo_Sex" />
+                <ScalarProperty Name="UserInfo_FullName" ColumnName="UserInfo_FullName" />
+                <ScalarProperty Name="UserInfo_Post" ColumnName="UserInfo_Post" />
+                <ScalarProperty Name="UserInfo_RoleID" ColumnName="UserInfo_RoleID" />
+                <ScalarProperty Name="UserInfoID" ColumnName="UserInfoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Area">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Area">
+              <MappingFragment StoreEntitySet="Sys_Area">
+                <ScalarProperty Name="CrossArea" ColumnName="CrossArea" />
+                <ScalarProperty Name="PinYin" ColumnName="PinYin" />
+                <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Depth" ColumnName="Depth" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Menu">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Menu">
+              <MappingFragment StoreEntitySet="Sys_Menu">
+                <ScalarProperty Name="Menu_Operation" ColumnName="Menu_Operation" />
+                <ScalarProperty Name="Menu_AddUserID" ColumnName="Menu_AddUserID" />
+                <ScalarProperty Name="Menu_AddTime" ColumnName="Menu_AddTime" />
+                <ScalarProperty Name="Menu_ParentCode" ColumnName="Menu_ParentCode" />
+                <ScalarProperty Name="Menu_Code" ColumnName="Menu_Code" />
+                <ScalarProperty Name="Menu_Level" ColumnName="Menu_Level" />
+                <ScalarProperty Name="Menu_Url" ColumnName="Menu_Url" />
+                <ScalarProperty Name="Menu_Sequence" ColumnName="Menu_Sequence" />
+                <ScalarProperty Name="Menu_Description" ColumnName="Menu_Description" />
+                <ScalarProperty Name="Menu_Name" ColumnName="Menu_Name" />
+                <ScalarProperty Name="Menu_ModuleId" ColumnName="Menu_ModuleId" />
+                <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Module">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Module">
+              <MappingFragment StoreEntitySet="Sys_Module">
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="IsAccredit" ColumnName="IsAccredit" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

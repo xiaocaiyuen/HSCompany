@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="ReferenceRate_ID"
+      KeyField=""
+      TableName="Sys_ReferenceRate"
+      TableView="View_Sys_ReferenceRate"
+      SqlOrder="ReferenceRate_IsEnable DESC, ReferenceRate_AdjustDate ASC" 
+      SQLField="ReferenceRate_ID ,
+                ReferenceRate_InterestRate ,
+                ReferenceRate_InterestRatePercent ,
+                ReferenceRate_AdjustDate ,
+                ReferenceRate_StartDate ,
+                ReferenceRate_EndDate ,
+                ReferenceRate_IsEnable ,
+                ReferenceRate_IsEnableState ,
+                ReferenceRate_CreateTime ,
+                ReferenceRate_CreateUserId ,
+                ReferenceRate_UpdateTime ,
+                ReferenceRate_UpdateUserId ,
+                ReferenceRate_IsDelete"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      AddURL="/Sys/ReferenceRateInfo.aspx?flag=add"
+      ModifyURL="/Sys/ReferenceRateInfo.aspx?flag=edit"
+      MenuURL="ReferenceRateList.aspx">
+  <Column Key="ReferenceRate_InterestRatePercent" Name="基准利率" width="5"></Column>
+  <Column Key="ReferenceRate_AdjustDate" Name="调整日期" width="5"></Column>
+  <Column Key="ReferenceRate_StartDate" Name="开始日期" width="5"></Column>
+  <Column Key="ReferenceRate_EndDate" Name="结束日期" width="5" ></Column>
+  <Column Key="ReferenceRate_IsEnableState" Name="是否启用" width="5" styler="function(value){
+          if (value == '已启用'){
+              return 'color:green;';
+          }
+   }"></Column>
+</Grid>

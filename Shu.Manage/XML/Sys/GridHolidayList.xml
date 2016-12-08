@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="HolidayId"
+      KeyField=""
+      TableName="Sys_Holiday"
+      TableView=""
+      SqlOrder="Holiday_StartDate ASC"
+      SQLField="HolidayId ,
+                Holiday_Name ,
+                Holiday_StartDate ,
+                Holiday_EndDate ,
+                Holiday_UpdateUserId ,
+                Holiday_UpdateTime ,
+                Holiday_IsDelete"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      AddURL="/Sys/HolidayAdd.aspx"
+      ModifyURL="/Sys/HolidayAdd.aspx"
+      MenuURL="HolidayList.aspx">
+  <Column Key="Holiday_Name" Name="节假日名称" width="5"></Column>
+  <Column Key="Holiday_StartDate" Name="节假日时段" width="5" formatter="function(value,row){
+          return value + ' ~ ' + row.Holiday_EndDate;
+      }"></Column>
+</Grid>

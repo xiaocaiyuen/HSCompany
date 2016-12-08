@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="MessageID"
+      KeyField=""
+      TableName="Sys_Message"
+      TableView="View_Sys_Message"
+      SqlOrder="Message_SendTime desc"
+      SQLField="[MessageID]
+      ,[Message_Content]
+      ,[Message_SendTime]
+      ,[Message_ReceiveUserID]
+      ,[Message_IsShow]
+      ,[Message_DynamicRefreshStatus]"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      MenuURL="PerMessageList.aspx"
+      >
+  <Column Key="Message_Content" Name="消息内容" width="20"></Column>
+  <Column Key="Message_SendTime" Name="发送时间" width="5" DateType="1"></Column>
+</Grid>
