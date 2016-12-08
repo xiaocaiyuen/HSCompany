@@ -40,6 +40,11 @@ namespace Shu.IDAL
       
     }
 	
+	public partial interface ISys_IconsDal :IBaseDal<Sys_Icons>
+    {
+      
+    }
+	
 	public partial interface ISys_LogDal :IBaseDal<Sys_Log>
     {
       
@@ -66,6 +71,11 @@ namespace Shu.IDAL
     }
 	
 	public partial interface ISys_NoticeDal :IBaseDal<Sys_Notice>
+    {
+      
+    }
+	
+	public partial interface ISys_OperatingButtonDal :IBaseDal<Sys_OperatingButton>
     {
       
     }

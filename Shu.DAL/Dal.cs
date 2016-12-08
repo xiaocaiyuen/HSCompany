@@ -34,6 +34,10 @@ namespace Shu.DAL
     {
 
     }
+	public partial class Sys_IconsDal :BaseDal<Sys_Icons>,ISys_IconsDal
+    {
+
+    }
 	public partial class Sys_LogDal :BaseDal<Sys_Log>,ISys_LogDal
     {
 
@@ -55,6 +59,10 @@ namespace Shu.DAL
 
     }
 	public partial class Sys_NoticeDal :BaseDal<Sys_Notice>,ISys_NoticeDal
+    {
+
+    }
+	public partial class Sys_OperatingButtonDal :BaseDal<Sys_OperatingButton>,ISys_OperatingButtonDal
     {
 
     }

@@ -91,6 +91,19 @@ namespace Shu.Factroy
             }
             set { _Sys_HolidayDal = value; }
         }
+		private ISys_IconsDal _Sys_IconsDal;
+        public ISys_IconsDal Sys_IconsDal
+        {
+            get
+            {
+                if(_Sys_IconsDal == null)
+                {
+                    _Sys_IconsDal = AbstractFactory.CreateSys_IconsDal();
+                }
+                return _Sys_IconsDal;
+            }
+            set { _Sys_IconsDal = value; }
+        }
 		private ISys_LogDal _Sys_LogDal;
         public ISys_LogDal Sys_LogDal
         {
@@ -168,6 +181,19 @@ namespace Shu.Factroy
                 return _Sys_NoticeDal;
             }
             set { _Sys_NoticeDal = value; }
+        }
+		private ISys_OperatingButtonDal _Sys_OperatingButtonDal;
+        public ISys_OperatingButtonDal Sys_OperatingButtonDal
+        {
+            get
+            {
+                if(_Sys_OperatingButtonDal == null)
+                {
+                    _Sys_OperatingButtonDal = AbstractFactory.CreateSys_OperatingButtonDal();
+                }
+                return _Sys_OperatingButtonDal;
+            }
+            set { _Sys_OperatingButtonDal = value; }
         }
 		private ISys_PendingMatterDal _Sys_PendingMatterDal;
         public ISys_PendingMatterDal Sys_PendingMatterDal

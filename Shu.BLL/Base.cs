@@ -74,6 +74,17 @@ namespace Shu.BLL
             DalExtends = this.DBSession.Sys_HolidayDal;
         }
     }   
+	public partial class Sys_IconsBLL :BaseBLL<Sys_Icons>
+    {
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.Sys_IconsDal;
+        }
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.Sys_IconsDal;
+        }
+    }   
 	public partial class Sys_LogBLL :BaseBLL<Sys_Log>
     {
 		public override void SetCurrentDal()
@@ -138,6 +149,17 @@ namespace Shu.BLL
 	    public override void SetExtendsCurrentDal()
         {
             DalExtends = this.DBSession.Sys_NoticeDal;
+        }
+    }   
+	public partial class Sys_OperatingButtonBLL :BaseBLL<Sys_OperatingButton>
+    {
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.Sys_OperatingButtonDal;
+        }
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.Sys_OperatingButtonDal;
         }
     }   
 	public partial class Sys_PendingMatterBLL :BaseBLL<Sys_PendingMatter>

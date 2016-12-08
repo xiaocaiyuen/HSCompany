@@ -93,6 +93,9 @@
     <Compile Include="Sys_Holiday.cs">
       <DependentUpon>Shu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Sys_Icons.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
     <Compile Include="Sys_Log.cs">
       <DependentUpon>Shu.tt</DependentUpon>
     </Compile>
@@ -109,6 +112,9 @@
       <DependentUpon>Shu.tt</DependentUpon>
     </Compile>
     <Compile Include="Sys_Notice.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_OperatingButton.cs">
       <DependentUpon>Shu.tt</DependentUpon>
     </Compile>
     <Compile Include="Sys_PendingMatter.cs">

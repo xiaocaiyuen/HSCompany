@@ -89,6 +89,20 @@
           <Property Name="Holiday_UpdateTime" Type="datetime" />
           <Property Name="Holiday_IsDelete" Type="bit" />
         </EntityType>
+        <EntityType Name="Sys_Icons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Length" Type="float" />
+          <Property Name="Width" Type="float" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="40" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="Path" Type="varchar" MaxLength="100" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Sys_Log">
           <Key>
             <PropertyRef Name="SysLogID" />
@@ -186,6 +200,26 @@
           <Property Name="EditTime" Type="datetime" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
           <Property Name="Sort" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_OperatingButton">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Marker" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Icon" Type="varchar" MaxLength="40" />
+          <Property Name="Event" Type="varchar" MaxLength="40" />
+          <Property Name="Type" Type="varchar" MaxLength="40" />
+          <Property Name="EventType" Type="varchar" MaxLength="40" />
+          <Property Name="AddUserId" Type="datetime" />
+          <Property Name="AddTime" Type="datetime" />
+          <Property Name="EditUserId" Type="varchar" MaxLength="40" />
+          <Property Name="EditTime" Type="varchar" MaxLength="40" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="600" />
+          <Property Name="Url" Type="varchar" MaxLength="100" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Sys_PendingMatter">
           <Key>
@@ -611,12 +645,14 @@
           <EntitySet Name="Sys_Department" EntityType="Self.Sys_Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Desktop" EntityType="Self.Sys_Desktop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Holiday" EntityType="Self.Sys_Holiday" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Icons" EntityType="Self.Sys_Icons" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Log" EntityType="Self.Sys_Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Menu" EntityType="Self.Sys_Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Message" EntityType="Self.Sys_Message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_ModelFile" EntityType="Self.Sys_ModelFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Module" EntityType="Self.Sys_Module" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Notice" EntityType="Self.Sys_Notice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_OperatingButton" EntityType="Self.Sys_OperatingButton" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_PendingMatter" EntityType="Self.Sys_PendingMatter" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Post" EntityType="Self.Sys_Post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_PostChange" EntityType="Self.Sys_PostChange" Schema="dbo" store:Type="Tables" />
@@ -863,6 +899,8 @@
             <End Role="Sys_Module" EntitySet="Sys_Module" />
             <End Role="Sys_Menu" EntitySet="Sys_Menu" />
           </AssociationSet>
+          <EntitySet Name="Sys_Icons" EntityType="ShuModel.Sys_Icons" />
+          <EntitySet Name="Sys_OperatingButton" EntityType="ShuModel.Sys_OperatingButton" />
         </EntityContainer>
         <EntityType Name="Sys_Config">
           <Key>
@@ -1447,6 +1485,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Sys_Icons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Length" Type="Double" />
+          <Property Name="Width" Type="Double" />
+          <Property Name="AddUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="Path" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_OperatingButton">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Marker" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Event" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EventType" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="AddUserId" Type="DateTime" Precision="3" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="EditUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2022,6 +2094,42 @@
                 <ScalarProperty Name="IsAccredit" ColumnName="IsAccredit" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Icons">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Icons">
+              <MappingFragment StoreEntitySet="Sys_Icons">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_OperatingButton">
+            <EntityTypeMapping TypeName="ShuModel.Sys_OperatingButton">
+              <MappingFragment StoreEntitySet="Sys_OperatingButton">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Event" ColumnName="Event" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Marker" ColumnName="Marker" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

@@ -43,6 +43,11 @@ namespace Shu.Factroy
 		   string fullClassName = NameSpace + ".Sys_HolidayDal";
            return CreateInstance(fullClassName) as ISys_HolidayDal;
         }
+	    public static ISys_IconsDal CreateSys_IconsDal()
+        {
+		   string fullClassName = NameSpace + ".Sys_IconsDal";
+           return CreateInstance(fullClassName) as ISys_IconsDal;
+        }
 	    public static ISys_LogDal CreateSys_LogDal()
         {
 		   string fullClassName = NameSpace + ".Sys_LogDal";
@@ -72,6 +77,11 @@ namespace Shu.Factroy
         {
 		   string fullClassName = NameSpace + ".Sys_NoticeDal";
            return CreateInstance(fullClassName) as ISys_NoticeDal;
+        }
+	    public static ISys_OperatingButtonDal CreateSys_OperatingButtonDal()
+        {
+		   string fullClassName = NameSpace + ".Sys_OperatingButtonDal";
+           return CreateInstance(fullClassName) as ISys_OperatingButtonDal;
         }
 	    public static ISys_PendingMatterDal CreateSys_PendingMatterDal()
         {
