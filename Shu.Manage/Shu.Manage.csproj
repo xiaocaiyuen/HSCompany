@@ -1441,12 +1441,17 @@
     <Content Include="Handler\DesktopHandler.ashx" />
     <Content Include="Scripts\jquery.datagrid.js" />
     <Content Include="Sys\DepSelect.aspx" />
+    <Content Include="Sys\OperatingButtonInfo.aspx" />
     <Content Include="Sys\ModuleInfo.aspx" />
+    <Content Include="Sys\OperatingButtonList.aspx" />
     <Content Include="Sys\ModuleList.aspx" />
     <Content Include="Sys\NoticeAdd.aspx" />
     <Content Include="Sys\NoticeShow.aspx" />
     <Content Include="UserControls\UCExpAllDeptEasyUISingleTreeCheckBox.ascx" />
     <Content Include="UserControls\UCFiles.ascx" />
+    <Content Include="XML\Sys\GridOperatingButton.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="XML\Sys\GridModule.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -1744,12 +1749,26 @@
     <Compile Include="Sys\MenuManager.aspx.designer.cs">
       <DependentUpon>MenuManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sys\OperatingButtonInfo.aspx.cs">
+      <DependentUpon>OperatingButtonInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sys\OperatingButtonInfo.aspx.designer.cs">
+      <DependentUpon>OperatingButtonInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sys\ModuleInfo.aspx.cs">
       <DependentUpon>ModuleInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Sys\ModuleInfo.aspx.designer.cs">
       <DependentUpon>ModuleInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sys\OperatingButtonList.aspx.cs">
+      <DependentUpon>OperatingButtonList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sys\OperatingButtonList.aspx.designer.cs">
+      <DependentUpon>OperatingButtonList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sys\ModuleList.aspx.cs">
       <DependentUpon>ModuleList.aspx</DependentUpon>
