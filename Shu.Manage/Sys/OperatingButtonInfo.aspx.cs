@@ -47,7 +47,7 @@ namespace Shu.Manage.Sys
                 {
                     string jsonPerson2 = string.Empty;
                     string jsonPerson6 = string.Empty;
-                    Sys_Module ModuleInfo = new Sys_ModuleBLL().Get(p => p.Id == id);
+                    Sys_OperatingButton ModuleInfo = new Sys_OperatingButtonBLL().Get(p => p.Id == id);
 
                     string jsonPerson = JsonConvert.SerializeObject(ModuleInfo, timeConverter);
 
@@ -73,7 +73,8 @@ namespace Shu.Manage.Sys
         //[WebMethod]
         public void Save()
         {
-            string id = WebUtil.Get("id");//唯一编号
+            string id = WebUtil.GetQuery("id");//唯一编号
+            string IdButton = WebUtil.GetQuery("type");
             string ActionDefinitionID = WebUtil.Get("ActionDefinitionID");//按钮动作ID
             string ActionDefinitionName = WebUtil.Get("ActionDefinitionName");//按钮动作名称
             string content= WebUtil.GetForm("Content").HtmlEncode();//防止跨站脚本注入
@@ -81,16 +82,16 @@ namespace Shu.Manage.Sys
             bool IsStartWF = WebUtil.Get("IsStartWF", false);//按钮动作名称
             bool IsExists = true;
 
-            Sys_Module ModuleInfo = new Sys_Module();
-            Sys_ModuleBLL ModuleBLL = new Sys_ModuleBLL();
+            Sys_OperatingButton OperatingButtonInfo = new Sys_OperatingButton();
+            Sys_OperatingButtonBLL OperatingButtonBLL = new Sys_OperatingButtonBLL();
             DateTime dt = DateTime.Now;
             if (id.IsNullOrEmpty())
             {
                 IsExists = false;
-                ModuleInfo = FormToModelHelper<Sys_Module>.ConvertToModel(HttpContext.Current);
-                ModuleInfo.Id = Guid.NewGuid().ToString();
-                ModuleInfo.AddUserId = CurrUserInfo().UserID;
-                ModuleInfo.AddTime = dt;
+                OperatingButtonInfo = FormToModelHelper<Sys_OperatingButton>.ConvertToModel(HttpContext.Current);
+                OperatingButtonInfo.Id = Guid.NewGuid().ToString();
+                OperatingButtonInfo.AddUserId = CurrUserInfo().UserID;
+                OperatingButtonInfo.AddTime = dt;
                 //ModuleInfo.EditUserId = CurrUserInfo().UserID;
                 //ModuleInfo.EditTime = dt;
                 //ModuleInfo.IsDelete = false;
@@ -98,9 +99,9 @@ namespace Shu.Manage.Sys
             }
             else
             {
-                ModuleInfo = ModuleBLL.Get(p => p.Id == id);
+                OperatingButtonInfo = OperatingButtonBLL.Get(p => p.Id == id);
                 //复制
-                ModuleInfo = FormToModelHelper<Sys_Module>.ConvertToModel(HttpContext.Current, ModuleInfo);
+                OperatingButtonInfo = FormToModelHelper<Sys_OperatingButton>.ConvertToModel(HttpContext.Current, OperatingButtonInfo);
             }
 
 
@@ -108,18 +109,18 @@ namespace Shu.Manage.Sys
             //流程启动正常
             if (IsExists)
             {
-                IsExists = new Sys_ModuleBLL().Update(ModuleInfo);
+                IsExists = new Sys_OperatingButtonBLL().Update(OperatingButtonInfo);
             }
             else
             {
-                ModuleInfo = new Sys_ModuleBLL().AddEntity(ModuleInfo);
-                IsExists = ModuleInfo.IsNotNull() ? true : false;
+                OperatingButtonInfo = new Sys_OperatingButtonBLL().AddEntity(OperatingButtonInfo);
+                IsExists = OperatingButtonInfo.IsNotNull() ? true : false;
             }
 
             if (IsExists)
             {
-                Result.SetData(ModuleInfo);
-                Result.SetError(false).SetMsg(ActionDefinitionName + "成功").Output();
+                Result.SetData(OperatingButtonInfo);
+                Result.SetError(false).SetType("3").SetIdButton(IdButton).SetMsg(ActionDefinitionName + "成功").Output();
             }
             else
             {

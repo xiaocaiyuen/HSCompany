@@ -344,7 +344,7 @@ var toolbar = [
         <%}
         else if (item.Type == 3)
         {%>
-        var btn = btn + '<a id="<%=item.Id %>_'+index+'" class="<%=item.Id %>" onclick="javascript:$(\'#ui_<%=item.Id %>\').dialog(\'open\');$(\'#view_<%=item.Id %>\').attr(\'src\', \'<%=item.Url.Contains('?')==true? item.Url+"$":item.Url+"?"%>id='+rec.<%=TableKey %>+'<%=vsetTableKey %>'+'&json='+JSON.stringify(search('form1')).replace(/"/g, '|')+'\');" href="javascript:void(0)"><%=item.Name %></a>';
+        var btn = btn + '<a id="<%=item.Id %>_'+index+'" class="<%=item.Id %>" onclick="javascript:$(\'#ui_<%=item.Id %>\').dialog(\'open\');$(\'#view_<%=item.Id %>\').attr(\'src\', \'<%=item.Url.Contains('?')==true? item.Url+"$":item.Url+"?"%>id='+rec.<%=TableKey %>+'<%=vsetTableKey %>'+'&type=<%=item.Id %>&json='+JSON.stringify(search('form1')).replace(/"/g, '|')+'\');" href="javascript:void(0)"><%=item.Name %></a>';
 
        <%}
         else if (item.Type == 99)

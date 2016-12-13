@@ -5,6 +5,7 @@
 *IsStartWF:是否启动工作流引擎（true:启动，false：不启动。）
 */
 function submitForm(ActionDefinitionID, ActionDefinitionName, IsStartWF) {
+    alert(1);
     $.messager.progress();	// 显示进度条
     $('#form1').form('submit', {
         ajax: true,
@@ -30,7 +31,14 @@ function submitForm(ActionDefinitionID, ActionDefinitionName, IsStartWF) {
             else {
                 $.messager.alert('提示', obj.msg, 'info', function () {
                     if (IsStartWF) {
-                        history.go(-1);
+                        if (obj.type == "3") {
+                            window.parent.WindowClose(obj.IdButton);
+                        } else if (obj.type == "4") {
+                            window.parent.Closetab();
+                        } else {
+                            history.go(-1);
+                        }
+
                         //window.parent.Closetab();
                         //parent.location.reload();
                     }

@@ -1,14 +1,37 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OperatingButtonList.aspx.cs" Inherits="Shu.Manage.Sys.OperatingButtonList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="IconList.aspx.cs" Inherits="Shu.Manage.Popup.IconList" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <link href="/Styles/List.css" rel="stylesheet" type="text/css" />
     <link href="/Styles/table.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/common.js" type="text/javascript"></script>
+    <style type="text/css">
+        .divicons
+        {
+            float: left;
+            border: solid 1px #ccc;
+            margin: 5px;
+            padding: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .divicons:hover
+        {
+            color: #FFF;
+            border: solid 1px #3399dd;
+            background: #2288cc;
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bbee', endColorstr='#2288cc');
+            background: linear-gradient(top, #33bbee, #2288cc);
+            background: -moz-linear-gradient(top, #33bbee, #2288cc);
+            background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#33bbee), to(#2288cc));
+            text-shadow: -1px -1px 1px #1c6a9e;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body onresize="resizeGrid();">
     <fieldset id="fset_Select" class="listfieldset">
@@ -42,14 +65,8 @@
             </table>
         </div>
     </fieldset>
-    <UC:EasyUIGrid ID="EasyUIGrid" runat="server" />
-    <div id="ui_AddButton" class="easyui-window" title="新增" style="width: 600px; height: 500px; display:none" 
-        toolbar="#dlg-toolbar" resizable="true" closed="true"  >
-        <iframe id="view_AddButton" scrolling="yes"  width="100%"  frameborder="0" height="98%" ></iframe>
-    </div>
-    <div id="ui_EditButton" class="easyui-window" title="新增" style="width: 600px; height: 500px; display:none" 
-        toolbar="#dlg-toolbar" resizable="true" closed="true"  >
-        <iframe id="view_EditButton" scrolling="yes"  width="100%"  frameborder="0" height="98%" ></iframe>
+    <div class="div-body">
+        <%=strImg.ToString() %>
     </div>
 </body>
 </html>

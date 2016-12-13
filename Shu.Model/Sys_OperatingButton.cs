@@ -23,7 +23,7 @@ namespace Shu.Model
         public string Event { get; set; }
         public string Type { get; set; }
         public string EventType { get; set; }
-        public Nullable<System.DateTime> AddUserId { get; set; }
+        public string AddUserId { get; set; }
         public Nullable<System.DateTime> AddTime { get; set; }
         public string EditUserId { get; set; }
         public string EditTime { get; set; }

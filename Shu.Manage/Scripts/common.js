@@ -754,3 +754,12 @@ function CheckNull(data) {
         return data;
     }
 }
+
+/**
+*关闭easyui Window窗体 重新载入Grid
+*IdButton:指定ID
+*/
+function WindowClose(IdButton) {
+    $('#ui_' + IdButton).window('close');
+    $('#grid').datagrid('reload');
+}

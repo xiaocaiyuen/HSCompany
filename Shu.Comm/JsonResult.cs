@@ -27,6 +27,16 @@ namespace Shu.Comm
         public string msg { get; set; }
 
         /// <summary>
+        /// 类型
+        /// </summary>
+        public string type { get; set; }
+
+        /// <summary>
+        /// 按钮ID
+        /// </summary>
+        public string IdButton { get; set; }
+
+        /// <summary>
         /// 其它数据信息
         /// </summary>
         public object Data { get; set; }
@@ -54,19 +64,22 @@ namespace Shu.Comm
         /// 输出结果
         /// </summary>
         /// <param name="end">是否 Response.End()</param>
-        public void Output(bool end) { 
-            string text=this.ToJson();
+        public void Output(bool end)
+        {
+            string text = this.ToJson();
             if (!string.IsNullOrEmpty(text))
                 System.Web.HttpContext.Current.Response.Write(text);
 
-            if (end) {
+            if (end)
+            {
                 System.Web.HttpContext.Current.Response.End();
             }
         }
         /// <summary>
         /// 输出结果 并执行 Response.End()
         /// </summary>
-        public void Output() {
+        public void Output()
+        {
             Output(true);
         }
 
@@ -75,7 +88,8 @@ namespace Shu.Comm
         /// </summary>
         /// <param name="error"></param>
         /// <returns></returns>
-        public JsonResult SetError(bool error) {
+        public JsonResult SetError(bool error)
+        {
             this.error = error;
             return this;
         }
@@ -85,7 +99,8 @@ namespace Shu.Comm
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        public JsonResult SetMsg(string msg) {
+        public JsonResult SetMsg(string msg)
+        {
             this.msg = msg;
             return this;
         }
@@ -94,8 +109,31 @@ namespace Shu.Comm
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public JsonResult SetData(object data) {
+        public JsonResult SetData(object data)
+        {
             this.Data = data;
+            return this;
+        }
+
+        /// <summary>
+        /// 设置类型(1:链接 2：事件 3：弹窗 4：新页面 5:自定义)
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public JsonResult SetType(string type)
+        {
+            this.type = type;
+            return this;
+        }
+
+        /// <summary>
+        /// 设置按钮ID
+        /// </summary>
+        /// <param name="idbutton"></param>
+        /// <returns></returns>
+        public JsonResult SetIdButton(string idbutton)
+        {
+            this.IdButton = idbutton;
             return this;
         }
     }

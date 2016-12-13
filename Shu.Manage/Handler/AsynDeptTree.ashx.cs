@@ -104,7 +104,67 @@ namespace Shu.Manage.Handler
                 //case "DataMapping":
                 //    this.DataMapping(context);
                 //    break;
+
+                case "DataDict":
+                    this.DataDict(context);//数据字典下拉框
+                    break;
+                case "DataDictTree":
+                    this.DataDictTree(context);//数据字典树下拉框
+                    break;
             }
+        }
+
+        private void DataDict(HttpContext context)
+        {
+            string ParentCode = context.Request.QueryString["Code"];
+            List<Sys_DataDict> DataDictList = new Sys_DataDictBLL().GetList(p => p.DataDict_ParentCode == ParentCode && p.DataDict_IsDel ==false).OrderBy(p => p.DataDict_Sequence).ToList();
+            DataDictList.Insert(0, new Sys_DataDict { DataDict_Name = Constant.DrpChoiceName, DataDict_Code = "" });
+            string jsonPerson = JsonConvert.SerializeObject(DataDictList);
+            context.Response.Write(jsonPerson);
+            context.Response.End();
+        }
+
+        private void DataDictTree(HttpContext context)
+        {
+            string ParentCode = context.Request.QueryString["Code"];
+            List<Sys_DataDict> DataDictList = new Sys_DataDictBLL().GetList(p => p.DataDict_ParentCode.StartsWith(ParentCode) && p.DataDict_IsDel ==false).OrderBy(p => p.DataDict_Sequence).ToList();
+            List<Sys_DataDict> OneDataDictList = DataDictList.Where(p => p.DataDict_ParentCode == ParentCode).ToList();
+            List<combotree> tree = new List<combotree>() {
+                new combotree { id="",text=Constant.DrpChoiceName}
+            };
+
+            OneDataDictList.ForEach(item =>
+            {
+                tree.Add(new combotree
+                {
+                    id = item.DataDict_Code,
+                    text = item.DataDict_Name,
+                    state = "open",
+                    children = children(item.DataDict_Code, DataDictList)
+                });
+            });
+
+            string jsonPerson = JsonConvert.SerializeObject(tree);
+            context.Response.Write(jsonPerson);
+            context.Response.End();
+        }
+
+        private List<combotree> children(string code, List<Sys_DataDict> treeList)
+        {
+            List<combotree> tree = new List<combotree>();
+            List<Sys_DataDict> list = new List<Sys_DataDict>();
+
+            list = treeList.Where(p => p.DataDict_ParentCode == code).ToList();
+            list.ForEach(item =>
+            {
+                tree.Add(new combotree
+                {
+                    id = item.DataDict_Code,
+                    text = item.DataDict_Name,
+                    children = children(item.DataDict_Code, treeList)
+                });
+            });
+            return tree;
         }
 
         //private void DataMapping(HttpContext context)

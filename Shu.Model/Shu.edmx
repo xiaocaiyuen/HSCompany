@@ -212,7 +212,7 @@
           <Property Name="Event" Type="varchar" MaxLength="40" />
           <Property Name="Type" Type="varchar" MaxLength="40" />
           <Property Name="EventType" Type="varchar" MaxLength="40" />
-          <Property Name="AddUserId" Type="datetime" />
+          <Property Name="AddUserId" Type="varchar" MaxLength="40" />
           <Property Name="AddTime" Type="datetime" />
           <Property Name="EditUserId" Type="varchar" MaxLength="40" />
           <Property Name="EditTime" Type="varchar" MaxLength="40" />
@@ -1510,7 +1510,7 @@
           <Property Name="Event" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="Type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="EventType" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="AddUserId" Type="DateTime" Precision="3" />
+          <Property Name="AddUserId" Type="String" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
           <Property Name="EditUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="EditTime" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />

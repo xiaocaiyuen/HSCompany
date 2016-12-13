@@ -82,3 +82,16 @@ a:active { color:#999}
      background-repeat:repeat-x;
      height:20px;
 }
+
+
+.div-body
+{
+    border: #ccc 1px solid;
+    border-top: #ccc 0px solid;
+    overflow: auto;
+    scrollbar-face-color: #e4e4e4;
+    scrollbar-heightlight-color: #f0f0f0;
+    scrollbar-3dlight-color: #d6d6d6;
+    scrollbar-arrow-color: #240024;
+    scrollbar-darkshadow-color: #d6d6d6;
+}

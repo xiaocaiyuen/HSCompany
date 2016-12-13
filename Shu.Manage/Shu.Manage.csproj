@@ -118,6 +118,39 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Icons\Button\16\back.png" />
+    <Content Include="Content\Icons\Button\16\blank.gif" />
+    <Content Include="Content\Icons\Button\16\cancel.png" />
+    <Content Include="Content\Icons\Button\16\clear.png" />
+    <Content Include="Content\Icons\Button\16\cut.png" />
+    <Content Include="Content\Icons\Button\16\edit_add.png" />
+    <Content Include="Content\Icons\Button\16\edit_remove.png" />
+    <Content Include="Content\Icons\Button\16\filesave.png" />
+    <Content Include="Content\Icons\Button\16\filter.png" />
+    <Content Include="Content\Icons\Button\16\help.png" />
+    <Content Include="Content\Icons\Button\16\large_chart.png" />
+    <Content Include="Content\Icons\Button\16\large_clipart.png" />
+    <Content Include="Content\Icons\Button\16\large_picture.png" />
+    <Content Include="Content\Icons\Button\16\large_shapes.png" />
+    <Content Include="Content\Icons\Button\16\large_smartart.png" />
+    <Content Include="Content\Icons\Button\16\lock.png" />
+    <Content Include="Content\Icons\Button\16\man.png" />
+    <Content Include="Content\Icons\Button\16\mini_add.png" />
+    <Content Include="Content\Icons\Button\16\mini_edit.png" />
+    <Content Include="Content\Icons\Button\16\mini_refresh.png" />
+    <Content Include="Content\Icons\Button\16\more.png" />
+    <Content Include="Content\Icons\Button\16\no.png" />
+    <Content Include="Content\Icons\Button\16\ok.png" />
+    <Content Include="Content\Icons\Button\16\pencil.png" />
+    <Content Include="Content\Icons\Button\16\print.png" />
+    <Content Include="Content\Icons\Button\16\redo.png" />
+    <Content Include="Content\Icons\Button\16\reload.png" />
+    <Content Include="Content\Icons\Button\16\search.png" />
+    <Content Include="Content\Icons\Button\16\sum.png" />
+    <Content Include="Content\Icons\Button\16\tip.png" />
+    <Content Include="Content\Icons\Button\16\undo.png" />
+    <Content Include="Content\Icons\iconMneu.css" />
+    <Content Include="Content\Icons\iconButton.css" />
     <Content Include="Content\themes\black\accordion.css" />
     <Content Include="Content\themes\black\calendar.css" />
     <Content Include="Content\themes\black\combo.css" />
@@ -1081,6 +1114,7 @@
     </Content>
     <Content Include="Content\themes\material\images\Thumbs.db" />
     <Content Include="PhotoGallery.aspx" />
+    <Content Include="Popup\IconList.aspx" />
     <Content Include="Print\CheckActivX.js" />
     <Content Include="Print\install_lodop.exe" />
     <Content Include="Print\install_lodop32.exe" />
@@ -1440,6 +1474,7 @@
     <Content Include="Handler\DepartmentHandler.ashx" />
     <Content Include="Handler\DesktopHandler.ashx" />
     <Content Include="Scripts\jquery.datagrid.js" />
+    <Content Include="Styles\List.css" />
     <Content Include="Sys\DepSelect.aspx" />
     <Content Include="Sys\OperatingButtonInfo.aspx" />
     <Content Include="Sys\ModuleInfo.aspx" />
@@ -1706,6 +1741,13 @@
     <Compile Include="PhotoGallery.aspx.designer.cs">
       <DependentUpon>PhotoGallery.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Popup\IconList.aspx.cs">
+      <DependentUpon>IconList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Popup\IconList.aspx.designer.cs">
+      <DependentUpon>IconList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sys\CityManager.aspx.cs">
       <DependentUpon>CityManager.aspx</DependentUpon>
@@ -1913,6 +1955,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Icons\Button\32\" />
+    <Folder Include="Content\Icons\Button\64\" />
+    <Folder Include="Content\Icons\Menu\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
