@@ -14,6 +14,40 @@
     <script type="text/javascript" src="/Scripts/locale/easyui-lang-zh_CN.js"></script>
     <script src="/Scripts/jquery.extend.js" type="text/javascript"></script>
     <script src="/Scripts/easyui.form.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function onkeyButton_Name(text) {
+            $("#Button_Title").val(text);
+        }
+        //全取系统图标
+        function SelectOpenImg() {
+            //var url = "../RMBase/SysMenu/Icons_List.aspx?Size=16";
+
+            $('#win').window({
+                title:'图标',
+                width: 600,
+                height: 400,
+                collapsible: false,
+                minimizable: false,
+                maximizable: false,
+                draggable: false,
+                resizable:false,
+                modal: true
+            });
+
+            $('#view_IconButton').attr('src', "/Popup/IconList.aspx");
+            //top.openDialog(url, 'Icons_List', '系统图标 - 全取', 615, 400, 100, 100);
+        }
+        //全取图标回调赋值
+        function Get_Menu_Img(img) {
+            $("#Img_Button_Img").attr("src",img);
+            $("#Icon").val(img);
+        }
+
+        function OpenClose()
+        {
+            $('#win').window('close');
+        }
+    </script>
 
     <%--<script src="/Scripts/ckeditor/ckeditor.js"></script>
     <script src="/Scripts/ckeditor/adapters/jquery.js"></script>--%>
@@ -39,8 +73,8 @@
                         <th>按钮图标</th>
                         <td>
                             <input name="Icon" type="hidden" id="Icon" />
-                            <img src="/Themes/Images/illustration.png" onerror="" id="Img_Button_Img" style="vertical-align: middle; padding-right: 10px;" />
-                            <a href="javascript:void(0)" onclick="SelectOpenImg()" class="easyui-linkbutton" data-options="iconCls:'icon-no'">选择图标</a>
+                            <img src="" onerror="this.src='/Content/themes/icons/large_picture.png'" id="Img_Button_Img" style="vertical-align: middle; padding-right: 10px;" />
+                            <a href="javascript:void(0)" onclick="SelectOpenImg()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">选择图标</a>
                         </td>
                     </tr>
                     <tr>
@@ -93,15 +127,24 @@
 
                 <%--<a href="javascript:void(0)" onclick="submitForm('WORKFLOW-ACTI-0000-0000-000000000008','保存',false);" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>--%>&nbsp;&nbsp;&nbsp;
                 
-                <a href="javascript:void(0)" onclick="submitForm('WORKFLOW-ACTI-0000-0000-000000000001','提交',true);" class="easyui-linkbutton" data-options="iconCls:'icon-ok'">提交</a>&nbsp;&nbsp;&nbsp;                <a href="javascript:void(0)" onclick="clearForm()" class="easyui-linkbutton" data-options="iconCls:'icon-reload'">重置</a>&nbsp;&nbsp;&nbsp;                <a href="javascript:void(0)" onclick="parent.WindowClose('<%=WebUtil.GetQuery("type") %>')" class="easyui-linkbutton" data-options="iconCls:'icon-no'">取消</a>
+                <a href="javascript:void(0)" onclick="submitForm('WORKFLOW-ACTI-0000-0000-000000000001','提交',true);" class="easyui-linkbutton" data-options="iconCls:'icon-ok'">提交</a>&nbsp;&nbsp;&nbsp;
+
+                <a href="javascript:void(0)" onclick="clearForm()" class="easyui-linkbutton" data-options="iconCls:'icon-reload'">重置</a>&nbsp;&nbsp;&nbsp;
+
+                <a href="javascript:void(0)" onclick="parent.WindowClose('<%=WebUtil.GetQuery("type") %>')" class="easyui-linkbutton" data-options="iconCls:'icon-no'">取消</a>
 
             </div>
         </div>
     </form>
+    <div id="win" style="width:0px;height:0px;">
+        <iframe id="view_IconButton" scrolling="yes"  width="100%"  frameborder="0" height="98%" ></iframe>
+    </div>  
     <script type="text/javascript">
         $(function () {
             loadRemote();
             //$('#Content').ckeditor();//文本编辑器
+            $("#Img_Button_Img").attr("src", applyjson.Icon);
+            
         });
     </script>
 </body>

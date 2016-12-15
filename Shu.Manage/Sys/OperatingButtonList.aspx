@@ -43,11 +43,11 @@
         </div>
     </fieldset>
     <UC:EasyUIGrid ID="EasyUIGrid" runat="server" />
-    <div id="ui_AddButton" class="easyui-window" title="新增" style="width: 600px; height: 500px; display:none" 
+    <div id="ui_AddButton" class="easyui-window" title="新增" style="width: 700px; height: 500px; display:none" 
         toolbar="#dlg-toolbar" resizable="true" closed="true"  >
         <iframe id="view_AddButton" scrolling="yes"  width="100%"  frameborder="0" height="98%" ></iframe>
     </div>
-    <div id="ui_EditButton" class="easyui-window" title="新增" style="width: 600px; height: 500px; display:none" 
+    <div id="ui_EditButton" class="easyui-window" title="新增" style="width: 700px; height: 500px; display:none" 
         toolbar="#dlg-toolbar" resizable="true" closed="true"  >
         <iframe id="view_EditButton" scrolling="yes"  width="100%"  frameborder="0" height="98%" ></iframe>
     </div>

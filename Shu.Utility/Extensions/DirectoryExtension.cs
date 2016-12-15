@@ -412,7 +412,7 @@ namespace Shu.Utility.Extensions
         /// </summary>
         /// <param name="sourcePath">源文件夹</param>
         /// <param name="destPath">目标文件夹</param>
-        public static void CopyFolder(string sourcePath, string destPath)
+        public static void CopyFolder(this string sourcePath, string destPath)
         {
             if (Directory.Exists(sourcePath))
             {

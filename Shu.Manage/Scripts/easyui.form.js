@@ -1,11 +1,11 @@
-﻿/**
+﻿var applyjson = {};
+/**
 *表单提交方法（post）（支持easyui）
 *ActionDefinitionID:动作按钮编号
 *ActionDefinitionName:动作按钮名称
 *IsStartWF:是否启动工作流引擎（true:启动，false：不启动。）
 */
 function submitForm(ActionDefinitionID, ActionDefinitionName, IsStartWF) {
-    alert(1);
     $.messager.progress();	// 显示进度条
     $('#form1').form('submit', {
         ajax: true,
@@ -57,7 +57,6 @@ function submitForm(ActionDefinitionID, ActionDefinitionName, IsStartWF) {
 
 /**表单复制方法（get）（支持easyui）*/
 function loadRemote() {
-    var applyjson = {};
     $.ajax({
         type: 'get',
         dataType: 'json',
