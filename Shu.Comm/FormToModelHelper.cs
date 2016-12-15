@@ -18,19 +18,17 @@ namespace Shu.Comm
             {
                 if (!pi.CanWrite)
                     continue;
-                object value = context.Request[pi.Name];
-                if (value != null && value != DBNull.Value)
+                string value = context.Request.Form[pi.Name];
+                try
                 {
-                    try
-                    {
-                        if (value.ToString() != "")
-                            pi.SetValue(t, Convert.ChangeType(value, pi.PropertyType), null);//这一步很重要，用于类型转换
-                        else
-                            pi.SetValue(t, value, null);
-                    }
-                    catch
-                    { }
+                    if (!string.IsNullOrEmpty(value))
+                        SetPropertyValue(pi, context.Request.Form[pi.Name], t);
+                    //pi.SetValue(t, Convert.ChangeType(value, pi.PropertyType), null);//这一步很重要，用于类型转换
+                    else
+                        pi.SetValue(t, value, null);
                 }
+                catch
+                { }
             }
 
             return t;

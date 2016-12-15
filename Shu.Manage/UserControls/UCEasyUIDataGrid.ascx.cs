@@ -207,10 +207,20 @@ namespace Shu.Manage.UserControls
         /// </summary>
         public string TableKeyField { get { return GetGridAttr("KeyField"); } }
 
+        public string tableName { get; set; }
         /// <summary>
         /// 表名称
         /// </summary>
-        public string TableName { get { return GetGridAttr("TableName"); } }
+        public string TableName
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(tableName))
+                    return GetGridAttr("TableName");
+                else return tableName;
+            }
+            set { tableName = value; }
+        }
 
         private string tableView;
         /// <summary>

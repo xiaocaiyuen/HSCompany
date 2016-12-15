@@ -67,6 +67,7 @@
     <Compile Include="Extensions\ControlExtension.cs" />
     <Compile Include="Extensions\DateTimeConverter.cs" />
     <Compile Include="Extensions\DateTimeExtension.cs" />
+    <Compile Include="Extensions\DirectoryExtension.cs" />
     <Compile Include="Extensions\DistinctExtensions.cs" />
     <Compile Include="Extensions\EnumExtension.cs" />
     <Compile Include="Extensions\IComparableExtension.cs" />
