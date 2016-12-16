@@ -12,7 +12,22 @@
 <script type="text/javascript" src="/Scripts/json2.min.js" charset="utf-8"></script>
 <%--<script src="/Scripts/EasyuiDatagridExcel.js" type="text/javascript"></script>
 <script src="/Scripts/EasyuiDatagrid.js" type="text/javascript"></script>--%>
-<style> .datagrid-cell-rownumber{ width:50px; text-align:center; margin:0px; padding:3px 0px; color:#000; } .datagrid-header-rownumber{ width:50px; text-align:center; margin:0px; padding:3px 0px; } </style>
+<style>
+    .datagrid-cell-rownumber {
+        width: 50px;
+        text-align: center;
+        margin: 0px;
+        padding: 3px 0px;
+        color: #000;
+    }
+
+    .datagrid-header-rownumber {
+        width: 50px;
+        text-align: center;
+        margin: 0px;
+        padding: 3px 0px;
+    }
+</style>
 <%var setTableKey = SetKey();
   var vsetTableKey = vSetKey();
   var currenturl = CurrentUrl;
@@ -53,7 +68,7 @@
             <%  int m = 0;
                 foreach (XElement e in Node)
                 { %>
-            {  <%=m==RowClickNum? "formatter:hyperlink,":"" %> <%=m==RowImageNum? "formatter:imagelink,":"" %> <%=e.Attribute("width")!=null? "width:"+e.Attribute
+            {  <%=m==RowClickNum? "formatter:hyperlink,":"" %> <%=e.Attribute("IsImage")!=null?e.Attribute("IsImage").Value.ToBoolean(false)==true ? "formatter:ImageShow,":"":"" %>  <%=e.Attribute("width")!=null? "width:"+e.Attribute
 
 ("width").Value+",":""%>sortable:true, align:'center',field:'<%=e.Attribute("Key").Value%>', <%=e.Attribute("formatter")!=null? "formatter:"+e.Attribute("formatter").Value+",":""%><%=e.Attribute("styler")!=null? "styler:"+e.Attribute("styler").Value+",":""%>
                 title:'<%=e.Attribute("Name").Value%>',<%=e.Attribute("Hidden")!=null? "hidden:true":""%>
@@ -299,9 +314,9 @@ var toolbar = [
         height:411
     });
 </script>
-<div id="divUCEasyUIDataGrid" style="float: left; width: 99%; margin-left:5px;">
-<table id="grid">
-</table>
+<div id="divUCEasyUIDataGrid" style="float: left; width: 99%; margin-left: 5px;">
+    <table id="grid">
+    </table>
 </div>
 <script type="text/javascript">
     function resizeGrid(){
@@ -421,6 +436,11 @@ var toolbar = [
         return "<a class=\"\" href='javascript:void(0)' onclick=\"ShowData('<%=DetailURL%>','4','" + rec.<%=TableKey %> + "',\'<%=setTableKey %>\')\">"+value+"</a>"; 
     };
 
+    //显示为图片
+    var ImageShow=function (value, rec,index) {
+        var strhtml = "<img src=\""+value+"\" onerror=\"this.src='/Content/themes/icons/large_picture.png'\" style=\"vertical-align: middle; padding-right: 10px;\" />"; 
+        return strhtml;
+    };
 
     //图片
     var imagelink=function (value, rec,index) {
@@ -444,7 +464,8 @@ var toolbar = [
 
     //行样式
     var rowStyler=function(index,row){
-        <%if( currenturl != "DecomposeDetailList.aspx"){%>
+        <%if (currenturl != "DecomposeDetailList.aspx")
+       {%>
             if(index%2==1)
                 //return 'background:#CCCCCC';
                 return 'background:rgb(235, 239, 242);color:Black;font-weight:bold;'; 

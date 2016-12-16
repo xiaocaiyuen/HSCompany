@@ -13,7 +13,7 @@
         $(function () {
             divresize();
             $(".divicons").click(function () {
-                parent.Get_Menu_Img($(this).attr('title'));
+                parent.Get_Menu_Img($(this).attr('title'), $(this).attr('iconName'));
             }).dblclick(function () {
                 parent.OpenClose();
             });

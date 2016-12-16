@@ -54,9 +54,9 @@ namespace Shu.Model
         public virtual DbSet<View_Sys_DeskTtop> View_Sys_DeskTtop { get; set; }
         public virtual DbSet<Sys_UserInfo> Sys_UserInfo { get; set; }
         public virtual DbSet<Sys_Area> Sys_Area { get; set; }
-        public virtual DbSet<Sys_Menu> Sys_Menu { get; set; }
-        public virtual DbSet<Sys_Module> Sys_Module { get; set; }
         public virtual DbSet<Sys_Icons> Sys_Icons { get; set; }
         public virtual DbSet<Sys_OperatingButton> Sys_OperatingButton { get; set; }
+        public virtual DbSet<Sys_Menu> Sys_Menu { get; set; }
+        public virtual DbSet<Sys_Module> Sys_Module { get; set; }
     }
 }

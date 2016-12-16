@@ -38,9 +38,10 @@
             //top.openDialog(url, 'Icons_List', '系统图标 - 全取', 615, 400, 100, 100);
         }
         //全取图标回调赋值
-        function Get_Menu_Img(img) {
+        function Get_Menu_Img(img,IconName) {
             $("#Img_Button_Img").attr("src",img);
             $("#Icon").val(img);
+            $("#IconName").val(IconName);
         }
 
         function OpenClose()
@@ -73,6 +74,7 @@
                         <th>按钮图标</th>
                         <td>
                             <input name="Icon" type="hidden" id="Icon" />
+                            <input name="IconName" type="hidden" id="IconName" />
                             <img src="" onerror="this.src='/Content/themes/icons/large_picture.png'" id="Img_Button_Img" style="vertical-align: middle; padding-right: 10px;" />
                             <a href="javascript:void(0)" onclick="SelectOpenImg()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">选择图标</a>
                         </td>

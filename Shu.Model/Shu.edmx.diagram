@@ -34,11 +34,11 @@
         <EntityTypeShape EntityType="ShuModel.View_Sys_DeskTtop" Width="1.5" PointX="16.375" PointY="13.75" />
         <EntityTypeShape EntityType="ShuModel.Sys_UserInfo" Width="1.5" PointX="3.375" PointY="17.75" />
         <EntityTypeShape EntityType="ShuModel.Sys_Area" Width="1.5" PointX="16.375" PointY="17.75" />
-        <EntityTypeShape EntityType="ShuModel.Sys_Menu" Width="1.5" PointX="20.625" PointY="1" />
-        <EntityTypeShape EntityType="ShuModel.Sys_Module" Width="1.5" PointX="18.375" PointY="1" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Icons" Width="1.5" PointX="18.375" PointY="5.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_OperatingButton" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Menu" Width="1.5" PointX="20.625" PointY="10" />
+        <EntityTypeShape EntityType="ShuModel.Sys_Module" Width="1.5" PointX="18.375" PointY="10.25" />
         <AssociationConnector Association="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU" />
-        <EntityTypeShape EntityType="ShuModel.Sys_Icons" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ShuModel.Sys_OperatingButton" Width="1.5" PointX="2.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -118,38 +118,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Icons\Button\16\back.png" />
-    <Content Include="Content\Icons\Button\16\blank.gif" />
-    <Content Include="Content\Icons\Button\16\cancel.png" />
-    <Content Include="Content\Icons\Button\16\clear.png" />
-    <Content Include="Content\Icons\Button\16\cut.png" />
-    <Content Include="Content\Icons\Button\16\edit_add.png" />
-    <Content Include="Content\Icons\Button\16\edit_remove.png" />
-    <Content Include="Content\Icons\Button\16\filesave.png" />
-    <Content Include="Content\Icons\Button\16\filter.png" />
-    <Content Include="Content\Icons\Button\16\help.png" />
-    <Content Include="Content\Icons\Button\16\large_chart.png" />
-    <Content Include="Content\Icons\Button\16\large_clipart.png" />
-    <Content Include="Content\Icons\Button\16\large_picture.png" />
-    <Content Include="Content\Icons\Button\16\large_shapes.png" />
-    <Content Include="Content\Icons\Button\16\large_smartart.png" />
-    <Content Include="Content\Icons\Button\16\lock.png" />
-    <Content Include="Content\Icons\Button\16\man.png" />
-    <Content Include="Content\Icons\Button\16\mini_add.png" />
-    <Content Include="Content\Icons\Button\16\mini_edit.png" />
-    <Content Include="Content\Icons\Button\16\mini_refresh.png" />
-    <Content Include="Content\Icons\Button\16\more.png" />
-    <Content Include="Content\Icons\Button\16\no.png" />
-    <Content Include="Content\Icons\Button\16\ok.png" />
-    <Content Include="Content\Icons\Button\16\pencil.png" />
-    <Content Include="Content\Icons\Button\16\print.png" />
-    <Content Include="Content\Icons\Button\16\redo.png" />
-    <Content Include="Content\Icons\Button\16\reload.png" />
-    <Content Include="Content\Icons\Button\16\search.png" />
-    <Content Include="Content\Icons\Button\16\sum.png" />
-    <Content Include="Content\Icons\Button\16\tip.png" />
-    <Content Include="Content\Icons\Button\16\undo.png" />
-    <Content Include="Content\Icons\iconMneu.css" />
+    <Content Include="Content\Icons\iconMenu.css" />
     <Content Include="Content\Icons\iconButton.css" />
     <Content Include="Content\themes\black\accordion.css" />
     <Content Include="Content\themes\black\calendar.css" />
@@ -1955,9 +1924,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Icons\Button\16\" />
     <Folder Include="Content\Icons\Button\32\" />
     <Folder Include="Content\Icons\Button\64\" />
-    <Folder Include="Content\Icons\Menu\" />
+    <Folder Include="Content\Icons\Menu\16\" />
+    <Folder Include="Content\Icons\Menu\32\" />
+    <Folder Include="Content\Icons\Menu\64\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

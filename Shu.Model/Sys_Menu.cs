@@ -28,6 +28,8 @@ namespace Shu.Model
         public Nullable<System.DateTime> Menu_AddTime { get; set; }
         public string Menu_AddUserID { get; set; }
         public string Menu_Operation { get; set; }
+        public string Menu_IconName { get; set; }
+        public string Menu_IconPath { get; set; }
     
         public virtual Sys_Module Sys_Module { get; set; }
     }

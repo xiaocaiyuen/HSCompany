@@ -30,32 +30,38 @@ namespace Shu.Manage.Handler
             {
                 context.Response.Write(LoadMuenu());
             }
-            if (method == "sort")
+            else if (method == "sort")
             {
                 context.Response.Write(GetSortNum(context));
             }
-            if (method == "add")
+            else if (method == "add")
             {
                 context.Response.Write(Add(context));
             }
 
-            if (method == "delete")
+            else if (method == "delete")
             {
                 context.Response.Write(Delete(context));
             }
 
-            if (method == "show")
+            else if (method == "show")
             {
                 context.Response.Write(ShowInfo(context));
             }
-            if (method == "See")
+            else if (method == "See")
             {
                 context.Response.Write(ShowSee(context));
             }
-            if (method == "modify")
+            else if (method == "modify")
             {
                 context.Response.Write(Modify(context));
             }
+            else if (method == "UpdateIconStyle")//批量更新菜单图标样式
+            {
+                context.Response.Write(UpdateIconStyle(context));
+            }
+
+
 
         }
 
@@ -108,11 +114,11 @@ namespace Shu.Manage.Handler
                 if (menu.Menu_ParentCode == "0")
                 {
 
-                    strMenu.Append("{\"id\":\"" + menu.Menu_Code + "\",\"name\":\"" + menu.Menu_Name + "\",\"url\":\"" + menu.Menu_Url + "\",\"sort\":\"" + menu.Menu_Sequence + "\",\"Opt\":\"" + menu.Menu_Operation + "\"},");
+                    strMenu.Append("{\"id\":\"" + menu.Menu_Code + "\",\"name\":\"" + menu.Menu_Name + "\",\"url\":\"" + menu.Menu_Url + "\",\"sort\":\"" + menu.Menu_Sequence + "\",\"iconCls\":\"icon-" + menu.Menu_IconName + "\",\"Opt\":\"" + menu.Menu_Operation + "\"},");
                 }
                 else
                 {
-                    strMenu.Append("{\"id\":\"" + menu.Menu_Code + "\",\"name\":\"" + menu.Menu_Name + "\",\"url\":\"" + menu.Menu_Url + "\",\"sort\":\"" + menu.Menu_Sequence + "\",\"Opt\":\"" + menu.Menu_Operation + "\",\"_parentId\":\"" + menu.Menu_ParentCode + "\"}");
+                    strMenu.Append("{\"id\":\"" + menu.Menu_Code + "\",\"name\":\"" + menu.Menu_Name + "\",\"url\":\"" + menu.Menu_Url + "\",\"sort\":\"" + menu.Menu_Sequence + "\",\"iconCls\":\"icon-" + menu.Menu_IconName + "\",\"Opt\":\"" + menu.Menu_Operation + "\",\"_parentId\":\"" + menu.Menu_ParentCode + "\"}");
 
                     if (index != list.Count)
                     {
@@ -180,6 +186,9 @@ namespace Shu.Manage.Handler
             string sort = context.Request.QueryString["sort"];
             string opt = context.Request.QueryString["opt"];
             string see = context.Request.QueryString["seeCharge"];
+            string IconPath = context.Request.QueryString["IconPath"];
+            string IconName = context.Request.QueryString["IconName"];
+
 
             Sys_Menu menumodel = new Sys_Menu();
 
@@ -194,6 +203,8 @@ namespace Shu.Manage.Handler
             menumodel.Menu_AddTime = DateTime.Now;
             menumodel.Menu_AddUserID = "";
             menumodel.Menu_Operation = opt;
+            menumodel.Menu_IconName = IconName;
+            menumodel.Menu_IconPath = IconPath;
             string msg = string.Empty;
             bool abl = bll.Add(menumodel);
 
@@ -311,6 +322,8 @@ namespace Shu.Manage.Handler
             string url = context.Request.QueryString["url"];
             string sort = context.Request.QueryString["sort"];
             string opt = context.Request.QueryString["opt"];
+            string IconPath = context.Request.QueryString["IconPath"];
+            string IconName = context.Request.QueryString["IconName"];
 
             string see = context.Request.QueryString["seeCharge"];
             string s = "1";
@@ -329,6 +342,8 @@ namespace Shu.Manage.Handler
                 menumodel.Menu_Url = url;
                 menumodel.Menu_Sequence = int.Parse(sort);
                 menumodel.Menu_Operation = opt;
+                menumodel.Menu_IconName = IconName;
+                menumodel.Menu_IconPath = IconPath;
 
 
                 List<Sys_SeeCharge> seList = new List<Sys_SeeCharge>();
@@ -392,6 +407,24 @@ namespace Shu.Manage.Handler
 
         }
 
+        #endregion
+
+        #region 批量更新菜单图标样式
+        public string UpdateIconStyle(HttpContext context)
+        {
+            string pcode = context.Request.QueryString["pcode"];
+
+            bool isIconClass = new Sys_MenuBLL().IconMenu(System.Web.HttpContext.Current.Server.MapPath("/Content/Icons/iconMenu.css"));
+            if (isIconClass)
+            {
+                return "1";
+            }
+            else
+            {
+                return "0";
+            }
+
+        }
         #endregion
 
         public bool IsReusable

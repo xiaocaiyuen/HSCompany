@@ -10,6 +10,7 @@
     <link href="/Content/themes/icon.css" rel="stylesheet" />
     <script type="text/javascript" src="/Scripts/jquery.easyui-1.4.5.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/Scripts/locale/easyui-lang-zh_CN.js" charset="utf-8"></script>
+    <link href="/Content/Icons/iconMenu.css" rel="stylesheet" />
     <script src="/Scripts/MenuManager.js" type="text/javascript"></script>
 </head>
 <body>
@@ -20,6 +21,7 @@
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="showedit()">编辑</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="del()">删除</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="reload()">刷新</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="UpdateIconStyle()">更新图标样式</a>
     </div>
     <table id="tg" class="easyui-treegrid" title="菜单管理" style="height: 400px"
         data-options="
@@ -63,6 +65,15 @@
                 <td>地    址：</td>
                 <td>
                     <input class="easyui-textbox" style="width: 200px" type="text" id="menuurl" name="menuurl" data-options="required:true"></input>
+                </td>
+            </tr>
+            <tr>
+                <th>按钮图标</th>
+                <td>
+                    <input name="Icon" type="hidden" id="Icon" />
+                    <input name="IconName" type="hidden" id="IconName" />
+                    <img src="" onerror="this.src='/Content/themes/icons/large_picture.png'" id="Img_Button_Img" style="vertical-align: middle; padding-right: 10px;" />
+                    <a href="javascript:void(0)" onclick="SelectOpenImg()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">选择图标</a>
                 </td>
             </tr>
             <tr>
@@ -119,6 +130,10 @@
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="AddSave();">保存</a>
             <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">取消</a>
         </div>
+    </div>
+
+    <div id="win" style="width: 0px; height: 0px;">
+        <iframe id="view_IconButton" scrolling="yes" width="100%" frameborder="0" height="98%"></iframe>
     </div>
 
     <script type="text/javascript">
@@ -216,7 +231,10 @@
                             $('#menuname').textbox('setValue', json.Menu_Name);
                             $('#menuurl').textbox('setValue', json.Menu_Url);
                             $('#menusort').numberbox('setValue', json.Menu_Sequence);
+                            $('#Icon').val(json.Menu_IconPath);
+                            $('#IconName').val(json.Menu_IconName);
                             $('#hid_MenuID').val(json.MenuID);
+                            $("#Img_Button_Img").prop("src", json.Menu_IconPath);
                             if (json.Menu_Operation != undefined || json.Menu_Operation != null) {
                                 var opt = json.Menu_Operation.split(',');
                                 for (var i = 0; i < opt.length; i++) {
@@ -291,13 +309,16 @@
 
             var sort1 = $('#menusort').val();
 
+            var IconPath = $('#Icon').val();
+            var IconName = $('#IconName').val();
+
             var pcode1 = $('#tg').treegrid('getSelected').id;
 
             var opt1 = GetCheckboxValue();
 
             if ($('#hid_Method').val() == "add") {
 
-                $.get("/Handler/MenuHandler.ashx?method=add", { name: name1, url: url1, sort: sort1, pcode: pcode1, opt: opt1, seeCharge: seeCharge1 },
+                $.get("/Handler/MenuHandler.ashx?method=add", { name: name1, url: url1, sort: sort1, pcode: pcode1, opt: opt1, seeCharge: seeCharge1, IconPath: IconPath, IconName: IconName },
 
             function (data, textStatus) {
 
@@ -316,7 +337,7 @@
             }
             else {
 
-                $.get("/Handler/MenuHandler.ashx?method=modify", { name: name1, url: url1, sort: sort1, id: $('#hid_MenuID').val(), opt: opt1, seeCharge: seeCharge1 },
+                $.get("/Handler/MenuHandler.ashx?method=modify", { name: name1, url: url1, sort: sort1, id: $('#hid_MenuID').val(), opt: opt1, seeCharge: seeCharge1, IconPath: IconPath, IconName: IconName },
 
             function (data, textStatus) {
 
@@ -387,6 +408,53 @@
                 }
             }
         }
+
+        function UpdateIconStyle() {
+            if (confirm("您确定要批量更新菜单图标样式吗？")) {
+                $.ajax("/Handler/MenuHandler.ashx?method=UpdateIconStyle", {}, function (data, textStatus) {
+                    alert(data);
+                    if (data == "1") {
+                        reload();
+                        alert("更新成功!");
+                    }
+                    else {
+                        alert("更新样式出错，稍后再试!");
+                    }
+                });
+            }
+        }
+
+        //全取系统图标
+        function SelectOpenImg() {
+            //var url = "../RMBase/SysMenu/Icons_List.aspx?Size=16";
+
+            $('#win').window({
+                title: '图标',
+                width: 600,
+                height: 400,
+                collapsible: false,
+                minimizable: false,
+                maximizable: false,
+                draggable: false,
+                resizable: false,
+                modal: true
+            });
+
+            $('#view_IconButton').attr('src', "/Popup/IconList.aspx?IconSize=16&IconType=Menu");
+            //top.openDialog(url, 'Icons_List', '系统图标 - 全取', 615, 400, 100, 100);
+        }
+        //全取图标回调赋值
+        function Get_Menu_Img(img, IconName) {
+            $("#Img_Button_Img").attr("src", img);
+            $("#Icon").val(img);
+            $("#IconName").val(IconName);
+        }
+
+        function OpenClose() {
+            $('#win').window('close');
+        }
+
+
 
     </script>
 

@@ -19,6 +19,7 @@ namespace Shu.Model
         public string Id { get; set; }
         public string Name { get; set; }
         public string Marker { get; set; }
+        public string IconName { get; set; }
         public string Icon { get; set; }
         public string Event { get; set; }
         public string Type { get; set; }

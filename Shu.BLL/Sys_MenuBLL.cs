@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Shu.Utility.Extensions;
 
 namespace Shu.BLL
 {
@@ -61,6 +62,36 @@ namespace Shu.BLL
                 }
             }
             return "0";
+        }
+
+        public bool IconMenu(string Path)
+        {
+            //var query = from t in DBSession.Db.Sys_Menu
+            //            where !string.IsNullOrEmpty(t.Menu_IconName)
+            //            group t by t.Menu_IconName into g
+            //            select g.ToList();
+
+            List<Sys_Menu> MenuList = GetList(p => !string.IsNullOrEmpty(p.Menu_IconName)).Distinct(p => p.Menu_IconName).ToList();
+
+            StringBuilder IconClass = new StringBuilder();
+
+            foreach (var t in MenuList)
+            {
+                IconClass.Append(".icon-" + t.Menu_IconName + "{background: url('" + t.Menu_IconPath + "') no-repeat center center;}\r\n");
+                //Console.WriteLine("t图标名称：{0} 图标地址：{1}", t.Menu_IconName, t.Menu_IconPath);
+            }
+            try
+            {
+                //Path.DeleteFile();
+                //Path.CreateFile();
+                Path.WriteAllText(IconClass.ToString(), Encoding.UTF8);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
         }
     }
 }

@@ -112,7 +112,7 @@ namespace Shu.Manage.UserControls
         private bool isShowCheckBox;
         private bool isShowPagin;
         private int rowClickNum = -1;
-        private int rowImageNum = -1;
+        //private int rowImageNum = -1;
         private string imageURL;
 
 
@@ -317,21 +317,21 @@ namespace Shu.Manage.UserControls
         }
 
 
-        /// <summary>
-        /// 通过显示图片，此为需要此功能的列，如果为-1则不加载
-        /// </summary>
-        public int RowImageNum
-        {
-            get
-            {
-                tempXmlValue = GetGridAttr("RowImageNum");
-                if (tempXmlValue != "")
-                    return int.Parse(tempXmlValue);
-                else
-                    return rowImageNum;
-            }
-            set { rowImageNum = value; }
-        }
+        ///// <summary>
+        ///// 通过显示图片，此为需要此功能的列，如果为-1则不加载
+        ///// </summary>
+        //public int RowImageNum
+        //{
+        //    get
+        //    {
+        //        tempXmlValue = GetGridAttr("RowImageNum");
+        //        if (tempXmlValue != "")
+        //            return int.Parse(tempXmlValue);
+        //        else
+        //            return rowImageNum;
+        //    }
+        //    set { rowImageNum = value; }
+        //}
 
         /// <summary>
         /// 图片相关超链接

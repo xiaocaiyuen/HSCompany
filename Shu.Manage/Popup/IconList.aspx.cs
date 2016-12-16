@@ -38,13 +38,19 @@ namespace Shu.Manage.Popup
             string IconType = WebUtil.GetQuery("IconType", "Button");
             string IconPath = "/Content/Icons/" + IconType + "/" + IconSize + "/";
             DirectoryInfo dir = new DirectoryInfo(Server.MapPath(IconPath));
+
+            //if (IconType == "Button")//如果是操作按钮需要合并easyui Icon
+            //{
+            //    dir += new DirectoryInfo(Server.MapPath(IconPath));
+            //}
+
             int rowbegin = (pageindex - 1) * pagesize;
             int rowend = pageindex * pagesize;
             foreach (FileInfo fsi in dir.GetFileSystemInfos())
             {
                 if (recordcount >= rowbegin && recordcount < rowend)
                 {
-                    strImg.Append("<div class=\"divicons\" title='" + IconPath + fsi.Name + "'>");
+                    strImg.Append("<div class=\"divicons\" iconName=\""+ fsi.Name.Remove(fsi.Name.LastIndexOf(".")) + "\" title='" + IconPath + fsi.Name + "'>");
                     strImg.Append("<img src=\"" + IconPath + "" + fsi.Name + "\" />");
                     strImg.Append("</div>");
                 }

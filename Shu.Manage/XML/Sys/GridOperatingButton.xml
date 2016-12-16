@@ -7,12 +7,13 @@
       SQLField="*" 
       IsShowPagin="true" 
       IsShowCheckBox="false"
+      RowImageNum="2"
       AddURL="OperatingButtonInfo.aspx"
       ModifyURL="OperatingButtonInfo.aspx"
       MenuURL="OperatingButtonList.aspx">
   <Column Key="Name" Name="按钮名称" width="7"></Column>
   <Column Key="Marker" Name="按钮标记" width="5"></Column>
-  <Column Key="Icon" Name="按钮图标" width="5"></Column>
+  <Column Key="Icon" Name="按钮图标" width="5" IsImage="true"></Column>
   <Column Key="Event" Name="按钮事件" width="5"></Column>
   <Column Key="Type" Name="按钮类型" width="5" formatter="function (v) {
                              if (v == '0') {
