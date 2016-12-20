@@ -1083,6 +1083,7 @@
     </Content>
     <Content Include="Content\themes\material\images\Thumbs.db" />
     <Content Include="PhotoGallery.aspx" />
+    <Content Include="Popup\IconMenuButton.aspx" />
     <Content Include="Popup\IconList.aspx" />
     <Content Include="Print\CheckActivX.js" />
     <Content Include="Print\install_lodop.exe" />
@@ -1451,6 +1452,7 @@
     <Content Include="Sys\ModuleList.aspx" />
     <Content Include="Sys\NoticeAdd.aspx" />
     <Content Include="Sys\NoticeShow.aspx" />
+    <Content Include="UserControls\UCButton.ascx" />
     <Content Include="UserControls\UCExpAllDeptEasyUISingleTreeCheckBox.ascx" />
     <Content Include="UserControls\UCFiles.ascx" />
     <Content Include="XML\Sys\GridOperatingButton.xml">
@@ -1466,6 +1468,9 @@
     <Content Include="Scripts\ckeditor\ckeditor.pack" />
     <Content Include="Print\npActiveXFirefox4x.xpi" />
     <Content Include="Handler\CityHandler.ashx" />
+    <Content Include="XML\Windows\Win_IconMenuButton.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery.linq-vsdoc.js" />
     <Content Include="Scripts\jquery.extend.js" />
     <Content Include="Scripts\jquery.linq.js" />
@@ -1710,6 +1715,13 @@
     <Compile Include="PhotoGallery.aspx.designer.cs">
       <DependentUpon>PhotoGallery.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Popup\IconMenuButton.aspx.cs">
+      <DependentUpon>IconMenuButton.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Popup\IconMenuButton.aspx.designer.cs">
+      <DependentUpon>IconMenuButton.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Popup\IconList.aspx.cs">
       <DependentUpon>IconList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1878,6 +1890,13 @@
     </Compile>
     <Compile Include="Sys\UserManager.aspx.designer.cs">
       <DependentUpon>UserManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCButton.ascx.cs">
+      <DependentUpon>UCButton.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCButton.ascx.designer.cs">
+      <DependentUpon>UCButton.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UCEasyUIDataGrid.ascx.cs">
       <DependentUpon>UCEasyUIDataGrid.ascx</DependentUpon>

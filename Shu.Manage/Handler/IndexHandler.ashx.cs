@@ -84,7 +84,7 @@ namespace Shu.Manage.Handler
             
             foreach (View_Sys_RolePurviewAndMenu menuModel1 in menuListLevel1.OrderBy(p => p.Menu_Sequence))//一级菜单
             {
-                javaScript += "{ 'menuid': '" + menuModel1.MenuID + "', 'menuname': '" + menuModel1.Menu_Name + "', 'icon': '" + getMenusIcon(menuModel1.Menu_Name) + "', 'menus': [";
+                javaScript += "{ 'menuid': '" + menuModel1.MenuID + "', 'menuname': '" + menuModel1.Menu_Name + "', 'icon': 'icon-" + menuModel1.Menu_IconName + "', 'menus': [";
 
                 string menuLel2String = "";
                 foreach (View_Sys_RolePurviewAndMenu menuModel2 in menuList.FindAll(p => p.Menu_ParentCode == menuModel1.Menu_Code).OrderBy(p => p.Menu_Sequence))//二级菜单
@@ -92,7 +92,7 @@ namespace Shu.Manage.Handler
                     menuLel2String += "{";
                     menuLel2String += "'menuid': '" + menuModel2.MenuID + "',";
                     menuLel2String += "'menuname': '" + menuModel2.Menu_Name + "',";
-                    menuLel2String += "'icon': '" + isSubMenuExists(menuModel2,2) + "',";
+                    menuLel2String += "'icon': 'icon-" + menuModel2.Menu_IconName + "',";
                     List<View_Sys_RolePurviewAndMenu> list3 = menuList.FindAll(p => p.Menu_ParentCode == menuModel2.Menu_Code);
                     string menuLel3String = "";
                     if (list3.Count == 0)
@@ -110,7 +110,7 @@ namespace Shu.Manage.Handler
                             menuLel3String += "{";
                             menuLel3String += "'menuid': '" + menuModel3.MenuID + "',";
                             menuLel3String += "'menuname': '" + menuModel3.Menu_Name + "',";
-                            menuLel3String += "'icon': '" + isSubMenuExists(menuModel3, 3) + "',";
+                            menuLel3String += "'icon': 'icon-" + menuModel3.Menu_IconName + "',";
                             menuLel3String += "'url': '" + menuModel3.Menu_Url + "'";
                             menuLel3String += "},";
                         }

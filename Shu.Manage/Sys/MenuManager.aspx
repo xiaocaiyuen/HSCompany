@@ -12,6 +12,7 @@
     <script type="text/javascript" src="/Scripts/locale/easyui-lang-zh_CN.js" charset="utf-8"></script>
     <link href="/Content/Icons/iconMenu.css" rel="stylesheet" />
     <script src="/Scripts/MenuManager.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/Scripts/jquery.linq.min.js"></script>
 </head>
 <body>
     <input id="hid_Method" type="hidden" />
@@ -19,6 +20,7 @@
     <div style="margin: 10px 0;">
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="AddShow()">新增子节点</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="showedit()">编辑</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="IconButton()">按钮图标</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="del()">删除</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="reload()">刷新</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="UpdateIconStyle()">更新图标样式</a>
@@ -35,14 +37,15 @@
 				idField: 'id',
 				treeField: 'name',
 				showFooter: true
+                <%--onLoadSuccess:onLoadSuccess--%>
 			">
         <thead>
             <tr>
                 <th data-options="field:'name',width:180">菜单名称</th>
                 <th data-options="field:'url',width:280,align:'right'">路径</th>
                 <th data-options="field:'sort',width:50">排序</th>
-                <th data-options="field:'Opt',width:380">操作按钮</th>
-
+                <th data-options="field:'Opt',width:380,">操作按钮</th>
+                <%--formatter:cat--%>
             </tr>
         </thead>
     </table>
@@ -82,7 +85,7 @@
                     <input class="easyui-numberbox easyui-validatebox" style="width: 200px" type="text" id="menusort" name="menusort" data-options="required:true"></input>
                 </td>
             </tr>
-            <tr>
+            <%--<tr>
                 <td>操作按钮：</td>
                 <td>
                     <input id="chk1" type="checkbox" value="新增" />新增
@@ -112,8 +115,15 @@
                      <input id="chk49" type="checkbox" value="导 出Excel" />导出Excel
                      <input id="chk50" type="checkbox" value="归档" />归档
                 </td>
+            </tr>--%>
+        </table>
+        <table width="100%">
+            <tr>
+                <td>操作按钮：</td>
+                <td>
+                    <UC:Button ID="Button" runat="server" />
+                </td>
             </tr>
-
         </table>
         <div id="LitContent">
             <table id="tab1" width="750">
@@ -134,6 +144,10 @@
 
     <div id="win" style="width: 0px; height: 0px;">
         <iframe id="view_IconButton" scrolling="yes" width="100%" frameborder="0" height="98%"></iframe>
+    </div>
+
+    <div id="IconButton" style="width: 0px; height: 0px;">
+        <iframe id="view_IconMenuButton" scrolling="yes" width="100%" frameborder="0" height="98%"></iframe>
     </div>
 
     <script type="text/javascript">
@@ -255,6 +269,28 @@
 
                     }
                 });
+            }
+        }
+
+        function IconButton() {
+            var node = $('#tg').treegrid('getSelected');
+            if (node == undefined || node == null) {
+                alert("请选择节点");
+            }
+            else {
+                $('#IconButton').window({
+                    title: '按钮图标',
+                    width: 600,
+                    height: 400,
+                    collapsible: false,
+                    minimizable: false,
+                    maximizable: false,
+                    draggable: false,
+                    resizable: false,
+                    modal: true
+                });
+
+                $('#view_IconMenuButton').attr('src', "/Popup/IconMenuButton.aspx");
             }
         }
 
@@ -454,7 +490,40 @@
             $('#win').window('close');
         }
 
+        function returnRowsValues(rowIndex, rowData) {
+            var getRows = $('#dgButton').datagrid('getRows');
+            if (getRows.length > 0) {
+                getRows = $.Enumerable.From(getRows).Where(function (x) { return x.Id == rowData.Id }).ToArray();
+            }
+            else {
+                getRows = "";
+            }
 
+            if (getRows.length == 0) {
+                if (endEditing()) {
+                    rowData.Sort = getRows.length;
+                    $('#dgButton').datagrid('appendRow', rowData);
+                    editIndex = $('#dgButton').datagrid('getRows').length - 1;
+                    $('#dgButton').datagrid('selectRow', editIndex).datagrid('beginEdit', editIndex);
+                }
+            }
+            else {
+                $.messager.alert('提示', '已经添加过此数据', 'info');
+            }
+        }
+
+        ////自定义操作按钮
+        //var cat = function (value, rec, index) {
+        //    var btn = value;
+        //    var btn = btn + '<a class="SearhButton" onclick="javascript:$(\'#ui_EditButton\').dialog(\'open\');$(\'#view_EditButton\').attr(\'src\', \'OperatingButtonInfo.aspx?id=' + rec.id + '' + '&type=EditButton" href="javascript:void(0)">更多</a>';
+        //    return btn;
+        //};
+        ////初始化自定义操作按钮
+        //var onLoadSuccess = function (data) {
+        //    $('.SearhButton').linkbutton({ text: '更多', plain: true, iconCls: 'icon-search' });
+
+
+        //};
 
     </script>
 

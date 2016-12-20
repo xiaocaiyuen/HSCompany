@@ -1,4 +1,5 @@
-﻿using Shu.Utility;
+﻿using Shu.Comm;
+using Shu.Utility;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace Shu.Manage.Popup
 {
-    public partial class IconList : System.Web.UI.Page
+    public partial class IconList : BasePage
     {
         protected int pageindex = 1;
         protected int recordcount = 0;

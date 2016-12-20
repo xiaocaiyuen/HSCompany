@@ -58,5 +58,6 @@ namespace Shu.Model
         public virtual DbSet<Sys_OperatingButton> Sys_OperatingButton { get; set; }
         public virtual DbSet<Sys_Menu> Sys_Menu { get; set; }
         public virtual DbSet<Sys_Module> Sys_Module { get; set; }
+        public virtual DbSet<Sys_MenuOperatingButton> Sys_MenuOperatingButton { get; set; }
     }
 }

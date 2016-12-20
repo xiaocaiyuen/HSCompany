@@ -20,6 +20,7 @@ namespace Shu.IDAL
 		ISys_IconsDal Sys_IconsDal{get;set;}
 		ISys_LogDal Sys_LogDal{get;set;}
 		ISys_MenuDal Sys_MenuDal{get;set;}
+		ISys_MenuOperatingButtonDal Sys_MenuOperatingButtonDal{get;set;}
 		ISys_MessageDal Sys_MessageDal{get;set;}
 		ISys_ModelFileDal Sys_ModelFileDal{get;set;}
 		ISys_ModuleDal Sys_ModuleDal{get;set;}

@@ -130,6 +130,19 @@ namespace Shu.Factroy
             }
             set { _Sys_MenuDal = value; }
         }
+		private ISys_MenuOperatingButtonDal _Sys_MenuOperatingButtonDal;
+        public ISys_MenuOperatingButtonDal Sys_MenuOperatingButtonDal
+        {
+            get
+            {
+                if(_Sys_MenuOperatingButtonDal == null)
+                {
+                    _Sys_MenuOperatingButtonDal = AbstractFactory.CreateSys_MenuOperatingButtonDal();
+                }
+                return _Sys_MenuOperatingButtonDal;
+            }
+            set { _Sys_MenuOperatingButtonDal = value; }
+        }
 		private ISys_MessageDal _Sys_MessageDal;
         public ISys_MessageDal Sys_MessageDal
         {

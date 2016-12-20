@@ -16,6 +16,12 @@ namespace Shu.Model
     
     public partial class Sys_Menu
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Sys_Menu()
+        {
+            this.Sys_MenuOperatingButton = new HashSet<Sys_MenuOperatingButton>();
+        }
+    
         public string MenuID { get; set; }
         public string Menu_ModuleId { get; set; }
         public string Menu_Name { get; set; }
@@ -32,5 +38,8 @@ namespace Shu.Model
         public string Menu_IconPath { get; set; }
     
         public virtual Sys_Module Sys_Module { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+    	[JsonIgnore]
+        public virtual ICollection<Sys_MenuOperatingButton> Sys_MenuOperatingButton { get; set; }
     }
 }

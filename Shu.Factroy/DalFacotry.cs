@@ -58,6 +58,11 @@ namespace Shu.Factroy
 		   string fullClassName = NameSpace + ".Sys_MenuDal";
            return CreateInstance(fullClassName) as ISys_MenuDal;
         }
+	    public static ISys_MenuOperatingButtonDal CreateSys_MenuOperatingButtonDal()
+        {
+		   string fullClassName = NameSpace + ".Sys_MenuOperatingButtonDal";
+           return CreateInstance(fullClassName) as ISys_MenuOperatingButtonDal;
+        }
 	    public static ISys_MessageDal CreateSys_MessageDal()
         {
 		   string fullClassName = NameSpace + ".Sys_MessageDal";

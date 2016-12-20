@@ -39,6 +39,8 @@
         <EntityTypeShape EntityType="ShuModel.Sys_Menu" Width="1.5" PointX="20.625" PointY="10" />
         <EntityTypeShape EntityType="ShuModel.Sys_Module" Width="1.5" PointX="18.375" PointY="10.25" />
         <AssociationConnector Association="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU" />
+        <EntityTypeShape EntityType="ShuModel.Sys_MenuOperatingButton" Width="1.5" PointX="22.875" PointY="9.875" IsExpanded="true" />
+        <AssociationConnector Association="ShuModel.FK_Sys_Menu_Sys_MenuOperatingButton" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

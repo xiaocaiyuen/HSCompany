@@ -102,6 +102,9 @@
     <Compile Include="Sys_Menu.cs">
       <DependentUpon>Shu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Sys_MenuOperatingButton.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
     <Compile Include="Sys_Message.cs">
       <DependentUpon>Shu.tt</DependentUpon>
     </Compile>

@@ -7,7 +7,8 @@
         <%=Shu.Comm.CommTools.GetXitongMingCheng() %>
     </title>
     <link href="/Styles/default.css" rel="stylesheet" type="text/css" />
-    <link href="/Styles/Menu.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/Icons/iconMenu.css" rel="stylesheet" />
+    <%--<link href="/Styles/Menu.css" rel="stylesheet" type="text/css" />--%>
     <link href="/Content/themes/bootstrap/easyui.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/jquery-2.0.0.min.js" type="text/javascript"></script>
     <script src="/Scripts/jquery.easyui-1.4.5.min.js" type="text/javascript"></script>

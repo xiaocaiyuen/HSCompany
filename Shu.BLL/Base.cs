@@ -107,6 +107,17 @@ namespace Shu.BLL
             DalExtends = this.DBSession.Sys_MenuDal;
         }
     }   
+	public partial class Sys_MenuOperatingButtonBLL :BaseBLL<Sys_MenuOperatingButton>
+    {
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.Sys_MenuOperatingButtonDal;
+        }
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.Sys_MenuOperatingButtonDal;
+        }
+    }   
 	public partial class Sys_MessageBLL :BaseBLL<Sys_Message>
     {
 		public override void SetCurrentDal()

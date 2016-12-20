@@ -55,6 +55,11 @@ namespace Shu.IDAL
       
     }
 	
+	public partial interface ISys_MenuOperatingButtonDal :IBaseDal<Sys_MenuOperatingButton>
+    {
+      
+    }
+	
 	public partial interface ISys_MessageDal :IBaseDal<Sys_Message>
     {
       

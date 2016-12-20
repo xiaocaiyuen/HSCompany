@@ -46,6 +46,10 @@ namespace Shu.DAL
     {
 
     }
+	public partial class Sys_MenuOperatingButtonDal :BaseDal<Sys_MenuOperatingButton>,ISys_MenuOperatingButtonDal
+    {
+
+    }
 	public partial class Sys_MessageDal :BaseDal<Sys_Message>,ISys_MessageDal
     {
 
