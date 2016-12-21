@@ -8,6 +8,8 @@ using System.Text;
 using Shu.Comm;
 using Shu.Utility.Extensions;
 using Shu.Utility;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Shu.Manage.Handler
 {
@@ -114,7 +116,7 @@ namespace Shu.Manage.Handler
                 if (menu.Menu_ParentCode == "0")
                 {
 
-                    strMenu.Append("{\"id\":\"" + menu.Menu_Code + "\",\"name\":\"" + menu.Menu_Name + "\",\"url\":\"" + menu.Menu_Url + "\",\"sort\":\"" + menu.Menu_Sequence + "\",\"iconCls\":\"icon-" + menu.Menu_IconName + "\",\"Opt\":\"" + menu.Menu_Operation + "\"},");
+                    strMenu.Append("{\"id\":\"" + menu.Menu_Code + "\",\"name\":\"" + menu.Menu_Name + "\",\"url\":\"" + menu.Menu_Url + "\",\"sort\":\"" + menu.Menu_Sequence + "\",\"iconCls\":\"icon-" + menu.Menu_IconName + "\",\"Opt\":\"" + menu.Menu_Operation + "\"},");//
                 }
                 else
                 {
@@ -188,10 +190,9 @@ namespace Shu.Manage.Handler
             string see = context.Request.QueryString["seeCharge"];
             string IconPath = context.Request.QueryString["IconPath"];
             string IconName = context.Request.QueryString["IconName"];
-
+            string RowsButton = context.Request.QueryString["RowsButton"];
 
             Sys_Menu menumodel = new Sys_Menu();
-
             menumodel.MenuID = Guid.NewGuid().ToString();
             menumodel.Menu_ParentCode = pcode;
             menumodel.Menu_Name = name;
@@ -202,11 +203,30 @@ namespace Shu.Manage.Handler
             menumodel.Menu_Code = bll.GetMaxNum(pcode, "bh");
             menumodel.Menu_AddTime = DateTime.Now;
             menumodel.Menu_AddUserID = "";
-            menumodel.Menu_Operation = opt;
+            //menumodel.Menu_Operation = opt;
             menumodel.Menu_IconName = IconName;
             menumodel.Menu_IconPath = IconPath;
-            string msg = string.Empty;
-            bool abl = bll.Add(menumodel);
+
+            List<Sys_MenuOperatingButton> OperatingButtonList = new List<Sys_MenuOperatingButton>();
+            if (!string.IsNullOrEmpty(RowsButton))
+            {
+                string Menu_Operation = string.Empty;
+                List<Sys_MenuOperatingButton> ButtonJsonList = JsonConvert.DeserializeObject<List<Sys_MenuOperatingButton>>(RowsButton);
+                foreach (var item in ButtonJsonList)
+                {
+                    Sys_MenuOperatingButton ButtonModel = new Sys_MenuOperatingButton();
+                    ButtonModel = item;
+                    ButtonModel.Id = Guid.NewGuid().ToString();
+                    ButtonModel.MenuId = menumodel.MenuID;
+                    OperatingButtonList.Add(ButtonModel);
+                    Menu_Operation += item.Name + ",";
+                }
+                if (Menu_Operation.Length > 0)
+                {
+                    Menu_Operation = Menu_Operation.Substring(0, Menu_Operation.Length - 1);
+                }
+                menumodel.Menu_Operation = Menu_Operation;
+            }
 
             List<Sys_SeeCharge> seList = new List<Sys_SeeCharge>();
             var da = see.Split('|');
@@ -221,31 +241,32 @@ namespace Shu.Manage.Handler
                     se.SeeCharge_Code = ds[1].ToString();
                     se.SeeCharge_MenuID = menumodel.Menu_Code;
                     se.SeeCharge_Sort = i;
-
                     seList.Add(se);
-
                 }
             }
+
+            bool abl = bll.AddMenuButton(menumodel, OperatingButtonList, seList);
+            //bool abl = bll.Add(menumodel);
 
             string s = "1";
-            if (seList.Count > 0)
-            {
-                Sys_SeeChargeBLL bllSee = new Sys_SeeChargeBLL();
-                bllSee.Delete(p => p.SeeCharge_MenuID == menumodel.Menu_Code); //" SeeCharge_MenuID='" + menumodel.Menu_Code + "'"
-                if (bllSee.Add(seList))
-                {
-                    s = "1";
-                }
-                else
-                {
-                    s = "0";
-                }
-            }
-            else
-            {
-                Sys_SeeChargeBLL bllSee = new Sys_SeeChargeBLL();
-                bllSee.Delete(p => p.SeeCharge_MenuID == menumodel.Menu_Code);//" SeeCharge_MenuID='" + menumodel.Menu_Code + "'"
-            }
+            //if (seList.Count > 0)
+            //{
+            //    Sys_SeeChargeBLL bllSee = new Sys_SeeChargeBLL();
+            //    bllSee.Delete(p => p.SeeCharge_MenuID == menumodel.Menu_Code); //" SeeCharge_MenuID='" + menumodel.Menu_Code + "'"
+            //    if (bllSee.Add(seList))
+            //    {
+            //        s = "1";
+            //    }
+            //    else
+            //    {
+            //        s = "0";
+            //    }
+            //}
+            //else
+            //{
+            //    Sys_SeeChargeBLL bllSee = new Sys_SeeChargeBLL();
+            //    bllSee.Delete(p => p.SeeCharge_MenuID == menumodel.Menu_Code);//" SeeCharge_MenuID='" + menumodel.Menu_Code + "'"
+            //}
 
 
             if (abl)
@@ -258,8 +279,6 @@ namespace Shu.Manage.Handler
             }
 
             return s;
-
-
 
         }
         #endregion
@@ -303,7 +322,16 @@ namespace Shu.Manage.Handler
             if (model != null)
             {
                 string a = model.ToJson<Sys_Menu>();//JosnHandler.GetJson<Sys_Menu>(model);
-                json = a;
+                List<Sys_MenuOperatingButton> ButtonList = model.Sys_MenuOperatingButton.ToList();
+                string b = JsonConvert.SerializeObject(new { Button = ButtonList });
+                JObject obj1 = (JObject)JsonConvert.DeserializeObject(a);
+                JObject obj2 = (JObject)JsonConvert.DeserializeObject(b);
+                obj1.Merge(obj2, new JsonMergeSettings
+                {
+                    // union array values together to avoid duplicates
+                    MergeArrayHandling = MergeArrayHandling.Union//合并json
+                });
+                json = obj1.ToString();
             }
             else
             {
@@ -324,6 +352,7 @@ namespace Shu.Manage.Handler
             string opt = context.Request.QueryString["opt"];
             string IconPath = context.Request.QueryString["IconPath"];
             string IconName = context.Request.QueryString["IconName"];
+            string RowsButton = context.Request.QueryString["RowsButton"];
 
             string see = context.Request.QueryString["seeCharge"];
             string s = "1";
@@ -341,10 +370,30 @@ namespace Shu.Manage.Handler
                 menumodel.Menu_Name = name;
                 menumodel.Menu_Url = url;
                 menumodel.Menu_Sequence = int.Parse(sort);
-                menumodel.Menu_Operation = opt;
+                //menumodel.Menu_Operation = opt;
                 menumodel.Menu_IconName = IconName;
                 menumodel.Menu_IconPath = IconPath;
 
+                List<Sys_MenuOperatingButton> OperatingButtonList = new List<Sys_MenuOperatingButton>();
+                if (!string.IsNullOrEmpty(RowsButton))
+                {
+                    string Menu_Operation = string.Empty;
+                    List<Sys_MenuOperatingButton> ButtonJsonList = JsonConvert.DeserializeObject<List<Sys_MenuOperatingButton>>(RowsButton);
+                    foreach (var item in ButtonJsonList)
+                    {
+                        Sys_MenuOperatingButton ButtonModel = new Sys_MenuOperatingButton();
+                        ButtonModel = item;
+                        ButtonModel.Id = Guid.NewGuid().ToString();
+                        ButtonModel.MenuId = menumodel.MenuID;
+                        OperatingButtonList.Add(ButtonModel);
+                        Menu_Operation += item.Name + ",";
+                    }
+                    if (Menu_Operation.Length > 0)
+                    {
+                        Menu_Operation = Menu_Operation.Substring(0, Menu_Operation.Length - 1);
+                    }
+                    menumodel.Menu_Operation = Menu_Operation;
+                }
 
                 List<Sys_SeeCharge> seList = new List<Sys_SeeCharge>();
                 var da = see.Split('|');
@@ -360,7 +409,6 @@ namespace Shu.Manage.Handler
 
                         se.SeeCharge_MenuID = menumodel.Menu_Code;
 
-
                         se.SeeCharge_Sort = i;
 
                         seList.Add(se);
@@ -369,32 +417,31 @@ namespace Shu.Manage.Handler
                 }
 
 
-                string msg = string.Empty;
-                if (seList.Count > 0)
-                {
-                    Sys_SeeChargeBLL bllSee = new Sys_SeeChargeBLL();
+                //string msg = string.Empty;
+                //if (seList.Count > 0)
+                //{
+                //    Sys_SeeChargeBLL bllSee = new Sys_SeeChargeBLL();
 
-                    bllSee.Delete(p => p.SeeCharge_MenuID == menumodel.Menu_Code);
+                //    bllSee.Delete(p => p.SeeCharge_MenuID == menumodel.Menu_Code);
 
-                    if (bllSee.Add(seList))
-                    {
-                        s = "1";
-                    }
-                    else
-                    {
-                        s = "0";
-                    }
-                }
-                else
-                {
-                    Sys_SeeChargeBLL bllSee = new Sys_SeeChargeBLL();
+                //    if (bllSee.Add(seList))
+                //    {
+                //        s = "1";
+                //    }
+                //    else
+                //    {
+                //        s = "0";
+                //    }
+                //}
+                //else
+                //{
+                //    Sys_SeeChargeBLL bllSee = new Sys_SeeChargeBLL();
 
-                    bllSee.Delete(p => p.SeeCharge_MenuID == menumodel.Menu_Code);
+                //    bllSee.Delete(p => p.SeeCharge_MenuID == menumodel.Menu_Code);
 
+                //}
 
-                }
-
-                if (bll.Update(menumodel))
+                if (bll.UpdateMenuButton(menumodel, OperatingButtonList, seList))//bll.Update(menumodel)
                 {
                     s = "1";
                 }

@@ -82,7 +82,7 @@
                     <tr>
                         <th>按钮事件</th>
                         <td>
-                            <input id="Event" name="Event" class="easyui-textbox" style="width: 98%;" data-options="required:true,readonly:false" />
+                            <input id="Event" name="Event" class="easyui-textbox" style="width: 98%;" data-options="readonly:false" />
                         </td>
                     </tr>
                     <tr>

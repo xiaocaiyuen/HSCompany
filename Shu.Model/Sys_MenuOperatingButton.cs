@@ -34,6 +34,7 @@ namespace Shu.Model
         public string Url { get; set; }
         public bool IsDelete { get; set; }
     
+    	[JsonIgnore]
         public virtual Sys_Menu Sys_Menu { get; set; }
     }
 }

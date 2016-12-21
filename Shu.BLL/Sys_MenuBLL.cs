@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Shu.Utility.Extensions;
+using System.Transactions;
 
 namespace Shu.BLL
 {
@@ -93,5 +94,42 @@ namespace Shu.BLL
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// 添加菜单及相关关联数据
+        /// </summary>
+        /// <param name="MenuInfo"></param>
+        /// <param name="ButtonList"></param>
+        /// <param name="SeeChargeList"></param>
+        /// <returns></returns>
+        public bool AddMenuButton(Sys_Menu MenuInfo, List<Sys_MenuOperatingButton> ButtonList, List<Sys_SeeCharge> SeeChargeList)
+        {
+            this.DBSession.Sys_MenuDal.Add(MenuInfo);
+            this.DBSession.Sys_MenuOperatingButtonDal.Add(ButtonList);
+            this.DBSession.Sys_SeeChargeDal.Add(SeeChargeList);
+            return this.DBSession.SaveChanges();
+        }
+
+        /// <summary>
+        /// 修改菜单及相关关联数据
+        /// </summary>
+        /// <param name="MenuInfo"></param>
+        /// <param name="ButtonList"></param>
+        /// <param name="SeeChargeList"></param>
+        /// <returns></returns>
+        public bool UpdateMenuButton(Sys_Menu MenuInfo, List<Sys_MenuOperatingButton> ButtonList, List<Sys_SeeCharge> SeeChargeList)
+        {
+            //using (var scope = new TransactionScope())
+            //{
+            //scope.Complete();
+            //}
+            this.DBSession.Sys_MenuDal.Update(MenuInfo);
+            this.DBSession.Sys_MenuOperatingButtonDal.Delete(p => p.MenuId == MenuInfo.MenuID);
+            this.DBSession.Sys_SeeChargeDal.Delete(p => p.SeeCharge_MenuID == MenuInfo.MenuID);
+            this.DBSession.Sys_MenuOperatingButtonDal.Add(ButtonList);
+            this.DBSession.Sys_SeeChargeDal.Add(SeeChargeList);
+            return this.DBSession.SaveChanges();
+        }
+
     }
 }

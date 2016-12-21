@@ -37,6 +37,7 @@ namespace Shu.Model
         public string Menu_IconName { get; set; }
         public string Menu_IconPath { get; set; }
     
+    	[JsonIgnore]
         public virtual Sys_Module Sys_Module { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
     	[JsonIgnore]

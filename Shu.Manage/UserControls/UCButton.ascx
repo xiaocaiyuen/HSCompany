@@ -32,7 +32,8 @@
 		                            },{
 			                            id: '1',
 			                            name: '列表操作栏'
-		                            }]                            }
+		                            }]
+                            }
                             }">按钮类型</th>
             <th data-options="field:'EventType',width:100,
                             formatter:function(value,row){
@@ -59,7 +60,8 @@
 		                            },{
 			                            id: '5',
 			                            name: '自定义'
-		                            }]                            }
+		                            }]
+                            }
                             }">按钮事件类型</th>
             <th data-options="field:'Sort',width:80,align:'right',editor:'textbox'">排序</th>
         </tr>
@@ -147,5 +149,6 @@
     var ImageShow = function (value, rec, index) {
         var strhtml = "<img src=\"" + value + "\" onerror=\"this.src='/Content/themes/icons/large_picture.png'\" style=\"vertical-align: middle; padding-right: 10px;\" />";
         return strhtml;
-    };
+    };
+
 </script>

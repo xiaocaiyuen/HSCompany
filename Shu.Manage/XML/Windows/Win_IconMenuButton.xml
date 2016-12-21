@@ -49,5 +49,5 @@
                              }
                          }"></Column>
   <Column Key="Sort" Name="排序" width="5"></Column>
-  <Column Key="Remark" Name="备注" width="10" MaxLength="50"></Column>
+  <!--<Column Key="Remark" Name="备注" width="10" MaxLength="50"></Column>-->
 </Grid>

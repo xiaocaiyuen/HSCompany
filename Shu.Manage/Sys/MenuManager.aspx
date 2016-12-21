@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1">
     <title></title>
-    <script type="text/javascript" src="/Scripts/jquery-2.0.0.min.js"></script>
     <link href="/Content/themes/bootstrap/easyui.css" rel="stylesheet" />
     <link href="/Content/themes/icon.css" rel="stylesheet" />
+    <script type="text/javascript" src="/Scripts/jquery-2.0.0.min.js"></script>
     <script type="text/javascript" src="/Scripts/jquery.easyui-1.4.5.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="/Scripts/locale/easyui-lang-zh_CN.js" charset="utf-8"></script>
     <link href="/Content/Icons/iconMenu.css" rel="stylesheet" />
@@ -20,7 +20,7 @@
     <div style="margin: 10px 0;">
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="AddShow()">新增子节点</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="showedit()">编辑</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="IconButton()">按钮图标</a>
+        <%--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="IconButton()">按钮图标</a>--%>
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="del()">删除</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="reload()">刷新</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" onclick="UpdateIconStyle()">更新图标样式</a>
@@ -193,6 +193,8 @@
                 $(this).removeAttr("checked");
             })
 
+            $('#dgButton').datagrid('loadData', { total: 0, rows: [] });
+
             var st = "<table id='tab1' width=\"750\"><tr><th width=\"25%\">规则名称</th>";
             st += "  <th width='60%'>规则编码</th><th width='15%'><img id=\"img1\" onclick=\"addrow(&#39;tab1&#39;,true)\" src=\"../../Images/buttons/add.gif\" style=\"cursor: pointer; width:59px; height:25px;\" /></th>";
             st += " </tr> </table>";
@@ -249,6 +251,16 @@
                             $('#IconName').val(json.Menu_IconName);
                             $('#hid_MenuID').val(json.MenuID);
                             $("#Img_Button_Img").prop("src", json.Menu_IconPath);
+                            $('#dgButton').datagrid('loadData', json.Button);
+
+                            //$('#dgButton').datagrid({
+                            //    data: [
+                            //        json.Button
+                            //    ]
+                            //});
+
+
+
                             if (json.Menu_Operation != undefined || json.Menu_Operation != null) {
                                 var opt = json.Menu_Operation.split(',');
                                 for (var i = 0; i < opt.length; i++) {
@@ -336,6 +348,7 @@
 
         /*新增*/
         function AddSave() {
+            endEditing();
             var seeCharge1 = GetContent("tab1");
             var path = "";
 
@@ -352,14 +365,13 @@
 
             var opt1 = GetCheckboxValue();
 
+            var getData = $('#dgButton').datagrid('getRows');//获得修改后的数据
+            getData = JSON.stringify(getData);
             if ($('#hid_Method').val() == "add") {
 
-                $.get("/Handler/MenuHandler.ashx?method=add", { name: name1, url: url1, sort: sort1, pcode: pcode1, opt: opt1, seeCharge: seeCharge1, IconPath: IconPath, IconName: IconName },
-
+                $.get("/Handler/MenuHandler.ashx?method=add", { name: name1, url: url1, sort: sort1, pcode: pcode1, opt: opt1, seeCharge: seeCharge1, IconPath: IconPath, IconName: IconName, RowsButton: getData },
             function (data, textStatus) {
-
                 if (data == "1") {
-
                     reload();
                     clearForm();
                     alert('新增菜单成功!');
@@ -367,15 +379,28 @@
                 else {
                     alert('新增菜单失败!');
                 }
-
-
             });
+                //$.ajax({
+                //    type: "post",
+                //    url: "/Handler/MenuHandler.ashx?method=add",
+                //    data: { name: name1, url: url1, sort: sort1, pcode: pcode1, opt: opt1, seeCharge: seeCharge1, IconPath: IconPath, IconName: IconName, RowsButton: getData },
+                //    dataType: "text",
+                //    success: function (data) {
+                //        if (data == "1") {
+                //            reload();
+                //            clearForm();
+                //            alert('新增菜单成功!');
+                //        }
+                //        else {
+                //            alert('新增菜单失败!');
+                //        }
+                //    }
+                //});
             }
             else {
+                $.get("/Handler/MenuHandler.ashx?method=modify", { name: name1, url: url1, sort: sort1, id: $('#hid_MenuID').val(), opt: opt1, seeCharge: seeCharge1, IconPath: IconPath, IconName: IconName, RowsButton: getData },
 
-                $.get("/Handler/MenuHandler.ashx?method=modify", { name: name1, url: url1, sort: sort1, id: $('#hid_MenuID').val(), opt: opt1, seeCharge: seeCharge1, IconPath: IconPath, IconName: IconName },
-
-            function (data, textStatus) {
+            function (data) {
 
                 if (data == "1") {
 
@@ -393,6 +418,24 @@
 
 
             });
+
+                //$.ajax({
+                //    type: "post",
+                //    url: "/Handler/MenuHandler.ashx?method=modify",
+                //    contentType: "application/json; charset=utf-8",
+                //    data: { name: name1, url: url1, sort: sort1, id: $('#hid_MenuID').val(), opt: opt1, seeCharge: seeCharge1, IconPath: IconPath, IconName: IconName },
+                //    dataType: "json",
+                //    success: function (data) {
+                //        if (data == "1") {
+                //            reload();
+                //            clearForm();
+                //            alert('修改菜单成功!');
+                //        }
+                //        else {
+                //            alert('修改菜单失败!(该数据也被删除!)');
+                //        }
+                //    }
+                //});
 
             }
 
