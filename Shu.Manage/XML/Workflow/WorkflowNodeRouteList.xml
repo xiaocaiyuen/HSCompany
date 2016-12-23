@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="NodeRouteID"
+      KeyField=""
+      TableName="Workflow_NodeRoute"
+      TableView="View_Workflow_NodeRoute"
+      SqlOrder="NodeRoute_UpdateTime desc"
+      SQLField="[NodeRouteID]
+      ,[NodeRoute_WfConfigNodeID]
+      ,[NodeRoute_WfAuditActionDefinitionID]
+      ,[NodeRoute_IfCondJump]
+      ,[NodeRoute_NextWfConfigNodeID]
+      ,[NodeRoute_NextWfOptionURL]
+      ,[NodeRoute_UpdateUserID]
+      ,[NodeRoute_UpdateTime]
+      ,[NodeRoute_IsDeleted]
+      ,[AuditActionDefinition_Name]
+      ,[NodeConfigEx_Setp]
+      ,[NodeConfigEx_Name]
+      ,[Expr1]
+      ,[NextWfNodeID]
+      ,[TasksEx_Name]"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      AddURL="/Workflow/WorkflowNodeRoute.aspx"
+      ModifyURL="/Workflow/WorkflowNodeRoute.aspx"
+      MenuURL="WorkflowNodeRouteList.aspx">
+  <Column Key="TasksEx_Name" Name="流程任务名称" width="3"></Column>
+  <Column Key="NodeConfigEx_Name" Name="当前任务节点" width="3"></Column>
+  <Column Key="AuditActionDefinition_Name" Name="审批动作" width="3"></Column>
+  <Column Key="NodeRoute_IfCondJump" Name="是否有条件流转" width="3"></Column>
+  <Column Key="NextWfNodeID" Name="下一步节点" width="3"></Column>
+  <Column Key="NodeRoute_NextWfOptionURL" Name="下一步待办处理URL" width="3"></Column>
+  <Column Key="NodeRoute_UpdateTime" Name="添加时间" width="2"></Column>
+</Grid>

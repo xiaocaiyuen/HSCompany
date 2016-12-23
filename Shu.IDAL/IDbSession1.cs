@@ -45,5 +45,18 @@ namespace Shu.IDAL
 		IView_Sys_RolePurviewDal View_Sys_RolePurviewDal{get;set;}
 		IView_Sys_RolePurviewAndMenuDal View_Sys_RolePurviewAndMenuDal{get;set;}
 		IView_Sys_UserInfoDal View_Sys_UserInfoDal{get;set;}
+		IView_Workflow_NodeBusiExDal View_Workflow_NodeBusiExDal{get;set;}
+		IView_Workflow_NodeConditionDal View_Workflow_NodeConditionDal{get;set;}
+		IView_Workflow_NodeConfigExDal View_Workflow_NodeConfigExDal{get;set;}
+		IView_Workflow_NodeRouteDal View_Workflow_NodeRouteDal{get;set;}
+		IView_Workflow_RoleAACTDefinitionDal View_Workflow_RoleAACTDefinitionDal{get;set;}
+		IView_Workflow_TasksExDal View_Workflow_TasksExDal{get;set;}
+		IWorkflow_AuditActionDefinitionDal Workflow_AuditActionDefinitionDal{get;set;}
+		IWorkflow_NodeBusiExDal Workflow_NodeBusiExDal{get;set;}
+		IWorkflow_NodeConditionDal Workflow_NodeConditionDal{get;set;}
+		IWorkflow_NodeConfigExDal Workflow_NodeConfigExDal{get;set;}
+		IWorkflow_NodeRouteDal Workflow_NodeRouteDal{get;set;}
+		IWorkflow_RoleAACTDefinitionDal Workflow_RoleAACTDefinitionDal{get;set;}
+		IWorkflow_TasksExDal Workflow_TasksExDal{get;set;}
 	}	
 }

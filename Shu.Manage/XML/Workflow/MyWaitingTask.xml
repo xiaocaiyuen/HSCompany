@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="PendingMatterID"
+      KeyField="PendingMatter_ModuleID,PendingMatter_BussType"
+      TableName="Sys_PendingMatterEx"
+      TableView="View_Sys_PendingMatterEx"
+      SqlOrder="ApplyBasis_Date asc"
+      SQLField="[PendingMatterID],PendingMatter_BussType,wfState,LastWfState
+      ,[PendingMatter_ModuleID]
+      ,[PendingMatter_ModuleName]
+      ,[PendingMatter_Title]
+      ,[PendingMatter_ToRoleName]
+      ,[PendingMatter_URL]
+      ,[PendingMatter_AddTime]
+      ,[PendingMatter_AddUserID]
+      ,CurrNodeConsuming
+      ,TotalConsuming
+      ,ApplyBasis_Date"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      MenuURL="MyWaitingTask.aspx"
+      OperatingURL="/Workflow/WFPageJump.aspx">
+  <Column Key="PendingMatter_ModuleName" Name="业务流程" width="3"></Column>
+  <Column Key="LastWfState" Name="上一步处理状态" width="6"></Column>
+  <Column Key="wfState" Name="当前待办状态" width="3"></Column>
+  <Column Key="PendingMatter_Title" Name="任务名称" width="15"></Column>
+  <Column Key="PendingMatter_AddTime" Name="任务时间" width="5"></Column>
+  <Column Key="TotalConsuming" Name="任务总消耗时间" width="3"></Column>
+  <Column Key="CurrNodeConsuming" Name="当前消耗时间" width="3"></Column>
+</Grid>

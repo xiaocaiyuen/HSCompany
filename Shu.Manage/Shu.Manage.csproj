@@ -454,6 +454,7 @@
     <Content Include="Content\themes\metro\validatebox.css" />
     <Content Include="Content\themes\metro\window.css" />
     <Content Include="Content\themes\mobile.css" />
+    <Content Include="Content\validationEngine.jquery.css" />
     <Content Include="Files\Download.aspx" />
     <Content Include="Files\DownloadZip.aspx" />
     <Content Include="Files\File\201611\26\352704cd-70ed-4902-9bfd-79e5abb92bdf.txt" />
@@ -1435,6 +1436,19 @@
     <Content Include="Scripts\ckeditor\skins\v2\skin.js" />
     <Content Include="Scripts\ckeditor\skins\v2\templates.css" />
     <Content Include="Scripts\ckeditor\themes\default\theme.js" />
+    <Content Include="Scripts\DatePicker\calendar.js" />
+    <Content Include="Scripts\DatePicker\lang\en.js" />
+    <Content Include="Scripts\DatePicker\lang\zh-cn.js" />
+    <Content Include="Scripts\DatePicker\lang\zh-tw.js" />
+    <Content Include="Scripts\DatePicker\skin\datePicker.gif" />
+    <Content Include="Scripts\DatePicker\skin\default\datepicker.css" />
+    <Content Include="Scripts\DatePicker\skin\default\img.gif" />
+    <Content Include="Scripts\DatePicker\skin\WdatePicker.css" />
+    <Content Include="Scripts\DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Scripts\DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Scripts\DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Scripts\DatePicker\WdatePicker.js" />
+    <Content Include="Scripts\DatePicker\Year_WdatePicker.js" />
     <Content Include="Scripts\easyui.form.js" />
     <Content Include="Scripts\Grid\Grid.js" />
     <Content Include="Scripts\Grid\GridDetialRemove.js" />
@@ -1444,6 +1458,9 @@
     <Content Include="Handler\DepartmentHandler.ashx" />
     <Content Include="Handler\DesktopHandler.ashx" />
     <Content Include="Scripts\jquery.datagrid.js" />
+    <Content Include="Scripts\DatagridPublic.js" />
+    <Content Include="Scripts\jquery.validationEngine-en.js" />
+    <Content Include="Scripts\jquery.validationEngine.js" />
     <Content Include="Styles\List.css" />
     <Content Include="Sys\DepSelect.aspx" />
     <Content Include="Sys\OperatingButtonInfo.aspx" />
@@ -1453,8 +1470,22 @@
     <Content Include="Sys\NoticeAdd.aspx" />
     <Content Include="Sys\NoticeShow.aspx" />
     <Content Include="UserControls\UCButton.ascx" />
+    <Content Include="UserControls\UCButtonGrid.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="UserControls\UCExpAllDeptEasyUISingleTreeCheckBox.ascx" />
     <Content Include="UserControls\UCFiles.ascx" />
+    <Content Include="Workflow\MyToDoTask.aspx" />
+    <Content Include="Workflow\MyWaitingTask.aspx" />
+    <Content Include="Workflow\WorkflowConfigureEx.aspx" />
+    <Content Include="Workflow\WorkflowConfigureManagerEx.aspx" />
+    <Content Include="Workflow\WorkflowNodeCondition.aspx" />
+    <Content Include="Workflow\WorkflowNodeConditionList.aspx" />
+    <Content Include="Workflow\WorkflowNodeRoute.aspx" />
+    <Content Include="Workflow\WorkflowNodeRouteList.aspx" />
+    <Content Include="Workflow\WorkflowNodeRouteTree.aspx" />
+    <Content Include="Workflow\WorkflowTasksExList.aspx" />
+    <Content Include="Workflow\WorkflowTasksInfoEx.aspx" />
     <Content Include="XML\Sys\GridOperatingButton.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -1471,6 +1502,13 @@
     <Content Include="XML\Windows\Win_IconMenuButton.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="XML\Workflow\GridWorkflowTasks.xml" />
+    <Content Include="XML\Workflow\GridWorkflowTasksEx.xml" />
+    <Content Include="XML\Workflow\ManualDistributionList.xml" />
+    <Content Include="XML\Workflow\MyToDoTask.xml" />
+    <Content Include="XML\Workflow\MyWaitingTask.xml" />
+    <Content Include="XML\Workflow\WorkflowNodeConditionList.xml" />
+    <Content Include="XML\Workflow\WorkflowNodeRouteList.xml" />
     <None Include="Scripts\jquery.linq-vsdoc.js" />
     <Content Include="Scripts\jquery.extend.js" />
     <Content Include="Scripts\jquery.linq.js" />
@@ -1898,6 +1936,13 @@
     <Compile Include="UserControls\UCButton.ascx.designer.cs">
       <DependentUpon>UCButton.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UCButtonGrid.ascx.cs">
+      <DependentUpon>UCButtonGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCButtonGrid.ascx.designer.cs">
+      <DependentUpon>UCButtonGrid.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCEasyUIDataGrid.ascx.cs">
       <DependentUpon>UCEasyUIDataGrid.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1939,6 +1984,83 @@
     </Compile>
     <Compile Include="WelCome.aspx.designer.cs">
       <DependentUpon>WelCome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\MyToDoTask.aspx.cs">
+      <DependentUpon>MyToDoTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\MyToDoTask.aspx.designer.cs">
+      <DependentUpon>MyToDoTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\MyWaitingTask.aspx.cs">
+      <DependentUpon>MyWaitingTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\MyWaitingTask.aspx.designer.cs">
+      <DependentUpon>MyWaitingTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WorkflowConfigureEx.aspx.cs">
+      <DependentUpon>WorkflowConfigureEx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\WorkflowConfigureEx.aspx.designer.cs">
+      <DependentUpon>WorkflowConfigureEx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WorkflowConfigureManagerEx.aspx.cs">
+      <DependentUpon>WorkflowConfigureManagerEx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\WorkflowConfigureManagerEx.aspx.designer.cs">
+      <DependentUpon>WorkflowConfigureManagerEx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WorkflowNodeCondition.aspx.cs">
+      <DependentUpon>WorkflowNodeCondition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\WorkflowNodeCondition.aspx.designer.cs">
+      <DependentUpon>WorkflowNodeCondition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WorkflowNodeConditionList.aspx.cs">
+      <DependentUpon>WorkflowNodeConditionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\WorkflowNodeConditionList.aspx.designer.cs">
+      <DependentUpon>WorkflowNodeConditionList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WorkflowNodeRoute.aspx.cs">
+      <DependentUpon>WorkflowNodeRoute.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\WorkflowNodeRoute.aspx.designer.cs">
+      <DependentUpon>WorkflowNodeRoute.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WorkflowNodeRouteList.aspx.cs">
+      <DependentUpon>WorkflowNodeRouteList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\WorkflowNodeRouteList.aspx.designer.cs">
+      <DependentUpon>WorkflowNodeRouteList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WorkflowNodeRouteTree.aspx.cs">
+      <DependentUpon>WorkflowNodeRouteTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\WorkflowNodeRouteTree.aspx.designer.cs">
+      <DependentUpon>WorkflowNodeRouteTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WorkflowTasksExList.aspx.cs">
+      <DependentUpon>WorkflowTasksExList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\WorkflowTasksExList.aspx.designer.cs">
+      <DependentUpon>WorkflowTasksExList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WorkflowTasksInfoEx.aspx.cs">
+      <DependentUpon>WorkflowTasksInfoEx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Workflow\WorkflowTasksInfoEx.aspx.designer.cs">
+      <DependentUpon>WorkflowTasksInfoEx.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

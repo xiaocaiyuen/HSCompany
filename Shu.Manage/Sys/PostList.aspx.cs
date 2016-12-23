@@ -77,8 +77,8 @@ namespace Shu.Manage.Sys
 
             this.UCEasyUIDataGrid.DataSource = "~/XML/Sys/GridPost.xml";
             this.UCEasyUIDataGrid.SQLWhere = GetSqlWhere();
-            this.UCEasyUIDataGrid.EditType = 3;
-            this.UCEasyUIDataGrid.AddType = 3;
+            //this.UCEasyUIDataGrid.EditType = 3;
+            //this.UCEasyUIDataGrid.AddType = 3;
             GetList();
         }
 

@@ -148,8 +148,8 @@
           <Property Name="IconName" Type="varchar" MaxLength="40" />
           <Property Name="Icon" Type="varchar" MaxLength="200" />
           <Property Name="Event" Type="varchar" MaxLength="40" />
-          <Property Name="Type" Type="varchar" MaxLength="40" />
-          <Property Name="EventType" Type="varchar" MaxLength="40" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="EventType" Type="int" Nullable="false" />
           <Property Name="AddUserId" Type="varchar" MaxLength="40" />
           <Property Name="AddTime" Type="datetime" />
           <Property Name="EditUserId" Type="varchar" MaxLength="40" />
@@ -235,8 +235,8 @@
           <Property Name="IconName" Type="varchar" MaxLength="40" />
           <Property Name="Icon" Type="varchar" MaxLength="200" />
           <Property Name="Event" Type="varchar" MaxLength="40" />
-          <Property Name="Type" Type="varchar" MaxLength="40" />
-          <Property Name="EventType" Type="varchar" MaxLength="40" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="EventType" Type="int" Nullable="false" />
           <Property Name="AddUserId" Type="varchar" MaxLength="40" />
           <Property Name="AddTime" Type="datetime" />
           <Property Name="EditUserId" Type="varchar" MaxLength="40" />
@@ -258,6 +258,7 @@
           <Property Name="PendingMatter_URL" Type="varchar" MaxLength="100" />
           <Property Name="PendingMatter_AddTime" Type="datetime" />
           <Property Name="PendingMatter_AddUserID" Type="varchar" MaxLength="40" />
+          <Property Name="PendingMatter_BussType" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Sys_Post">
           <Key>
@@ -406,6 +407,116 @@
           <Property Name="UserInfo_IsDelete" Type="bit" />
           <Property Name="UserInfo_EditTime" Type="datetime" />
           <Property Name="UserInfo_EditUserId" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Workflow_AuditActionDefinition">
+          <Key>
+            <PropertyRef Name="AuditActionDefinitionID" />
+          </Key>
+          <Property Name="AuditActionDefinitionID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AuditActionDefinition_Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="AuditActionDefinition_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="AuditActionDefinition_IsStartWF" Type="bit" />
+          <Property Name="AuditActionDefinition_UpdateTime" Type="datetime" />
+          <Property Name="AuditActionDefinition_UpdateUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AuditActionDefinition_IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="Workflow_NodeBusiEx">
+          <Key>
+            <PropertyRef Name="NodeBusiExID" />
+          </Key>
+          <Property Name="NodeBusiExID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NodeBusiEx_ModuleID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_TasksInstanceID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_LastWfConfigNodeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_LastNodeBusiExID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_WorkflowNodeConfigID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_Setp" Type="int" />
+          <Property Name="NodeBusiEx_IfCurrSetp" Type="bit" />
+          <Property Name="NodeBusiEx_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_AppendTime" Type="datetime" />
+          <Property Name="NodeBusiEx_WfAuditActionDefinitionID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_AuditOpinion" Type="text" />
+          <Property Name="NodeBusiEx_OutsideOpinions" Type="text" />
+          <Property Name="NodeBusiEx_AuditUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_AuditTime" Type="datetime" />
+          <Property Name="NodeBusiEx_State" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="Workflow_NodeCondition">
+          <Key>
+            <PropertyRef Name="NodeConditionID" />
+          </Key>
+          <Property Name="NodeConditionID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NodeCondition_WfConfigNodeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeCondition_Description" Type="text" />
+          <Property Name="NodeCondition_Content" Type="text" />
+          <Property Name="NodeCondition_ParameterType" Type="nvarchar" MaxLength="20" />
+          <Property Name="NodeCondition_ParameterStart" Type="float" />
+          <Property Name="NodeCondition_ParameterEnd" Type="float" />
+          <Property Name="NodeCondition_FixedParameter" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeCondition_FixedParameterType" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeCondition_NextWfConfigNodeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeCondition_NextWfOptionURL" Type="nvarchar" MaxLength="500" />
+          <Property Name="NodeCondition_UpdateUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeCondition_UpdateTime" Type="datetime" />
+          <Property Name="NodeCondition_IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="Workflow_NodeConfigEx">
+          <Key>
+            <PropertyRef Name="NodeConfigExID" />
+          </Key>
+          <Property Name="NodeConfigExID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NodeConfigEx_TasksInstanceID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeConfigEx_NodeSign" Type="nvarchar" MaxLength="20" />
+          <Property Name="NodeConfigEx_Setp" Type="int" />
+          <Property Name="NodeConfigEx_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="NodeConfigEx_AuditMode" Type="nvarchar" MaxLength="10" />
+          <Property Name="NodeConfigEx_AuditObjectID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeConfigEx_Mechanism" Type="int" />
+          <Property Name="NodeConfigEx_DistributionRule" Type="varchar" MaxLength="5" />
+          <Property Name="NodeConfigEx_UpdateUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeConfigEx_UpdateTime" Type="datetime" />
+          <Property Name="NodeConfigEx_IsDeleted" Type="bit" />
+          <Property Name="NodeConfigEx_IsDisplayContract" Type="bit" />
+          <Property Name="NodeConfigEx_DataMappingID" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Workflow_NodeRoute">
+          <Key>
+            <PropertyRef Name="NodeRouteID" />
+          </Key>
+          <Property Name="NodeRouteID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NodeRoute_WfConfigNodeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeRoute_WfAuditActionDefinitionID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeRoute_IfCondJump" Type="bit" />
+          <Property Name="NodeRoute_NextWfConfigNodeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeRoute_NextWfOptionURL" Type="nvarchar" MaxLength="500" />
+          <Property Name="NodeRoute_NextWfOptionUserAttribute" Type="int" />
+          <Property Name="NodeRoute_UpdateUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeRoute_UpdateTime" Type="datetime" />
+          <Property Name="NodeRoute_IsDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="Workflow_RoleAACTDefinition">
+          <Key>
+            <PropertyRef Name="RoleAACTDefinitionID" />
+          </Key>
+          <Property Name="RoleAACTDefinitionID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleAACTDefinition_RoleID" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleAACTDefinition_DefinitionID" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleAACTDefinition_InstanceID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Workflow_TasksEx">
+          <Key>
+            <PropertyRef Name="TasksEx_InstanceID" />
+          </Key>
+          <Property Name="TasksEx_InstanceID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TasksEx_InstanceNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TasksEx_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="TasksEx_InstanceVerNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TasksEx_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="TasksEx_IsValid" Type="bit" />
+          <Property Name="TasksEx_AddUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="TasksEx_AddTime" Type="datetime" />
+          <Property Name="TasksEx_IsDeleted" Type="bit" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“HS_SmartCampus.dbo.View_PendingMatterToRolePurview”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
@@ -653,6 +764,165 @@
           <Property Name="UserInfo_WorkingState" Type="varchar" MaxLength="40" />
           <Property Name="UserInfo_IsDelete" Type="bit" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Workflow_NodeBusiEx”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Workflow_NodeBusiEx">
+          <Key>
+            <PropertyRef Name="NodeBusiExID" />
+          </Key>
+          <Property Name="NodeBusiExID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NodeBusiEx_ModuleID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_TasksInstanceID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_LastWfConfigNodeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_LastNodeBusiExID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_WorkflowNodeConfigID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_Setp" Type="int" />
+          <Property Name="NodeBusiEx_IfCurrSetp" Type="bit" />
+          <Property Name="NodeBusiEx_Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_AppendTime" Type="datetime" />
+          <Property Name="NodeBusiEx_WfAuditActionDefinitionID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_AuditOpinion" Type="text" />
+          <Property Name="NodeBusiEx_OutsideOpinions" Type="text" />
+          <Property Name="NodeBusiEx_AuditUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_AuditTime" Type="datetime" />
+          <Property Name="NodeBusiEx_State" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeBusiEx_IsDeleted" Type="bit" />
+          <Property Name="UserInfo_FullName" Type="varchar" MaxLength="40" />
+          <Property Name="AuditActionDefinition_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Workflow_NodeCondition”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Workflow_NodeCondition">
+          <Key>
+            <PropertyRef Name="NodeConditionID" />
+          </Key>
+          <Property Name="TasksEx_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="NodeConfigEx_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="NextWfNodeName" Type="nvarchar" MaxLength="100" />
+          <Property Name="NodeConditionID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NodeCondition_WfConfigNodeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeCondition_Description" Type="text" />
+          <Property Name="NodeCondition_Content" Type="text" />
+          <Property Name="NodeCondition_ParameterType" Type="nvarchar" MaxLength="20" />
+          <Property Name="NodeCondition_ParameterStart" Type="float" />
+          <Property Name="NodeCondition_ParameterEnd" Type="float" />
+          <Property Name="NodeCondition_FixedParameter" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeCondition_FixedParameterType" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeCondition_NextWfConfigNodeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeCondition_UpdateUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeCondition_UpdateTime" Type="datetime" />
+          <Property Name="NodeCondition_IsDeleted" Type="bit" />
+          <Property Name="NodeConfigExID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeConfigEx_TasksInstanceID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeConfigEx_NodeSign" Type="nvarchar" MaxLength="20" />
+          <Property Name="NodeConfigEx_Setp" Type="int" />
+          <Property Name="Expr2" Type="nvarchar" MaxLength="100" />
+          <Property Name="NodeConfigEx_AuditMode" Type="nvarchar" MaxLength="10" />
+          <Property Name="NodeConfigEx_AuditObjectID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeConfigEx_Mechanism" Type="int" />
+          <Property Name="NodeConfigEx_DistributionRule" Type="varchar" MaxLength="5" />
+          <Property Name="NodeConfigEx_UpdateUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeConfigEx_UpdateTime" Type="datetime" />
+          <Property Name="NodeConfigEx_IsDeleted" Type="bit" />
+          <Property Name="TasksEx_InstanceID" Type="nvarchar" MaxLength="50" />
+          <Property Name="TasksEx_InstanceNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TasksEx_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="TasksEx_InstanceVerNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr3" Type="nvarchar" MaxLength="100" />
+          <Property Name="TasksEx_IsValid" Type="bit" />
+          <Property Name="TasksEx_AddUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="TasksEx_AddTime" Type="datetime" />
+          <Property Name="TasksEx_IsDeleted" Type="bit" />
+          <Property Name="Expr4" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr5" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr6" Type="nvarchar" MaxLength="20" />
+          <Property Name="Expr7" Type="int" />
+          <Property Name="Expr8" Type="nvarchar" MaxLength="100" />
+          <Property Name="Expr9" Type="nvarchar" MaxLength="10" />
+          <Property Name="Expr10" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr11" Type="int" />
+          <Property Name="Expr12" Type="varchar" MaxLength="5" />
+          <Property Name="Expr13" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr14" Type="datetime" />
+          <Property Name="Expr15" Type="bit" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Workflow_NodeConfigEx”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Workflow_NodeConfigEx">
+          <Key>
+            <PropertyRef Name="NodeConfigExID" />
+          </Key>
+          <Property Name="NodeBusiEx_ModuleID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeConfigExID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NodeConfigEx_TasksInstanceID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeConfigEx_NodeSign" Type="nvarchar" MaxLength="20" />
+          <Property Name="NodeConfigEx_Setp" Type="int" />
+          <Property Name="NodeConfigEx_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="NodeConfigEx_AuditMode" Type="nvarchar" MaxLength="10" />
+          <Property Name="NodeConfigEx_AuditObjectID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeConfigEx_Mechanism" Type="int" />
+          <Property Name="NodeConfigEx_DistributionRule" Type="varchar" MaxLength="5" />
+          <Property Name="NodeConfigEx_UpdateUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeConfigEx_UpdateTime" Type="datetime" />
+          <Property Name="NodeConfigEx_IsDeleted" Type="bit" />
+          <Property Name="NodeConfigEx_IsDisplayContract" Type="bit" />
+          <Property Name="NodeConfigEx_DataMappingID" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Workflow_NodeRoute”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Workflow_NodeRoute">
+          <Key>
+            <PropertyRef Name="NodeRouteID" />
+          </Key>
+          <Property Name="NodeRouteID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NodeRoute_WfConfigNodeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeRoute_WfAuditActionDefinitionID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeRoute_IfCondJump" Type="bit" />
+          <Property Name="NodeRoute_NextWfConfigNodeID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeRoute_NextWfOptionURL" Type="nvarchar" MaxLength="500" />
+          <Property Name="NodeRoute_UpdateUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeRoute_UpdateTime" Type="datetime" />
+          <Property Name="NodeRoute_IsDeleted" Type="bit" />
+          <Property Name="AuditActionDefinition_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="NodeConfigEx_Setp" Type="int" />
+          <Property Name="NodeConfigEx_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Expr1" Type="nvarchar" MaxLength="100" />
+          <Property Name="NextWfNodeID" Type="nvarchar" MaxLength="100" />
+          <Property Name="TasksEx_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="AuditActionDefinition_IsStartWF" Type="bit" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Workflow_RoleAACTDefinition”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Workflow_RoleAACTDefinition">
+          <Key>
+            <PropertyRef Name="RoleAACTDefinitionID" />
+          </Key>
+          <Property Name="RoleAACTDefinitionID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleAACTDefinition_RoleID" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleAACTDefinition_DefinitionID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AuditActionDefinition_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="AuditActionDefinition_IsStartWF" Type="bit" />
+          <Property Name="RoleAACTDefinition_InstanceID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“HS_SmartCampus.dbo.View_Workflow_TasksEx”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="View_Workflow_TasksEx">
+          <Key>
+            <PropertyRef Name="TasksEx_InstanceID" />
+            <PropertyRef Name="DataDict_Name" />
+          </Key>
+          <Property Name="TasksEx_InstanceID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TasksEx_InstanceNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TasksEx_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="TasksEx_InstanceVerNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TasksEx_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="TasksEx_IsValid" Type="bit" />
+          <Property Name="TasksEx_AddUserID" Type="nvarchar" MaxLength="50" />
+          <Property Name="TasksEx_AddTime" Type="datetime" />
+          <Property Name="TasksEx_IsDeleted" Type="bit" />
+          <Property Name="DataDict_Name" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="UserInfo_FullName" Type="varchar" MaxLength="40" />
+        </EntityType>
         <Association Name="FK_SYS_MENU_RELATIONS_SYS_MODU">
           <End Role="Sys_Module" Type="Self.Sys_Module" Multiplicity="0..1" />
           <End Role="Sys_Menu" Type="Self.Sys_Menu" Multiplicity="*" />
@@ -703,6 +973,13 @@
           <EntitySet Name="Sys_UploadDataType" EntityType="Self.Sys_UploadDataType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_UserChargeDep" EntityType="Self.Sys_UserChargeDep" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_UserInfo" EntityType="Self.Sys_UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workflow_AuditActionDefinition" EntityType="Self.Workflow_AuditActionDefinition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workflow_NodeBusiEx" EntityType="Self.Workflow_NodeBusiEx" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workflow_NodeCondition" EntityType="Self.Workflow_NodeCondition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workflow_NodeConfigEx" EntityType="Self.Workflow_NodeConfigEx" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workflow_NodeRoute" EntityType="Self.Workflow_NodeRoute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workflow_RoleAACTDefinition" EntityType="Self.Workflow_RoleAACTDefinition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workflow_TasksEx" EntityType="Self.Workflow_TasksEx" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="View_PendingMatterToRolePurview" EntityType="Self.View_PendingMatterToRolePurview" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [View_PendingMatterToRolePurview].[RolePurviewID] AS [RolePurviewID], 
@@ -896,6 +1173,146 @@
     [View_Sys_UserInfo].[UserInfo_IsDelete] AS [UserInfo_IsDelete]
     FROM [dbo].[View_Sys_UserInfo] AS [View_Sys_UserInfo]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="View_Workflow_NodeBusiEx" EntityType="Self.View_Workflow_NodeBusiEx" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Workflow_NodeBusiEx].[NodeBusiExID] AS [NodeBusiExID], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_ModuleID] AS [NodeBusiEx_ModuleID], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_TasksInstanceID] AS [NodeBusiEx_TasksInstanceID], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_LastWfConfigNodeID] AS [NodeBusiEx_LastWfConfigNodeID], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_LastNodeBusiExID] AS [NodeBusiEx_LastNodeBusiExID], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_WorkflowNodeConfigID] AS [NodeBusiEx_WorkflowNodeConfigID], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_Setp] AS [NodeBusiEx_Setp], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_IfCurrSetp] AS [NodeBusiEx_IfCurrSetp], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_Status] AS [NodeBusiEx_Status], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_AppendTime] AS [NodeBusiEx_AppendTime], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_WfAuditActionDefinitionID] AS [NodeBusiEx_WfAuditActionDefinitionID], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_AuditOpinion] AS [NodeBusiEx_AuditOpinion], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_OutsideOpinions] AS [NodeBusiEx_OutsideOpinions], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_AuditUserID] AS [NodeBusiEx_AuditUserID], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_AuditTime] AS [NodeBusiEx_AuditTime], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_State] AS [NodeBusiEx_State], 
+    [View_Workflow_NodeBusiEx].[NodeBusiEx_IsDeleted] AS [NodeBusiEx_IsDeleted], 
+    [View_Workflow_NodeBusiEx].[UserInfo_FullName] AS [UserInfo_FullName], 
+    [View_Workflow_NodeBusiEx].[AuditActionDefinition_Name] AS [AuditActionDefinition_Name]
+    FROM [dbo].[View_Workflow_NodeBusiEx] AS [View_Workflow_NodeBusiEx]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Workflow_NodeCondition" EntityType="Self.View_Workflow_NodeCondition" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Workflow_NodeCondition].[TasksEx_Name] AS [TasksEx_Name], 
+    [View_Workflow_NodeCondition].[NodeConfigEx_Name] AS [NodeConfigEx_Name], 
+    [View_Workflow_NodeCondition].[NextWfNodeName] AS [NextWfNodeName], 
+    [View_Workflow_NodeCondition].[NodeConditionID] AS [NodeConditionID], 
+    [View_Workflow_NodeCondition].[NodeCondition_WfConfigNodeID] AS [NodeCondition_WfConfigNodeID], 
+    [View_Workflow_NodeCondition].[NodeCondition_Description] AS [NodeCondition_Description], 
+    [View_Workflow_NodeCondition].[NodeCondition_Content] AS [NodeCondition_Content], 
+    [View_Workflow_NodeCondition].[NodeCondition_ParameterType] AS [NodeCondition_ParameterType], 
+    [View_Workflow_NodeCondition].[NodeCondition_ParameterStart] AS [NodeCondition_ParameterStart], 
+    [View_Workflow_NodeCondition].[NodeCondition_ParameterEnd] AS [NodeCondition_ParameterEnd], 
+    [View_Workflow_NodeCondition].[NodeCondition_FixedParameter] AS [NodeCondition_FixedParameter], 
+    [View_Workflow_NodeCondition].[NodeCondition_FixedParameterType] AS [NodeCondition_FixedParameterType], 
+    [View_Workflow_NodeCondition].[NodeCondition_NextWfConfigNodeID] AS [NodeCondition_NextWfConfigNodeID], 
+    [View_Workflow_NodeCondition].[NodeCondition_UpdateUserID] AS [NodeCondition_UpdateUserID], 
+    [View_Workflow_NodeCondition].[NodeCondition_UpdateTime] AS [NodeCondition_UpdateTime], 
+    [View_Workflow_NodeCondition].[NodeCondition_IsDeleted] AS [NodeCondition_IsDeleted], 
+    [View_Workflow_NodeCondition].[NodeConfigExID] AS [NodeConfigExID], 
+    [View_Workflow_NodeCondition].[NodeConfigEx_TasksInstanceID] AS [NodeConfigEx_TasksInstanceID], 
+    [View_Workflow_NodeCondition].[NodeConfigEx_NodeSign] AS [NodeConfigEx_NodeSign], 
+    [View_Workflow_NodeCondition].[NodeConfigEx_Setp] AS [NodeConfigEx_Setp], 
+    [View_Workflow_NodeCondition].[Expr2] AS [Expr2], 
+    [View_Workflow_NodeCondition].[NodeConfigEx_AuditMode] AS [NodeConfigEx_AuditMode], 
+    [View_Workflow_NodeCondition].[NodeConfigEx_AuditObjectID] AS [NodeConfigEx_AuditObjectID], 
+    [View_Workflow_NodeCondition].[NodeConfigEx_Mechanism] AS [NodeConfigEx_Mechanism], 
+    [View_Workflow_NodeCondition].[NodeConfigEx_DistributionRule] AS [NodeConfigEx_DistributionRule], 
+    [View_Workflow_NodeCondition].[NodeConfigEx_UpdateUserID] AS [NodeConfigEx_UpdateUserID], 
+    [View_Workflow_NodeCondition].[NodeConfigEx_UpdateTime] AS [NodeConfigEx_UpdateTime], 
+    [View_Workflow_NodeCondition].[NodeConfigEx_IsDeleted] AS [NodeConfigEx_IsDeleted], 
+    [View_Workflow_NodeCondition].[TasksEx_InstanceID] AS [TasksEx_InstanceID], 
+    [View_Workflow_NodeCondition].[TasksEx_InstanceNo] AS [TasksEx_InstanceNo], 
+    [View_Workflow_NodeCondition].[TasksEx_Type] AS [TasksEx_Type], 
+    [View_Workflow_NodeCondition].[TasksEx_InstanceVerNo] AS [TasksEx_InstanceVerNo], 
+    [View_Workflow_NodeCondition].[Expr3] AS [Expr3], 
+    [View_Workflow_NodeCondition].[TasksEx_IsValid] AS [TasksEx_IsValid], 
+    [View_Workflow_NodeCondition].[TasksEx_AddUserID] AS [TasksEx_AddUserID], 
+    [View_Workflow_NodeCondition].[TasksEx_AddTime] AS [TasksEx_AddTime], 
+    [View_Workflow_NodeCondition].[TasksEx_IsDeleted] AS [TasksEx_IsDeleted], 
+    [View_Workflow_NodeCondition].[Expr4] AS [Expr4], 
+    [View_Workflow_NodeCondition].[Expr5] AS [Expr5], 
+    [View_Workflow_NodeCondition].[Expr6] AS [Expr6], 
+    [View_Workflow_NodeCondition].[Expr7] AS [Expr7], 
+    [View_Workflow_NodeCondition].[Expr8] AS [Expr8], 
+    [View_Workflow_NodeCondition].[Expr9] AS [Expr9], 
+    [View_Workflow_NodeCondition].[Expr10] AS [Expr10], 
+    [View_Workflow_NodeCondition].[Expr11] AS [Expr11], 
+    [View_Workflow_NodeCondition].[Expr12] AS [Expr12], 
+    [View_Workflow_NodeCondition].[Expr13] AS [Expr13], 
+    [View_Workflow_NodeCondition].[Expr14] AS [Expr14], 
+    [View_Workflow_NodeCondition].[Expr15] AS [Expr15]
+    FROM [dbo].[View_Workflow_NodeCondition] AS [View_Workflow_NodeCondition]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Workflow_NodeConfigEx" EntityType="Self.View_Workflow_NodeConfigEx" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Workflow_NodeConfigEx].[NodeBusiEx_ModuleID] AS [NodeBusiEx_ModuleID], 
+    [View_Workflow_NodeConfigEx].[NodeConfigExID] AS [NodeConfigExID], 
+    [View_Workflow_NodeConfigEx].[NodeConfigEx_TasksInstanceID] AS [NodeConfigEx_TasksInstanceID], 
+    [View_Workflow_NodeConfigEx].[NodeConfigEx_NodeSign] AS [NodeConfigEx_NodeSign], 
+    [View_Workflow_NodeConfigEx].[NodeConfigEx_Setp] AS [NodeConfigEx_Setp], 
+    [View_Workflow_NodeConfigEx].[NodeConfigEx_Name] AS [NodeConfigEx_Name], 
+    [View_Workflow_NodeConfigEx].[NodeConfigEx_AuditMode] AS [NodeConfigEx_AuditMode], 
+    [View_Workflow_NodeConfigEx].[NodeConfigEx_AuditObjectID] AS [NodeConfigEx_AuditObjectID], 
+    [View_Workflow_NodeConfigEx].[NodeConfigEx_Mechanism] AS [NodeConfigEx_Mechanism], 
+    [View_Workflow_NodeConfigEx].[NodeConfigEx_DistributionRule] AS [NodeConfigEx_DistributionRule], 
+    [View_Workflow_NodeConfigEx].[NodeConfigEx_UpdateUserID] AS [NodeConfigEx_UpdateUserID], 
+    [View_Workflow_NodeConfigEx].[NodeConfigEx_UpdateTime] AS [NodeConfigEx_UpdateTime], 
+    [View_Workflow_NodeConfigEx].[NodeConfigEx_IsDeleted] AS [NodeConfigEx_IsDeleted], 
+    [View_Workflow_NodeConfigEx].[NodeConfigEx_IsDisplayContract] AS [NodeConfigEx_IsDisplayContract], 
+    [View_Workflow_NodeConfigEx].[NodeConfigEx_DataMappingID] AS [NodeConfigEx_DataMappingID]
+    FROM [dbo].[View_Workflow_NodeConfigEx] AS [View_Workflow_NodeConfigEx]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Workflow_NodeRoute" EntityType="Self.View_Workflow_NodeRoute" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Workflow_NodeRoute].[NodeRouteID] AS [NodeRouteID], 
+    [View_Workflow_NodeRoute].[NodeRoute_WfConfigNodeID] AS [NodeRoute_WfConfigNodeID], 
+    [View_Workflow_NodeRoute].[NodeRoute_WfAuditActionDefinitionID] AS [NodeRoute_WfAuditActionDefinitionID], 
+    [View_Workflow_NodeRoute].[NodeRoute_IfCondJump] AS [NodeRoute_IfCondJump], 
+    [View_Workflow_NodeRoute].[NodeRoute_NextWfConfigNodeID] AS [NodeRoute_NextWfConfigNodeID], 
+    [View_Workflow_NodeRoute].[NodeRoute_NextWfOptionURL] AS [NodeRoute_NextWfOptionURL], 
+    [View_Workflow_NodeRoute].[NodeRoute_UpdateUserID] AS [NodeRoute_UpdateUserID], 
+    [View_Workflow_NodeRoute].[NodeRoute_UpdateTime] AS [NodeRoute_UpdateTime], 
+    [View_Workflow_NodeRoute].[NodeRoute_IsDeleted] AS [NodeRoute_IsDeleted], 
+    [View_Workflow_NodeRoute].[AuditActionDefinition_Name] AS [AuditActionDefinition_Name], 
+    [View_Workflow_NodeRoute].[NodeConfigEx_Setp] AS [NodeConfigEx_Setp], 
+    [View_Workflow_NodeRoute].[NodeConfigEx_Name] AS [NodeConfigEx_Name], 
+    [View_Workflow_NodeRoute].[Expr1] AS [Expr1], 
+    [View_Workflow_NodeRoute].[NextWfNodeID] AS [NextWfNodeID], 
+    [View_Workflow_NodeRoute].[TasksEx_Name] AS [TasksEx_Name], 
+    [View_Workflow_NodeRoute].[AuditActionDefinition_IsStartWF] AS [AuditActionDefinition_IsStartWF]
+    FROM [dbo].[View_Workflow_NodeRoute] AS [View_Workflow_NodeRoute]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Workflow_RoleAACTDefinition" EntityType="Self.View_Workflow_RoleAACTDefinition" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Workflow_RoleAACTDefinition].[RoleAACTDefinitionID] AS [RoleAACTDefinitionID], 
+    [View_Workflow_RoleAACTDefinition].[RoleAACTDefinition_RoleID] AS [RoleAACTDefinition_RoleID], 
+    [View_Workflow_RoleAACTDefinition].[RoleAACTDefinition_DefinitionID] AS [RoleAACTDefinition_DefinitionID], 
+    [View_Workflow_RoleAACTDefinition].[AuditActionDefinition_Name] AS [AuditActionDefinition_Name], 
+    [View_Workflow_RoleAACTDefinition].[AuditActionDefinition_IsStartWF] AS [AuditActionDefinition_IsStartWF], 
+    [View_Workflow_RoleAACTDefinition].[RoleAACTDefinition_InstanceID] AS [RoleAACTDefinition_InstanceID]
+    FROM [dbo].[View_Workflow_RoleAACTDefinition] AS [View_Workflow_RoleAACTDefinition]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Workflow_TasksEx" EntityType="Self.View_Workflow_TasksEx" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Workflow_TasksEx].[TasksEx_InstanceID] AS [TasksEx_InstanceID], 
+    [View_Workflow_TasksEx].[TasksEx_InstanceNo] AS [TasksEx_InstanceNo], 
+    [View_Workflow_TasksEx].[TasksEx_Type] AS [TasksEx_Type], 
+    [View_Workflow_TasksEx].[TasksEx_InstanceVerNo] AS [TasksEx_InstanceVerNo], 
+    [View_Workflow_TasksEx].[TasksEx_Name] AS [TasksEx_Name], 
+    [View_Workflow_TasksEx].[TasksEx_IsValid] AS [TasksEx_IsValid], 
+    [View_Workflow_TasksEx].[TasksEx_AddUserID] AS [TasksEx_AddUserID], 
+    [View_Workflow_TasksEx].[TasksEx_AddTime] AS [TasksEx_AddTime], 
+    [View_Workflow_TasksEx].[TasksEx_IsDeleted] AS [TasksEx_IsDeleted], 
+    [View_Workflow_TasksEx].[DataDict_Name] AS [DataDict_Name], 
+    [View_Workflow_TasksEx].[UserInfo_FullName] AS [UserInfo_FullName]
+    FROM [dbo].[View_Workflow_TasksEx] AS [View_Workflow_TasksEx]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_SYS_MENU_RELATIONS_SYS_MODU" Association="Self.FK_SYS_MENU_RELATIONS_SYS_MODU">
             <End Role="Sys_Module" EntitySet="Sys_Module" />
             <End Role="Sys_Menu" EntitySet="Sys_Menu" />
@@ -940,7 +1357,6 @@
           <EntitySet Name="Sys_UserInfo" EntityType="ShuModel.Sys_UserInfo" />
           <EntitySet Name="Sys_Area" EntityType="ShuModel.Sys_Area" />
           <EntitySet Name="Sys_Icons" EntityType="ShuModel.Sys_Icons" />
-          <EntitySet Name="Sys_OperatingButton" EntityType="ShuModel.Sys_OperatingButton" />
           <EntitySet Name="Sys_Menu" EntityType="ShuModel.Sys_Menu" />
           <EntitySet Name="Sys_Module" EntityType="ShuModel.Sys_Module" />
           <AssociationSet Name="FK_SYS_MENU_RELATIONS_SYS_MODU" Association="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU">
@@ -948,10 +1364,24 @@
             <End Role="Sys_Menu" EntitySet="Sys_Menu" />
           </AssociationSet>
           <EntitySet Name="Sys_MenuOperatingButton" EntityType="ShuModel.Sys_MenuOperatingButton" />
+          <EntitySet Name="Sys_OperatingButton" EntityType="ShuModel.Sys_OperatingButton" />
           <AssociationSet Name="FK_Sys_Menu_Sys_MenuOperatingButton" Association="ShuModel.FK_Sys_Menu_Sys_MenuOperatingButton">
             <End Role="Sys_Menu" EntitySet="Sys_Menu" />
             <End Role="Sys_MenuOperatingButton" EntitySet="Sys_MenuOperatingButton" />
           </AssociationSet>
+          <EntitySet Name="Workflow_AuditActionDefinition" EntityType="ShuModel.Workflow_AuditActionDefinition" />
+          <EntitySet Name="Workflow_NodeBusiEx" EntityType="ShuModel.Workflow_NodeBusiEx" />
+          <EntitySet Name="Workflow_NodeCondition" EntityType="ShuModel.Workflow_NodeCondition" />
+          <EntitySet Name="Workflow_NodeConfigEx" EntityType="ShuModel.Workflow_NodeConfigEx" />
+          <EntitySet Name="Workflow_NodeRoute" EntityType="ShuModel.Workflow_NodeRoute" />
+          <EntitySet Name="Workflow_RoleAACTDefinition" EntityType="ShuModel.Workflow_RoleAACTDefinition" />
+          <EntitySet Name="Workflow_TasksEx" EntityType="ShuModel.Workflow_TasksEx" />
+          <EntitySet Name="View_Workflow_NodeBusiEx" EntityType="ShuModel.View_Workflow_NodeBusiEx" />
+          <EntitySet Name="View_Workflow_NodeCondition" EntityType="ShuModel.View_Workflow_NodeCondition" />
+          <EntitySet Name="View_Workflow_NodeConfigEx" EntityType="ShuModel.View_Workflow_NodeConfigEx" />
+          <EntitySet Name="View_Workflow_NodeRoute" EntityType="ShuModel.View_Workflow_NodeRoute" />
+          <EntitySet Name="View_Workflow_RoleAACTDefinition" EntityType="ShuModel.View_Workflow_RoleAACTDefinition" />
+          <EntitySet Name="View_Workflow_TasksEx" EntityType="ShuModel.View_Workflow_TasksEx" />
         </EntityContainer>
         <EntityType Name="Sys_Config">
           <Key>
@@ -1068,6 +1498,7 @@
           <Property Name="PendingMatter_URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="PendingMatter_AddTime" Type="DateTime" Precision="3" />
           <Property Name="PendingMatter_AddUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="PendingMatter_BussType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Sys_Post">
           <Key>
@@ -1504,27 +1935,6 @@
           <Property Name="Sort" Type="Int32" Nullable="false" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
         </EntityType>
-        <EntityType Name="Sys_OperatingButton">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Marker" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="IconName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Icon" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Event" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="EventType" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="AddUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="AddTime" Type="DateTime" Precision="3" />
-          <Property Name="EditUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="EditTime" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Sort" Type="Int32" Nullable="false" />
-          <Property Name="Remark" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
-          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
-        </EntityType>
         <EntityType Name="Sys_Menu">
           <Key>
             <PropertyRef Name="MenuID" />
@@ -1587,8 +1997,8 @@
           <Property Name="IconName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="Icon" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Event" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="EventType" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="EventType" Type="Int32" Nullable="false" />
           <Property Name="AddUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="AddTime" Type="DateTime" Precision="3" />
           <Property Name="EditUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
@@ -1598,6 +2008,27 @@
           <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IsDelete" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Sys_Menu" Relationship="ShuModel.FK_Sys_Menu_Sys_MenuOperatingButton" FromRole="Sys_MenuOperatingButton" ToRole="Sys_Menu" />
+        </EntityType>
+        <EntityType Name="Sys_OperatingButton">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Marker" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="IconName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Event" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="EventType" Type="Int32" Nullable="false" />
+          <Property Name="AddUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="AddTime" Type="DateTime" Precision="3" />
+          <Property Name="EditUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_Sys_Menu_Sys_MenuOperatingButton">
           <End Type="ShuModel.Sys_Menu" Role="Sys_Menu" Multiplicity="1" />
@@ -1611,6 +2042,263 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Workflow_AuditActionDefinition">
+          <Key>
+            <PropertyRef Name="AuditActionDefinitionID" />
+          </Key>
+          <Property Name="AuditActionDefinitionID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuditActionDefinition_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuditActionDefinition_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuditActionDefinition_IsStartWF" Type="Boolean" />
+          <Property Name="AuditActionDefinition_UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="AuditActionDefinition_UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuditActionDefinition_IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Workflow_NodeBusiEx">
+          <Key>
+            <PropertyRef Name="NodeBusiExID" />
+          </Key>
+          <Property Name="NodeBusiExID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_ModuleID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_TasksInstanceID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_LastWfConfigNodeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_LastNodeBusiExID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_WorkflowNodeConfigID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_Setp" Type="Int32" />
+          <Property Name="NodeBusiEx_IfCurrSetp" Type="Boolean" />
+          <Property Name="NodeBusiEx_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_AppendTime" Type="DateTime" Precision="3" />
+          <Property Name="NodeBusiEx_WfAuditActionDefinitionID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_AuditOpinion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NodeBusiEx_OutsideOpinions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NodeBusiEx_AuditUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_AuditTime" Type="DateTime" Precision="3" />
+          <Property Name="NodeBusiEx_State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Workflow_NodeCondition">
+          <Key>
+            <PropertyRef Name="NodeConditionID" />
+          </Key>
+          <Property Name="NodeConditionID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_WfConfigNodeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NodeCondition_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NodeCondition_ParameterType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_ParameterStart" Type="Double" />
+          <Property Name="NodeCondition_ParameterEnd" Type="Double" />
+          <Property Name="NodeCondition_FixedParameter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_FixedParameterType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_NextWfConfigNodeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_NextWfOptionURL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="NodeCondition_IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Workflow_NodeConfigEx">
+          <Key>
+            <PropertyRef Name="NodeConfigExID" />
+          </Key>
+          <Property Name="NodeConfigExID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_TasksInstanceID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_NodeSign" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_Setp" Type="Int32" />
+          <Property Name="NodeConfigEx_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_AuditMode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_AuditObjectID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_Mechanism" Type="Int32" />
+          <Property Name="NodeConfigEx_DistributionRule" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="NodeConfigEx_UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="NodeConfigEx_IsDeleted" Type="Boolean" />
+          <Property Name="NodeConfigEx_IsDisplayContract" Type="Boolean" />
+          <Property Name="NodeConfigEx_DataMappingID" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Workflow_NodeRoute">
+          <Key>
+            <PropertyRef Name="NodeRouteID" />
+          </Key>
+          <Property Name="NodeRouteID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeRoute_WfConfigNodeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeRoute_WfAuditActionDefinitionID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeRoute_IfCondJump" Type="Boolean" />
+          <Property Name="NodeRoute_NextWfConfigNodeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeRoute_NextWfOptionURL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NodeRoute_NextWfOptionUserAttribute" Type="Int32" />
+          <Property Name="NodeRoute_UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeRoute_UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="NodeRoute_IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Workflow_RoleAACTDefinition">
+          <Key>
+            <PropertyRef Name="RoleAACTDefinitionID" />
+          </Key>
+          <Property Name="RoleAACTDefinitionID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleAACTDefinition_RoleID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleAACTDefinition_DefinitionID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleAACTDefinition_InstanceID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Workflow_TasksEx">
+          <Key>
+            <PropertyRef Name="TasksEx_InstanceID" />
+          </Key>
+          <Property Name="TasksEx_InstanceID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_InstanceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_InstanceVerNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_IsValid" Type="Boolean" />
+          <Property Name="TasksEx_AddUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="TasksEx_IsDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="View_Workflow_NodeBusiEx">
+          <Key>
+            <PropertyRef Name="NodeBusiExID" />
+          </Key>
+          <Property Name="NodeBusiExID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_ModuleID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_TasksInstanceID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_LastWfConfigNodeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_LastNodeBusiExID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_WorkflowNodeConfigID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_Setp" Type="Int32" />
+          <Property Name="NodeBusiEx_IfCurrSetp" Type="Boolean" />
+          <Property Name="NodeBusiEx_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_AppendTime" Type="DateTime" Precision="3" />
+          <Property Name="NodeBusiEx_WfAuditActionDefinitionID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_AuditOpinion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NodeBusiEx_OutsideOpinions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NodeBusiEx_AuditUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_AuditTime" Type="DateTime" Precision="3" />
+          <Property Name="NodeBusiEx_State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeBusiEx_IsDeleted" Type="Boolean" />
+          <Property Name="UserInfo_FullName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="AuditActionDefinition_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_Workflow_NodeCondition">
+          <Key>
+            <PropertyRef Name="NodeConditionID" />
+          </Key>
+          <Property Name="TasksEx_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NextWfNodeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConditionID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_WfConfigNodeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NodeCondition_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NodeCondition_ParameterType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_ParameterStart" Type="Double" />
+          <Property Name="NodeCondition_ParameterEnd" Type="Double" />
+          <Property Name="NodeCondition_FixedParameter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_FixedParameterType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_NextWfConfigNodeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeCondition_UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="NodeCondition_IsDeleted" Type="Boolean" />
+          <Property Name="NodeConfigExID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_TasksInstanceID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_NodeSign" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_Setp" Type="Int32" />
+          <Property Name="Expr2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_AuditMode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_AuditObjectID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_Mechanism" Type="Int32" />
+          <Property Name="NodeConfigEx_DistributionRule" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="NodeConfigEx_UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="NodeConfigEx_IsDeleted" Type="Boolean" />
+          <Property Name="TasksEx_InstanceID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_InstanceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_InstanceVerNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_IsValid" Type="Boolean" />
+          <Property Name="TasksEx_AddUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="TasksEx_IsDeleted" Type="Boolean" />
+          <Property Name="Expr4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr6" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Expr7" Type="Int32" />
+          <Property Name="Expr8" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Expr9" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Expr10" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr11" Type="Int32" />
+          <Property Name="Expr12" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Expr13" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Expr14" Type="DateTime" Precision="3" />
+          <Property Name="Expr15" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="View_Workflow_NodeConfigEx">
+          <Key>
+            <PropertyRef Name="NodeConfigExID" />
+          </Key>
+          <Property Name="NodeBusiEx_ModuleID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigExID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_TasksInstanceID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_NodeSign" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_Setp" Type="Int32" />
+          <Property Name="NodeConfigEx_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_AuditMode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_AuditObjectID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_Mechanism" Type="Int32" />
+          <Property Name="NodeConfigEx_DistributionRule" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="NodeConfigEx_UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="NodeConfigEx_IsDeleted" Type="Boolean" />
+          <Property Name="NodeConfigEx_IsDisplayContract" Type="Boolean" />
+          <Property Name="NodeConfigEx_DataMappingID" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="View_Workflow_NodeRoute">
+          <Key>
+            <PropertyRef Name="NodeRouteID" />
+          </Key>
+          <Property Name="NodeRouteID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeRoute_WfConfigNodeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeRoute_WfAuditActionDefinitionID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeRoute_IfCondJump" Type="Boolean" />
+          <Property Name="NodeRoute_NextWfConfigNodeID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeRoute_NextWfOptionURL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NodeRoute_UpdateUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeRoute_UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="NodeRoute_IsDeleted" Type="Boolean" />
+          <Property Name="AuditActionDefinition_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NodeConfigEx_Setp" Type="Int32" />
+          <Property Name="NodeConfigEx_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Expr1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NextWfNodeID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AuditActionDefinition_IsStartWF" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="View_Workflow_RoleAACTDefinition">
+          <Key>
+            <PropertyRef Name="RoleAACTDefinitionID" />
+          </Key>
+          <Property Name="RoleAACTDefinitionID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleAACTDefinition_RoleID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleAACTDefinition_DefinitionID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuditActionDefinition_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuditActionDefinition_IsStartWF" Type="Boolean" />
+          <Property Name="RoleAACTDefinition_InstanceID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_Workflow_TasksEx">
+          <Key>
+            <PropertyRef Name="TasksEx_InstanceID" />
+            <PropertyRef Name="DataDict_Name" />
+          </Key>
+          <Property Name="TasksEx_InstanceID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_InstanceNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_InstanceVerNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_IsValid" Type="Boolean" />
+          <Property Name="TasksEx_AddUserID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TasksEx_AddTime" Type="DateTime" Precision="3" />
+          <Property Name="TasksEx_IsDeleted" Type="Boolean" />
+          <Property Name="DataDict_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserInfo_FullName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1730,6 +2418,7 @@
           <EntitySetMapping Name="Sys_PendingMatter">
             <EntityTypeMapping TypeName="ShuModel.Sys_PendingMatter">
               <MappingFragment StoreEntitySet="Sys_PendingMatter">
+                <ScalarProperty Name="PendingMatter_BussType" ColumnName="PendingMatter_BussType" />
                 <ScalarProperty Name="PendingMatter_AddUserID" ColumnName="PendingMatter_AddUserID" />
                 <ScalarProperty Name="PendingMatter_AddTime" ColumnName="PendingMatter_AddTime" />
                 <ScalarProperty Name="PendingMatter_URL" ColumnName="PendingMatter_URL" />
@@ -2172,28 +2861,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sys_OperatingButton">
-            <EntityTypeMapping TypeName="ShuModel.Sys_OperatingButton">
-              <MappingFragment StoreEntitySet="Sys_OperatingButton">
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="Sort" ColumnName="Sort" />
-                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
-                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
-                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
-                <ScalarProperty Name="EventType" ColumnName="EventType" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Event" ColumnName="Event" />
-                <ScalarProperty Name="Icon" ColumnName="Icon" />
-                <ScalarProperty Name="IconName" ColumnName="IconName" />
-                <ScalarProperty Name="Marker" ColumnName="Marker" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Sys_Menu">
             <EntityTypeMapping TypeName="ShuModel.Sys_Menu">
               <MappingFragment StoreEntitySet="Sys_Menu">
@@ -2252,6 +2919,297 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="MenuId" ColumnName="MenuId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_OperatingButton">
+            <EntityTypeMapping TypeName="ShuModel.Sys_OperatingButton">
+              <MappingFragment StoreEntitySet="Sys_OperatingButton">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Event" ColumnName="Event" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="IconName" ColumnName="IconName" />
+                <ScalarProperty Name="Marker" ColumnName="Marker" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workflow_AuditActionDefinition">
+            <EntityTypeMapping TypeName="ShuModel.Workflow_AuditActionDefinition">
+              <MappingFragment StoreEntitySet="Workflow_AuditActionDefinition">
+                <ScalarProperty Name="AuditActionDefinition_IsDeleted" ColumnName="AuditActionDefinition_IsDeleted" />
+                <ScalarProperty Name="AuditActionDefinition_UpdateUserID" ColumnName="AuditActionDefinition_UpdateUserID" />
+                <ScalarProperty Name="AuditActionDefinition_UpdateTime" ColumnName="AuditActionDefinition_UpdateTime" />
+                <ScalarProperty Name="AuditActionDefinition_IsStartWF" ColumnName="AuditActionDefinition_IsStartWF" />
+                <ScalarProperty Name="AuditActionDefinition_Name" ColumnName="AuditActionDefinition_Name" />
+                <ScalarProperty Name="AuditActionDefinition_Code" ColumnName="AuditActionDefinition_Code" />
+                <ScalarProperty Name="AuditActionDefinitionID" ColumnName="AuditActionDefinitionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workflow_NodeBusiEx">
+            <EntityTypeMapping TypeName="ShuModel.Workflow_NodeBusiEx">
+              <MappingFragment StoreEntitySet="Workflow_NodeBusiEx">
+                <ScalarProperty Name="NodeBusiEx_IsDeleted" ColumnName="NodeBusiEx_IsDeleted" />
+                <ScalarProperty Name="NodeBusiEx_State" ColumnName="NodeBusiEx_State" />
+                <ScalarProperty Name="NodeBusiEx_AuditTime" ColumnName="NodeBusiEx_AuditTime" />
+                <ScalarProperty Name="NodeBusiEx_AuditUserID" ColumnName="NodeBusiEx_AuditUserID" />
+                <ScalarProperty Name="NodeBusiEx_OutsideOpinions" ColumnName="NodeBusiEx_OutsideOpinions" />
+                <ScalarProperty Name="NodeBusiEx_AuditOpinion" ColumnName="NodeBusiEx_AuditOpinion" />
+                <ScalarProperty Name="NodeBusiEx_WfAuditActionDefinitionID" ColumnName="NodeBusiEx_WfAuditActionDefinitionID" />
+                <ScalarProperty Name="NodeBusiEx_AppendTime" ColumnName="NodeBusiEx_AppendTime" />
+                <ScalarProperty Name="NodeBusiEx_Status" ColumnName="NodeBusiEx_Status" />
+                <ScalarProperty Name="NodeBusiEx_IfCurrSetp" ColumnName="NodeBusiEx_IfCurrSetp" />
+                <ScalarProperty Name="NodeBusiEx_Setp" ColumnName="NodeBusiEx_Setp" />
+                <ScalarProperty Name="NodeBusiEx_WorkflowNodeConfigID" ColumnName="NodeBusiEx_WorkflowNodeConfigID" />
+                <ScalarProperty Name="NodeBusiEx_LastNodeBusiExID" ColumnName="NodeBusiEx_LastNodeBusiExID" />
+                <ScalarProperty Name="NodeBusiEx_LastWfConfigNodeID" ColumnName="NodeBusiEx_LastWfConfigNodeID" />
+                <ScalarProperty Name="NodeBusiEx_TasksInstanceID" ColumnName="NodeBusiEx_TasksInstanceID" />
+                <ScalarProperty Name="NodeBusiEx_ModuleID" ColumnName="NodeBusiEx_ModuleID" />
+                <ScalarProperty Name="NodeBusiExID" ColumnName="NodeBusiExID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workflow_NodeCondition">
+            <EntityTypeMapping TypeName="ShuModel.Workflow_NodeCondition">
+              <MappingFragment StoreEntitySet="Workflow_NodeCondition">
+                <ScalarProperty Name="NodeCondition_IsDeleted" ColumnName="NodeCondition_IsDeleted" />
+                <ScalarProperty Name="NodeCondition_UpdateTime" ColumnName="NodeCondition_UpdateTime" />
+                <ScalarProperty Name="NodeCondition_UpdateUserID" ColumnName="NodeCondition_UpdateUserID" />
+                <ScalarProperty Name="NodeCondition_NextWfOptionURL" ColumnName="NodeCondition_NextWfOptionURL" />
+                <ScalarProperty Name="NodeCondition_NextWfConfigNodeID" ColumnName="NodeCondition_NextWfConfigNodeID" />
+                <ScalarProperty Name="NodeCondition_FixedParameterType" ColumnName="NodeCondition_FixedParameterType" />
+                <ScalarProperty Name="NodeCondition_FixedParameter" ColumnName="NodeCondition_FixedParameter" />
+                <ScalarProperty Name="NodeCondition_ParameterEnd" ColumnName="NodeCondition_ParameterEnd" />
+                <ScalarProperty Name="NodeCondition_ParameterStart" ColumnName="NodeCondition_ParameterStart" />
+                <ScalarProperty Name="NodeCondition_ParameterType" ColumnName="NodeCondition_ParameterType" />
+                <ScalarProperty Name="NodeCondition_Content" ColumnName="NodeCondition_Content" />
+                <ScalarProperty Name="NodeCondition_Description" ColumnName="NodeCondition_Description" />
+                <ScalarProperty Name="NodeCondition_WfConfigNodeID" ColumnName="NodeCondition_WfConfigNodeID" />
+                <ScalarProperty Name="NodeConditionID" ColumnName="NodeConditionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workflow_NodeConfigEx">
+            <EntityTypeMapping TypeName="ShuModel.Workflow_NodeConfigEx">
+              <MappingFragment StoreEntitySet="Workflow_NodeConfigEx">
+                <ScalarProperty Name="NodeConfigEx_DataMappingID" ColumnName="NodeConfigEx_DataMappingID" />
+                <ScalarProperty Name="NodeConfigEx_IsDisplayContract" ColumnName="NodeConfigEx_IsDisplayContract" />
+                <ScalarProperty Name="NodeConfigEx_IsDeleted" ColumnName="NodeConfigEx_IsDeleted" />
+                <ScalarProperty Name="NodeConfigEx_UpdateTime" ColumnName="NodeConfigEx_UpdateTime" />
+                <ScalarProperty Name="NodeConfigEx_UpdateUserID" ColumnName="NodeConfigEx_UpdateUserID" />
+                <ScalarProperty Name="NodeConfigEx_DistributionRule" ColumnName="NodeConfigEx_DistributionRule" />
+                <ScalarProperty Name="NodeConfigEx_Mechanism" ColumnName="NodeConfigEx_Mechanism" />
+                <ScalarProperty Name="NodeConfigEx_AuditObjectID" ColumnName="NodeConfigEx_AuditObjectID" />
+                <ScalarProperty Name="NodeConfigEx_AuditMode" ColumnName="NodeConfigEx_AuditMode" />
+                <ScalarProperty Name="NodeConfigEx_Name" ColumnName="NodeConfigEx_Name" />
+                <ScalarProperty Name="NodeConfigEx_Setp" ColumnName="NodeConfigEx_Setp" />
+                <ScalarProperty Name="NodeConfigEx_NodeSign" ColumnName="NodeConfigEx_NodeSign" />
+                <ScalarProperty Name="NodeConfigEx_TasksInstanceID" ColumnName="NodeConfigEx_TasksInstanceID" />
+                <ScalarProperty Name="NodeConfigExID" ColumnName="NodeConfigExID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workflow_NodeRoute">
+            <EntityTypeMapping TypeName="ShuModel.Workflow_NodeRoute">
+              <MappingFragment StoreEntitySet="Workflow_NodeRoute">
+                <ScalarProperty Name="NodeRoute_IsDeleted" ColumnName="NodeRoute_IsDeleted" />
+                <ScalarProperty Name="NodeRoute_UpdateTime" ColumnName="NodeRoute_UpdateTime" />
+                <ScalarProperty Name="NodeRoute_UpdateUserID" ColumnName="NodeRoute_UpdateUserID" />
+                <ScalarProperty Name="NodeRoute_NextWfOptionUserAttribute" ColumnName="NodeRoute_NextWfOptionUserAttribute" />
+                <ScalarProperty Name="NodeRoute_NextWfOptionURL" ColumnName="NodeRoute_NextWfOptionURL" />
+                <ScalarProperty Name="NodeRoute_NextWfConfigNodeID" ColumnName="NodeRoute_NextWfConfigNodeID" />
+                <ScalarProperty Name="NodeRoute_IfCondJump" ColumnName="NodeRoute_IfCondJump" />
+                <ScalarProperty Name="NodeRoute_WfAuditActionDefinitionID" ColumnName="NodeRoute_WfAuditActionDefinitionID" />
+                <ScalarProperty Name="NodeRoute_WfConfigNodeID" ColumnName="NodeRoute_WfConfigNodeID" />
+                <ScalarProperty Name="NodeRouteID" ColumnName="NodeRouteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workflow_RoleAACTDefinition">
+            <EntityTypeMapping TypeName="ShuModel.Workflow_RoleAACTDefinition">
+              <MappingFragment StoreEntitySet="Workflow_RoleAACTDefinition">
+                <ScalarProperty Name="RoleAACTDefinition_InstanceID" ColumnName="RoleAACTDefinition_InstanceID" />
+                <ScalarProperty Name="RoleAACTDefinition_DefinitionID" ColumnName="RoleAACTDefinition_DefinitionID" />
+                <ScalarProperty Name="RoleAACTDefinition_RoleID" ColumnName="RoleAACTDefinition_RoleID" />
+                <ScalarProperty Name="RoleAACTDefinitionID" ColumnName="RoleAACTDefinitionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workflow_TasksEx">
+            <EntityTypeMapping TypeName="ShuModel.Workflow_TasksEx">
+              <MappingFragment StoreEntitySet="Workflow_TasksEx">
+                <ScalarProperty Name="TasksEx_IsDeleted" ColumnName="TasksEx_IsDeleted" />
+                <ScalarProperty Name="TasksEx_AddTime" ColumnName="TasksEx_AddTime" />
+                <ScalarProperty Name="TasksEx_AddUserID" ColumnName="TasksEx_AddUserID" />
+                <ScalarProperty Name="TasksEx_IsValid" ColumnName="TasksEx_IsValid" />
+                <ScalarProperty Name="TasksEx_Name" ColumnName="TasksEx_Name" />
+                <ScalarProperty Name="TasksEx_InstanceVerNo" ColumnName="TasksEx_InstanceVerNo" />
+                <ScalarProperty Name="TasksEx_Type" ColumnName="TasksEx_Type" />
+                <ScalarProperty Name="TasksEx_InstanceNo" ColumnName="TasksEx_InstanceNo" />
+                <ScalarProperty Name="TasksEx_InstanceID" ColumnName="TasksEx_InstanceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Workflow_NodeBusiEx">
+            <EntityTypeMapping TypeName="ShuModel.View_Workflow_NodeBusiEx">
+              <MappingFragment StoreEntitySet="View_Workflow_NodeBusiEx">
+                <ScalarProperty Name="AuditActionDefinition_Name" ColumnName="AuditActionDefinition_Name" />
+                <ScalarProperty Name="UserInfo_FullName" ColumnName="UserInfo_FullName" />
+                <ScalarProperty Name="NodeBusiEx_IsDeleted" ColumnName="NodeBusiEx_IsDeleted" />
+                <ScalarProperty Name="NodeBusiEx_State" ColumnName="NodeBusiEx_State" />
+                <ScalarProperty Name="NodeBusiEx_AuditTime" ColumnName="NodeBusiEx_AuditTime" />
+                <ScalarProperty Name="NodeBusiEx_AuditUserID" ColumnName="NodeBusiEx_AuditUserID" />
+                <ScalarProperty Name="NodeBusiEx_OutsideOpinions" ColumnName="NodeBusiEx_OutsideOpinions" />
+                <ScalarProperty Name="NodeBusiEx_AuditOpinion" ColumnName="NodeBusiEx_AuditOpinion" />
+                <ScalarProperty Name="NodeBusiEx_WfAuditActionDefinitionID" ColumnName="NodeBusiEx_WfAuditActionDefinitionID" />
+                <ScalarProperty Name="NodeBusiEx_AppendTime" ColumnName="NodeBusiEx_AppendTime" />
+                <ScalarProperty Name="NodeBusiEx_Status" ColumnName="NodeBusiEx_Status" />
+                <ScalarProperty Name="NodeBusiEx_IfCurrSetp" ColumnName="NodeBusiEx_IfCurrSetp" />
+                <ScalarProperty Name="NodeBusiEx_Setp" ColumnName="NodeBusiEx_Setp" />
+                <ScalarProperty Name="NodeBusiEx_WorkflowNodeConfigID" ColumnName="NodeBusiEx_WorkflowNodeConfigID" />
+                <ScalarProperty Name="NodeBusiEx_LastNodeBusiExID" ColumnName="NodeBusiEx_LastNodeBusiExID" />
+                <ScalarProperty Name="NodeBusiEx_LastWfConfigNodeID" ColumnName="NodeBusiEx_LastWfConfigNodeID" />
+                <ScalarProperty Name="NodeBusiEx_TasksInstanceID" ColumnName="NodeBusiEx_TasksInstanceID" />
+                <ScalarProperty Name="NodeBusiEx_ModuleID" ColumnName="NodeBusiEx_ModuleID" />
+                <ScalarProperty Name="NodeBusiExID" ColumnName="NodeBusiExID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Workflow_NodeCondition">
+            <EntityTypeMapping TypeName="ShuModel.View_Workflow_NodeCondition">
+              <MappingFragment StoreEntitySet="View_Workflow_NodeCondition">
+                <ScalarProperty Name="Expr15" ColumnName="Expr15" />
+                <ScalarProperty Name="Expr14" ColumnName="Expr14" />
+                <ScalarProperty Name="Expr13" ColumnName="Expr13" />
+                <ScalarProperty Name="Expr12" ColumnName="Expr12" />
+                <ScalarProperty Name="Expr11" ColumnName="Expr11" />
+                <ScalarProperty Name="Expr10" ColumnName="Expr10" />
+                <ScalarProperty Name="Expr9" ColumnName="Expr9" />
+                <ScalarProperty Name="Expr8" ColumnName="Expr8" />
+                <ScalarProperty Name="Expr7" ColumnName="Expr7" />
+                <ScalarProperty Name="Expr6" ColumnName="Expr6" />
+                <ScalarProperty Name="Expr5" ColumnName="Expr5" />
+                <ScalarProperty Name="Expr4" ColumnName="Expr4" />
+                <ScalarProperty Name="TasksEx_IsDeleted" ColumnName="TasksEx_IsDeleted" />
+                <ScalarProperty Name="TasksEx_AddTime" ColumnName="TasksEx_AddTime" />
+                <ScalarProperty Name="TasksEx_AddUserID" ColumnName="TasksEx_AddUserID" />
+                <ScalarProperty Name="TasksEx_IsValid" ColumnName="TasksEx_IsValid" />
+                <ScalarProperty Name="Expr3" ColumnName="Expr3" />
+                <ScalarProperty Name="TasksEx_InstanceVerNo" ColumnName="TasksEx_InstanceVerNo" />
+                <ScalarProperty Name="TasksEx_Type" ColumnName="TasksEx_Type" />
+                <ScalarProperty Name="TasksEx_InstanceNo" ColumnName="TasksEx_InstanceNo" />
+                <ScalarProperty Name="TasksEx_InstanceID" ColumnName="TasksEx_InstanceID" />
+                <ScalarProperty Name="NodeConfigEx_IsDeleted" ColumnName="NodeConfigEx_IsDeleted" />
+                <ScalarProperty Name="NodeConfigEx_UpdateTime" ColumnName="NodeConfigEx_UpdateTime" />
+                <ScalarProperty Name="NodeConfigEx_UpdateUserID" ColumnName="NodeConfigEx_UpdateUserID" />
+                <ScalarProperty Name="NodeConfigEx_DistributionRule" ColumnName="NodeConfigEx_DistributionRule" />
+                <ScalarProperty Name="NodeConfigEx_Mechanism" ColumnName="NodeConfigEx_Mechanism" />
+                <ScalarProperty Name="NodeConfigEx_AuditObjectID" ColumnName="NodeConfigEx_AuditObjectID" />
+                <ScalarProperty Name="NodeConfigEx_AuditMode" ColumnName="NodeConfigEx_AuditMode" />
+                <ScalarProperty Name="Expr2" ColumnName="Expr2" />
+                <ScalarProperty Name="NodeConfigEx_Setp" ColumnName="NodeConfigEx_Setp" />
+                <ScalarProperty Name="NodeConfigEx_NodeSign" ColumnName="NodeConfigEx_NodeSign" />
+                <ScalarProperty Name="NodeConfigEx_TasksInstanceID" ColumnName="NodeConfigEx_TasksInstanceID" />
+                <ScalarProperty Name="NodeConfigExID" ColumnName="NodeConfigExID" />
+                <ScalarProperty Name="NodeCondition_IsDeleted" ColumnName="NodeCondition_IsDeleted" />
+                <ScalarProperty Name="NodeCondition_UpdateTime" ColumnName="NodeCondition_UpdateTime" />
+                <ScalarProperty Name="NodeCondition_UpdateUserID" ColumnName="NodeCondition_UpdateUserID" />
+                <ScalarProperty Name="NodeCondition_NextWfConfigNodeID" ColumnName="NodeCondition_NextWfConfigNodeID" />
+                <ScalarProperty Name="NodeCondition_FixedParameterType" ColumnName="NodeCondition_FixedParameterType" />
+                <ScalarProperty Name="NodeCondition_FixedParameter" ColumnName="NodeCondition_FixedParameter" />
+                <ScalarProperty Name="NodeCondition_ParameterEnd" ColumnName="NodeCondition_ParameterEnd" />
+                <ScalarProperty Name="NodeCondition_ParameterStart" ColumnName="NodeCondition_ParameterStart" />
+                <ScalarProperty Name="NodeCondition_ParameterType" ColumnName="NodeCondition_ParameterType" />
+                <ScalarProperty Name="NodeCondition_Content" ColumnName="NodeCondition_Content" />
+                <ScalarProperty Name="NodeCondition_Description" ColumnName="NodeCondition_Description" />
+                <ScalarProperty Name="NodeCondition_WfConfigNodeID" ColumnName="NodeCondition_WfConfigNodeID" />
+                <ScalarProperty Name="NodeConditionID" ColumnName="NodeConditionID" />
+                <ScalarProperty Name="NextWfNodeName" ColumnName="NextWfNodeName" />
+                <ScalarProperty Name="NodeConfigEx_Name" ColumnName="NodeConfigEx_Name" />
+                <ScalarProperty Name="TasksEx_Name" ColumnName="TasksEx_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Workflow_NodeConfigEx">
+            <EntityTypeMapping TypeName="ShuModel.View_Workflow_NodeConfigEx">
+              <MappingFragment StoreEntitySet="View_Workflow_NodeConfigEx">
+                <ScalarProperty Name="NodeConfigEx_DataMappingID" ColumnName="NodeConfigEx_DataMappingID" />
+                <ScalarProperty Name="NodeConfigEx_IsDisplayContract" ColumnName="NodeConfigEx_IsDisplayContract" />
+                <ScalarProperty Name="NodeConfigEx_IsDeleted" ColumnName="NodeConfigEx_IsDeleted" />
+                <ScalarProperty Name="NodeConfigEx_UpdateTime" ColumnName="NodeConfigEx_UpdateTime" />
+                <ScalarProperty Name="NodeConfigEx_UpdateUserID" ColumnName="NodeConfigEx_UpdateUserID" />
+                <ScalarProperty Name="NodeConfigEx_DistributionRule" ColumnName="NodeConfigEx_DistributionRule" />
+                <ScalarProperty Name="NodeConfigEx_Mechanism" ColumnName="NodeConfigEx_Mechanism" />
+                <ScalarProperty Name="NodeConfigEx_AuditObjectID" ColumnName="NodeConfigEx_AuditObjectID" />
+                <ScalarProperty Name="NodeConfigEx_AuditMode" ColumnName="NodeConfigEx_AuditMode" />
+                <ScalarProperty Name="NodeConfigEx_Name" ColumnName="NodeConfigEx_Name" />
+                <ScalarProperty Name="NodeConfigEx_Setp" ColumnName="NodeConfigEx_Setp" />
+                <ScalarProperty Name="NodeConfigEx_NodeSign" ColumnName="NodeConfigEx_NodeSign" />
+                <ScalarProperty Name="NodeConfigEx_TasksInstanceID" ColumnName="NodeConfigEx_TasksInstanceID" />
+                <ScalarProperty Name="NodeConfigExID" ColumnName="NodeConfigExID" />
+                <ScalarProperty Name="NodeBusiEx_ModuleID" ColumnName="NodeBusiEx_ModuleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Workflow_NodeRoute">
+            <EntityTypeMapping TypeName="ShuModel.View_Workflow_NodeRoute">
+              <MappingFragment StoreEntitySet="View_Workflow_NodeRoute">
+                <ScalarProperty Name="AuditActionDefinition_IsStartWF" ColumnName="AuditActionDefinition_IsStartWF" />
+                <ScalarProperty Name="TasksEx_Name" ColumnName="TasksEx_Name" />
+                <ScalarProperty Name="NextWfNodeID" ColumnName="NextWfNodeID" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="NodeConfigEx_Name" ColumnName="NodeConfigEx_Name" />
+                <ScalarProperty Name="NodeConfigEx_Setp" ColumnName="NodeConfigEx_Setp" />
+                <ScalarProperty Name="AuditActionDefinition_Name" ColumnName="AuditActionDefinition_Name" />
+                <ScalarProperty Name="NodeRoute_IsDeleted" ColumnName="NodeRoute_IsDeleted" />
+                <ScalarProperty Name="NodeRoute_UpdateTime" ColumnName="NodeRoute_UpdateTime" />
+                <ScalarProperty Name="NodeRoute_UpdateUserID" ColumnName="NodeRoute_UpdateUserID" />
+                <ScalarProperty Name="NodeRoute_NextWfOptionURL" ColumnName="NodeRoute_NextWfOptionURL" />
+                <ScalarProperty Name="NodeRoute_NextWfConfigNodeID" ColumnName="NodeRoute_NextWfConfigNodeID" />
+                <ScalarProperty Name="NodeRoute_IfCondJump" ColumnName="NodeRoute_IfCondJump" />
+                <ScalarProperty Name="NodeRoute_WfAuditActionDefinitionID" ColumnName="NodeRoute_WfAuditActionDefinitionID" />
+                <ScalarProperty Name="NodeRoute_WfConfigNodeID" ColumnName="NodeRoute_WfConfigNodeID" />
+                <ScalarProperty Name="NodeRouteID" ColumnName="NodeRouteID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Workflow_RoleAACTDefinition">
+            <EntityTypeMapping TypeName="ShuModel.View_Workflow_RoleAACTDefinition">
+              <MappingFragment StoreEntitySet="View_Workflow_RoleAACTDefinition">
+                <ScalarProperty Name="RoleAACTDefinition_InstanceID" ColumnName="RoleAACTDefinition_InstanceID" />
+                <ScalarProperty Name="AuditActionDefinition_IsStartWF" ColumnName="AuditActionDefinition_IsStartWF" />
+                <ScalarProperty Name="AuditActionDefinition_Name" ColumnName="AuditActionDefinition_Name" />
+                <ScalarProperty Name="RoleAACTDefinition_DefinitionID" ColumnName="RoleAACTDefinition_DefinitionID" />
+                <ScalarProperty Name="RoleAACTDefinition_RoleID" ColumnName="RoleAACTDefinition_RoleID" />
+                <ScalarProperty Name="RoleAACTDefinitionID" ColumnName="RoleAACTDefinitionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Workflow_TasksEx">
+            <EntityTypeMapping TypeName="ShuModel.View_Workflow_TasksEx">
+              <MappingFragment StoreEntitySet="View_Workflow_TasksEx">
+                <ScalarProperty Name="UserInfo_FullName" ColumnName="UserInfo_FullName" />
+                <ScalarProperty Name="DataDict_Name" ColumnName="DataDict_Name" />
+                <ScalarProperty Name="TasksEx_IsDeleted" ColumnName="TasksEx_IsDeleted" />
+                <ScalarProperty Name="TasksEx_AddTime" ColumnName="TasksEx_AddTime" />
+                <ScalarProperty Name="TasksEx_AddUserID" ColumnName="TasksEx_AddUserID" />
+                <ScalarProperty Name="TasksEx_IsValid" ColumnName="TasksEx_IsValid" />
+                <ScalarProperty Name="TasksEx_Name" ColumnName="TasksEx_Name" />
+                <ScalarProperty Name="TasksEx_InstanceVerNo" ColumnName="TasksEx_InstanceVerNo" />
+                <ScalarProperty Name="TasksEx_Type" ColumnName="TasksEx_Type" />
+                <ScalarProperty Name="TasksEx_InstanceNo" ColumnName="TasksEx_InstanceNo" />
+                <ScalarProperty Name="TasksEx_InstanceID" ColumnName="TasksEx_InstanceID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

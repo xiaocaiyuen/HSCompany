@@ -39,9 +39,9 @@ namespace Shu.Manage.Sys
         {
 
             this.UCEasyUIDataGrid.DataSource = "~/XML/Sys/GridUserList.xml";
-            this.UCEasyUIDataGrid.AddURL = "UserInfoAddOr.aspx?DepCode=" + HidDepCode + "";
-            this.UCEasyUIDataGrid.ModifyURL = "UserInfoAddOr.aspx?DepCode=" + HidDepCode + "";
-            this.UCEasyUIDataGrid.RedoType = 3;
+            //this.UCEasyUIDataGrid.AddURL = "UserInfoAddOr.aspx?DepCode=" + HidDepCode + "";
+            //this.UCEasyUIDataGrid.ModifyURL = "UserInfoAddOr.aspx?DepCode=" + HidDepCode + "";
+            //this.UCEasyUIDataGrid.RedoType = 3;
             this.UCEasyUIDataGrid.SQLWhere = GetSqlWhere();
             GetList();
         }

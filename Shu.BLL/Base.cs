@@ -346,5 +346,124 @@ namespace Shu.BLL
             DalExtends = this.DBSession.View_Sys_UserInfoDal;
         }
     }   
+	public partial class View_Workflow_NodeBusiExBLL :BaseExtendsBLL<View_Workflow_NodeBusiEx>
+    {
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.View_Workflow_NodeBusiExDal;
+        }
+    }   
+	public partial class View_Workflow_NodeConditionBLL :BaseExtendsBLL<View_Workflow_NodeCondition>
+    {
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.View_Workflow_NodeConditionDal;
+        }
+    }   
+	public partial class View_Workflow_NodeConfigExBLL :BaseExtendsBLL<View_Workflow_NodeConfigEx>
+    {
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.View_Workflow_NodeConfigExDal;
+        }
+    }   
+	public partial class View_Workflow_NodeRouteBLL :BaseExtendsBLL<View_Workflow_NodeRoute>
+    {
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.View_Workflow_NodeRouteDal;
+        }
+    }   
+	public partial class View_Workflow_RoleAACTDefinitionBLL :BaseExtendsBLL<View_Workflow_RoleAACTDefinition>
+    {
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.View_Workflow_RoleAACTDefinitionDal;
+        }
+    }   
+	public partial class View_Workflow_TasksExBLL :BaseExtendsBLL<View_Workflow_TasksEx>
+    {
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.View_Workflow_TasksExDal;
+        }
+    }   
+	public partial class Workflow_AuditActionDefinitionBLL :BaseBLL<Workflow_AuditActionDefinition>
+    {
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.Workflow_AuditActionDefinitionDal;
+        }
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.Workflow_AuditActionDefinitionDal;
+        }
+    }   
+	public partial class Workflow_NodeBusiExBLL :BaseBLL<Workflow_NodeBusiEx>
+    {
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.Workflow_NodeBusiExDal;
+        }
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.Workflow_NodeBusiExDal;
+        }
+    }   
+	public partial class Workflow_NodeConditionBLL :BaseBLL<Workflow_NodeCondition>
+    {
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.Workflow_NodeConditionDal;
+        }
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.Workflow_NodeConditionDal;
+        }
+    }   
+	public partial class Workflow_NodeConfigExBLL :BaseBLL<Workflow_NodeConfigEx>
+    {
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.Workflow_NodeConfigExDal;
+        }
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.Workflow_NodeConfigExDal;
+        }
+    }   
+	public partial class Workflow_NodeRouteBLL :BaseBLL<Workflow_NodeRoute>
+    {
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.Workflow_NodeRouteDal;
+        }
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.Workflow_NodeRouteDal;
+        }
+    }   
+	public partial class Workflow_RoleAACTDefinitionBLL :BaseBLL<Workflow_RoleAACTDefinition>
+    {
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.Workflow_RoleAACTDefinitionDal;
+        }
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.Workflow_RoleAACTDefinitionDal;
+        }
+    }   
+	public partial class Workflow_TasksExBLL :BaseBLL<Workflow_TasksEx>
+    {
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.Workflow_TasksExDal;
+        }
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.Workflow_TasksExDal;
+        }
+    }   
 	
 }

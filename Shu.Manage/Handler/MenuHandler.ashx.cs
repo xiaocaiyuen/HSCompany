@@ -322,7 +322,7 @@ namespace Shu.Manage.Handler
             if (model != null)
             {
                 string a = model.ToJson<Sys_Menu>();//JosnHandler.GetJson<Sys_Menu>(model);
-                List<Sys_MenuOperatingButton> ButtonList = model.Sys_MenuOperatingButton.ToList();
+                List<Sys_MenuOperatingButton> ButtonList = model.Sys_MenuOperatingButton.OrderBy(p => p.Sort).ToList();
                 string b = JsonConvert.SerializeObject(new { Button = ButtonList });
                 JObject obj1 = (JObject)JsonConvert.DeserializeObject(a);
                 JObject obj2 = (JObject)JsonConvert.DeserializeObject(b);

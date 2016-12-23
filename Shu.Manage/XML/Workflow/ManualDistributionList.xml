@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="TaskPoolID"
+      KeyField="TaskPool_ModuleName"
+      TableName=""
+      TableView="View_ManualDistribution"
+      SqlOrder="ApplyBasis_Date asc"
+      SQLField="Department_Name,Area,Province,City,ApplyBasisId,ApplyBasis_Date,DepartmentID,ApplyBasis_VehicleType,ApplyBasis_Code,ApplyBasis_Name,TaskPool_InputResWFSetp,TaskPool_MUtex,TaskPoolID,TaskPool_ModuleName,TaskPool_CreateTime,TaskPool_DataSource"
+      IsShowPagin="true"
+      IsShowCheckBox="true"
+      DistributionURL="/Windows/Win_RoleUserTree.aspx"
+      MenuURL="/Workflow/ManualDistributionList.aspx"
+      RowClickNum="-1">
+  <Column Key="ApplyBasis_Code" Name="申请编号" width="8"></Column>
+  <Column Key="ApplyBasis_Name" Name="客户名称" width="5"></Column>
+  <Column Key="Area" Name="区域" width="5"></Column>
+  <Column Key="Province" Name="省" width="6"></Column>
+  <Column Key="City" Name="市" width="6"></Column>
+  <Column Key="ApplyBasis_Date" Name="申请日期" width="7"></Column>
+  <Column Key="TaskPool_CreateTime" Name="创建日期" width="7"></Column>
+  <Column Key="TaskPool_DataSource" Name="来源" width="7"></Column>
+  <Column Key="TaskPool_MUtex" Name="状态" width="5" styler="function(value){
+          if (value == 3)
+          {
+              return 'color:green;';
+          }else{ return 'color:red;';}
+      }" formatter="function (v) {
+                             if (v == '0') {
+                                 return '待指派';
+                             }
+                             else if (v == '1') {
+                                 return '已指派';
+                             }
+                             else if (v == '2') {
+                                 return '锁定';
+                             }
+                             else if (v == '3') {
+                                 return '终止';
+                             }
+                             else {
+                                 return '';
+                             }
+}"></Column>
+</Grid>

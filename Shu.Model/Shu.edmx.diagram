@@ -35,12 +35,25 @@
         <EntityTypeShape EntityType="ShuModel.Sys_UserInfo" Width="1.5" PointX="3.375" PointY="17.75" />
         <EntityTypeShape EntityType="ShuModel.Sys_Area" Width="1.5" PointX="16.375" PointY="17.75" />
         <EntityTypeShape EntityType="ShuModel.Sys_Icons" Width="1.5" PointX="18.375" PointY="5.75" />
-        <EntityTypeShape EntityType="ShuModel.Sys_OperatingButton" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="ShuModel.Sys_Menu" Width="1.5" PointX="20.625" PointY="10" />
         <EntityTypeShape EntityType="ShuModel.Sys_Module" Width="1.5" PointX="18.375" PointY="10.25" />
         <AssociationConnector Association="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU" />
-        <EntityTypeShape EntityType="ShuModel.Sys_MenuOperatingButton" Width="1.5" PointX="22.875" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShuModel.Sys_MenuOperatingButton" Width="1.5" PointX="23.25" PointY="9.875" />
+        <EntityTypeShape EntityType="ShuModel.Sys_OperatingButton" Width="1.5" PointX="0.75" PointY="0.75" />
         <AssociationConnector Association="ShuModel.FK_Sys_Menu_Sys_MenuOperatingButton" />
+        <EntityTypeShape EntityType="ShuModel.Workflow_AuditActionDefinition" Width="1.5" PointX="18.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ShuModel.Workflow_NodeBusiEx" Width="1.5" PointX="18.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ShuModel.Workflow_NodeCondition" Width="1.5" PointX="11.375" PointY="19.75" />
+        <EntityTypeShape EntityType="ShuModel.Workflow_NodeConfigEx" Width="1.5" PointX="13.375" PointY="19.75" />
+        <EntityTypeShape EntityType="ShuModel.Workflow_NodeRoute" Width="1.5" PointX="18.375" PointY="19.75" />
+        <EntityTypeShape EntityType="ShuModel.Workflow_RoleAACTDefinition" Width="1.5" PointX="20.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ShuModel.Workflow_TasksEx" Width="1.5" PointX="20.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Workflow_NodeBusiEx" Width="1.5" PointX="5.375" PointY="20.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Workflow_NodeCondition" Width="1.5" PointX="7.375" PointY="20.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Workflow_NodeConfigEx" Width="1.5" PointX="20.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Workflow_NodeRoute" Width="1.5" PointX="20.375" PointY="19.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Workflow_RoleAACTDefinition" Width="1.5" PointX="15.375" PointY="21.75" />
+        <EntityTypeShape EntityType="ShuModel.View_Workflow_TasksEx" Width="1.5" PointX="22.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

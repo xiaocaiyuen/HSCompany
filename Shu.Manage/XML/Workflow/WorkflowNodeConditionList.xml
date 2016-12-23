@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="NodeConditionID"
+      KeyField=""
+      TableName="Workflow_NodeCondition"
+      TableView="View_Workflow_NodeCondition"
+      SqlOrder="NodeConfigEx_Setp asc"
+      SQLField="TasksEx_Name,NodeConfigEx_Name,NextWfNodeName,NodeConfigEx_Setp,
+       [NodeConditionID]
+      ,[NodeCondition_WfConfigNodeID]
+      ,[NodeCondition_Description]
+      ,[NodeCondition_Content]
+      ,[NodeCondition_ParameterType]
+      ,[NodeCondition_ParameterStart]
+      ,[NodeCondition_ParameterEnd]
+      ,[NodeCondition_FixedParameter]
+      ,[NodeCondition_FixedParameterType]
+      ,[NodeCondition_NextWfConfigNodeID]
+      ,[NodeCondition_UpdateUserID]
+      ,[NodeCondition_UpdateTime]
+      ,[NodeCondition_IsDeleted]"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      AddURL="/Workflow/WorkflowNodeCondition.aspx"
+      ModifyURL="/Workflow/WorkflowNodeCondition.aspx"
+      MenuURL="WorkflowNodeConditionList.aspx">
+  <Column Key="TasksEx_Name" Name="流程任务名称" width="3"></Column>
+  <Column Key="NodeConfigEx_Name" Name="当前任务节点" width="3"></Column>
+  <Column Key="NextWfNodeName" Name="下一步节点" width="3"></Column>
+  <Column Key="NodeCondition_Description" Name="条件描述" width="7"></Column>
+  <Column Key="NodeCondition_Content" Name="条件内容" width="5"></Column>
+  <Column Key="NodeCondition_ParameterType" Name="参数类型" width="3"></Column>
+  <Column Key="NodeCondition_UpdateTime" Name="添加时间" width="2"></Column>
+</Grid>

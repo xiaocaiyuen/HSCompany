@@ -74,7 +74,7 @@ namespace Shu.Manage.Sys
         public void Save()
         {
             string id = WebUtil.GetQuery("id");//唯一编号
-            string IdButton = WebUtil.GetQuery("type");
+            string IdButton = WebUtil.GetQuery("active");
             string ActionDefinitionID = WebUtil.Get("ActionDefinitionID");//按钮动作ID
             string ActionDefinitionName = WebUtil.Get("ActionDefinitionName");//按钮动作名称
             string content= WebUtil.GetForm("Content").HtmlEncode();//防止跨站脚本注入

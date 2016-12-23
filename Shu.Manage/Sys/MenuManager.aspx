@@ -351,24 +351,15 @@
             endEditing();
             var seeCharge1 = GetContent("tab1");
             var path = "";
-
             var name1 = $('#menuname').val();
-
             var url1 = $('#menuurl').val();
-
             var sort1 = $('#menusort').val();
-
             var IconPath = $('#Icon').val();
             var IconName = $('#IconName').val();
-
             var pcode1 = $('#tg').treegrid('getSelected').id;
-
             var opt1 = GetCheckboxValue();
-
             var getData = $('#dgButton').datagrid('getRows');//获得修改后的数据
-            getData = JSON.stringify(getData);
-            if ($('#hid_Method').val() == "add") {
-
+            getData = JSON.stringify(getData);            if ($('#hid_Method').val() == "add") {
                 $.get("/Handler/MenuHandler.ashx?method=add", { name: name1, url: url1, sort: sort1, pcode: pcode1, opt: opt1, seeCharge: seeCharge1, IconPath: IconPath, IconName: IconName, RowsButton: getData },
             function (data, textStatus) {
                 if (data == "1") {
@@ -380,110 +371,51 @@
                     alert('新增菜单失败!');
                 }
             });
-                //$.ajax({
-                //    type: "post",
-                //    url: "/Handler/MenuHandler.ashx?method=add",
-                //    data: { name: name1, url: url1, sort: sort1, pcode: pcode1, opt: opt1, seeCharge: seeCharge1, IconPath: IconPath, IconName: IconName, RowsButton: getData },
-                //    dataType: "text",
-                //    success: function (data) {
-                //        if (data == "1") {
-                //            reload();
-                //            clearForm();
-                //            alert('新增菜单成功!');
-                //        }
-                //        else {
-                //            alert('新增菜单失败!');
-                //        }
-                //    }
-                //});
             }
             else {
                 $.get("/Handler/MenuHandler.ashx?method=modify", { name: name1, url: url1, sort: sort1, id: $('#hid_MenuID').val(), opt: opt1, seeCharge: seeCharge1, IconPath: IconPath, IconName: IconName, RowsButton: getData },
-
             function (data) {
-
                 if (data == "1") {
-
                     reload();
-
                     clearForm();
-                    //                    alert(11111111);
                     alert('修改菜单成功!');
-
                 }
                 else {
-
                     alert('修改菜单失败!(该数据也被删除!)');
                 }
-
-
             });
-
-                //$.ajax({
-                //    type: "post",
-                //    url: "/Handler/MenuHandler.ashx?method=modify",
-                //    contentType: "application/json; charset=utf-8",
-                //    data: { name: name1, url: url1, sort: sort1, id: $('#hid_MenuID').val(), opt: opt1, seeCharge: seeCharge1, IconPath: IconPath, IconName: IconName },
-                //    dataType: "json",
-                //    success: function (data) {
-                //        if (data == "1") {
-                //            reload();
-                //            clearForm();
-                //            alert('修改菜单成功!');
-                //        }
-                //        else {
-                //            alert('修改菜单失败!(该数据也被删除!)');
-                //        }
-                //    }
-                //});
-
             }
 
         }
 
         function GetCheckboxValue() {
-
             var str = "";
             $('input:checked').each(function () {
-
                 str += $(this).val() + ',';
             })
-
             if (str.lastIndexOf(',') == str.length - 1) {
-
                 str = str.substring(0, str.length - 1);
             }
             return str;
         }
         /*#################################*/
-
         /*###############删除##################*/
-
         function del() {
-
             if (confirm("您确定要删除吗？")) {
                 var node = $('#tg').treegrid('getSelected');
-
                 if (node == undefined || node == null) {
-
                     alert("请选择节点");
                 }
                 else {
                     $.get("/Handler/MenuHandler.ashx?method=delete", { pcode: node.id }, function (data, textStatus) {
-
                         if (data == "1") {
-
-
                             reload();
                             alert("删除成功!");
                         }
                         else {
-
                             alert("该菜单下存在子菜单，请先删除!");
                         }
                     });
-
-
                 }
             }
         }
@@ -505,8 +437,6 @@
 
         //全取系统图标
         function SelectOpenImg() {
-            //var url = "../RMBase/SysMenu/Icons_List.aspx?Size=16";
-
             $('#win').window({
                 title: '图标',
                 width: 600,
@@ -518,9 +448,7 @@
                 resizable: false,
                 modal: true
             });
-
             $('#view_IconButton').attr('src', "/Popup/IconList.aspx?IconSize=16&IconType=Menu");
-            //top.openDialog(url, 'Icons_List', '系统图标 - 全取', 615, 400, 100, 100);
         }
         //全取图标回调赋值
         function Get_Menu_Img(img, IconName) {
@@ -541,10 +469,8 @@
             else {
                 getRows = "";
             }
-
             if (getRows.length == 0) {
                 if (endEditing()) {
-                    rowData.Sort = getRows.length;
                     $('#dgButton').datagrid('appendRow', rowData);
                     editIndex = $('#dgButton').datagrid('getRows').length - 1;
                     $('#dgButton').datagrid('selectRow', editIndex).datagrid('beginEdit', editIndex);
@@ -564,11 +490,7 @@
         ////初始化自定义操作按钮
         //var onLoadSuccess = function (data) {
         //    $('.SearhButton').linkbutton({ text: '更多', plain: true, iconCls: 'icon-search' });
-
-
-        //};
-
-    </script>
+        //};    </script>
 
 </body>
 </html>

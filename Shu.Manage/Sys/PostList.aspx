@@ -170,7 +170,8 @@
             </table>
         </div>
     </fieldset>
-    <UC:EasyUIGrid ID="UCEasyUIDataGrid" runat="server" />
+    <%--<UC:EasyUIGrid ID="UCEasyUIDataGrid" runat="server" />--%>
+    <UC:ButtonGrid ID="UCEasyUIDataGrid" runat="server" />
     <!--弹出框-->
     <div id="ui_AddButton" class="easyui-window" title="新增" style="width: 400px; height: 250px;"
         toolbar="#dlg-toolbar" resizable="true" closed="true"  >

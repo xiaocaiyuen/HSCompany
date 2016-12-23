@@ -177,6 +177,45 @@
     <Compile Include="View_Sys_UserInfo.cs">
       <DependentUpon>Shu.tt</DependentUpon>
     </Compile>
+    <Compile Include="View_Workflow_NodeBusiEx.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Workflow_NodeCondition.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Workflow_NodeConfigEx.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Workflow_NodeRoute.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Workflow_RoleAACTDefinition.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_Workflow_TasksEx.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow_AuditActionDefinition.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow_NodeBusiEx.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow_NodeCondition.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow_NodeConfigEx.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow_NodeRoute.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow_RoleAACTDefinition.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow_TasksEx.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Shu.edmx">

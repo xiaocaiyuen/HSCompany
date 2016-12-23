@@ -1,4 +1,5 @@
-﻿using Shu.Comm;
+﻿using Shu.BLL;
+using Shu.Comm;
 using Shu.Utility;
 using System;
 using System.Collections.Generic;
@@ -36,8 +37,6 @@ namespace Shu.Manage.Sys
         {
             this.EasyUIGrid.DataSource = "~/XML/Sys/GridOperatingButton.xml";
             this.EasyUIGrid.SQLWhere = GetSqlWhere();
-            this.EasyUIGrid.AddType = 3;
-            this.EasyUIGrid.EditType = 3;
             GetList();
         }
 
@@ -60,10 +59,28 @@ namespace Shu.Manage.Sys
                     Response.Write(Result.ToString());
                     Response.End();
                     break;
+                case "UpdateIconButton"://更新图标样式
+                    Result = UpdateIconButton();
+                    Response.Write(Result.ToString());
+                    Response.End();
+                    break;
                 default:
                     break;
             }
 
+        }
+
+        private string UpdateIconButton()
+        {
+            bool isIconClass = new Sys_OperatingButtonBLL().IconMenu(System.Web.HttpContext.Current.Server.MapPath("/Content/Icons/iconButton.css"));
+            if (isIconClass)
+            {
+                return "1";
+            }
+            else
+            {
+                return "0";
+            }
         }
 
 

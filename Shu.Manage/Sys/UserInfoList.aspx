@@ -68,7 +68,7 @@
             </table>
         </div>
     </fieldset>
-    <UC:EasyUIGrid ID="UCEasyUIDataGrid" runat="server" />
+    <UC:ButtonGrid ID="UCEasyUIDataGrid" runat="server" />
     <div id="ui_RedoButton" class="easyui-window" title="新增" style="width: 400px; height: 180px; display:none" 
         toolbar="#dlg-toolbar" resizable="true" closed="true"  >
         <iframe id="view_RedoButton" scrolling="yes"  width="100%"  frameborder="0" height="130px" ></iframe>

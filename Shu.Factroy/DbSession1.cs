@@ -455,5 +455,174 @@ namespace Shu.Factroy
             }
             set { _View_Sys_UserInfoDal = value; }
         }
+		private IView_Workflow_NodeBusiExDal _View_Workflow_NodeBusiExDal;
+        public IView_Workflow_NodeBusiExDal View_Workflow_NodeBusiExDal
+        {
+            get
+            {
+                if(_View_Workflow_NodeBusiExDal == null)
+                {
+                    _View_Workflow_NodeBusiExDal = AbstractFactory.CreateView_Workflow_NodeBusiExDal();
+                }
+                return _View_Workflow_NodeBusiExDal;
+            }
+            set { _View_Workflow_NodeBusiExDal = value; }
+        }
+		private IView_Workflow_NodeConditionDal _View_Workflow_NodeConditionDal;
+        public IView_Workflow_NodeConditionDal View_Workflow_NodeConditionDal
+        {
+            get
+            {
+                if(_View_Workflow_NodeConditionDal == null)
+                {
+                    _View_Workflow_NodeConditionDal = AbstractFactory.CreateView_Workflow_NodeConditionDal();
+                }
+                return _View_Workflow_NodeConditionDal;
+            }
+            set { _View_Workflow_NodeConditionDal = value; }
+        }
+		private IView_Workflow_NodeConfigExDal _View_Workflow_NodeConfigExDal;
+        public IView_Workflow_NodeConfigExDal View_Workflow_NodeConfigExDal
+        {
+            get
+            {
+                if(_View_Workflow_NodeConfigExDal == null)
+                {
+                    _View_Workflow_NodeConfigExDal = AbstractFactory.CreateView_Workflow_NodeConfigExDal();
+                }
+                return _View_Workflow_NodeConfigExDal;
+            }
+            set { _View_Workflow_NodeConfigExDal = value; }
+        }
+		private IView_Workflow_NodeRouteDal _View_Workflow_NodeRouteDal;
+        public IView_Workflow_NodeRouteDal View_Workflow_NodeRouteDal
+        {
+            get
+            {
+                if(_View_Workflow_NodeRouteDal == null)
+                {
+                    _View_Workflow_NodeRouteDal = AbstractFactory.CreateView_Workflow_NodeRouteDal();
+                }
+                return _View_Workflow_NodeRouteDal;
+            }
+            set { _View_Workflow_NodeRouteDal = value; }
+        }
+		private IView_Workflow_RoleAACTDefinitionDal _View_Workflow_RoleAACTDefinitionDal;
+        public IView_Workflow_RoleAACTDefinitionDal View_Workflow_RoleAACTDefinitionDal
+        {
+            get
+            {
+                if(_View_Workflow_RoleAACTDefinitionDal == null)
+                {
+                    _View_Workflow_RoleAACTDefinitionDal = AbstractFactory.CreateView_Workflow_RoleAACTDefinitionDal();
+                }
+                return _View_Workflow_RoleAACTDefinitionDal;
+            }
+            set { _View_Workflow_RoleAACTDefinitionDal = value; }
+        }
+		private IView_Workflow_TasksExDal _View_Workflow_TasksExDal;
+        public IView_Workflow_TasksExDal View_Workflow_TasksExDal
+        {
+            get
+            {
+                if(_View_Workflow_TasksExDal == null)
+                {
+                    _View_Workflow_TasksExDal = AbstractFactory.CreateView_Workflow_TasksExDal();
+                }
+                return _View_Workflow_TasksExDal;
+            }
+            set { _View_Workflow_TasksExDal = value; }
+        }
+		private IWorkflow_AuditActionDefinitionDal _Workflow_AuditActionDefinitionDal;
+        public IWorkflow_AuditActionDefinitionDal Workflow_AuditActionDefinitionDal
+        {
+            get
+            {
+                if(_Workflow_AuditActionDefinitionDal == null)
+                {
+                    _Workflow_AuditActionDefinitionDal = AbstractFactory.CreateWorkflow_AuditActionDefinitionDal();
+                }
+                return _Workflow_AuditActionDefinitionDal;
+            }
+            set { _Workflow_AuditActionDefinitionDal = value; }
+        }
+		private IWorkflow_NodeBusiExDal _Workflow_NodeBusiExDal;
+        public IWorkflow_NodeBusiExDal Workflow_NodeBusiExDal
+        {
+            get
+            {
+                if(_Workflow_NodeBusiExDal == null)
+                {
+                    _Workflow_NodeBusiExDal = AbstractFactory.CreateWorkflow_NodeBusiExDal();
+                }
+                return _Workflow_NodeBusiExDal;
+            }
+            set { _Workflow_NodeBusiExDal = value; }
+        }
+		private IWorkflow_NodeConditionDal _Workflow_NodeConditionDal;
+        public IWorkflow_NodeConditionDal Workflow_NodeConditionDal
+        {
+            get
+            {
+                if(_Workflow_NodeConditionDal == null)
+                {
+                    _Workflow_NodeConditionDal = AbstractFactory.CreateWorkflow_NodeConditionDal();
+                }
+                return _Workflow_NodeConditionDal;
+            }
+            set { _Workflow_NodeConditionDal = value; }
+        }
+		private IWorkflow_NodeConfigExDal _Workflow_NodeConfigExDal;
+        public IWorkflow_NodeConfigExDal Workflow_NodeConfigExDal
+        {
+            get
+            {
+                if(_Workflow_NodeConfigExDal == null)
+                {
+                    _Workflow_NodeConfigExDal = AbstractFactory.CreateWorkflow_NodeConfigExDal();
+                }
+                return _Workflow_NodeConfigExDal;
+            }
+            set { _Workflow_NodeConfigExDal = value; }
+        }
+		private IWorkflow_NodeRouteDal _Workflow_NodeRouteDal;
+        public IWorkflow_NodeRouteDal Workflow_NodeRouteDal
+        {
+            get
+            {
+                if(_Workflow_NodeRouteDal == null)
+                {
+                    _Workflow_NodeRouteDal = AbstractFactory.CreateWorkflow_NodeRouteDal();
+                }
+                return _Workflow_NodeRouteDal;
+            }
+            set { _Workflow_NodeRouteDal = value; }
+        }
+		private IWorkflow_RoleAACTDefinitionDal _Workflow_RoleAACTDefinitionDal;
+        public IWorkflow_RoleAACTDefinitionDal Workflow_RoleAACTDefinitionDal
+        {
+            get
+            {
+                if(_Workflow_RoleAACTDefinitionDal == null)
+                {
+                    _Workflow_RoleAACTDefinitionDal = AbstractFactory.CreateWorkflow_RoleAACTDefinitionDal();
+                }
+                return _Workflow_RoleAACTDefinitionDal;
+            }
+            set { _Workflow_RoleAACTDefinitionDal = value; }
+        }
+		private IWorkflow_TasksExDal _Workflow_TasksExDal;
+        public IWorkflow_TasksExDal Workflow_TasksExDal
+        {
+            get
+            {
+                if(_Workflow_TasksExDal == null)
+                {
+                    _Workflow_TasksExDal = AbstractFactory.CreateWorkflow_TasksExDal();
+                }
+                return _Workflow_TasksExDal;
+            }
+            set { _Workflow_TasksExDal = value; }
+        }
 	}	
 }

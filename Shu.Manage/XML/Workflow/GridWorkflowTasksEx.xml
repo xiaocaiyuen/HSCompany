@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="TasksEx_InstanceID"
+      KeyField=""
+      TableName="Workflow_TasksEx"
+      TableView="View_Workflow_TasksEx"
+      SqlOrder="TasksEx_AddTime desc"
+      SQLField="
+       [TasksEx_InstanceID]
+      ,[TasksEx_InstanceNo]
+      ,[TasksEx_Type]
+      ,[TasksEx_InstanceVerNo]
+      ,[TasksEx_Name]
+      ,[TasksEx_IsValid]
+      ,[TasksEx_AddUserID]
+      ,[TasksEx_AddTime]
+      ,[TasksEx_IsDeleted]
+      ,UserInfo_FullName,DataDict_Name"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      AddURL="/Workflow/WorkflowTasksInfoEx.aspx"
+      ModifyURL="/Workflow/WorkflowTasksInfoEx.aspx"
+      ConfigureURL="/Workflow/WorkflowConfigureManagerEx.aspx"
+      MenuURL="WorkflowTasksExList.aspx"
+      >
+  <Column Key="TasksEx_InstanceNo" Name="流程编号" width="5"></Column>
+  <Column Key="DataDict_Name" Name="流程类型" width="5"></Column>
+  <Column Key="TasksEx_InstanceVerNo" Name="流程版本" width="5"></Column>
+  <Column Key="TasksEx_Name" Name="流程名称" width="7"></Column>
+  <Column Key="UserInfo_FullName" Name="添加人" width="5"></Column>
+  <Column Key="TasksEx_AddTime" Name="添加时间" width="5"></Column>
+</Grid>

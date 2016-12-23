@@ -179,6 +179,71 @@ namespace Shu.IDAL
     {
       
     }
+	
+	public partial interface IView_Workflow_NodeBusiExDal :IBaseExtendsDal<View_Workflow_NodeBusiEx>
+    {
+      
+    }
+	
+	public partial interface IView_Workflow_NodeConditionDal :IBaseExtendsDal<View_Workflow_NodeCondition>
+    {
+      
+    }
+	
+	public partial interface IView_Workflow_NodeConfigExDal :IBaseExtendsDal<View_Workflow_NodeConfigEx>
+    {
+      
+    }
+	
+	public partial interface IView_Workflow_NodeRouteDal :IBaseExtendsDal<View_Workflow_NodeRoute>
+    {
+      
+    }
+	
+	public partial interface IView_Workflow_RoleAACTDefinitionDal :IBaseExtendsDal<View_Workflow_RoleAACTDefinition>
+    {
+      
+    }
+	
+	public partial interface IView_Workflow_TasksExDal :IBaseExtendsDal<View_Workflow_TasksEx>
+    {
+      
+    }
+	
+	public partial interface IWorkflow_AuditActionDefinitionDal :IBaseDal<Workflow_AuditActionDefinition>
+    {
+      
+    }
+	
+	public partial interface IWorkflow_NodeBusiExDal :IBaseDal<Workflow_NodeBusiEx>
+    {
+      
+    }
+	
+	public partial interface IWorkflow_NodeConditionDal :IBaseDal<Workflow_NodeCondition>
+    {
+      
+    }
+	
+	public partial interface IWorkflow_NodeConfigExDal :IBaseDal<Workflow_NodeConfigEx>
+    {
+      
+    }
+	
+	public partial interface IWorkflow_NodeRouteDal :IBaseDal<Workflow_NodeRoute>
+    {
+      
+    }
+	
+	public partial interface IWorkflow_RoleAACTDefinitionDal :IBaseDal<Workflow_RoleAACTDefinition>
+    {
+      
+    }
+	
+	public partial interface IWorkflow_TasksExDal :IBaseDal<Workflow_TasksEx>
+    {
+      
+    }
 
 	
 }

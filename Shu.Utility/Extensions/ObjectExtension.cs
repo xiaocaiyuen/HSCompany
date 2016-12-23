@@ -11,6 +11,8 @@ using System.Text;
 using System.Web.Script.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using Newtonsoft.Json;
+
 namespace Shu.Utility.Extensions
 {
     /// <summary>
@@ -26,9 +28,10 @@ namespace Shu.Utility.Extensions
         /// <returns></returns>
         public static string JSONSerialize(this object obj)
         {
-            var jss = new JavaScriptSerializer();
-            jss.RegisterConverters(new JavaScriptConverter[]{ new DateTimeConverter()});
-            return jss.Serialize(obj);
+            //var jss = new JavaScriptSerializer();
+            //jss.RegisterConverters(new JavaScriptConverter[]{ new DateTimeConverter()});
+            //return jss.Serialize(obj);
+            return JsonConvert.SerializeObject(obj);
         }
 
         /// <summary>

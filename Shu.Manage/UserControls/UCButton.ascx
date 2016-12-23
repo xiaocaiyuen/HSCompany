@@ -18,7 +18,13 @@
             <th data-options="field:'Event',width:100">按钮事件</th>
             <th data-options="field:'Type',width:100,
                             formatter:function(value,row){
-                                return row.TypeName;
+                             if (value == '0') {
+                                 return '工具栏';
+                             }
+                             else if (value == '1') {
+                                 return '列表操作栏';
+                             }else{
+                                return row.TypeName;}
                             },
                             editor:{
                                 type:'combobox',
@@ -37,7 +43,22 @@
                             }">按钮类型</th>
             <th data-options="field:'EventType',width:100,
                             formatter:function(value,row){
-                                return row.EventTypeName;
+                             if (value == '1') {
+                                 return '链接';
+                             }
+                             else if (value == '2') {
+                                 return '事件';
+                             }
+                             else if (value == '3') {
+                                 return '弹窗';
+                             }
+                             else if (value == '4') {
+                                 return '新页面';
+                             }
+                             else if (value == '5') {
+                                 return '自定义';
+                             }else{
+                                return row.EventTypeName;}
                             },
                             editor:{
                                 type:'combobox',

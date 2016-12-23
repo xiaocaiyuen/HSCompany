@@ -59,14 +59,12 @@
             <div title="基本信息" style="padding: 10px">
                 <table border="0" cellpadding="1" cellspacing="1" class="tab">
                     <tr>
-                        <th>按钮名称</th>
-                        <td>
+                        <th style="width: 15%;">按钮名称</th>
+                        <td style="width: 35%;">
                             <input id="Name" name="Name" class="easyui-textbox" style="width: 98%;" data-options="required:true,readonly:false" />
                         </td>
-                    </tr>
-                    <tr>
-                        <th>按钮标记</th>
-                        <td>
+                        <th style="width: 15%;">按钮标记</th>
+                        <td style="width: 35%;">
                             <input id="Marker" name="Marker" class="easyui-textbox" style="width: 98%;" data-options="required:true,readonly:false" />
                         </td>
                     </tr>
@@ -78,15 +76,17 @@
                             <img src="" onerror="this.src='/Content/themes/icons/large_picture.png'" id="Img_Button_Img" style="vertical-align: middle; padding-right: 10px;" />
                             <a href="javascript:void(0)" onclick="SelectOpenImg()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">选择图标</a>
                         </td>
-                    </tr>
-                    <tr>
                         <th>按钮事件</th>
                         <td>
                             <input id="Event" name="Event" class="easyui-textbox" style="width: 98%;" data-options="readonly:false" />
                         </td>
                     </tr>
-                    <tr>
-                        <th>按钮类型</th>
+                     <tr>
+                        <th>URL标识</th>
+                        <td>
+                            <input id="Url" name="Url" class="easyui-textbox" style="width: 98%;" data-options="readonly:false" />
+                        </td>
+                         <th>按钮类型</th>
                         <td>
                             <select id="Type" class="easyui-combobox" name="Type" style="width: 98%;" data-options="editable:false" validtype="ComRequired['--请选择--']" required="required">
                                 <option value="0" selected="selected">工具栏</option>
@@ -106,10 +106,14 @@
                                 <option value="5">自定义</option>
                             </select>
                         </td>
+                         <th></th>
+                        <td>
+                            
+                        </td>
                     </tr>
                     <tr>
-                        <th style="width: 30%;">排序</th>
-                        <td style="width: 70%;">
+                        <th >排序</th>
+                        <td colspan="3">
                             <input id="Sort" name="Sort" class="easyui-numberspinner" style="width: 98%;" value="0" data-options="required:true,readonly:false" />
                         </td>
                     </tr>
@@ -133,7 +137,7 @@
 
                 <a href="javascript:void(0)" onclick="clearForm()" class="easyui-linkbutton" data-options="iconCls:'icon-reload'">重置</a>&nbsp;&nbsp;&nbsp;
 
-                <a href="javascript:void(0)" onclick="parent.WindowClose('<%=WebUtil.GetQuery("type") %>')" class="easyui-linkbutton" data-options="iconCls:'icon-no'">取消</a>
+                <a href="javascript:void(0)" onclick="parent.WindowClose('<%=WebUtil.GetQuery("active") %>')" class="easyui-linkbutton" data-options="iconCls:'icon-no'">取消</a>
 
             </div>
         </div>

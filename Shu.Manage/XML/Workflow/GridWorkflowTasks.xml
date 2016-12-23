@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="WorkflowTasks_InstanceID"
+      KeyField=""
+      TableName="Sys_WorkflowTasks"
+      TableView="View_Sys_WorkflowTasks"
+      SqlOrder="WorkflowTasks_AddTime desc"
+      SQLField="WorkflowTasks_InstanceID,WorkflowTasks_InstanceNo,UserInfo_DepCode,WorkflowTasks_InstanceVerNo,WorkflowTasks_Name,WorkflowTasks_IsValid,WorkflowTasks_TheOffices,WorkflowTasks_HeadUserName,WorkflowTasks_AddUserID,WorkflowTasks_AddTime,UserInfo_FullName,Department_Name,UserInfo_Name,WorkflowTasks_Type"
+      IsShowPagin="true"
+      IsShowCheckBox="true"
+      AddURL="/Workflow/WorkflowTasksInfo.aspx"
+      ModifyURL="/Workflow/WorkflowTasksInfo.aspx"
+      ConfigureURL="/Workflow/WorkflowConfigureManager.aspx"
+      DetailURL="/Workflow/WorkflowConfigureShow.aspx"
+      MenuURL="WorkflowTasksList.aspx"
+      RowClickNum="0">
+  <Column Key="WorkflowTasks_InstanceNo" Name="业务流程编码" width="5"></Column>
+  <Column Key="WorkflowTasks_Name" Name="业务流程名称" width="5"></Column>
+  <Column Key="WorkflowTasks_InstanceVerNo" Name="业务流程版本" width="5"></Column>
+  <Column Key="WorkflowTasks_Type" Name="业务类型" width="7"></Column>
+  <Column Key="Department_Name" Name="主办处室" width="5"></Column>
+  <Column Key="UserInfo_FullName" Name="负责人" width="5"></Column>
+  <Column Key="WorkflowTasks_AddTime" Name="流程添加时间" width="5"></Column>
+  <Column Key="UserInfo_Name" Name="添加人" width="5"></Column>
+</Grid>

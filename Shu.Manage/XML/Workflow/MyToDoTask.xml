@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid Key="ApplyBasisId"
+      KeyField="ApplyBasis_Type,ApplyBasis_VehicleTypeCode,WorkflowTasksInstanceID,WorkflowTasksSetp,ApplyBasis_ProductDefinitionID"
+      TableName=""
+      TableView="View_Business_ApplyBasisEx"
+      SqlOrder="ApplyBasis_UpdateTime desc"
+      SQLField="ApplyBasisId,ApplyBasis_Code,ApplyBasis_Name,ApplyBasis_Type,ApplyBasis_VehicleTypeCode,Department_Name,ApplyBasis_TotalLeasing,UserInfo_FullName,ApplyBasis_UpdateTime,ApplyBasis_InstanceState,ApplyBasis_Date,WorkflowTasksInstanceID,WorkflowTasksSetp,ApplyBasis_VehicleType,ApplyBasis_BusinessType,ApplyBasis_BusinessTypeCode,ApplyBasis_ProductDefinitionID,ApplyBasis_JRName"
+      IsShowPagin="true"
+      IsShowCheckBox="false"
+      SigningURL=""
+      PersonageURL=""
+      ModifyURL=""
+      DateType="1"
+      TrackURL=""
+      OperatingURL=""
+      DetailURL="/Business/ApplyShowEx.aspx"
+      MenuURL="/Workflow/MyToDoTask.aspx?type=YWSQ"
+      RowClickNum="0">
+  <Column Key="ApplyBasis_Code" Name="申请编号" width="8"></Column>
+  <Column Key="Department_Name" Name="客户来源" width="7"></Column>
+  <Column Key="ApplyBasis_Name" Name="客户名称" width="5"></Column>
+  <Column Key="ApplyBasis_VehicleType" Name="车辆类型" width="5"></Column>
+  <Column Key="ApplyBasis_TotalLeasing" Name="融资金额" width="6"></Column>
+  <Column Key="ApplyBasis_JRName" Name="运营专员" width="5"></Column>
+  <Column Key="ApplyBasis_Date" Name="申请日期" width="7"></Column>
+  <Column Key="ApplyBasis_BusinessType" Name="业务类型" width="5"></Column>
+  <Column Key="ApplyBasis_InstanceState" Name="申请状态" width="5" styler="function(value){
+          if (value == '放款完成')
+          {
+              return 'color:green;';
+          }else{
+             if (value == '预存'){return 'color:black;';}
+             else {return 'color:red;';}
+         }
+      }"></Column>
+</Grid>

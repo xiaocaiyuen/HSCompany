@@ -24,5 +24,6 @@ namespace Shu.Model
         public string PendingMatter_URL { get; set; }
         public Nullable<System.DateTime> PendingMatter_AddTime { get; set; }
         public string PendingMatter_AddUserID { get; set; }
+        public string PendingMatter_BussType { get; set; }
     }
 }

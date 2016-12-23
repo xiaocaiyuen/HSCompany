@@ -69,8 +69,8 @@ namespace Shu.Comm
             foreach (PropertyInfo p in typeof(T).GetProperties())
             {
                 string keyName = p.Name;
-                if (context.Request.Form[keyName] != "")
-                    SetPropertyValue(p, context.Request.Form[keyName], entity);
+                //if (context.Request.Form[keyName] != "")
+                SetPropertyValue(p, context.Request.Form[keyName], entity);
             }
             return entity;
         }

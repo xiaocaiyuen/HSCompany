@@ -22,8 +22,8 @@ namespace Shu.Model
         public string IconName { get; set; }
         public string Icon { get; set; }
         public string Event { get; set; }
-        public string Type { get; set; }
-        public string EventType { get; set; }
+        public int Type { get; set; }
+        public int EventType { get; set; }
         public string AddUserId { get; set; }
         public Nullable<System.DateTime> AddTime { get; set; }
         public string EditUserId { get; set; }

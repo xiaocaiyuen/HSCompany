@@ -45,6 +45,6 @@
             </table>
         </div>
     </fieldset>
-    <UC:EasyUIGrid ID="UCEasyUIDataGrid" runat="server" />
+    <UC:ButtonGrid ID="UCEasyUIDataGrid" runat="server" />
 </body>
 </html>

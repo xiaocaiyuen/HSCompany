@@ -42,7 +42,8 @@
             </table>
         </div>
     </fieldset>
-    <UC:EasyUIGrid ID="EasyUIGrid" runat="server" />
+    <%--<UC:EasyUIGrid ID="EasyUIGrid" runat="server" />--%>
+    <UC:ButtonGrid ID="EasyUIGrid" runat="server" />
     <div id="ui_AddButton" class="easyui-window" title="新增" style="width: 700px; height: 500px; display:none" 
         toolbar="#dlg-toolbar" resizable="true" closed="true"  >
         <iframe id="view_AddButton" scrolling="yes"  width="100%"  frameborder="0" height="98%" ></iframe>

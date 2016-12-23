@@ -146,4 +146,56 @@ namespace Shu.DAL
     {
 
     }
+	public partial class View_Workflow_NodeBusiExDal :BaseDal<View_Workflow_NodeBusiEx>,IView_Workflow_NodeBusiExDal
+    {
+
+    }
+	public partial class View_Workflow_NodeConditionDal :BaseDal<View_Workflow_NodeCondition>,IView_Workflow_NodeConditionDal
+    {
+
+    }
+	public partial class View_Workflow_NodeConfigExDal :BaseDal<View_Workflow_NodeConfigEx>,IView_Workflow_NodeConfigExDal
+    {
+
+    }
+	public partial class View_Workflow_NodeRouteDal :BaseDal<View_Workflow_NodeRoute>,IView_Workflow_NodeRouteDal
+    {
+
+    }
+	public partial class View_Workflow_RoleAACTDefinitionDal :BaseDal<View_Workflow_RoleAACTDefinition>,IView_Workflow_RoleAACTDefinitionDal
+    {
+
+    }
+	public partial class View_Workflow_TasksExDal :BaseDal<View_Workflow_TasksEx>,IView_Workflow_TasksExDal
+    {
+
+    }
+	public partial class Workflow_AuditActionDefinitionDal :BaseDal<Workflow_AuditActionDefinition>,IWorkflow_AuditActionDefinitionDal
+    {
+
+    }
+	public partial class Workflow_NodeBusiExDal :BaseDal<Workflow_NodeBusiEx>,IWorkflow_NodeBusiExDal
+    {
+
+    }
+	public partial class Workflow_NodeConditionDal :BaseDal<Workflow_NodeCondition>,IWorkflow_NodeConditionDal
+    {
+
+    }
+	public partial class Workflow_NodeConfigExDal :BaseDal<Workflow_NodeConfigEx>,IWorkflow_NodeConfigExDal
+    {
+
+    }
+	public partial class Workflow_NodeRouteDal :BaseDal<Workflow_NodeRoute>,IWorkflow_NodeRouteDal
+    {
+
+    }
+	public partial class Workflow_RoleAACTDefinitionDal :BaseDal<Workflow_RoleAACTDefinition>,IWorkflow_RoleAACTDefinitionDal
+    {
+
+    }
+	public partial class Workflow_TasksExDal :BaseDal<Workflow_TasksEx>,IWorkflow_TasksExDal
+    {
+
+    }
 }

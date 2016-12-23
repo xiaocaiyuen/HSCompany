@@ -183,6 +183,71 @@ namespace Shu.Factroy
 		   string fullClassName = NameSpace + ".View_Sys_UserInfoDal";
            return CreateInstance(fullClassName) as IView_Sys_UserInfoDal;
         }
+	    public static IView_Workflow_NodeBusiExDal CreateView_Workflow_NodeBusiExDal()
+        {
+		   string fullClassName = NameSpace + ".View_Workflow_NodeBusiExDal";
+           return CreateInstance(fullClassName) as IView_Workflow_NodeBusiExDal;
+        }
+	    public static IView_Workflow_NodeConditionDal CreateView_Workflow_NodeConditionDal()
+        {
+		   string fullClassName = NameSpace + ".View_Workflow_NodeConditionDal";
+           return CreateInstance(fullClassName) as IView_Workflow_NodeConditionDal;
+        }
+	    public static IView_Workflow_NodeConfigExDal CreateView_Workflow_NodeConfigExDal()
+        {
+		   string fullClassName = NameSpace + ".View_Workflow_NodeConfigExDal";
+           return CreateInstance(fullClassName) as IView_Workflow_NodeConfigExDal;
+        }
+	    public static IView_Workflow_NodeRouteDal CreateView_Workflow_NodeRouteDal()
+        {
+		   string fullClassName = NameSpace + ".View_Workflow_NodeRouteDal";
+           return CreateInstance(fullClassName) as IView_Workflow_NodeRouteDal;
+        }
+	    public static IView_Workflow_RoleAACTDefinitionDal CreateView_Workflow_RoleAACTDefinitionDal()
+        {
+		   string fullClassName = NameSpace + ".View_Workflow_RoleAACTDefinitionDal";
+           return CreateInstance(fullClassName) as IView_Workflow_RoleAACTDefinitionDal;
+        }
+	    public static IView_Workflow_TasksExDal CreateView_Workflow_TasksExDal()
+        {
+		   string fullClassName = NameSpace + ".View_Workflow_TasksExDal";
+           return CreateInstance(fullClassName) as IView_Workflow_TasksExDal;
+        }
+	    public static IWorkflow_AuditActionDefinitionDal CreateWorkflow_AuditActionDefinitionDal()
+        {
+		   string fullClassName = NameSpace + ".Workflow_AuditActionDefinitionDal";
+           return CreateInstance(fullClassName) as IWorkflow_AuditActionDefinitionDal;
+        }
+	    public static IWorkflow_NodeBusiExDal CreateWorkflow_NodeBusiExDal()
+        {
+		   string fullClassName = NameSpace + ".Workflow_NodeBusiExDal";
+           return CreateInstance(fullClassName) as IWorkflow_NodeBusiExDal;
+        }
+	    public static IWorkflow_NodeConditionDal CreateWorkflow_NodeConditionDal()
+        {
+		   string fullClassName = NameSpace + ".Workflow_NodeConditionDal";
+           return CreateInstance(fullClassName) as IWorkflow_NodeConditionDal;
+        }
+	    public static IWorkflow_NodeConfigExDal CreateWorkflow_NodeConfigExDal()
+        {
+		   string fullClassName = NameSpace + ".Workflow_NodeConfigExDal";
+           return CreateInstance(fullClassName) as IWorkflow_NodeConfigExDal;
+        }
+	    public static IWorkflow_NodeRouteDal CreateWorkflow_NodeRouteDal()
+        {
+		   string fullClassName = NameSpace + ".Workflow_NodeRouteDal";
+           return CreateInstance(fullClassName) as IWorkflow_NodeRouteDal;
+        }
+	    public static IWorkflow_RoleAACTDefinitionDal CreateWorkflow_RoleAACTDefinitionDal()
+        {
+		   string fullClassName = NameSpace + ".Workflow_RoleAACTDefinitionDal";
+           return CreateInstance(fullClassName) as IWorkflow_RoleAACTDefinitionDal;
+        }
+	    public static IWorkflow_TasksExDal CreateWorkflow_TasksExDal()
+        {
+		   string fullClassName = NameSpace + ".Workflow_TasksExDal";
+           return CreateInstance(fullClassName) as IWorkflow_TasksExDal;
+        }
 	}
 	
 }

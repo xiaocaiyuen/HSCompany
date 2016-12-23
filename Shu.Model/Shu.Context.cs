@@ -55,9 +55,22 @@ namespace Shu.Model
         public virtual DbSet<Sys_UserInfo> Sys_UserInfo { get; set; }
         public virtual DbSet<Sys_Area> Sys_Area { get; set; }
         public virtual DbSet<Sys_Icons> Sys_Icons { get; set; }
-        public virtual DbSet<Sys_OperatingButton> Sys_OperatingButton { get; set; }
         public virtual DbSet<Sys_Menu> Sys_Menu { get; set; }
         public virtual DbSet<Sys_Module> Sys_Module { get; set; }
         public virtual DbSet<Sys_MenuOperatingButton> Sys_MenuOperatingButton { get; set; }
+        public virtual DbSet<Sys_OperatingButton> Sys_OperatingButton { get; set; }
+        public virtual DbSet<Workflow_AuditActionDefinition> Workflow_AuditActionDefinition { get; set; }
+        public virtual DbSet<Workflow_NodeBusiEx> Workflow_NodeBusiEx { get; set; }
+        public virtual DbSet<Workflow_NodeCondition> Workflow_NodeCondition { get; set; }
+        public virtual DbSet<Workflow_NodeConfigEx> Workflow_NodeConfigEx { get; set; }
+        public virtual DbSet<Workflow_NodeRoute> Workflow_NodeRoute { get; set; }
+        public virtual DbSet<Workflow_RoleAACTDefinition> Workflow_RoleAACTDefinition { get; set; }
+        public virtual DbSet<Workflow_TasksEx> Workflow_TasksEx { get; set; }
+        public virtual DbSet<View_Workflow_NodeBusiEx> View_Workflow_NodeBusiEx { get; set; }
+        public virtual DbSet<View_Workflow_NodeCondition> View_Workflow_NodeCondition { get; set; }
+        public virtual DbSet<View_Workflow_NodeConfigEx> View_Workflow_NodeConfigEx { get; set; }
+        public virtual DbSet<View_Workflow_NodeRoute> View_Workflow_NodeRoute { get; set; }
+        public virtual DbSet<View_Workflow_RoleAACTDefinition> View_Workflow_RoleAACTDefinition { get; set; }
+        public virtual DbSet<View_Workflow_TasksEx> View_Workflow_TasksEx { get; set; }
     }
 }
