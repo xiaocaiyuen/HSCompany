@@ -6,17 +6,19 @@
     <title></title>
     <link href="/Styles/table.css" rel="stylesheet" type="text/css" />
     <link href="/Styles/List.css" rel="stylesheet" type="text/css" />
-    <link href="/Scripts/UI/themes/bootstrap/easyui.css" rel="stylesheet" type="text/css" />
-    <link href="/Scripts/UI/themes/icon.css" rel="stylesheet" type="text/css" />
-    <script src="/Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
-    <script src="/Scripts/UI/jquery.easyui.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/Scripts/jquery-2.0.0.min.js"></script>
+    <link href="/Content/themes/bootstrap/easyui.css" rel="stylesheet" />
+    <link href="/Content/themes/icon.css" rel="stylesheet" />
+    <script type="text/javascript" src="/Scripts/jquery.easyui-1.4.5.min.js" charset="utf-8"></script>
+    <script src="/Scripts/jquery.datagrid.js"></script>
+    <script type="text/javascript" src="/Scripts/locale/easyui-lang-zh_CN.js" charset="utf-8"></script>
     <script src="/Scripts/DatePicker/WdatePicker.js" type="text/javascript"></script>
-    <link href="/Styles/validationEngine.jquery.css" rel="stylesheet" type="text/css"
+   <%-- <link href="/Styles/validationEngine.jquery.css" rel="stylesheet" type="text/css"
         charset="utf-8" />
     <script src="/Scripts/Validate/jquery.validationEngine.js" type="text/javascript"></script>
     <script src="/Scripts/Validate/jquery.validationEngine-cn.js" type="text/javascript"
         charset="gb2312"></script>
-    <script src="/Scripts/Validate/FormVaildate.js" type="text/javascript"></script>
+    <script src="/Scripts/Validate/FormVaildate.js" type="text/javascript"></script>--%>
     <script src="/Scripts/common.js" type="text/javascript"></script>
     <script src="/Scripts/Workflow/jiaose.js" type="text/javascript"></script>
     <script src="/Scripts/Workflow/WorkflowNodeRiskPoint.js" type="text/javascript"></script>
@@ -26,9 +28,9 @@
             var drpval = $('#drpWorkflowNodeConfig_AuditMode').val();
             var url = "";
             if (drpval == "0") {
-                url = '/Windows/Win_EasyUISelectRole.aspx?perseecharge=all&depseecharge=3';
+                url = '/Popup/Win_EasyUISelectRole.aspx?perseecharge=all&depseecharge=3';
             } else {
-                url = '/Windows/Win_EasyUISelectUser.aspx?perseecharge=all&depseecharge=3';
+                url = '/Popup/Win_EasyUISelectUser.aspx?perseecharge=all&depseecharge=3';
             }
             $("#ucviews").attr("src", url);
             $('#uctextselects').dialog('open');
@@ -36,7 +38,7 @@
         }
 
         function ShowWarnIndex(code) {
-            var url = '/Manage/Workflow/Matter_easyUISelect.aspx?code=' + code;
+            var url = '/Workflow/Matter_easyUISelect.aspx?code=' + code;
 
             $("#ifmWarnIndex").attr("src", url);
             $('#ucWarnIndex').dialog('open');
@@ -66,9 +68,9 @@
                 $("#divAutoOption").hide();
             }
 
-            Loadcombobox();
+            //Loadcombobox();
 
-            $('#ddlNodeConfigEx_DataMappingID').combobox('setValues', $('#hid_NodeConfigEx_DataMappingID').val().split(','));
+            //$('#ddlNodeConfigEx_DataMappingID').combobox('setValues', $('#hid_NodeConfigEx_DataMappingID').val().split(','));
         });
 
         function Loadcombobox() {
@@ -81,17 +83,7 @@
                     data = msg;
                 }
             });
-            //var data1 = [{ id: "", text: "所有" }].concat(data);//将‘所有’设置为第一个选项
             var data1 = [{ id: "", text: "" }].concat(data);//将‘所有’设置为第一个选项;
-            //var dataStr = [],
-            //    dataStr1 = [];
-            //for (var i = 0; i < data1.length; i++) {
-            //    if (i != 0) {
-            //        dataStr.push(data1[i].id);
-            //    }
-            //    dataStr1.push(data1[i].id);
-            //}
-
 
             var $test = $("#ddlNodeConfigEx_DataMappingID");
 
@@ -207,7 +199,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr>
+                <%--<tr>
                     <th>合同
                     </th>
                     <td>
@@ -218,7 +210,7 @@
                     <td>
                         <select id="ddlNodeConfigEx_DataMappingID" class="easyui-combobox validate[required]" name="ddlNodeConfigEx_DataMappingID"></select>
                     </td>
-                </tr>
+                </tr>--%>
             </table>
             <table width="96%" border="0" cellspacing="0" cellpadding="0" class="for">
                 <tr>

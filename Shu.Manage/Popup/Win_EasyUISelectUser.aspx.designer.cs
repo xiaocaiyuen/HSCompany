@@ -7,27 +7,27 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Shu.Manage.Workflow {
+namespace Shu.Manage.Popup {
     
     
-    public partial class WorkflowConfigureManagerEx {
+    public partial class Win_EasyUISelectUser1 {
         
         /// <summary>
-        /// Head1 控件。
+        /// form1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// UCWorkflowNodeExTree1 控件。
+        /// UCExpAllDeptUserEasyUISingleTree1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Shu.Manage.UserControls.UCWorkflowNodeExTree UCWorkflowNodeExTree1;
+        protected global::Shu.Manage.UserControls.UCExpAllDeptUserEasyUISingleTree UCExpAllDeptUserEasyUISingleTree1;
     }
 }

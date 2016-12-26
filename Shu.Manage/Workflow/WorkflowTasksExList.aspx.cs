@@ -29,8 +29,8 @@ namespace Shu.Manage.Workflow
         {
             UCEasyUIDataGrid.DataSource = "~/XML/Workflow/GridWorkflowTasksEx.xml";
             UCEasyUIDataGrid.SQLWhere = GetSqlWhere();
-            UCEasyUIDataGrid.AddType = 3;
-            UCEasyUIDataGrid.EditType = 3;
+            //UCEasyUIDataGrid.AddType = 3;
+            //UCEasyUIDataGrid.EditType = 3;
             GetList();
         }
 

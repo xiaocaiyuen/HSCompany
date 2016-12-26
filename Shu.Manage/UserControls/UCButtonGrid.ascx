@@ -32,6 +32,7 @@
     var currenturl = CurrentUrl;
     var imageURL = GetGridAttr("ImageURL");
     List<Shu.Model.Sys_MenuOperatingButton> ToolbarList = ToolbarButton();
+    List<Shu.Model.Sys_MenuOperatingButton> RoleSetList = RoleSetButton();
 %>
 <script type="text/javascript">
     window.onload=function(){
@@ -193,7 +194,7 @@
     var cat = function (value, rec,index) {
         var btn="";
         <%
-    RoleSetButton().ForEach(item =>
+    RoleSetList.ForEach(item =>
     {
     if (item.EventType == 5)
     {%>
@@ -211,7 +212,7 @@
     //初始化自定义操作按钮
     var onLoadSuccess = function (data) {
         
-        <%RoleSetButton().ForEach(item =>
+        <%RoleSetList.ForEach(item =>
     {%>
         $('.<%=item.Marker %>').linkbutton({ text: '<%=item.Name %>', plain: true,iconCls: 'icon-<%=item.IconName %>' });
         <%}); %>

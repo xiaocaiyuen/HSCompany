@@ -48,7 +48,7 @@ namespace Shu.Manage.Workflow
                     string objectId = hid_DepCode.Value = entity.NodeConfigEx_AuditObjectID;
                     ddlNodeSign.SelectedValue = entity.NodeConfigEx_NodeSign;
                     hid_NodeConfigEx_DataMappingID.Value = entity.NodeConfigEx_DataMappingID;
-                    ckoNodeConfigEx_IsDisplayContract.Checked = entity.NodeConfigEx_IsDisplayContract.ToType(false);
+                    //ckoNodeConfigEx_IsDisplayContract.Checked = entity.NodeConfigEx_IsDisplayContract.ToType(false);
                     if (!string.IsNullOrEmpty(objectId))
                     {
                         if (drpWorkflowNodeConfig_AuditMode.SelectedValue == "0")
@@ -87,7 +87,7 @@ namespace Shu.Manage.Workflow
                 entity.NodeConfigEx_NodeSign = ddlNodeSign.SelectedValue;
                 entity.NodeConfigEx_UpdateUserID = base.CurrUserInfo().UserID;
                 entity.NodeConfigEx_UpdateTime = DateTime.Now;
-                entity.NodeConfigEx_IsDisplayContract = ckoNodeConfigEx_IsDisplayContract.Checked;
+                //entity.NodeConfigEx_IsDisplayContract = ckoNodeConfigEx_IsDisplayContract.Checked;
                 entity.NodeConfigEx_DataMappingID = hid_NodeConfigEx_DataMappingID.Value;
                 if (entity.NodeConfigEx_Mechanism == 2)//自动分配规则
                 {

@@ -5,7 +5,7 @@
 <head runat="server">
     <title></title>
     <link href="/Styles/List.css" rel="stylesheet" type="text/css" />
-    <link href="../../Styles/table.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/table.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/common.js" type="text/javascript"></script>
     <script type="text/javascript">
     </script>

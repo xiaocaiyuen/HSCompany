@@ -5,15 +5,13 @@
 <head id="Head1" runat="server">
     <title></title>
     <link href="/Styles/default.css" rel="stylesheet" type="text/css" />
-    <link href="/Scripts/UI/themes/bootstrap/easyui.css" rel="stylesheet" type="text/css" />
-    <link href="/Scripts/UI/themes/icon.css" rel="stylesheet" type="text/css" />
-    <script src="/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
-    <script src="/Scripts/UI/jquery.easyui.min.js" type="text/javascript"></script>
+    <link href="/Content/themes/bootstrap/easyui.css" rel="stylesheet" />
+    <link href="/Content/themes/icon.css" rel="stylesheet" />
+    <script type="text/javascript" src="/Scripts/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.easyui-1.4.5.min.js" charset="utf-8"></script>
+    <script src="/Scripts/DatePicker/WdatePicker.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/Scripts/locale/easyui-lang-zh_CN.js" charset="utf-8"></script>
     <script src="/Scripts/common.js" type="text/javascript"></script>
-    <script src="/Scripts/UI/jquery.easyui.min.js" type="text/javascript"></script>
-    <link href="/Scripts/UI/themes/icon.css" rel="stylesheet" type="text/css" />
-    <link href="/Scripts/UI/themes/bootstrap/easyui.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="/Scripts/UI/locale/easyui-lang-zh_CN.js" charset="utf-8"></script>
     <script type="text/javascript">
         function treeSelectd(id, text) {
             $('#chart').attr('src', 'WorkflowNodeRoute.aspx?id=' + id);
@@ -229,44 +227,44 @@
     </script>
 </head>
 <body class="easyui-layout" style="overflow-y: hidden;" fit="true" scroll="no">
-    <form id="form1" runat="server">
-        <div region="west" split="true" title="&nbsp;步骤维护:(鼠标点击节点步骤)" style="width: 210px;">
-            <input id="WorkflowNodeConfigID" type="hidden" value="" /><!--唯一编号-->
-            <input id="WorkflowNodeConfig_TasksInstanceID" type="hidden" value="" /><!--唯一编号-->
-            <div style="margin-top: 5px;">
-                <% BasePage bg = new BasePage();
-                    string rolename = bg.CurrUserInfo().RoleName;
-                    //bool SysAdminRoleNameOK = rolename.Contains(Constant.SysAdminRoleName);
-                    bool SuperAdminRoleNameOK = rolename.Contains(Constant.SuperAdminRoleName);
-                %>
-                <%  if (SuperAdminRoleNameOK)
-                    {%>
-                <a id="btn" href="javascript:Open();" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加节点路由</a>
-                <%} %>
-                <%--<a href="javascript:up()">
+    <%--    <form id="form1" runat="server">--%>
+    <div region="west" split="true" title="&nbsp;步骤维护:(鼠标点击节点步骤)" style="width: 210px;">
+        <input id="WorkflowNodeConfigID" type="hidden" value="" /><!--唯一编号-->
+        <input id="WorkflowNodeConfig_TasksInstanceID" type="hidden" value="" /><!--唯一编号-->
+        <div style="margin-top: 5px;">
+            <% BasePage bg = new BasePage();
+                string rolename = bg.CurrUserInfo().RoleName;
+                //bool SysAdminRoleNameOK = rolename.Contains(Constant.SysAdminRoleName);
+                bool SuperAdminRoleNameOK = rolename.Contains(Constant.SuperAdminRoleName);
+            %>
+            <%  if (SuperAdminRoleNameOK)
+                {%>
+            <a id="btn" href="javascript:Open();" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加节点路由</a>
+            <%} %>
+            <%--<a href="javascript:up()">
             <img src="/Scripts/UI/themes/icons/arrow_up.png" /></a> <a href="javascript:down()">
                 <img src="/Scripts/UI/themes/icons/arrow_down.png" /></a>--%>
-            </div>
-            <div id="loading-mask" style="position: absolute; top: 0px; left: 0px; width: 100%; text-align: center; height: 100%; background: #D2E0F2; z-index: 20000">
-                <div id="pageloading" style="position: absolute; top: 50%; left: 50%; margin: -120px 0px 0px -120px; text-align: center; border: 2px solid #8DB2E3; width: 200px; height: 40px; font-size: 14px; padding: 10px; font-weight: bold; background: #fff; color: #15428B;">
-                    <img src="../../Images/main/loader.gif" align="absmiddle" />
-                    正在加载中,请稍候...
-                </div>
-            </div>
-            <div>
-                <ul id="tt2">
-                </ul>
+        </div>
+        <div id="loading-mask" style="position: absolute; top: 0px; left: 0px; width: 100%; text-align: center; height: 100%; background: #D2E0F2; z-index: 20000">
+            <div id="pageloading" style="position: absolute; top: 50%; left: 50%; margin: -120px 0px 0px -120px; text-align: center; border: 2px solid #8DB2E3; width: 200px; height: 40px; font-size: 14px; padding: 10px; font-weight: bold; background: #fff; color: #15428B;">
+                <img src="../../Images/main/loader.gif" align="absmiddle" />
+                正在加载中,请稍候...
             </div>
         </div>
-        <div region="center" style="overflow-y: hidden; overflow-x: hidden">
-            <iframe id="chart" width="100%" height="100%" scrolling="yes" frameborder="0" src=""></iframe>
+        <div>
+            <ul id="tt2">
+            </ul>
         </div>
+    </div>
+    <div region="center" style="overflow-y: hidden; overflow-x: hidden">
+        <iframe id="chart" width="100%" height="100%" scrolling="yes" frameborder="0" src=""></iframe>
+    </div>
 
-        <div id="mm" class="easyui-menu" style="width: 120px;">
-            <div onclick="removeit()" data-options="iconCls:'icon-remove'">
-                删除
-            </div>
+    <div id="mm" class="easyui-menu" style="width: 120px;">
+        <div onclick="removeit()" data-options="iconCls:'icon-remove'">
+            删除
         </div>
-    </form>
+    </div>
+    <%--</form>--%>
 </body>
 </html>

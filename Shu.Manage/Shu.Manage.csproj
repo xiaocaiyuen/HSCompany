@@ -462,6 +462,7 @@
     <Content Include="Files\File\201611\26\b1edbdf2-b897-4057-891a-e73ace6d4662.txt" />
     <Content Include="Files\File\201611\26\dac99a82-9d96-46ec-8415-707c4706ddc5.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Handler\WorkflowNodeRouteHandler.ashx" />
     <Content Include="Images\buttons\01.gif" />
     <Content Include="Images\buttons\add.gif" />
     <Content Include="Images\buttons\addchild.gif" />
@@ -1086,6 +1087,8 @@
     <Content Include="PhotoGallery.aspx" />
     <Content Include="Popup\IconMenuButton.aspx" />
     <Content Include="Popup\IconList.aspx" />
+    <Content Include="Popup\Win_EasyUISelectRole.aspx" />
+    <Content Include="Popup\Win_EasyUISelectUser.aspx" />
     <Content Include="Print\CheckActivX.js" />
     <Content Include="Print\install_lodop.exe" />
     <Content Include="Print\install_lodop32.exe" />
@@ -1461,6 +1464,8 @@
     <Content Include="Scripts\DatagridPublic.js" />
     <Content Include="Scripts\jquery.validationEngine-en.js" />
     <Content Include="Scripts\jquery.validationEngine.js" />
+    <Content Include="Scripts\Workflow\jiaose.js" />
+    <Content Include="Scripts\Workflow\WorkflowNodeRiskPoint.js" />
     <Content Include="Styles\List.css" />
     <Content Include="Sys\DepSelect.aspx" />
     <Content Include="Sys\OperatingButtonInfo.aspx" />
@@ -1474,7 +1479,10 @@
       <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="UserControls\UCExpAllDeptEasyUISingleTreeCheckBox.ascx" />
+    <Content Include="UserControls\UCExpAllDeptUserEasyUISingleTree.ascx" />
+    <Content Include="UserControls\UCExpAllRoleEasyUISingleTree.ascx" />
     <Content Include="UserControls\UCFiles.ascx" />
+    <Content Include="UserControls\UCWorkflowNodeExTree.ascx" />
     <Content Include="Workflow\MyToDoTask.aspx" />
     <Content Include="Workflow\MyWaitingTask.aspx" />
     <Content Include="Workflow\WorkflowConfigureEx.aspx" />
@@ -1509,6 +1517,7 @@
     <Content Include="XML\Workflow\MyWaitingTask.xml" />
     <Content Include="XML\Workflow\WorkflowNodeConditionList.xml" />
     <Content Include="XML\Workflow\WorkflowNodeRouteList.xml" />
+    <Content Include="Handler\WorkflowNodeExHandler.ashx" />
     <None Include="Scripts\jquery.linq-vsdoc.js" />
     <Content Include="Scripts\jquery.extend.js" />
     <Content Include="Scripts\jquery.linq.js" />
@@ -1725,6 +1734,12 @@
     <Compile Include="Handler\UserInfoHandler.ashx.cs">
       <DependentUpon>UserInfoHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Handler\WorkflowNodeExHandler.ashx.cs">
+      <DependentUpon>WorkflowNodeExHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\WorkflowNodeRouteHandler.ashx.cs">
+      <DependentUpon>WorkflowNodeRouteHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1766,6 +1781,20 @@
     </Compile>
     <Compile Include="Popup\IconList.aspx.designer.cs">
       <DependentUpon>IconList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\Win_EasyUISelectRole.aspx.cs">
+      <DependentUpon>Win_EasyUISelectRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Popup\Win_EasyUISelectRole.aspx.designer.cs">
+      <DependentUpon>Win_EasyUISelectRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Popup\Win_EasyUISelectUser.aspx.cs">
+      <DependentUpon>Win_EasyUISelectUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Popup\Win_EasyUISelectUser.aspx.designer.cs">
+      <DependentUpon>Win_EasyUISelectUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sys\CityManager.aspx.cs">
@@ -1964,6 +1993,20 @@
     <Compile Include="UserControls\UCExpAllDeptEasyUISingleTreeCheckBox.ascx.designer.cs">
       <DependentUpon>UCExpAllDeptEasyUISingleTreeCheckBox.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UCExpAllDeptUserEasyUISingleTree.ascx.cs">
+      <DependentUpon>UCExpAllDeptUserEasyUISingleTree.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCExpAllDeptUserEasyUISingleTree.ascx.designer.cs">
+      <DependentUpon>UCExpAllDeptUserEasyUISingleTree.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCExpAllRoleEasyUISingleTree.ascx.cs">
+      <DependentUpon>UCExpAllRoleEasyUISingleTree.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCExpAllRoleEasyUISingleTree.ascx.designer.cs">
+      <DependentUpon>UCExpAllRoleEasyUISingleTree.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCFiles.ascx.cs">
       <DependentUpon>UCFiles.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1977,6 +2020,13 @@
     </Compile>
     <Compile Include="UserControls\UCFilesImage.ascx.designer.cs">
       <DependentUpon>UCFilesImage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCWorkflowNodeExTree.ascx.cs">
+      <DependentUpon>UCWorkflowNodeExTree.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCWorkflowNodeExTree.ascx.designer.cs">
+      <DependentUpon>UCWorkflowNodeExTree.ascx</DependentUpon>
     </Compile>
     <Compile Include="WelCome.aspx.cs">
       <DependentUpon>WelCome.aspx</DependentUpon>

@@ -5,7 +5,7 @@
 <head runat="server">
     <title></title>
     <link href="/Styles/List.css" rel="stylesheet" type="text/css" />
-    <link href="../../Styles/table.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/table.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/common.js" type="text/javascript"></script>
     <script type="text/javascript">
     //处理按钮启用不启用功能
@@ -68,7 +68,8 @@
             </table>
         </div>
     </fieldset>
-    <UC:EasyUIGrid ID="UCEasyUIDataGrid" runat="server" />
+    <%--<UC:EasyUIGrid ID="UCEasyUIDataGrid" runat="server" />--%>
+    <UC:ButtonGrid ID="UCEasyUIDataGrid" runat="server" />
     <!--弹出框-->
     <div id="ui_AddButton" class="easyui-window" title="新增" style="width: 400px; height: 250px;"
         toolbar="#dlg-toolbar" resizable="true" closed="true">
