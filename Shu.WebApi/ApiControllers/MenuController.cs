@@ -24,7 +24,7 @@ namespace Shu.WebApi.ApiControllers
         [ActionName("List")]
         public WebApiResult<IQueryable<MenuModels>> GetCommentsList(Guid? keyId, Guid? userId)
         {
-            return 
+            return null;
         }
     }
 }
