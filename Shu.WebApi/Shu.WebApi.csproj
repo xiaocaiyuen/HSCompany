@@ -108,6 +108,10 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -224,11 +228,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiControllers\MenuController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
@@ -261,6 +267,7 @@
     <Compile Include="Cache\CacheContext.cs" />
     <Compile Include="Cache\EnyimMemcachedContext.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="ApiControllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="ApiControllers\PassportController.cs" />
     <Compile Include="Controllers\PassportController.cs" />
@@ -269,6 +276,7 @@
     <Compile Include="Extendsions\DateTimeExtendsions.cs" />
     <Compile Include="Extendsions\PagingExtendsions.cs" />
     <Compile Include="Extendsions\StringExtendsions.cs" />
+    <Compile Include="Filters\ApplicationFilterAttribute.cs" />
     <Compile Include="Filters\UserAuthorizationAttribute.cs" />
     <Compile Include="Filters\ValidateModelStateAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -278,6 +286,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HomeLoginRequest.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MenuModels.cs" />
     <Compile Include="Models\PassportLoginRequest.cs" />
     <Compile Include="Models\ProfileChangePasswordRequest.cs" />
     <Compile Include="Models\UserCreateRequest.cs" />

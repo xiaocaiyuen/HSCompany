@@ -231,6 +231,7 @@
           <Property Name="Sort" Type="int" Nullable="false" />
           <Property Name="DomainUrl" Type="varchar" MaxLength="100" />
           <Property Name="AppSecret" Type="varchar" MaxLength="40" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="Sys_Notice">
           <Key>
@@ -2336,6 +2337,7 @@
           <Property Name="DomainUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="AppSecret" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Sys_Menu" Relationship="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU" FromRole="Sys_Module" ToRole="Sys_Menu" />
+          <Property Name="IPAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_SYS_MENU_RELATIONS_SYS_MODU">
           <End Type="ShuModel.Sys_Module" Role="Sys_Module" Multiplicity="0..1" />
@@ -3271,6 +3273,7 @@
           <EntitySetMapping Name="Sys_Module">
             <EntityTypeMapping TypeName="ShuModel.Sys_Module">
               <MappingFragment StoreEntitySet="Sys_Module">
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
                 <ScalarProperty Name="AppSecret" ColumnName="AppSecret" />
                 <ScalarProperty Name="DomainUrl" ColumnName="DomainUrl" />
                 <ScalarProperty Name="Sort" ColumnName="Sort" />

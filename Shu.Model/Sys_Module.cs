@@ -36,6 +36,7 @@ namespace Shu.Model
         public int Sort { get; set; }
         public string DomainUrl { get; set; }
         public string AppSecret { get; set; }
+        public string IPAddress { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
     	[JsonIgnore]
