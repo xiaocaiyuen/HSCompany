@@ -5,6 +5,27 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ShuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SSO_UserAuthOperates">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SessionKey" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="IpAddress" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SSO_UserAuthSessions">
+          <Key>
+            <PropertyRef Name="SessionKey" />
+          </Key>
+          <Property Name="SessionKey" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="AppKey" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IpAddress" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="InvalidTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Sys_Area">
           <Key>
             <PropertyRef Name="Id" />
@@ -208,6 +229,8 @@
           <Property Name="EditTime" Type="datetime" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
           <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="DomainUrl" Type="varchar" MaxLength="100" />
+          <Property Name="AppSecret" Type="varchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="Sys_Notice">
           <Key>
@@ -948,6 +971,8 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ShuModelStoreContainer">
+          <EntitySet Name="SSO_UserAuthOperates" EntityType="Self.SSO_UserAuthOperates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SSO_UserAuthSessions" EntityType="Self.SSO_UserAuthSessions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Area" EntityType="Self.Sys_Area" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Config" EntityType="Self.Sys_Config" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_DataDict" EntityType="Self.Sys_DataDict" Schema="dbo" store:Type="Tables" />
@@ -1358,11 +1383,6 @@
           <EntitySet Name="Sys_Area" EntityType="ShuModel.Sys_Area" />
           <EntitySet Name="Sys_Icons" EntityType="ShuModel.Sys_Icons" />
           <EntitySet Name="Sys_Menu" EntityType="ShuModel.Sys_Menu" />
-          <EntitySet Name="Sys_Module" EntityType="ShuModel.Sys_Module" />
-          <AssociationSet Name="FK_SYS_MENU_RELATIONS_SYS_MODU" Association="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU">
-            <End Role="Sys_Module" EntitySet="Sys_Module" />
-            <End Role="Sys_Menu" EntitySet="Sys_Menu" />
-          </AssociationSet>
           <EntitySet Name="Sys_MenuOperatingButton" EntityType="ShuModel.Sys_MenuOperatingButton" />
           <EntitySet Name="Sys_OperatingButton" EntityType="ShuModel.Sys_OperatingButton" />
           <AssociationSet Name="FK_Sys_Menu_Sys_MenuOperatingButton" Association="ShuModel.FK_Sys_Menu_Sys_MenuOperatingButton">
@@ -1382,6 +1402,13 @@
           <EntitySet Name="View_Workflow_NodeRoute" EntityType="ShuModel.View_Workflow_NodeRoute" />
           <EntitySet Name="View_Workflow_RoleAACTDefinition" EntityType="ShuModel.View_Workflow_RoleAACTDefinition" />
           <EntitySet Name="View_Workflow_TasksEx" EntityType="ShuModel.View_Workflow_TasksEx" />
+          <EntitySet Name="SSO_UserAuthOperates" EntityType="ShuModel.SSO_UserAuthOperates" />
+          <EntitySet Name="SSO_UserAuthSessions" EntityType="ShuModel.SSO_UserAuthSessions" />
+          <EntitySet Name="Sys_Module" EntityType="ShuModel.Sys_Module" />
+          <AssociationSet Name="FK_SYS_MENU_RELATIONS_SYS_MODU" Association="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU">
+            <End Role="Sys_Module" EntitySet="Sys_Module" />
+            <End Role="Sys_Menu" EntitySet="Sys_Menu" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Sys_Config">
           <Key>
@@ -1953,39 +1980,9 @@
           <Property Name="Menu_Operation" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="Menu_IconName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="Menu_IconPath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Sys_Module" Relationship="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU" FromRole="Sys_Menu" ToRole="Sys_Module" />
           <NavigationProperty Name="Sys_MenuOperatingButton" Relationship="ShuModel.FK_Sys_Menu_Sys_MenuOperatingButton" FromRole="Sys_Menu" ToRole="Sys_MenuOperatingButton" />
+          <NavigationProperty Name="Sys_Module" Relationship="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU" FromRole="Sys_Menu" ToRole="Sys_Module" />
         </EntityType>
-        <EntityType Name="Sys_Module">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="Content" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
-          <Property Name="IsAccredit" Type="Boolean" Nullable="false" />
-          <Property Name="IsShow" Type="Boolean" Nullable="false" />
-          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="AddUserId" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="EditUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="EditTime" Type="DateTime" Precision="3" />
-          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
-          <Property Name="Sort" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Sys_Menu" Relationship="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU" FromRole="Sys_Module" ToRole="Sys_Menu" />
-        </EntityType>
-        <Association Name="FK_SYS_MENU_RELATIONS_SYS_MODU">
-          <End Type="ShuModel.Sys_Module" Role="Sys_Module" Multiplicity="0..1" />
-          <End Type="ShuModel.Sys_Menu" Role="Sys_Menu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sys_Module">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Sys_Menu">
-              <PropertyRef Name="Menu_ModuleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Sys_MenuOperatingButton">
           <Key>
             <PropertyRef Name="Id" />
@@ -2299,6 +2296,59 @@
           <Property Name="DataDict_Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="UserInfo_FullName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="SSO_UserAuthOperates">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SessionKey" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="IpAddress" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="SSO_UserAuthSessions">
+          <Key>
+            <PropertyRef Name="SessionKey" />
+          </Key>
+          <Property Name="SessionKey" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="AppKey" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IpAddress" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="InvalidTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Sys_Module">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="3000" FixedLength="false" Unicode="false" />
+          <Property Name="IsAccredit" Type="Boolean" Nullable="false" />
+          <Property Name="IsShow" Type="Boolean" Nullable="false" />
+          <Property Name="AddTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AddUserId" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EditUserId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EditTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="Sort" Type="Int32" Nullable="false" />
+          <Property Name="DomainUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AppSecret" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sys_Menu" Relationship="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU" FromRole="Sys_Module" ToRole="Sys_Menu" />
+        </EntityType>
+        <Association Name="FK_SYS_MENU_RELATIONS_SYS_MODU">
+          <End Type="ShuModel.Sys_Module" Role="Sys_Module" Multiplicity="0..1" />
+          <End Type="ShuModel.Sys_Menu" Role="Sys_Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sys_Module">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sys_Menu">
+              <PropertyRef Name="Menu_ModuleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2881,24 +2931,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sys_Module">
-            <EntityTypeMapping TypeName="ShuModel.Sys_Module">
-              <MappingFragment StoreEntitySet="Sys_Module">
-                <ScalarProperty Name="Sort" ColumnName="Sort" />
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
-                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
-                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
-                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
-                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
-                <ScalarProperty Name="IsAccredit" ColumnName="IsAccredit" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Sys_MenuOperatingButton">
             <EntityTypeMapping TypeName="ShuModel.Sys_MenuOperatingButton">
               <MappingFragment StoreEntitySet="Sys_MenuOperatingButton">
@@ -3210,6 +3242,49 @@
                 <ScalarProperty Name="TasksEx_Type" ColumnName="TasksEx_Type" />
                 <ScalarProperty Name="TasksEx_InstanceNo" ColumnName="TasksEx_InstanceNo" />
                 <ScalarProperty Name="TasksEx_InstanceID" ColumnName="TasksEx_InstanceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SSO_UserAuthOperates">
+            <EntityTypeMapping TypeName="ShuModel.SSO_UserAuthOperates">
+              <MappingFragment StoreEntitySet="SSO_UserAuthOperates">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="SessionKey" ColumnName="SessionKey" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SSO_UserAuthSessions">
+            <EntityTypeMapping TypeName="ShuModel.SSO_UserAuthSessions">
+              <MappingFragment StoreEntitySet="SSO_UserAuthSessions">
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="InvalidTime" ColumnName="InvalidTime" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AppKey" ColumnName="AppKey" />
+                <ScalarProperty Name="SessionKey" ColumnName="SessionKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Module">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Module">
+              <MappingFragment StoreEntitySet="Sys_Module">
+                <ScalarProperty Name="AppSecret" ColumnName="AppSecret" />
+                <ScalarProperty Name="DomainUrl" ColumnName="DomainUrl" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="EditTime" ColumnName="EditTime" />
+                <ScalarProperty Name="EditUserId" ColumnName="EditUserId" />
+                <ScalarProperty Name="AddUserId" ColumnName="AddUserId" />
+                <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+                <ScalarProperty Name="IsShow" ColumnName="IsShow" />
+                <ScalarProperty Name="IsAccredit" ColumnName="IsAccredit" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

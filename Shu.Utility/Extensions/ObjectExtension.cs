@@ -51,6 +51,22 @@ namespace Shu.Utility.Extensions
         }
 
         /// <summary>
+        /// 是否为空
+        /// </summary>
+        /// <param name="value">值</param>
+        public static bool IsNullOrEmpty(this object value)
+        {
+            if (value != null && !string.IsNullOrEmpty(value.ToString()))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        /// <summary>
         /// 尝试将对象转换为指定的类型 转换失败则返回默认值
         /// </summary>
         /// <typeparam name="T"></typeparam>

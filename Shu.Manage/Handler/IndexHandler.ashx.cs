@@ -17,7 +17,7 @@ namespace Shu.Manage.Handler
     /// </summary>
     public class IndexHandler : IHttpHandler, IRequiresSessionState
     {
-        private static readonly string SystemModuleId = ConfigurationManager.AppSettings["SystemModuleId"];//系统模块ID
+        private static readonly string SystemModuleId = ConfigurationManager.AppSettings["SSOAppKey"];//系统模块ID及AppKey唯一标识
         SessionUserModel currentUser = null;
         public Sys_MenuBLL bllMenu = new Sys_MenuBLL();
         public List<View_Sys_RolePurviewAndMenu> menuList = new List<View_Sys_RolePurviewAndMenu>();

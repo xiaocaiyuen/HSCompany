@@ -74,6 +74,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Shu.edmx</DependentUpon>
     </Compile>
+    <Compile Include="SSO_UserAuthOperates.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SSO_UserAuthSessions.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
     <Compile Include="StoredProcModel.cs" />
     <Compile Include="Sys_Area.cs">
       <DependentUpon>Shu.tt</DependentUpon>

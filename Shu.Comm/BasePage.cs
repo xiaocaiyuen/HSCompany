@@ -5,29 +5,35 @@ using System.Text;
 using Shu.Model;
 using System.Configuration;
 using System.Web;
+using Shu.Utility.Filters;
+using System.Web.Mvc;
 
 namespace Shu.Comm
 {
+    [SSOAuth]
     public class BasePage : System.Web.UI.Page
     {
         protected override void OnInit(EventArgs e)
         {
+            //HttpContext.Current
+            SSOAuthAttribute.OnExecuting(HttpContext.Current);
 
+            
             if (CurrUserInfo() == null)
             {
-                Session.Abandon();  //取消当前会话
-                Session.Clear();
-                //System.Web.HttpContext.Current.Response.Redirect(string.Format("/Login.aspx", new object[0]));
-                //MessageBox.ShowAndRedirects(Page, "登陆超时，请重新登陆！", "/UserLogin.aspx");
+                //Session.Abandon();  //取消当前会话
+                //Session.Clear();
+                ////System.Web.HttpContext.Current.Response.Redirect(string.Format("/Login.aspx", new object[0]));
+                ////MessageBox.ShowAndRedirects(Page, "登陆超时，请重新登陆！", "/UserLogin.aspx");
 
 
-                StringBuilder Builder = new StringBuilder();
-                Builder.Append("<script language='javascript' defer>");
-                Builder.AppendFormat("alert('{0}');", "登陆超时，请重新登陆！");
-                Builder.AppendFormat("top.location.href='{0}'", "/Login.aspx");
-                Builder.Append("</script>");
-                Response.Write(Builder.ToString());
-                Response.End();
+                //StringBuilder Builder = new StringBuilder();
+                //Builder.Append("<script language='javascript' defer>");
+                //Builder.AppendFormat("alert('{0}');", "登陆超时，请重新登陆！");
+                //Builder.AppendFormat("top.location.href='{0}'", "/Login.aspx");
+                //Builder.Append("</script>");
+                //Response.Write(Builder.ToString());
+                //Response.End();
             }
             base.OnLoad(e);
         }
@@ -38,7 +44,6 @@ namespace Shu.Comm
             {
                 Session["_url_ref"] = Request.UrlReferrer.PathAndQuery;
             }
-            //base.OnLoad(e);
         }
 
 

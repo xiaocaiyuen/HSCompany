@@ -13,6 +13,32 @@ namespace Shu.Factroy
 {
 	public partial class DBSession : IDBSession
     {
+		private ISSO_UserAuthOperatesDal _SSO_UserAuthOperatesDal;
+        public ISSO_UserAuthOperatesDal SSO_UserAuthOperatesDal
+        {
+            get
+            {
+                if(_SSO_UserAuthOperatesDal == null)
+                {
+                    _SSO_UserAuthOperatesDal = AbstractFactory.CreateSSO_UserAuthOperatesDal();
+                }
+                return _SSO_UserAuthOperatesDal;
+            }
+            set { _SSO_UserAuthOperatesDal = value; }
+        }
+		private ISSO_UserAuthSessionsDal _SSO_UserAuthSessionsDal;
+        public ISSO_UserAuthSessionsDal SSO_UserAuthSessionsDal
+        {
+            get
+            {
+                if(_SSO_UserAuthSessionsDal == null)
+                {
+                    _SSO_UserAuthSessionsDal = AbstractFactory.CreateSSO_UserAuthSessionsDal();
+                }
+                return _SSO_UserAuthSessionsDal;
+            }
+            set { _SSO_UserAuthSessionsDal = value; }
+        }
 		private ISys_AreaDal _Sys_AreaDal;
         public ISys_AreaDal Sys_AreaDal
         {

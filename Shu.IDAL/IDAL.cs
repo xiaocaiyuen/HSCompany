@@ -10,6 +10,16 @@ namespace Shu.IDAL
 {
    
 	
+	public partial interface ISSO_UserAuthOperatesDal :IBaseDal<SSO_UserAuthOperates>
+    {
+      
+    }
+	
+	public partial interface ISSO_UserAuthSessionsDal :IBaseDal<SSO_UserAuthSessions>
+    {
+      
+    }
+	
 	public partial interface ISys_AreaDal :IBaseDal<Sys_Area>
     {
       

@@ -8,6 +8,28 @@ using System.Threading.Tasks;
 
 namespace Shu.BLL
 {
+	public partial class SSO_UserAuthOperatesBLL :BaseBLL<SSO_UserAuthOperates>
+    {
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.SSO_UserAuthOperatesDal;
+        }
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.SSO_UserAuthOperatesDal;
+        }
+    }   
+	public partial class SSO_UserAuthSessionsBLL :BaseBLL<SSO_UserAuthSessions>
+    {
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.SSO_UserAuthSessionsDal;
+        }
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.SSO_UserAuthSessionsDal;
+        }
+    }   
 	public partial class Sys_AreaBLL :BaseBLL<Sys_Area>
     {
 		public override void SetCurrentDal()

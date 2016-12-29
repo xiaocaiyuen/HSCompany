@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Shu.Manage
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : BasePage
     {
         public View_Sys_UserInfoBLL bllUserInfo = new View_Sys_UserInfoBLL();
         public Sys_UserInfoBLL bllUser = new Sys_UserInfoBLL();

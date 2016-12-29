@@ -34,6 +34,8 @@ namespace Shu.Model
         public Nullable<System.DateTime> EditTime { get; set; }
         public bool IsDelete { get; set; }
         public int Sort { get; set; }
+        public string DomainUrl { get; set; }
+        public string AppSecret { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
     	[JsonIgnore]

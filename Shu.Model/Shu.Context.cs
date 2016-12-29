@@ -56,7 +56,6 @@ namespace Shu.Model
         public virtual DbSet<Sys_Area> Sys_Area { get; set; }
         public virtual DbSet<Sys_Icons> Sys_Icons { get; set; }
         public virtual DbSet<Sys_Menu> Sys_Menu { get; set; }
-        public virtual DbSet<Sys_Module> Sys_Module { get; set; }
         public virtual DbSet<Sys_MenuOperatingButton> Sys_MenuOperatingButton { get; set; }
         public virtual DbSet<Sys_OperatingButton> Sys_OperatingButton { get; set; }
         public virtual DbSet<Workflow_AuditActionDefinition> Workflow_AuditActionDefinition { get; set; }
@@ -72,5 +71,8 @@ namespace Shu.Model
         public virtual DbSet<View_Workflow_NodeRoute> View_Workflow_NodeRoute { get; set; }
         public virtual DbSet<View_Workflow_RoleAACTDefinition> View_Workflow_RoleAACTDefinition { get; set; }
         public virtual DbSet<View_Workflow_TasksEx> View_Workflow_TasksEx { get; set; }
+        public virtual DbSet<SSO_UserAuthOperates> SSO_UserAuthOperates { get; set; }
+        public virtual DbSet<SSO_UserAuthSessions> SSO_UserAuthSessions { get; set; }
+        public virtual DbSet<Sys_Module> Sys_Module { get; set; }
     }
 }

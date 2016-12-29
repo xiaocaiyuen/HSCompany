@@ -130,44 +130,44 @@ namespace Shu.BLL
             return rtnRoleStr;
         }
 
-        /// <summary>
-        /// 通过模块菜单名称获取 有审核按钮权限的角色
-        /// </summary>
-        /// <param name="moduleName">功能菜单名称</param>
-        /// <param name="buttonName">操作按钮名称</param>
-        /// <returns></returns>
-        public string GetAuditRoleByMouleName(string moduleName, string buttonName)
-        {
-            string rtnRoleStr = string.Empty;
-            if (!moduleName.Equals(""))
-            {
-                List<View_PendingMatterToRolePurview> roleList = new View_PendingMatterToRolePurviewBLL().GetList(p => p.Menu_Name == moduleName && p.RolePurview_OperatePurview.Contains(buttonName)).ToList();//" Menu_Name='" + moduleName + "' and  RolePurview_OperatePurview like '%" + buttonName + "%'");
-                foreach (View_PendingMatterToRolePurview role in roleList)
-                {
-                    rtnRoleStr += role.Role_Name + ",";
-                }
-            }
-            if (rtnRoleStr != "")
-            {
-                rtnRoleStr = rtnRoleStr.Substring(0, rtnRoleStr.Length - 1);
+        ///// <summary>
+        ///// 通过模块菜单名称获取 有审核按钮权限的角色
+        ///// </summary>
+        ///// <param name="moduleName">功能菜单名称</param>
+        ///// <param name="buttonName">操作按钮名称</param>
+        ///// <returns></returns>
+        //public string GetAuditRoleByMouleName(string moduleName, string buttonName)
+        //{
+        //    string rtnRoleStr = string.Empty;
+        //    if (!moduleName.Equals(""))
+        //    {
+        //        List<View_PendingMatterToRolePurview> roleList = new View_PendingMatterToRolePurviewBLL().GetList(p => p.Menu_Name == moduleName && p.RolePurview_OperatePurview.Contains(buttonName)).ToList();//" Menu_Name='" + moduleName + "' and  RolePurview_OperatePurview like '%" + buttonName + "%'");
+        //        foreach (View_PendingMatterToRolePurview role in roleList)
+        //        {
+        //            rtnRoleStr += role.Role_Name + ",";
+        //        }
+        //    }
+        //    if (rtnRoleStr != "")
+        //    {
+        //        rtnRoleStr = rtnRoleStr.Substring(0, rtnRoleStr.Length - 1);
 
-                BasePage basePage = new BasePage();
-                SessionUserModel CurrUser = basePage.CurrUserInfo();
-                if (!string.IsNullOrEmpty(CurrUser.RoleName))
-                {
-                    string[] currUserRoleArray = CurrUser.RoleName.Split(',');
-                    foreach (string currRole in currUserRoleArray)
-                    {
-                        if (rtnRoleStr.Contains(currRole))
-                        {
-                            rtnRoleStr = string.Empty;//当前角色已经是 待审核角色
-                            break;
-                        }
-                    }
-                }
-            }
-            return rtnRoleStr;
-        }
+        //        BasePage basePage = new BasePage();
+        //        SessionUserModel CurrUser = basePage.CurrUserInfo();
+        //        if (!string.IsNullOrEmpty(CurrUser.RoleName))
+        //        {
+        //            string[] currUserRoleArray = CurrUser.RoleName.Split(',');
+        //            foreach (string currRole in currUserRoleArray)
+        //            {
+        //                if (rtnRoleStr.Contains(currRole))
+        //                {
+        //                    rtnRoleStr = string.Empty;//当前角色已经是 待审核角色
+        //                    break;
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return rtnRoleStr;
+        //}
         #endregion
 
         /// <summary>
