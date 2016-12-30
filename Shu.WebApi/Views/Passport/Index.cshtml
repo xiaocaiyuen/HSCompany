@@ -106,7 +106,6 @@
                                 success: function (data) {
                                     if (!data.error) {
                                         $("#login_button").find('span').html("登录成功，正在跳转...");
-                                        alert(data.Data);
                                         window.setTimeout(function () {
                                             window.location.href = data.Data;
                                         }, 500);
@@ -130,7 +129,7 @@
                         $("#switchCode").click(function () {
                             $("#imgcode").attr("src", "/Passport/GetAuthCode?time=" + Math.random());
                         });
-                        var login_error = top.$.cookie('nfine_login_error');
+                        var login_error = top.$.cookie('shu_login_error');
                         if (login_error != null) {
                             switch (login_error) {
                                 case "overdue":
@@ -143,7 +142,7 @@
                                     $.login.formMessage("系统未知错误,请重新登录");
                                     break;
                             }
-                            top.$.cookie('nfine_login_error', '', { path: "/", expires: -1 });
+                            top.$.cookie('shu_login_error', '', { path: "/", expires: -1 });
                         }
                         $("#login_button").click(function () {
                             $.login.loginClick();
