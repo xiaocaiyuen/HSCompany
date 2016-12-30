@@ -1,7 +1,6 @@
 using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
-using Microsoft.Practices.Unity.Mvc;
 using System.Linq;
 using System.Web.Http.Filters;
 using System.Web.Http;

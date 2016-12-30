@@ -30,16 +30,26 @@
                         </td>
                     </tr>
                     <tr>
-                        <th style="width: 15%;">排序</th>
-                        <td style="width: 35%;">
-                            <input id="Sort" name="Sort" class="easyui-numberspinner" style="width: 95%;" value="0" data-options="required:true,readonly:false" />
-                        </td>
                         <th style="width: 15%;">是否授权</th>
                         <td style="width: 35%;">
                             <select id="IsAccredit" class="easyui-combobox" name="IsAccredit" style="width: 95%;" data-options="editable:false" validtype="ComRequired['--请选择--']" required="required">
                                 <option selected="selected" value="true">是</option>
                                 <option value="false">否</option>
                             </select>
+                        </td>
+                        <th style="width: 15%;">授权IP</th>
+                        <td style="width: 35%;">
+                            <input id="IPAddress" class="easyui-textbox" name="IPAddress" style="width: 95%;" data-options="editable:true" required="required" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style="width: 15%;">域名地址</th>
+                        <td style="width: 35%;">
+                            <input id="DomainUrl" name="DomainUrl" class="easyui-textbox" style="width: 95%;" value="0" data-options="required:true,readonly:false" />
+                        </td>
+                        <th style="width: 15%;">排序</th>
+                        <td style="width: 35%;">
+                            <input id="Sort" name="Sort" class="easyui-numberspinner" style="width: 95%;" value="0" data-options="required:true,readonly:false" />
                         </td>
                     </tr>
                     <tr>
