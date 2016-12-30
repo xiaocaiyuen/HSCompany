@@ -1545,6 +1545,7 @@
     <Content Include="XML\Workflow\WorkflowNodeConditionList.xml" />
     <Content Include="XML\Workflow\WorkflowNodeRouteList.xml" />
     <Content Include="Handler\WorkflowNodeExHandler.ashx" />
+    <None Include="Properties\PublishProfiles\基础信息中心.pubxml" />
     <None Include="Scripts\jquery.linq-vsdoc.js" />
     <Content Include="Scripts\jquery.extend.js" />
     <Content Include="Scripts\jquery.linq.js" />

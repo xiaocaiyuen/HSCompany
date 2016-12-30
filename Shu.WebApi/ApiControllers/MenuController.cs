@@ -22,7 +22,7 @@ namespace Shu.WebApi.ApiControllers
         /// <param name="userId">用户ID</param>
         /// <returns>数据实体</returns>
         [ActionName("List")]
-        public WebApiResult<IQueryable<MenuModels>> GetCommentsList(Guid? keyId, Guid? userId)
+        public WebApiResult<IQueryable<MenuModels>> GetCommentsList(string RoleId)
         {
             return null;
         }
