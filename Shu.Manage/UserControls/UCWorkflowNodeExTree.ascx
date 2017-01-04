@@ -233,7 +233,7 @@
 <input id="WorkflowNodeConfigID" type="hidden" value="" /><!--唯一编号-->
 <input id="WorkflowNodeConfig_TasksInstanceID" type="hidden" value="<%=Request["id"] %>" /><!--唯一编号-->
 <div style="margin-top: 5px;">
-    <% BasePage bg = new BasePage();
+    <%  Shu.Manage.BasePage bg = new Shu.Manage.BasePage();
         string rolename = bg.CurrUserInfo().RoleName;
         //bool SysAdminRoleNameOK = rolename.Contains(Constant.SysAdminRoleName);
         bool SuperAdminRoleNameOK = rolename.Contains(Constant.SuperAdminRoleName);

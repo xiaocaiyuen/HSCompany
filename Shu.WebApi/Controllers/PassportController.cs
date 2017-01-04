@@ -10,6 +10,7 @@ using Shu.WebApi.Models;
 using Shu.Utility.Extensions;
 using Shu.Comm;
 using Shu.WebApi.Extendsions;
+using System.Configuration;
 
 namespace Shu.WebApi.Controllers
 {
@@ -118,8 +119,14 @@ namespace Shu.WebApi.Controllers
                 SessionKey = currentSession.SessionKey
             });
 
+            string DomainUrl = string.Empty;
+#if DEBUG
+            DomainUrl = ConfigurationManager.AppSettings["DomainUrl"];
+#else
+            DomainUrl=appInfo.DomainUrl;
+#endif
             var redirectUrl = string.Format("{0}?SessionKey={1}&SessionUserName={2}",
-                appInfo.DomainUrl,
+                DomainUrl,
                 currentSession.SessionKey,
                 userInfo.UserInfo_LoginUserName);
 

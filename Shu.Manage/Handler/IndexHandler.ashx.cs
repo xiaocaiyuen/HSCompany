@@ -74,7 +74,7 @@ namespace Shu.Manage.Handler
         {
             menuList = new Sys_RolePurviewBLL().GetMenus(currentUser.RoleID);//new Sys_RolePurviewBLL().GetRoleMenus(currentUser.UserID);//加载用户菜单
             string javaScript=string.Empty;
-            javaScript += "{ 'menus': [";
+            javaScript += "{ 'child': [";
             View_Sys_RolePurviewAndMenu RoleMenuInfo = menuList.Find(p => p.Menu_ModuleId == SystemModuleId);
             List<View_Sys_RolePurviewAndMenu> menuListLevel1 = new List<View_Sys_RolePurviewAndMenu>();
             if (RoleMenuInfo.IsNotNull())
@@ -84,7 +84,7 @@ namespace Shu.Manage.Handler
             
             foreach (View_Sys_RolePurviewAndMenu menuModel1 in menuListLevel1.OrderBy(p => p.Menu_Sequence))//一级菜单
             {
-                javaScript += "{ 'menuid': '" + menuModel1.MenuID + "', 'menuname': '" + menuModel1.Menu_Name + "', 'icon': 'icon-" + menuModel1.Menu_IconName + "', 'menus': [";
+                javaScript += "{ 'menuid': '" + menuModel1.MenuID + "', 'menuname': '" + menuModel1.Menu_Name + "', 'icon': 'icon-" + menuModel1.Menu_IconName + "', 'child': [";
 
                 string menuLel2String = "";
                 foreach (View_Sys_RolePurviewAndMenu menuModel2 in menuList.FindAll(p => p.Menu_ParentCode == menuModel1.Menu_Code).OrderBy(p => p.Menu_Sequence))//二级菜单

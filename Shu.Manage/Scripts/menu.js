@@ -17,6 +17,7 @@ $(function () {
             success: function (data) {
                 //alert(data)
                 _menus = eval("(" + data + ")");
+                alert(data)
                 InitLeftMenu(_menus);
             },
             error: function (err) {
@@ -53,10 +54,10 @@ $(function () {
 function InitLeftMenu(_menus) {
     $("#nav").accordion({ animate: false, fit: true, border: false });
     var selectedPanelname = '';
-    $.each(_menus.menus, function (i, n) {
+    $.each(_menus.child, function (i, n) {
         var menulist = '';
         menulist += '<ul class="navlist">';
-        $.each(n.menus, function (j, o) {
+        $.each(n.child, function (j, o) {
             menulist += '<li><div ><a ref="' + o.menuid + '" href="#" rel="' + o.url + '" ><span class="icon ' + o.icon + '" >&nbsp;</span><span class="nav">' + o.menuname + '</span></a></div> ';
             if (o.child && o.child.length > 0) {
                 //li.find('div').addClass('icon-arrow');
@@ -129,8 +130,8 @@ function InitLeftMenu(_menus) {
 //获取左侧导航的图标
 function getIcon(menuid) {
     var icon = 'icon ';
-    $.each(_menus.menus, function (i, n) {
-        $.each(n.menus, function (j, o) {
+    $.each(_menus.child, function (i, n) {
+        $.each(n.child, function (j, o) {
             if (o.menuid == menuid) {
                 icon += o.icon;
             }
@@ -142,8 +143,8 @@ function getIcon(menuid) {
 
 function find(menuid) {
     var obj = null;
-    $.each(_menus.menus, function (i, n) {
-        $.each(n.menus, function (j, o) {
+    $.each(_menus.child, function (i, n) {
+        $.each(n.child, function (j, o) {
             if (o.menuid == menuid) {
                 obj = o;
             }

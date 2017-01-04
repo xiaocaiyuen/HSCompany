@@ -6,6 +6,7 @@ using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using System.Net.Http.Formatting;
+using System.Web.Http.Cors;
 
 namespace Shu.WebApi
 {
@@ -15,12 +16,12 @@ namespace Shu.WebApi
         {
             // Web API 配置和服务
             // 将 Web API 配置为仅使用不记名令牌身份验证。
-            config.SuppressDefaultHostAuthentication();
-            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            //config.SuppressDefaultHostAuthentication();
+            //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
             //WebApiUnityActionFilterProvider.RegisterFilterProviders(config);
 
-            //config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             // Web API configuration and services
             var jsonp = new JsonMediaTypeFormatter();
@@ -29,6 +30,8 @@ namespace Shu.WebApi
 
             GlobalConfiguration.Configuration.Formatters
                 .JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
 
             // Web API 路由
             config.MapHttpAttributeRoutes();

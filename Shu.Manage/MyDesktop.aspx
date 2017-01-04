@@ -32,11 +32,11 @@
         }
 
         function RefreshMyWaitingTask() {
-            $('#chart1').attr("src", "/Manage/Workflow/MyWaitingTask.aspx?MyDesktop=true");
+            $('#chart1').attr("src", "/Workflow/MyWaitingTask.aspx?MyDesktop=true");
         }
 
         function RefreshMyToDoTask() {
-            $('#chart2').attr("src", "/Manage/Workflow/MyToDoTask.aspx?MyDesktop=true");
+            $('#chart2').attr("src", "/Workflow/MyToDoTask.aspx?MyDesktop=true");
         }
 
         function ListDataSource(type) {
@@ -65,7 +65,7 @@
             <div id="p1" class="easyui-panel" title="我的任务中心(5分钟自动刷新任务)" data-options="collapsible:true" style="height: 250px;">
                 <div id="tt" class="easyui-tabs">
                     <div title="我的待办任务" style="padding: 10px">
-                        <iframe id="chart1" scrolling="auto" frameborder="0" src="/Manage/Workflow/MyWaitingTask.aspx?MyDesktop=true" style="width: 100%; height: 100%;"></iframe>
+                        <iframe id="chart1" scrolling="auto" frameborder="0" src="/Workflow/MyWaitingTask.aspx?MyDesktop=true" style="width: 100%; height: 100%;"></iframe>
                     </div>
                     <%-- <div title="我的已办任务" style="padding: 10px">
                         <iframe id="chart2" scrolling="auto" frameborder="0" src="#" style="width: 100%; height: 100%;"></iframe>
@@ -75,13 +75,13 @@
             <table border="0" style="height: 250px; border-width: 0px; border-style: none; margin: 0px auto;">
                 <tr>
                     <td style="width: 595px; min-width: 390px;">
-                        <div id="p2" class="easyui-panel" title="<a href=javascript:void(0) style='color: #0060cc;' onclick=parent.showTabs('系统通知公告','/Manage/Sys/NoticeList.aspx')>系统通知公告</a>" data-options="collapsible:true" style="height: 230px; min-width: 390px;">
+                        <div id="p2" class="easyui-panel" title="<a href=javascript:void(0) style='color: #0060cc;' onclick=parent.showTabs('系统通知公告','/Sys/NoticeList.aspx')>系统通知公告</a>" data-options="collapsible:true" style="height: 230px; min-width: 390px;">
                             <div id="list_show" style="margin: 0 auto; width: 100%">
                             </div>
                         </div>
                     </td>
                     <td style="width: 595px; min-width: 390px;">
-                        <div id="p3" class="easyui-panel" title="<a href=javascript:void(0) style='color: #0060cc;' onclick=parent.showTabs('系统消息提醒','/Manage/Sys/PerMessageList.aspx')>系统消息提醒</a>" data-options="collapsible:true" style="height: 230px; min-width: 390px;">
+                        <div id="p3" class="easyui-panel" title="<a href=javascript:void(0) style='color: #0060cc;' onclick=parent.showTabs('系统消息提醒','/Sys/PerMessageList.aspx')>系统消息提醒</a>" data-options="collapsible:true" style="height: 230px; min-width: 390px;">
                             <div id="list_show1" style="margin: 0 auto; width: 100%">
                             </div>
                         </div>

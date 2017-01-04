@@ -12,13 +12,13 @@ namespace Shu.WebApi.Filters
 {
     public class ApplicationFilterAttribute : ActionFilterAttribute
     {
+        //public Sys_ModuleBLL ModuleBLL = new Sys_ModuleBLL();
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
             var appKeyString = actionContext.Request.GetQueryString("appKey");
             //Guid appKey;
             //Guid.TryParse(appKeyString, out appKey);
-            if (string.IsNullOrWhiteSpace(appKeyString)
-                || !new Sys_ModuleBLL().Check(appKeyString, actionContext))
+            if (string.IsNullOrWhiteSpace(appKeyString))//|| !new Sys_ModuleBLL().Check(appKeyString, actionContext)
             {
                 throw new UnauthorizedAccessException(
                     string.Format("参数 appKey '{0}' 无效.", appKeyString));
