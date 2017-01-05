@@ -5,9 +5,9 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using YDT.Comm;
+using Shu.Comm;
 
-namespace YDT.Web.Manage.Sys
+namespace Shu.Manage.Sys
 {
     public partial class PerMessageList : BasePage
     {

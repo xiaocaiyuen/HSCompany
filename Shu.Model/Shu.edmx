@@ -124,6 +124,19 @@
           <Property Name="Sort" Type="int" Nullable="false" />
           <Property Name="IsDelete" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Sys_Jalendar">
+          <Key>
+            <PropertyRef Name="JalendarID" />
+          </Key>
+          <Property Name="JalendarID" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Jalendar_Event" Type="nvarchar" MaxLength="500" />
+          <Property Name="Jalendar_Type" Type="varchar" MaxLength="40" />
+          <Property Name="Jalendar_StartDate" Type="datetime" />
+          <Property Name="Jalendar_EndDate" Type="datetime" />
+          <Property Name="Jalendar_EventStatus" Type="char" MaxLength="1" />
+          <Property Name="Jalendar_AddUserID" Type="varchar" MaxLength="40" />
+          <Property Name="Jalendar_AddTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="Sys_Log">
           <Key>
             <PropertyRef Name="SysLogID" />
@@ -981,6 +994,7 @@
           <EntitySet Name="Sys_Desktop" EntityType="Self.Sys_Desktop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Holiday" EntityType="Self.Sys_Holiday" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Icons" EntityType="Self.Sys_Icons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Jalendar" EntityType="Self.Sys_Jalendar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Log" EntityType="Self.Sys_Log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_Menu" EntityType="Self.Sys_Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sys_MenuOperatingButton" EntityType="Self.Sys_MenuOperatingButton" Schema="dbo" store:Type="Tables" />
@@ -1410,6 +1424,7 @@
             <End Role="Sys_Module" EntitySet="Sys_Module" />
             <End Role="Sys_Menu" EntitySet="Sys_Menu" />
           </AssociationSet>
+          <EntitySet Name="Sys_Jalendar" EntityType="ShuModel.Sys_Jalendar" />
         </EntityContainer>
         <EntityType Name="Sys_Config">
           <Key>
@@ -2351,6 +2366,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Sys_Jalendar">
+          <Key>
+            <PropertyRef Name="JalendarID" />
+          </Key>
+          <Property Name="JalendarID" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Jalendar_Event" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Jalendar_Type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Jalendar_StartDate" Type="DateTime" Precision="3" />
+          <Property Name="Jalendar_EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Jalendar_EventStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Jalendar_AddUserID" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Jalendar_AddTime" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3288,6 +3316,20 @@
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Jalendar">
+            <EntityTypeMapping TypeName="ShuModel.Sys_Jalendar">
+              <MappingFragment StoreEntitySet="Sys_Jalendar">
+                <ScalarProperty Name="Jalendar_AddTime" ColumnName="Jalendar_AddTime" />
+                <ScalarProperty Name="Jalendar_AddUserID" ColumnName="Jalendar_AddUserID" />
+                <ScalarProperty Name="Jalendar_EventStatus" ColumnName="Jalendar_EventStatus" />
+                <ScalarProperty Name="Jalendar_EndDate" ColumnName="Jalendar_EndDate" />
+                <ScalarProperty Name="Jalendar_StartDate" ColumnName="Jalendar_StartDate" />
+                <ScalarProperty Name="Jalendar_Type" ColumnName="Jalendar_Type" />
+                <ScalarProperty Name="Jalendar_Event" ColumnName="Jalendar_Event" />
+                <ScalarProperty Name="JalendarID" ColumnName="JalendarID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

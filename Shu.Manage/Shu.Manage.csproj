@@ -1487,20 +1487,33 @@
     <Content Include="Handler\DictionaryHandler.ashx" />
     <Content Include="Handler\DepartmentHandler.ashx" />
     <Content Include="Handler\DesktopHandler.ashx" />
+    <Content Include="Scripts\jalendar\images\1.png" />
+    <Content Include="Scripts\jalendar\images\body-bg.jpg" />
+    <Content Include="Scripts\jalendar\images\jalendar-sprite.png" />
+    <Content Include="Scripts\jalendar\images\jalendar-wood-bg.jpg" />
+    <Content Include="Scripts\jalendar\index.html" />
+    <Content Include="Scripts\jalendar\js\jalendar.js" />
+    <Content Include="Scripts\jalendar\js\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jalendar\style\documentation.css" />
+    <Content Include="Scripts\jalendar\style\jalendar.css" />
     <Content Include="Scripts\jquery.datagrid.js" />
     <Content Include="Scripts\DatagridPublic.js" />
+    <Content Include="Scripts\jquery.validationEngine-cn.js" />
     <Content Include="Scripts\jquery.validationEngine-en.js" />
     <Content Include="Scripts\jquery.validationEngine.js" />
     <Content Include="Scripts\Workflow\jiaose.js" />
     <Content Include="Scripts\Workflow\WorkflowNodeRiskPoint.js" />
     <Content Include="Styles\List.css" />
     <Content Include="Sys\DepSelect.aspx" />
+    <Content Include="Sys\Jalendar.aspx" />
     <Content Include="Sys\OperatingButtonInfo.aspx" />
     <Content Include="Sys\ModuleInfo.aspx" />
     <Content Include="Sys\OperatingButtonList.aspx" />
     <Content Include="Sys\ModuleList.aspx" />
     <Content Include="Sys\NoticeAdd.aspx" />
     <Content Include="Sys\NoticeShow.aspx" />
+    <Content Include="Sys\PerMessageList.aspx" />
+    <Content Include="Sys\UserInfoModify.aspx" />
     <Content Include="UserControls\UCButton.ascx" />
     <Content Include="UserControls\UCButtonGrid.ascx">
       <SubType>ASPXCodeBehind</SubType>
@@ -1545,6 +1558,7 @@
     <Content Include="XML\Workflow\WorkflowNodeConditionList.xml" />
     <Content Include="XML\Workflow\WorkflowNodeRouteList.xml" />
     <Content Include="Handler\WorkflowNodeExHandler.ashx" />
+    <Content Include="Handler\JalendarHandler.ashx" />
     <None Include="Properties\PublishProfiles\基础信息中心.pubxml" />
     <None Include="Scripts\jquery.linq-vsdoc.js" />
     <Content Include="Scripts\jquery.extend.js" />
@@ -1750,6 +1764,10 @@
     <Compile Include="Handler\IndexHandler.ashx.cs">
       <DependentUpon>IndexHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Handler\JalendarHandler.ashx.cs">
+      <DependentUpon>JalendarHandler.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Handler\MenuHandler.ashx.cs">
       <DependentUpon>MenuHandler.ashx</DependentUpon>
     </Compile>
@@ -1856,6 +1874,13 @@
     <Compile Include="Sys\DepSelect.aspx.designer.cs">
       <DependentUpon>DepSelect.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Sys\Jalendar.aspx.cs">
+      <DependentUpon>Jalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sys\Jalendar.aspx.designer.cs">
+      <DependentUpon>Jalendar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sys\MenuManager.aspx.cs">
       <DependentUpon>MenuManager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1911,6 +1936,13 @@
     </Compile>
     <Compile Include="Sys\NoticeShow.aspx.designer.cs">
       <DependentUpon>NoticeShow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sys\PerMessageList.aspx.cs">
+      <DependentUpon>PerMessageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sys\PerMessageList.aspx.designer.cs">
+      <DependentUpon>PerMessageList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sys\PostInfo.aspx.cs">
       <DependentUpon>PostInfo.aspx</DependentUpon>
@@ -1974,6 +2006,13 @@
     </Compile>
     <Compile Include="Sys\UserInfoList.aspx.designer.cs">
       <DependentUpon>UserInfoList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sys\UserInfoModify.aspx.cs">
+      <DependentUpon>UserInfoModify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sys\UserInfoModify.aspx.designer.cs">
+      <DependentUpon>UserInfoModify.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sys\UserManager.aspx.cs">
       <DependentUpon>UserManager.aspx</DependentUpon>

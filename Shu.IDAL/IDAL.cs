@@ -55,6 +55,11 @@ namespace Shu.IDAL
       
     }
 	
+	public partial interface ISys_JalendarDal :IBaseDal<Sys_Jalendar>
+    {
+      
+    }
+	
 	public partial interface ISys_LogDal :IBaseDal<Sys_Log>
     {
       

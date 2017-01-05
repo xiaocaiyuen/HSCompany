@@ -1,24 +1,23 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserInfoModify.aspx.cs"
-    Inherits="YDT.Web.Manage.Sys.UserInfoModify" %>
+    Inherits="Shu.Manage.Sys.UserInfoModify" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
-    <script src="/Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
     <link href="/Styles/table.css" rel="stylesheet" type="text/css" />
     <script src="/Scripts/common.js" type="text/javascript"></script>
-    <%--附件--%>
-    <script src="/Scripts/UI/jquery.easyui.min.js" type="text/javascript"></script>
-    <link href="/Scripts/UI/themes/icon.css" rel="stylesheet" type="text/css" />
-    <link href="/Scripts/UI/themes/bootstrap/easyui.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Scripts/jquery-2.0.0.min.js"></script>
+    <link href="/Content/themes/bootstrap/easyui.css" rel="stylesheet" />
+    <link href="/Content/themes/icon.css" rel="stylesheet" />
+    <script type="text/javascript" src="/Scripts/jquery.easyui-1.4.5.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/Scripts/locale/easyui-lang-zh_CN.js" charset="utf-8"></script>
     <script src="/Scripts/DatePicker/WdatePicker.js" type="text/javascript"></script>
     <%--录入验证 --%>
-    <link href="/Styles/validationEngine.jquery.css" rel="stylesheet" type="text/css"
+    <link href="/Content/validationEngine.jquery.css" rel="stylesheet" type="text/css"
         charset="utf-8" />
-    <script src="/Scripts/Validate/jquery.validationEngine.js" type="text/javascript"></script>
-    <script src="/Scripts/Validate/jquery.validationEngine-cn.js" type="text/javascript"
-        charset="gb2312"></script>
+    <script src="/Scripts/jquery.validationEngine.js"></script>
+    <script src="/Scripts/jquery.validationEngine-cn.js"  charset="gb2312"></script>
     <script src="/Scripts/Validate/FormVaildate.js" type="text/javascript"></script>
     <%--身份证验证 --%>
     <script src="/Scripts/IdentityCard.js" type="text/javascript"></script>

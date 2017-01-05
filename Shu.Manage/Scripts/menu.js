@@ -30,7 +30,7 @@ $(function () {
     tabCloseEven();
 
 
-    //addDesktop("我的日历", "/Manage/Sys/Jalendar.aspx", "");
+    addDesktop("我的日历", "/Sys/Jalendar.aspx", "");
     //addDesktop("我的看板", "WelCome.htm", "");
     addDesktop("我的看板", "MyDesktop.aspx", "");
    

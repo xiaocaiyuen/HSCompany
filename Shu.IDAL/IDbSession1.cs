@@ -20,6 +20,7 @@ namespace Shu.IDAL
 		ISys_DesktopDal Sys_DesktopDal{get;set;}
 		ISys_HolidayDal Sys_HolidayDal{get;set;}
 		ISys_IconsDal Sys_IconsDal{get;set;}
+		ISys_JalendarDal Sys_JalendarDal{get;set;}
 		ISys_LogDal Sys_LogDal{get;set;}
 		ISys_MenuDal Sys_MenuDal{get;set;}
 		ISys_MenuOperatingButtonDal Sys_MenuOperatingButtonDal{get;set;}

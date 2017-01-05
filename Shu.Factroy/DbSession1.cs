@@ -130,6 +130,19 @@ namespace Shu.Factroy
             }
             set { _Sys_IconsDal = value; }
         }
+		private ISys_JalendarDal _Sys_JalendarDal;
+        public ISys_JalendarDal Sys_JalendarDal
+        {
+            get
+            {
+                if(_Sys_JalendarDal == null)
+                {
+                    _Sys_JalendarDal = AbstractFactory.CreateSys_JalendarDal();
+                }
+                return _Sys_JalendarDal;
+            }
+            set { _Sys_JalendarDal = value; }
+        }
 		private ISys_LogDal _Sys_LogDal;
         public ISys_LogDal Sys_LogDal
         {

@@ -74,5 +74,6 @@ namespace Shu.Model
         public virtual DbSet<SSO_UserAuthOperates> SSO_UserAuthOperates { get; set; }
         public virtual DbSet<SSO_UserAuthSessions> SSO_UserAuthSessions { get; set; }
         public virtual DbSet<Sys_Module> Sys_Module { get; set; }
+        public virtual DbSet<Sys_Jalendar> Sys_Jalendar { get; set; }
     }
 }

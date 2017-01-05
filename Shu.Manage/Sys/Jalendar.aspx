@@ -1,24 +1,24 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Jalendar.aspx.cs" Inherits="YDT.Web.Manage.Sys.Jalendar" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Jalendar.aspx.cs" Inherits="Shu.Manage.Sys.Jalendar" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="/Scripts/UI/themes/bootstrap/easyui.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Scripts/jquery-2.0.0.min.js"></script>
+    <link href="/Content/themes/bootstrap/easyui.css" rel="stylesheet" />
+    <link href="/Content/themes/icon.css" rel="stylesheet" />
+    <script type="text/javascript" src="/Scripts/jquery.easyui-1.4.5.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/Scripts/locale/easyui-lang-zh_CN.js" charset="utf-8"></script>
     <link href="/Scripts/jalendar/style/documentation.css" rel="stylesheet" type="text/css" />
     <link href="/Scripts/jalendar/style/jalendar.css" rel="stylesheet" type="text/css" />
-
-    <script src="/Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
-    <script src="/Scripts/UI/jquery.easyui.min.js" type="text/javascript"></script>
-    <script src="/Scripts/UI/easyui-lang-zh_CN.js" type="text/javascript"></script>
     <script src="/Scripts/DatePicker/WdatePicker.js" type="text/javascript"></script>
 
     <%--    <script type="text/javascript" src="/Scripts/jalendar/js/jquery-1.10.2.min.js"></script>--%>
     <script type="text/javascript" src="/Scripts/jalendar/js/jalendar.js"></script>
 
     <script type="text/javascript">
-        
+
         //获取当前日期  Format: Year-Month-Day
         function CurentTime() {
             var now = new Date();
@@ -121,7 +121,6 @@
             </script>
 
             <%-- <div class="added-event" data-date="13/1/2016" data-stime="s 22:00"  data-etime="e 22:00"    data-title="1233333" data-sid="id123"></div> --%>
-
         </div>
 
         <!--新增事件-->
@@ -129,8 +128,8 @@
             class="easyui-window"
             title="日历备忘录维护"
             data-options="modal:true,closed:true,iconCls:'icon-save'"
-            style="width: 600px;  padding: 10px; left:380px;top:120px; ">
-            <table class="tab" border="0" cellpadding="10" cellspacing="1"  style ="height:250px;">
+            style="width: 600px; padding: 10px; left: 380px; top: 120px;">
+            <table class="tab" border="0" cellpadding="10" cellspacing="1" style="height: 250px;">
                 <tr>
                     <td>事件内容：<font color="red">*</font></td>
                     <td colspan="3">
@@ -193,33 +192,34 @@
                 //reloadEvent(CurentTime())
             }
 
+            $(document).ready(function () {
+                /*点击新增事件*/
+                $(this).on('click', '.addEvent', function () {
+                    AddShowEvent();
+                });
 
-            /*点击新增事件*/
-            $(this).on('click', '.addEvent', function () {
-                AddShowEvent();
-            });
+                /*点击日期事件*/
+                $(this).on('click', '.day.this-month', function () {
+                    var thisDay = $('.selected').attr('data-date');
 
-            /*点击日期事件*/
-            $(this).on('click', '.day.this-month', function () {
-                var thisDay = $('.selected').attr('data-date');
-               
-                $('#hid_SelectedDay').val(thisDay);
-                //reloadEvent(thisDay)
-            });
+                    $('#hid_SelectedDay').val(thisDay);
+                    //reloadEvent(thisDay)
+                });
 
-            /*编辑事件*/
-            $(this).on('click', '.event-single .editEvent', function () {
-                var id = $('div[data-id=' + $(this).parents(".event-single").attr("data-id") + ']').attr("data-sid");
-
-                EditShowEvent(id);
-            });
-
-            /*删除事件*/
-            $(this).on('click', '.event-single .deleteEvent', function () {
-                if (confirm("您确定要删除吗？")) {
+                /*编辑事件*/
+                $(this).on('click', '.event-single .editEvent', function () {
                     var id = $('div[data-id=' + $(this).parents(".event-single").attr("data-id") + ']').attr("data-sid");
-                    DeleteEvent(id);
-                }
+
+                    EditShowEvent(id);
+                });
+
+                /*删除事件*/
+                $(this).on('click', '.event-single .deleteEvent', function () {
+                    if (confirm("您确定要删除吗？")) {
+                        var id = $('div[data-id=' + $(this).parents(".event-single").attr("data-id") + ']').attr("data-sid");
+                        DeleteEvent(id);
+                    }
+                });
             });
 
             /*新增窗口*/
@@ -287,12 +287,10 @@
                         var sd = new Date(json.Jalendar_StartDate);
                         var sHour = sd.getHours();
                         var sMinute = sd.getMinutes();
-                        if (sHour < 10)
-                        {
+                        if (sHour < 10) {
                             sHour = "0" + sHour;
                         }
-                        if (sMinute < 10)
-                        {
+                        if (sMinute < 10) {
                             sMinute = "0" + sMinute;
                         }
 
@@ -425,15 +423,13 @@
                 var eh = $('#ddlEH').val();
                 var em = $('#ddlEM').val();
 
-                if (startDate == endDate)
-                {
+                if (startDate == endDate) {
                     if (sh > eh) {
                         alert('开始时间不应小于结束时间！');
                         return;
                     }
                     else if (sh == eh) {
-                        if (sm > em)
-                        {
+                        if (sm > em) {
                             alert('开始时间不应小于结束时间！');
                             return;
                         }

@@ -58,6 +58,11 @@ namespace Shu.Factroy
 		   string fullClassName = NameSpace + ".Sys_IconsDal";
            return CreateInstance(fullClassName) as ISys_IconsDal;
         }
+	    public static ISys_JalendarDal CreateSys_JalendarDal()
+        {
+		   string fullClassName = NameSpace + ".Sys_JalendarDal";
+           return CreateInstance(fullClassName) as ISys_JalendarDal;
+        }
 	    public static ISys_LogDal CreateSys_LogDal()
         {
 		   string fullClassName = NameSpace + ".Sys_LogDal";

@@ -25,10 +25,11 @@ namespace Shu.WebApi.ApiControllers
         /// <param name="ParentCode">编号</param>
         /// <returns>数据实体</returns>
         [ActionName("DictionaryList")]
-        public WebApiResult<IQueryable<Sys_DataDict>> GetDictionary(string ParentCode)
+        public WebApiResult<List<Sys_DataDict>> GetDictionary(string ParentCode)
         {
-            IQueryable<Sys_DataDict> DataDictList = new Sys_DataDictBLL().GetList(p => p.DataDict_ParentCode == ParentCode && p.DataDict_IsDel == false).OrderBy(p => p.DataDict_Sequence);
-            var result = new WebApiPagingResult<IQueryable<Sys_DataDict>>
+            List<Sys_DataDict> DataDictList = new Sys_DataDictBLL().GetList(p => p.DataDict_ParentCode == ParentCode && p.DataDict_IsDel == false).OrderBy(p => p.DataDict_Sequence).ToList();
+            DataDictList.Insert(0, new Sys_DataDict { DataDict_Name = Constant.DrpChoiceName, DataDict_Code = "" });
+            var result = new WebApiPagingResult<List<Sys_DataDict>>
             {
                 Data = DataDictList
             };

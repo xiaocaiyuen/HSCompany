@@ -46,6 +46,10 @@ namespace Shu.DAL
     {
 
     }
+	public partial class Sys_JalendarDal :BaseDal<Sys_Jalendar>,ISys_JalendarDal
+    {
+
+    }
 	public partial class Sys_LogDal :BaseDal<Sys_Log>,ISys_LogDal
     {
 

@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using YDT.Comm;
-using YDT.BLL;
+using Shu.Comm;
+using Shu.BLL;
 using System.Data;
 using System.IO;
-using YDT.Model;
+using Shu.Model;
 
-namespace YDT.Web.Manage.Sys
+namespace Shu.Manage.Sys
 {
     public partial class Jalendar : BasePage
     {

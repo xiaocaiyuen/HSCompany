@@ -107,6 +107,17 @@ namespace Shu.BLL
             DalExtends = this.DBSession.Sys_IconsDal;
         }
     }   
+	public partial class Sys_JalendarBLL :BaseBLL<Sys_Jalendar>
+    {
+		public override void SetCurrentDal()
+        {
+            Dal = this.DBSession.Sys_JalendarDal;
+        }
+	    public override void SetExtendsCurrentDal()
+        {
+            DalExtends = this.DBSession.Sys_JalendarDal;
+        }
+    }   
 	public partial class Sys_LogBLL :BaseBLL<Sys_Log>
     {
 		public override void SetCurrentDal()

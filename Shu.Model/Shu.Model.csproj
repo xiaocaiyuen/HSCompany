@@ -102,6 +102,9 @@
     <Compile Include="Sys_Icons.cs">
       <DependentUpon>Shu.tt</DependentUpon>
     </Compile>
+    <Compile Include="Sys_Jalendar.cs">
+      <DependentUpon>Shu.tt</DependentUpon>
+    </Compile>
     <Compile Include="Sys_Log.cs">
       <DependentUpon>Shu.tt</DependentUpon>
     </Compile>

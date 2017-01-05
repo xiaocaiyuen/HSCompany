@@ -2,7 +2,7 @@
 <Grid Key="MessageID"
       KeyField=""
       TableName="Sys_Message"
-      TableView="View_Sys_Message"
+      TableView=""
       SqlOrder="Message_SendTime desc"
       SQLField="[MessageID]
       ,[Message_Content]
