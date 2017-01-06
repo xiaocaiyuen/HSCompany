@@ -33,7 +33,7 @@ namespace Shu.WebApi.ApiControllers
             List<View_Sys_RolePurviewAndMenu> menuListLevel1 = new List<View_Sys_RolePurviewAndMenu>();
             if (RoleMenuInfo.IsNotNull())
             {
-                menuListLevel1 = menuList.FindAll(p => p.Menu_ParentCode == RoleMenuInfo.Menu_Code);
+                menuListLevel1 = menuList.FindAll(p => p.Menu_ParentCode == RoleMenuInfo.Menu_Code).OrderBy(p => p.Menu_Sequence).ToList();
             }
             List<MenuModels> tree = new List<MenuModels>();
 

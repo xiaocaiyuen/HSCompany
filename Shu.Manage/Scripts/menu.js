@@ -143,6 +143,7 @@ function getIcon(menuid) {
 
 function find(menuid) {
     var obj = null;
+    alert(_menus);
     $.each(_menus.child, function (i, n) {
         $.each(n.child, function (j, o) {
             if (o.menuid == menuid) {
