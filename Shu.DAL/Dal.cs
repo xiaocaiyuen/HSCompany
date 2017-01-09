@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace Shu.DAL
 {
+	public partial class D_BuildDal :BaseDal<D_Build>,ID_BuildDal
+    {
+
+    }
 	public partial class SSO_UserAuthOperatesDal :BaseDal<SSO_UserAuthOperates>,ISSO_UserAuthOperatesDal
     {
 

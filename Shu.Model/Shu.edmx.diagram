@@ -57,6 +57,7 @@
         <EntityTypeShape EntityType="ShuModel.Sys_Module" Width="1.5" PointX="18.375" PointY="25.125" />
         <AssociationConnector Association="ShuModel.FK_SYS_MENU_RELATIONS_SYS_MODU" />
         <EntityTypeShape EntityType="ShuModel.Sys_Jalendar" Width="1.5" PointX="22.375" PointY="4.75" />
+        <EntityTypeShape EntityType="ShuModel.D_Build" Width="1.5" PointX="22.375" PointY="21.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

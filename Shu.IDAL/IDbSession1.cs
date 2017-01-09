@@ -11,6 +11,7 @@ namespace Shu.IDAL
 {
 	public partial interface IDBSession
     {
+		ID_BuildDal D_BuildDal{get;set;}
 		ISSO_UserAuthOperatesDal SSO_UserAuthOperatesDal{get;set;}
 		ISSO_UserAuthSessionsDal SSO_UserAuthSessionsDal{get;set;}
 		ISys_AreaDal Sys_AreaDal{get;set;}

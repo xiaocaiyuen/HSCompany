@@ -13,6 +13,11 @@ namespace Shu.Factroy
 {
     public partial class AbstractFactory
     {
+	    public static ID_BuildDal CreateD_BuildDal()
+        {
+		   string fullClassName = NameSpace + ".D_BuildDal";
+           return CreateInstance(fullClassName) as ID_BuildDal;
+        }
 	    public static ISSO_UserAuthOperatesDal CreateSSO_UserAuthOperatesDal()
         {
 		   string fullClassName = NameSpace + ".SSO_UserAuthOperatesDal";
