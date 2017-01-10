@@ -1104,7 +1104,6 @@
     <Content Include="Images\welcome\xwxx_bj.jpg" />
     <Content Include="Images\welcome\yjxx_ul.jpg" />
     <Content Include="Images\welcome\zqjl.png" />
-    <Content Include="Jalendar.aspx" />
     <Content Include="Main.aspx" />
     <Content Include="MyDesktop.aspx" />
     <Content Include="packages.config" />
@@ -1789,13 +1788,6 @@
     </Compile>
     <Compile Include="Handler\WorkflowNodeRouteHandler.ashx.cs">
       <DependentUpon>WorkflowNodeRouteHandler.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="Jalendar.aspx.cs">
-      <DependentUpon>Jalendar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Jalendar.aspx.designer.cs">
-      <DependentUpon>Jalendar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.aspx.cs">
       <DependentUpon>Main.aspx</DependentUpon>
