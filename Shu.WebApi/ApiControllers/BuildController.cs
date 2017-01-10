@@ -35,14 +35,14 @@ namespace Shu.WebApi.ApiControllers
                 Data = new D_BuildBLL().GetAll().ToList();
                 DictionaryList.ForEach(p =>
                 {
-                    tree.Add(new combotree { id = p.DataDict_Code, text = p.DataDict_Name, children = children(p.DataDict_Code, Data) });
+                    tree.Add(new combotree { id = p.DataDict_Code, text = p.DataDict_Name, attributes = "", children = children(p.DataDict_Code, Data) });
                 });
             }
             else
             {
                 Sys_DataDict DictionaryInfo = new Sys_DataDictBLL().Get(p => p.DataDict_Code == Property);
                 Data = new D_BuildBLL().GetList(p => p.Property == Property).ToList();
-                tree.Add(new combotree { id = Property, text = DictionaryInfo.DataDict_Name, children = children("", Data) });
+                tree.Add(new combotree { id = Property, text = DictionaryInfo.DataDict_Name, attributes = "", children = children("", Data) });
             }
             var result = new WebApiPagingResult<List<combotree>>
             {
@@ -69,6 +69,7 @@ namespace Shu.WebApi.ApiControllers
                 {
                     id = item.Id,
                     text = item.Name,
+                    attributes = item.Property
                     //children = children(item.Id, treeList)
                 });
             });
